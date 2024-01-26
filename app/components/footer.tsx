@@ -5,7 +5,9 @@ export const Footer = () => {
   I’m currently available for consulting/contract work.`
 
   const email = "hola@enrictrillo.com"
+
   const name = "Enric Trillo"
+
   return (
     <footer className="w-full px-4">
       <div className="mx-auto max-w-screen-md">
