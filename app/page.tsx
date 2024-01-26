@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { SocialMedia } from "./sections/social-media";
 import { Hero } from "./sections/hero";
 

@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 const Footer = () => {
 
   const title = `
@@ -15,11 +17,13 @@ const Footer = () => {
   return (
     <footer className="w-full px-4">
       <div className="mx-auto max-w-screen-md">
-        <div className="py-16 gap-8 flex flex-col">
-          <h3 className="w-[550px] text-lg">{title}</h3>
-          <div className="w-fit py-2 px-4 rounded-full bg-slate-200">{email}</div>
+        <div id="outro" className="py-16 gap-8 flex flex-col border-t">
+          <h3 className="max-w-[550px] text-lg">{title}</h3>
+          <Link href={"mailto:hola@enrictrillo.com"}>
+            <button className="group relative inline-flex h-12 w-fit items-center justify-center overflow-hidden rounded-full bg-neutral-950 px-6 font-medium text-neutral-200"><span>{email}</span><div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(100%)]"><div className="relative h-full w-8 bg-white/20"></div></div></button>
+          </Link>
         </div>
-        <div className="border-t">
+        <div id="links" className="border-t">
           <div className="grid lg:grid-cols-2">
             <div className="border-b lg:border-b-0">
               <div className="w-full lg:border-r py-8 pr-8">
