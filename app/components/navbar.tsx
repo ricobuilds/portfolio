@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-export const Navbar = () => {
+const Navbar = () => {
   const nav = [
     {
       label: "About",
@@ -18,7 +18,7 @@ export const Navbar = () => {
   return (
     <header className="w-full px-4 border-b">
       <nav className="py-6 max-w-screen-md mx-auto flex justify-between">
-        <h2><span>Enric Trillo</span></h2>
+        <h2>Enric Trillo</h2>
         <ul className="flex gap-2">
           {nav.map((i, idx) => (
             <li key={idx}>
@@ -30,3 +30,5 @@ export const Navbar = () => {
     </header>
   )
 }
+
+export { Navbar }

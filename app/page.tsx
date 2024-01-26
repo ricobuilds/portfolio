@@ -1,9 +1,14 @@
 import Image from "next/image";
+import { SocialMedia } from "./sections/social-media";
+import { Hero } from "./sections/hero";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      hello world
+    <main className="px-4 w-full">
+      <div className="max-w-screen-md mx-auto py-24 min-h-screen flex flex-col gap-16">
+        <Hero/>
+        <SocialMedia />
+      </div>
     </main>
   );
 }
