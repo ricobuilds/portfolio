@@ -1,12 +1,14 @@
 import { SocialMedia } from "./sections/social-media";
 import { Hero } from "./sections/hero";
+import { Journal } from "./sections/journal";
 
 export default function Home() {
   return (
-    <main className="px-4 w-full">
-      <div className="max-w-screen-md mx-auto py-24 min-h-screen flex flex-col gap-16">
-        <Hero/>
+    <main className="w-full px-4">
+    <div className="flex flex-col max-w-screen-md min-h-screen gap-16 py-24 mx-auto">
+        <Hero />
         <SocialMedia />
+        <Journal />
       </div>
     </main>
   );

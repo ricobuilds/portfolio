@@ -1,5 +1,7 @@
 export const Spotlight = () => {
   return (
-    <section>Spotlight</section>
+    <section>
+      <h2 className="text-slate-500">Spotlight</h2>
+    </section>
   )
 }

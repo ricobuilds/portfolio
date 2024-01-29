@@ -1,5 +1,7 @@
 export const Ventures = () => {
   return (
-    <section>Ventures</section>
+    <section>
+      <h2 className="text-slate-500">Ventures</h2>
+    </section>
   )
 }

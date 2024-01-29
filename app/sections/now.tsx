@@ -1,5 +1,7 @@
 export const Now = () => {
   return (
-    <section>Now</section>
+    <section>
+      <h2 className="text-slate-500">Now</h2>
+    </section>
   )
 }
