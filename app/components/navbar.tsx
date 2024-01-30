@@ -1,18 +1,19 @@
+import { routes } from "@/lib/routes"
 import Link from "next/link"
 
 const Navbar = () => {
   const nav = [
     {
       label: "about",
-      route: "/about"
+      route: routes.about
     },
     {
       label: "blog",
-      route: "/blog"
+      route: routes.journal
     },
     {
       label: "store",
-      route: "/store"
+      route: routes.store
     },
   ]
   return (
