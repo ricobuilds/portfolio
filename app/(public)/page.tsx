@@ -13,7 +13,7 @@ export default function Home() {
     '@type': 'Person',
     name: siteMetadata.title,
     description: `Enric J. "Rico" Trillo Nchana is a fullstack developer from Croydon, London and founder of Astronomik. He continues to contributing to the future of AI Gaming.`,
-    url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
+    url: "https://enrictrillo.com",
     "sameAs": [
       "https://twitter.com/ricobuilds",
       "https://linkedin.com/in/enrictrillo",
