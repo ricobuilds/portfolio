@@ -1,6 +1,7 @@
-import { SocialMedia } from "./sections/social-media";
-import { Hero } from "./sections/hero";
-import { Journal } from "./sections/journal";
+import { SocialMedia } from "../sections/social-media";
+import { Hero } from "../sections/hero";
+import { Journal } from "../sections/journal";
+import { Newsletter } from "../sections/newsletter";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
         <Hero />
         <SocialMedia />
         <Journal />
+        <Newsletter/>
       </div>
     </main>
   );

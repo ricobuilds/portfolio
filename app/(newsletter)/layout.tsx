@@ -1,9 +1,7 @@
-import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import "./globals.css";
-import { Footer } from "./components/footer";
-import { Navbar } from "./components/navbar";
-import { siteMetadata } from "@/lib/site.metadata";
+import { siteMetadata } from "@/lib/site.metadata"
+import { GeistSans } from "geist/font/sans"
+import { Metadata } from "next"
+import "../globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -48,16 +46,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={GeistSans.className}>
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
+      <body className={GeistSans.className}>{children}</body>
     </html>
-  );
+  )
 }
