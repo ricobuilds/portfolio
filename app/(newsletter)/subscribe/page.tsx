@@ -13,7 +13,7 @@ export default function Subscribe() {
               </div>
             </div>
             <div className="w-full mb-8">
-              <h1 className="text-6xl font-semibold text-center sm:text-left">Newsletter Name Here</h1>
+              <h1 className="text-6xl font-semibold text-center sm:text-left">The Astronomik</h1>
               <p className="text-2xl text-center sm:text-left">Keep up with top news & insights on AI Gaming and the Metaverse, by Astronomik － mailed every Thursday.</p>
             </div>
             <div className="w-full mb-10">
