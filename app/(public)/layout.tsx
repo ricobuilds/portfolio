@@ -4,6 +4,7 @@ import "../globals.css";
 import { Footer } from "../components/footer";
 import { Navbar } from "../components/navbar";
 import { siteMetadata } from "@/lib/site.metadata";
+import { UmamiScript } from "../components/umami-script";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -56,6 +57,7 @@ export default function RootLayout({
       <body className={GeistSans.className}>
         <Navbar />
         {children}
+        <UmamiScript />
         <Footer />
       </body>
     </html>
