@@ -9,7 +9,7 @@ export const Newsletter = () => {
         </div>
         <div className="w-full">
           <div className="pt-4">
-            <span id="lipline" className="flex justify-center text-slate-400 sm:justify-start">Plus, I send emails every week, never spam or sell your data.</span>
+            <span id="lipline" className="flex text-slate-400">Plus, I send emails every week, never spam or sell your data.</span>
           </div>
         </div>
       </div>
