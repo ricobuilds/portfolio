@@ -16,7 +16,7 @@ const Footer = () => {
 
   return (
     <footer className="w-full px-4">
-      <div className="mx-auto max-w-[696px]">
+      <div className="mx-auto max-w-[966px]">
         <div id="outro" className="flex flex-col gap-8 py-16 border-t">
           <h3 className="max-w-[550px] text-lg">{title}</h3>
           <Link href={"mailto:hola@enrictrillo.com"}>
