@@ -32,9 +32,6 @@ yarn-error.log*
 .env*.test.local
 .env*.production.local
 
-# umami
-app/components/umami-script.tsx
-
 # vercel
 .vercel
 
