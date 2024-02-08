@@ -10,7 +10,7 @@ const listOfRoutes = [
   "",
   routes.about,
   routes.journal,
-  routes.store,
+  routes.newsletter,
 ]
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
