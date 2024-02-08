@@ -1,9 +1,0 @@
-export default function Store() {
-  return (
-    <main className="w-full px-4">
-      <div className="flex flex-col max-w-[966px] gap-16 py-24 mx-auto">
-        Store
-      </div>
-    </main>
-  )
-}

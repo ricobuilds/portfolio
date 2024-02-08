@@ -17,8 +17,8 @@ export default function Subscribe() {
                 </div>
               </div>
               <div className="w-full mb-8">
-                <h1 className="text-6xl font-semibold text-center sm:text-left">Astronomik Insights</h1>
-                <p className="text-2xl text-center sm:text-left">Keep up with top news & insights on AI Gaming and the Metaverse, by Astronomik － mailed every Thursday.</p>
+                <h1 className="text-6xl font-semibold text-center sm:text-left">The Metasyde</h1>
+                <p className="text-2xl text-center sm:text-left">Keep up with top news & insights on AI Gaming and the Metaverse, by Metasyde － mailed every Thursday.</p>
               </div>
               <div className="w-full mb-10">
                 <div className="w-full rounded-lg sm:max-w-md">
@@ -27,7 +27,7 @@ export default function Subscribe() {
               </div>
               <div className="w-full">
                 <div className="pt-4">
-                  <span id="lipline" className="flex justify-center text-slate-400 sm:justify-start">Plus, I send emails every week, never spam or sell your data.</span>
+                  <span id="lipline" className="flex justify-center text-slate-400 sm:justify-start">I never spam or sell your data. Unsubscribe anytime.</span>
                 </div>
               </div>
             </div>

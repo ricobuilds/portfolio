@@ -11,10 +11,6 @@ const Navbar = () => {
       label: "blog",
       route: routes.journal
     },
-    {
-      label: "store",
-      route: routes.store
-    },
   ]
   return (
     <header className="w-full px-4 border-b">

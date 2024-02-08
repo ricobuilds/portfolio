@@ -2,7 +2,7 @@ export const routes = {
   home: "/",
   about: "/about",
   journal: "/blog",
-  store: "/store",
+  newsletter: "/newsletter",
   email: "mailto:hola@enrictrillo.com",
   twitter: "https://twitter.com/ricobuilds",
   linkedin: "https://www.linkedin.com/in/enrictrillo/",
