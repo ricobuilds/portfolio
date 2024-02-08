@@ -1,7 +1,7 @@
 export default function Blog() {
   return (
     <main className="w-full px-4">
-      <div className="flex flex-col max-w-[966px] gap-16 py-24 mx-auto">
+      <div className="flex flex-col max-w-[696px] gap-16 py-24 mx-auto">
         Blog
       </div>
     </main>

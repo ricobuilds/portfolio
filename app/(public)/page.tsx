@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <StructuredData data={homeSchema} />
       <main className="w-full px-4">
-        <div className="flex flex-col max-w-[966px] min-h-screen gap-12 py-24 pb-10 mx-auto">
+        <div className="flex flex-col max-w-[696px] min-h-screen gap-12 py-24 pb-10 mx-auto">
           <Hero />
           <SocialMedia />
           <Ventures />
