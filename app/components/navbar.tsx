@@ -4,6 +4,10 @@ import Link from "next/link"
 const Navbar = () => {
   const nav = [
     {
+      label: "home",
+      route: routes.home
+    },
+    {
       label: "about",
       route: routes.about
     },

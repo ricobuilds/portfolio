@@ -1,0 +1,21 @@
+const { withContentlayer } = require("next-contentlayer");
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  images: {
+    domains: [
+      "vercel-og-nextjs-six.vercel.app",
+      "lh3.googleusercontent.com",
+      "ph-avatars.imgix.net",
+      "media.beehiiv.com",
+      "enrictrillo.com",
+      "github.com",
+      "pbs.twimg.com",
+      "xsgames.co"
+    ]
+  },
+};
+
+module.exports = withContentlayer(nextConfig);

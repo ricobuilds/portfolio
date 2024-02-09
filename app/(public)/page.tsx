@@ -6,6 +6,8 @@ import { StructuredData } from "../components/structured-data";
 import { homeSchema } from "@/lib/web-schemas/home";
 import { Ventures } from "../sections/ventures";
 import { Products } from "../sections/products"
+import { Stack } from "../sections/stack";
+import { Outro } from "../sections/outro";
 
 export default function Home() {
   return (
@@ -17,8 +19,9 @@ export default function Home() {
           <SocialMedia />
           <Ventures />
           <Products  />
-          <Journal />
+          <Stack />
           <Newsletter />
+          <Outro/>
         </div>
       </main>
     </>
