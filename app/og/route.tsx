@@ -1,3 +1,4 @@
+import { GeistSans } from 'geist/font/sans';
 import { ImageResponse } from 'next/og';
 import { NextRequest } from 'next/server';
 
@@ -7,7 +8,7 @@ export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
   const postTitle = searchParams.get('title');
   const font = fetch(
-    new URL('../../public/fonts/CalSans-SemiBold.ttf', import.meta.url)
+    new URL(GeistSans.variable, import.meta.url)
   ).then((res) => res.arrayBuffer());
   const fontData = await font;
 
