@@ -6,7 +6,7 @@ export const Stack = () => {
     },
     {
       label: "Figma",
-      description: "UI/Brainstorming"
+      description: "Design"
     },
     {
       label: "Notion",
@@ -14,11 +14,11 @@ export const Stack = () => {
     },
     {
       label: "Screen Studio",
-      description: "Screen Studio"
+      description: "Screen Recording"
     },
     {
-      label: "Ollama",
-      description: "Local LLM"
+      label: "Beehiiv",
+      description: "Newsletter"
     },
     {
       label: "Typefully",

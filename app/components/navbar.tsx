@@ -18,7 +18,7 @@ const Navbar = () => {
   ]
   return (
     <header className="w-full px-4 border-b">
-      <nav className="flex justify-between max-w-[696px] py-6 mx-auto">
+      <nav className="flex justify-between w-full max-w-[696px] py-6 mx-auto">
         <h2>RicoBuilds</h2>
         <ul className="flex gap-2 -mr-2">
           {nav.map((i, idx) => (
