@@ -76,8 +76,9 @@ const Page = ({ params }: { params: { article: string } }) => {
             "text-5xl lg:text-6xl font-bold",
             "text-charkol",
           )}>{article.title}</h1>
-          <p className="text-obsidian-400">{article.summary}</p>
+          {/* <p className="text-obsidian-400">{article.summary}</p> */}
         </div>
+        <div className="py-2" />
         <div className="flex items-center gap-4 text-charkol">
           <Image src={'/headshot.jpeg'} width={600} height={600} className='w-10 h-10 rounded-full pointer-events-none select-none' alt='Enric Trillo punk avatar' />
           <div className="flex flex-col gap-1">
@@ -85,7 +86,8 @@ const Page = ({ params }: { params: { article: string } }) => {
             <time dateTime={article.date} className="text-sm">Published {convertDate(article?.date)}</time>
           </div>
         </div>
-        <Image src={`${siteMetadata.siteUrl}/og?title=${article.title}`} className={"rounded-lg"} alt={`${article.title} - Promptoor`} width={1200} height={630} />
+        <div className="py-2" />
+        <Image src={`${siteMetadata.siteUrl}/og?title=${article.title}`} className={"rounded-lg"} alt={`${article.title} - Enric Trillo`} width={1200} height={630} />
         <div className={styles.bloggo}>
           <Mdx code={article.body.code} />
         </div>

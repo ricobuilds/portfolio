@@ -4,15 +4,15 @@ import Link from "next/link"
 const Navbar = () => {
   const nav = [
     {
-      label: "home",
+      label: "Home",
       route: routes.home
     },
     {
-      label: "about",
+      label: "About",
       route: routes.about
     },
     {
-      label: "blog",
+      label: "Blog",
       route: routes.journal
     },
   ]
@@ -23,7 +23,7 @@ const Navbar = () => {
         <ul className="flex gap-2 -mr-2">
           {nav.map((i, idx) => (
             <li key={idx}>
-              <Link className="px-2 py-2 rounded-md hover:bg-gray-300" href={i.route}>{i.label}</Link>
+              <Link className="px-2 py-2 rounded-md hover:bg-slate-100" href={i.route}>{i.label}</Link>
             </li>
           ))}
         </ul>

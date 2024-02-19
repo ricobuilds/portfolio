@@ -12,10 +12,10 @@ export function sleep(ms: number) {
 }
 
 export const convertDate = (_date: string) => {
-  return new Date(_date).toLocaleDateString('en-GB', {
+  return new Date(_date).toLocaleDateString('en-US', {
        year: 'numeric',
        month: 'short',
-       day: 'numeric'
+       day: '2-digit'
    })
 }
 

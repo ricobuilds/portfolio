@@ -51,11 +51,11 @@ export default function About() {
           </ul>
           <h3 className={cn("font-semibold text-xl")}>Now</h3>
           <ul className="ml-8 list-disc">
-            <li>Update my personal site</li>
-            <li>Building the site for <Link href={"metasyde.com"} target="_blank" className="underline text-celuria-500">metasyde.com</Link></li>
-            <li>Relaunch of my newsletter as The Metasyde</li>
+            <li>Updating my personal website</li>
+            <li>Building the site for <Link href={"https://metasyde.com"} target="_blank" className="underline text-celuria-500">metasyde.com</Link></li>
+            <li>Relaunching my newsletter as The Metasyde</li>
             <li>Building media channels for business moat throughout Q1 2024</li>
-            <li>Develop proficiency in Pixel Art & Game Development through Q1-Q2 2024</li>
+            <li>Grow proficiency in Pixel Art & Game Development through Q1-Q2 2024</li>
           </ul>
         </div>
       </div>
