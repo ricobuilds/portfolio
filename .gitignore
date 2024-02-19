@@ -41,7 +41,3 @@ next-env.d.ts
 
 # contentlayer
 .contentlayer
-
-# public
-public/ricobuilds.png
-
