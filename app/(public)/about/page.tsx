@@ -5,7 +5,7 @@ import { Metadata } from "next"
 import Link from "next/link"
 
 const title = 'About Me'
-const description = "From pixels to code, I’m a full-stack developer and content creator dropping daily insights on the future of AI gaming."
+const description = "Enric J Trillo Nchana is the founder of Metasyde, a fullstack developer and content creator publishing daily insights on the future of AI gaming and the Metaverse."
 
 export const metadata: Metadata = {
   title,
