@@ -6,7 +6,7 @@ import { convertDate } from "@/lib/shared-utils"
 import Link from "next/link"
 
 const title = 'Blog'
-const description = "Read my thoughts, technical breakdowns and learnings on web development, artificial intelligence, machine learning and more."
+const description = "Articles to share my thoughts, technical breakdowns and learnings on web development, artificial intelligence, machine learning and more."
 export const metadata: Metadata = {
   title,
   description,
