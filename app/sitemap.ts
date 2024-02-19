@@ -9,7 +9,7 @@ type Sitemap = Array<{
 const listOfRoutes = [
   routes.home,
   routes.about,
-  routes.newsletter,
+  routes.journal,
 ]
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
