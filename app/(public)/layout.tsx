@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     siteName: siteMetadata.title,
     locale: 'en_GB',
     type: 'website',
-    images: `/base-og-image.png`,
+    images: siteMetadata.baseUrlImage,
   },
   twitter: {
     card: 'summary_large_image',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     description: siteMetadata.description,
     creator: '@ricobuilds',
     site: siteMetadata.siteUrl,
-    images: `/base-og-image.png`,
+    images: siteMetadata.baseUrlImage,
   },
   robots: {
     index: true,

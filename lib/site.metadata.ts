@@ -4,5 +4,6 @@ export const siteMetadata = {
   description: "Fullstack developer turned AI Gaming pioneer － building the future of immersive gaming experiences with AI and emerging technologies.",
   siteUrl: "https://enrictrillo.com",
   twitter: "https://twitter.com/ricobuilds",
-  locale: "en-GB"
+  locale: "en-GB",
+  baseUrlImage: "/base-og.png"
 }
