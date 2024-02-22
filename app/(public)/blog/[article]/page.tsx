@@ -3,7 +3,6 @@
 import { Metadata, Viewport } from "next"
 import Image from "next/image"
 import styles from './Page.module.css'
-import { allPosts } from "@/.contentlayer/generated"
 import { notFound } from "next/navigation"
 import { siteMetadata } from "@/lib/site.metadata"
 import { cn, convertDate } from "@/lib/shared-utils"
