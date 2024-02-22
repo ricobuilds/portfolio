@@ -1,7 +1,5 @@
 interface DataProps {
-  data: {
-    [key: string]: any
-  }
+  [key: string]: any
 }
 
 function StructuredData(data: DataProps) {
@@ -9,9 +7,9 @@ function StructuredData(data: DataProps) {
     <script
       key="structured-data"
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data.data) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
   )
 }
 
-export {StructuredData}
+export { StructuredData }
