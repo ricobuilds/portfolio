@@ -1,0 +1,67 @@
+import { groq } from "next-sanity";
+
+
+// Homepage - Get 3 latest articles
+export const getLatestArticles = groq`*[_type == "article"] | order(_createdAt desc)[0..2]{
+  _id,
+  name,
+  snippet,
+  publishedAt,
+  "slug": slug.current,
+}
+`
+
+// Get all articles
+export const getAllArticles = groq`*[_type == "article"] | order(publishedAt desc){
+  _id,
+  name,
+  snippet,
+  publishedAt,
+  "slug": slug.current,
+}`
+
+// Get all topics
+// export const getTopics = groq`*[_type == "tag" && count(*[_type=="article" && references(^._id)]) > 0]{
+  export const getTopics = groq`*[_type == "tag"]{
+    _id,
+    title,
+    description,
+    "slug": slug.current
+  }`
+  
+
+// Get a single post by its ID
+export const getArticleBySlug = (slug: string) => groq`*[_type == "article" && slug.current == "${slug}"][0]{
+  name,
+  snippet,
+  content,
+  _updatedAt,
+  publishedAt,
+  "tag": tag->{title, "slug": slug.current},
+  "author": author->{name, "slug": slug.current},
+  }`;
+
+  // Get all authors
+const getAuthors = groq`*[_type == "author"]{
+  "slug": slug.current,
+  _updatedAt
+}`
+
+
+// Get all article by author
+const getArticlesByAuthor = (slug: string) => groq`*[_type == "author" && slug.current == "${slug}"][0]{
+  _id,
+  name,
+  "image": image.asset->url,
+  _updatedAt,
+  bio,
+  "articles": *[_type == "article" && references(^._id)]{_id, name, publishedAt, snippet,"slug": slug.current}
+}`
+
+// Get all articles by cluster
+ export const getArticlesByTopic = (slug: string) => groq`*[_type == "tag" && slug.current == "${slug}"][0]{
+  title,
+  description,
+  "slug": slug.current,
+  "articles": *[_type == "article" && references(^._id)] | order(publishedAt desc) [0...10]{_id, name, publishedAt, snippet,"slug": slug.current}
+}`

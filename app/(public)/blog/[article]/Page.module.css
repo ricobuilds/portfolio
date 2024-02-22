@@ -1,5 +1,5 @@
 .bloggo {
-  @apply container flex flex-col max-w-3xl gap-4 my-8 text-charkol;
+  @apply container flex flex-col max-w-3xl gap-4 my-8;
 }
 .bloggo h1,
 .bloggo h2,

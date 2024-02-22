@@ -1,3 +1,5 @@
+import { baseWidth } from "@/lib/config"
+import { cn } from "@/lib/shared-utils"
 import Link from "next/link"
 
 const Footer = () => {
@@ -6,12 +8,10 @@ const Footer = () => {
 
   return (
     <footer className="w-full px-4">
-      <div className="max-w-[696px] mx-auto">
-        <div id="copy" className="pb-8 text-center">
-          <div className="py-10">Thank you for stopping by.</div>
-          <div className="text-sm text-slate-500">&copy; {new Date().getFullYear()} Owned by {name}. All rights reserved.</div>
-        </div>
-      </div>
+      <section className={cn(baseWidth, "mx-auto pb-8 text-center")}>
+            <p className="py-10">Thank you for stopping by.</p>
+            <p className="text-sm text-slate-500">&copy; {new Date().getFullYear()} Owned by <span className="text-charkol">{name}</span>. All rights reserved.</p>
+      </section>
     </footer>
   )
 }

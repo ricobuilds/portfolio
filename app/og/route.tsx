@@ -24,7 +24,7 @@ export async function GET(req: NextRequest) {
           justifyContent: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
-          backgroundImage: `url(${process.env.NODE_ENV === 'production' ? 'https://enrictrillo.com' : 'http://localhost:3000'}/og-bg.png)`,
+          backgroundImage: `url(${process.env.NODE_ENV === 'production' ? 'https://enrictrillo.com' : 'http://localhost:3000'}/base-og.png)`,
         }}
       >
         <div

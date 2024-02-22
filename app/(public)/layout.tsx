@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     canonical: siteMetadata.siteUrl
   },
   openGraph: {
-    title: siteMetadata.title,
+    title: siteMetadata.default,
     description: siteMetadata.description,
     url: siteMetadata.siteUrl,
     siteName: siteMetadata.title,
@@ -27,10 +27,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: siteMetadata.title,
+    title: siteMetadata.default,
     description: siteMetadata.description,
     creator: '@ricobuilds',
-    site: siteMetadata.siteUrl,
+    site: "@ricobuilds",
     images: siteMetadata.baseUrlImage,
   },
   robots: {
@@ -53,8 +53,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={GeistSans.className}>
+    <html lang="en">
+      <body suppressHydrationWarning={true} className={GeistSans.className}>
         <Navbar />
         {children}
         <UmamiScript />

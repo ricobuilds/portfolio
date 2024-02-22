@@ -1,20 +1,24 @@
 import type { WebPage, WithContext } from "schema-dts"
 import { siteMetadata } from "@/lib/site.metadata";
 
-const subscribeSchema: WithContext<WebPage> = {
+export const subscribeSchema: WithContext<WebPage> = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  mainEntity: {
-    '@type': "SubscribeAction",
-    name: "Astronomik Insights Weekly Newsletter",
-    target: {
-      '@type': "EntryPoint",
-      "url": "https://enrictrillo.com/subscribe",
-      "actionPlatform": [
-        "http://schema.org/DesktopWebPlatform",
-      ]
-    }
-  }
+  "name": "Subscribe Page",
+  "description": "Description of the Subscribe page.",
+  "url": siteMetadata.siteUrl+"/subscribe",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": siteMetadata.siteUrl
+    }, {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Subscribe",
+      "item": siteMetadata.siteUrl+"/subscribe",
+    }]
+  },
 }
-
-export { subscribeSchema }

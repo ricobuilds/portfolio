@@ -5,7 +5,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    @apply selection:bg-amethyst-400 selection:text-onyx;
+    @apply selection:bg-slate-200;
   }
   * {
     @apply box-border;

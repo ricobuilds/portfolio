@@ -13,9 +13,10 @@ const nextConfig = {
       "enrictrillo.com",
       "github.com",
       "pbs.twimg.com",
-      "xsgames.co"
+      "xsgames.co",
+      "localhost"
     ]
   },
 };
 
-module.exports = withContentlayer(nextConfig);
+module.exports = (nextConfig);
