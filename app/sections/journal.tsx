@@ -1,4 +1,3 @@
-import { Post } from "@/.contentlayer/generated"
 import { sanityQuery } from "@/lib/sanity/client"
 import { getLatestArticles } from "@/lib/sanity/queries"
 import Link from "next/link"
