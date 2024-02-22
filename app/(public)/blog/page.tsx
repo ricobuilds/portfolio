@@ -1,7 +1,6 @@
 import { Metadata } from "next"
 import { routes } from "@/lib/routes"
 import { siteMetadata } from "@/lib/site.metadata"
-import { allPosts, Post } from "@/.contentlayer/generated"
 import { cn, convertDate } from "@/lib/shared-utils"
 import Link from "next/link"
 import { baseWidth } from "@/lib/config"
