@@ -12,6 +12,7 @@ import { cn } from "@/lib/shared-utils";
 import { baseWidth } from "@/lib/config";
 
 export default function Home() {
+  console.log(homeSchema)
   return (
     <>
       <StructuredData data={homeSchema} />
