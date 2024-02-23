@@ -1,9 +1,36 @@
 import { StructuredData } from "@/app/components/structured-data"
-import { subscribeSchema } from "@/lib/web-schemas/subscribe"
+import { siteMetadata } from "@/lib/site.metadata"
 import Image from "next/image"
+import { WebPage, WithContext } from "schema-dts"
 
 export default function Subscribe() {
   const name = "Enric Trillo"
+
+  const subscribeSchema: WithContext<WebPage> = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    "name": "Subscribe Page",
+    "description": "Subscribe to the Metasyde newsletter for the latest updates on AI Gaming and the Metaverse.",
+    "url": siteMetadata.siteUrl + "/subscribe",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": siteMetadata.siteUrl
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Newsletter",
+          "item": siteMetadata.siteUrl + "/subscribe",
+        }
+      ]
+    },
+  }
+
   return (
     <>
       <StructuredData data={subscribeSchema} />

@@ -3,12 +3,13 @@ import { sanityQuery } from "@/lib/sanity/client"
 import { getTopics } from "@/lib/sanity/queries"
 import { cn } from "@/lib/shared-utils"
 import { siteMetadata } from "@/lib/site.metadata"
-import { Cluster } from "@/app/types/Cluster"
+import { Topic } from "@/app/types/Topic"
 import { Metadata, Viewport } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { WithContext, WebPage } from "schema-dts"
+import { WithContext, WebPage, BreadcrumbList } from "schema-dts"
+import { StructuredData } from "@/app/components/structured-data"
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -24,7 +25,7 @@ async function getTags() {
 export async function generateStaticParams() {
   const topics = await getTags() //deduped
 
-  return topics.map((topic: Cluster) => ({
+  return topics.map((topic: Topic) => ({
     topic: topic.slug
   }))
 }
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: { params: { topic: string } }
 
   const clusters = await getTags() //deduped
   const { topic } = params
-  const cluster: Cluster = clusters.find((p: Cluster) => p.slug === topic)
+  const cluster: Topic = clusters.find((p: Topic) => p.slug === topic)
 
   if (!cluster) return { title: 'Issue not found!' }
 
@@ -73,51 +74,71 @@ export default async function Page({ params }: { params: { topic: string } }) {
   const topics = await getTags() //deduped
   const { topic } = params
 
-  if (!topics.find((p: Cluster) => p.slug === (topic))) return notFound()
+  if (!topics.find((p: Topic) => p.slug === (topic))) return notFound()
 
-  // if (topics.find((p: Cluster) => p.slug === topic && p.articles.length === 0)) return notFound()
+  // if (topics.find((p: Topic) => p.slug === topic && p.articles.length === 0)) return notFound()
 
-  const cluster = topics.find((p: Cluster) => p.slug === topic)
+  const cluster: Topic = topics.find((p: Topic) => p.slug === topic)
 
   if (!cluster) {
     notFound()
   }
 
-  const blogSchema: WithContext<WebPage> = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "headline": "Title of Your Article",
-    "description": "Description of your article.",
-    "datePublished": "2024-02-21T08:00:00Z",
-    "dateModified": "2024-02-21T08:00:00Z",
-    "author": {
-      "@type": "Person",
-      "name": siteMetadata.title
+  const topicSchema: WithContext<WebPage> = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    "name": cluster.title,
+    "description": cluster.description ?? "",
+    "url": siteMetadata.siteUrl + "/topic/" + cluster.slug,
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": siteMetadata.siteUrl
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": cluster.title,
+          "item": siteMetadata.siteUrl + "/topic/" + cluster.slug,
+        }
+      ]
     },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Enric",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://yourwebsite.com/logo.png",
-        // "width": 600,
-        // "height": 60
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": siteMetadata.siteUrl + "/blog/article-slug"
-    }
   }
 
+  // const topicBreadcrumbSchema: WithContext<BreadcrumbList> = {
+  //   "@context": "https://schema.org",
+  //   "@type": "BreadcrumbList",
+  //   "itemListElement": [
+  //     {
+  //       "@type": "ListItem",
+  //       "position": 1,
+  //       "name": "Home",
+  //       "item": siteMetadata.siteUrl
+  //     },
+  //     {
+  //       "@type": "ListItem",
+  //       "position": 2,
+  //       "name": cluster.title,
+  //       "item": siteMetadata.siteUrl + "/topic/" + cluster.slug,
+  //     }
+  //   ]
+  // }
+
   return (
-    <main className={cn(baseWidth, "pt-32 mx-auto")}>
-      <h1 className={cn(
-        "text-4xl lg:text-6xl font-bold",
-        "text-charkol",
-      )}>{cluster?.title}</h1>
-      <p>{cluster.description}</p>
-      {/* <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 sm:grid-cols-2">
+    <>
+      <StructuredData data={topicSchema} />
+      {/* <StructuredData data={topicBreadcrumbSchema} /> */}
+      <main className={cn(baseWidth, "pt-20 mx-auto")}>
+        <h1 className={cn(
+          "text-4xl lg:text-6xl font-bold",
+          "text-charkol",
+        )}>{cluster?.title}</h1>
+        <p>{cluster.description}</p>
+        {/* <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 sm:grid-cols-2">
         { 
           // @ts-ignore
           cluster.articles.sort((a: Article, b: Article) => new Date(b.publishedAt) - new Date(a.publishedAt)).slice(0, 8).map((item: Article) => (
@@ -136,6 +157,7 @@ export default async function Page({ params }: { params: { topic: string } }) {
             </div>
           ))}
       </div> */}
-    </main>
+      </main>
+    </>
   )
 }

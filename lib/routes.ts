@@ -3,6 +3,7 @@ export const routes = {
   about: "/about",
   journal: "/blog",
   newsletter: "/newsletter",
+  subscribe: "/subscribe",
   email: "mailto:hola@enrictrillo.com",
   twitter: "https://twitter.com/ricobuilds",
   linkedin: "https://www.linkedin.com/in/enrictrillo/",

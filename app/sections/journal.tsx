@@ -28,8 +28,8 @@ export const Journal = async () => {
             {
               blogs.map((i, idx: number) => (
                 <li key={idx} className="">
-                  <Link href={i.url ? i.url : `/blog/${i.slug}`} className="group flex flex-col gap-2 sm:gap-3 active:scale-[0.98] text-accent hover:bg-white/5 transition-all hover:ring-1 ring-border outline-none focus-visible:ring-2 focus-visible:ring-accent">
-                    <Image src={"/base-og.png"} height={300} width={300} alt="" priority className="transition-all duration-500 ease-in-out group-hover:grayscale" />
+                  <Link href={i.url ? i.url : `/blog/${i.slug}`} className="group flex flex-col gap-2 active:scale-[0.98] outline-none">
+                    <Image src={"/base-og.png"} height={300} width={300} alt="" priority className="object-cover transition-all duration-500 ease-in-out rounded-lg h-52 group-hover:grayscale" />
                     <div className="flex flex-col gap-2 px-2">
                       <p className="text-sm text-slate-400">{convertDate(i.publishedAt)}</p>
                       <h3>{i.name}</h3>

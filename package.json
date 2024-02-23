@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^6.14.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
@@ -21,6 +22,7 @@
     "next-sanity": "^8.0.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-syntax-highlighter": "^15.5.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-pretty-code": "^0.13.0",
     "rehype-slug": "^6.0.0",
@@ -34,6 +36,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-syntax-highlighter": "^15.5.11",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",

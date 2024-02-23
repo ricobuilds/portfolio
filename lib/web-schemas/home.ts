@@ -1,7 +1,7 @@
 import type { Person, WithContext } from "schema-dts"
 import { siteMetadata } from "@/lib/site.metadata";
 
-export const  homeSchema: WithContext<Person> = {
+export const homeSchema: WithContext<Person> = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": siteMetadata.title,
@@ -16,6 +16,20 @@ export const  homeSchema: WithContext<Person> = {
     "name": "Alcorcón, Spain",
 
   },
+  "knowsLanguage": [
+    {
+      "@type": "Language",
+      "name": "Spanish"
+    },
+    {
+      "@type": "Language",
+      "name": "English"
+    },
+    {
+      "@type": "Language",
+      "name": "Portuguese"
+    },
+  ],
   "affiliation": {
     "@type": "Organization",
     "name": "Metasyde",

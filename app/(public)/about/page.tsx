@@ -5,7 +5,7 @@ import { cn } from "@/lib/shared-utils"
 import { siteMetadata } from "@/lib/site.metadata"
 import { Metadata } from "next"
 import Link from "next/link"
-import { WebPage, WithContext } from "schema-dts"
+import { BreadcrumbList, WebPage, WithContext } from "schema-dts"
 
 const title = 'About Me'
 const description = "Enric J Trillo Nchana is the founder of Metasyde, a fullstack developer and content creator publishing daily insights on the future of AI gaming and the Metaverse."
@@ -45,10 +45,30 @@ const aboutSchema: WithContext<WebPage> = {
   },
 }
 
+const aboutBreadcrumbSchema: WithContext<BreadcrumbList> = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": siteMetadata.siteUrl
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About",
+      "item": siteMetadata.siteUrl + "/about"
+    },
+  ]
+}
+
 export default function About() {
   return (
     <>
       <StructuredData data={aboutSchema} />
+      <StructuredData data={aboutBreadcrumbSchema} />
       <main className="w-full px-4">
         <div className={cn(baseWidth, "w-full mx-auto")}>
           <div className="relative flex flex-col gap-10 pt-20">

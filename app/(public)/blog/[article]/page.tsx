@@ -10,8 +10,12 @@ import { Mdx } from "@/app/components/mdx"
 import { sanityQuery } from "@/lib/sanity/client"
 import { getAllArticles, getArticleBySlug } from "@/lib/sanity/queries"
 import { Article } from "@/app/types/Article"
-import { WithContext, Article as BlogArticle } from "schema-dts"
+import { WithContext, Article as BlogArticle, BreadcrumbList, BlogPosting } from "schema-dts"
 import { StructuredData } from "@/app/components/structured-data"
+import Link from "next/link"
+import { ShareArticleRow } from "@/app/components/share-article"
+import { baseWidth } from "@/lib/config"
+import { BlockWrapper, serialisers } from "@/app/components/codeblock"
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -92,9 +96,9 @@ export default async function Page({ params }: { params: { article: string } }) 
     notFound()
   };
 
-  const articleSchema: WithContext<BlogArticle> = {
+  const articleSchema: WithContext<BlogPosting> = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     "headline": post.name,
     "description": post.snippet,
     "datePublished": post.publishedAt,
@@ -103,6 +107,7 @@ export default async function Page({ params }: { params: { article: string } }) 
       "@type": "Person",
       "name": siteMetadata.title
     },
+    "image": "https://www.mysite.com/path-to-article-image.jpg",
     "publisher": {
       "@type": "Organization",
       "name": "Enric",
@@ -119,14 +124,55 @@ export default async function Page({ params }: { params: { article: string } }) 
     }
   }
 
+  const articleBreadcrumbSchema: WithContext<BreadcrumbList> = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": siteMetadata.siteUrl
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": siteMetadata.siteUrl + "/blog",
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": post.tag?.title,
+        "item": siteMetadata.siteUrl + "/topic/" + post.tag?.slug,
+      },
+    ]
+  }
+
   return (
     <>
       <StructuredData data={articleSchema} />
-      <main className="flex flex-col flex-1 min-h-screen px-4">
+      <StructuredData data={articleBreadcrumbSchema} />
+      <main className={cn(baseWidth, "relative flex flex-col flex-1 min-h-screen px-4 mx-auto")}>
+        <nav id="breadcrumb" className={cn("max-w-[696px]", "w-fit absolute top-10")}>
+          <ol className="flex gap-2 text-sm font-medium text-left uppercase text-amethyst-500">
+            <li className="flex flex-grow-0">
+              <Link href={"/"}>Home</Link>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="ml-2 lucide lucide-chevron-left"><path d="m15 18-6-6 6-6" /></svg>
+            </li>
+            <li className="flex flex-grow-0">
+              <Link href={"/blog"}>Blog</Link>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="ml-2 lucide lucide-chevron-left"><path d="m15 18-6-6 6-6" /></svg>
+            </li>
+            <li>
+              <Link href={"/topic" + (post.tag?.slug ?? "/ar-vr")}>{post.tag?.title ?? "AR+VR"}</Link>
+            </li>
+          </ol>
+        </nav>
         <article className={
           cn(
             "max-w-[696px]",
-            'flex flex-col gap-1 w-full mt-20 mx-auto relative',
+            'flex flex-col gap-1 w-full mt-20 relative',
           )
         }>
           <div className="flex flex-col">
@@ -138,7 +184,7 @@ export default async function Page({ params }: { params: { article: string } }) 
           </div>
           <div className="py-2" />
           <div className="flex items-center gap-4 text-charkol">
-            <Image src={'/headshot.jpeg'} width={600} height={600} className='w-10 h-10 rounded-full pointer-events-none select-none' alt='Enric Trillo punk avatar' />
+            <Image src={'/headshot.jpeg'} width={600} height={600} priority className='w-10 h-10 rounded-full pointer-events-none select-none' alt='Enric Trillo punk avatar' />
             <div className="flex flex-col gap-1">
               <span className='font-bold text-amethyst-500'>{"Enric Trillo"}</span>
               <time dateTime={post.publishedAt} className="text-sm">{convertDate(post?.publishedAt)}</time>
@@ -147,32 +193,26 @@ export default async function Page({ params }: { params: { article: string } }) 
           <div className="py-2" />
           <Image src={`http://localhost:3000/og?title=${post.name}`} className={"rounded-lg"} alt={`${post.name} - Enric Trillo`} width={1200} height={630} />
           <div className={styles.bloggo}>
-            {/* <Mdx code={post.body.code} /> */}
+            <BlockWrapper blocks={post?.content} serializers={serialisers} />
           </div>
         </article>
-        <div id="article-nav" className={cn("max-w-[696px]", "flex justify-between w-full mx-auto py-10 items-center gap-4 mt-16 border-t-[1px] border-dashed border-border")}>
+        <section id="cta" className={cn("max-w-[696px]", "w-full mx-auto hidden")}>
+          <div className="flex flex-col gap-3 p-6 border rounded-lg bg-onyx">
+            <h3 className="text-lg"><strong>{`Whenever you're ready, these are ${4} ways I can help you:`}</strong></h3>
+            <p><strong>1.</strong> <strong className="text-amethyst-500">Metasyde Newsletter:</strong> Join 3,500+ entrepreneurs in my flagship course. The Creator MBA teaches you exactly how to build a lean, focused, and profitable Internet business. Come inside and get 5 years of online business expertise, proven methods, and actionable strategies across 111 in-depth lessons.</p>
+            <p><strong>2.</strong> <strong className="text-amethyst-500">YouTube channel:</strong> by sponsoring my newsletter.</p>
+          </div>
+        </section>
+        <section id="article-nav" className={cn(baseWidth, "flex justify-between w-full mx-auto py-10 items-center gap-4 mt-16 border-t-[1px] border-dashed border-border")}>
           <div id="prev-item" className="flex items-center gap-2 select-none">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" strokeLinejoin="round" className="lucide lucide-arrow-left"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
-            <span>Prev</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20 " viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-left"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
+            <span>Prev Article</span>
           </div>
-          <div className=""></div>
           <div id="next-item" className="flex items-center gap-2 select-none">
-            <span>Next</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+            <span>Next Article</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
           </div>
-        </div>
-        <div id="newsletter" className={cn("max-w-[696px]", "w-full mx-auto mb-16")}>
-          <p className="mt-6 text-2xl italic font-bold">Metasyde Newsletter</p>
-          <p className="mb-8">Get notified when I write something about top news & insights on AI Gaming and the Metaverse, or launch a new project right in your inbox.</p>
-          <div className="w-full rounded-lg">
-            <iframe src="https://embeds.beehiiv.com/3c368bcd-bcd6-4c10-9330-43ca61994c35?slim=true" className="w-full" data-test-id="beehiiv-embed" height="52" frameBorder="0" scrolling="no" style={{ margin: '0', borderRadius: '0px !important', backgroundColor: 'transparent' }}></iframe>
-          </div>
-          <div className="w-full">
-            <div className="pt-4">
-              <span id="lipline" className="flex text-sm text-slate-400">Ps: I send emails every week, never spam or sell your data.</span>
-            </div>
-          </div>
-        </div>
+        </section>
       </main>
     </>
   )

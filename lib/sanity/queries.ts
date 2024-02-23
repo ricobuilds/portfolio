@@ -20,6 +20,15 @@ export const getAllArticles = groq`*[_type == "article"] | order(publishedAt des
   "slug": slug.current,
 }`
 
+// Get 6 latest articles
+export const getSixArticles = groq`*[_type == "article"] | order(publishedAt desc)[0..4]{
+  _id,
+  name,
+  snippet,
+  publishedAt,
+  "slug": slug.current,
+}`
+
 // Get all topics
 // export const getTopics = groq`*[_type == "tag" && count(*[_type=="article" && references(^._id)]) > 0]{
   export const getTopics = groq`*[_type == "tag"]{
