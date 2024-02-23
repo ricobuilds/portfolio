@@ -44,7 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }))
 
   const articleRoutes: Sitemap = articles.map((article) => ({
-    url: `${process.env.NEXT_PUBLIC_BASE_URL}/article/${article.slug}`,
+    url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${article.slug}`,
     lastModified: new Date(article._updatedAt ?? article.publishedAt).toISOString().split('T')[0],
   }))
 
