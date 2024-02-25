@@ -1,7 +1,7 @@
 import { SocialMedia } from "../sections/social-media";
 import { Hero } from "../sections/hero";
 import { Journal } from "../sections/journal";
-import { Newsletter } from "../sections/newsletter";
+// import { Newsletter } from "../sections/newsletter";
 import { StructuredData } from "../components/structured-data";
 import { homeSchema } from "@/lib/web-schemas/home";
 import { Ventures } from "../sections/ventures";
@@ -10,6 +10,12 @@ import { Stack } from "../sections/stack";
 import { Outro } from "../sections/outro";
 import { cn } from "@/lib/shared-utils";
 import { baseWidth } from "@/lib/config";
+import dynamic from "next/dynamic";
+
+
+const DynamicNewsletter = dynamic(() => import("../sections/newsletter"), {
+  loading: () => <p>Loading...</p>,
+})
 
 export default function Home() {
   return (
@@ -24,7 +30,7 @@ export default function Home() {
             <Ventures />
             <Products />
             <Stack />
-            <Newsletter />
+            <DynamicNewsletter />
             <Outro />
           </div>
         </div>

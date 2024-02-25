@@ -82,6 +82,8 @@ function formatSixArticles(articles: Article[]) {
   return fortmattedSixArticles
 }
 
+export const revalidate = 3600 * 3 // revalidate at most every hour
+
 export default async function Blog() {
   const articles: Article[] = await fetchArticles()
   const topics: Topic[] = await fetchTags()
