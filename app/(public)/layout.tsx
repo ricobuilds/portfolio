@@ -5,6 +5,7 @@ import { Footer } from "../components/footer";
 import { Navbar } from "../components/navbar";
 import { siteMetadata } from "@/lib/site.metadata";
 import { UmamiScript } from "../components/umami-script";
+import { cn } from "@/lib/shared-utils";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -56,7 +57,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning={true} className={GeistSans.className}>
+      <body suppressHydrationWarning={true} className={cn(GeistSans.className, "min-h-screen flex flex-col")}>
         <Navbar />
         {children}
         <UmamiScript />
