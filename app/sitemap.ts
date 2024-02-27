@@ -11,10 +11,11 @@ type Sitemap = Array<{
 }>
 
 const listOfRoutes = [
+  routes.rss,
   routes.home,
   routes.about,
   routes.journal,
-  routes.subscribe
+  routes.subscribe,
 ]
 
 const getArticles = async () => {

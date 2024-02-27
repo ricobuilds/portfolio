@@ -11,12 +11,17 @@ export function sleep(ms: number) {
   return new Promise<void>((r) => setTimeout(r, ms))
 }
 
-export const convertDate = (_date: string) => {
-  return new Date(_date).toLocaleDateString('en-US', {
-       year: 'numeric',
-       month: 'short',
-       day: '2-digit'
-   })
+export const convertDate = (_date: string, options?: {
+  locale?: string,
+  year?: "numeric" | "2-digit" | undefined
+  month?: "numeric" | "2-digit" | "long" | "short" | "narrow" | undefined
+  day?: "numeric" | "2-digit" | undefined
+}) => {
+  return new Date(_date).toLocaleDateString(options?.locale ?? "en-US", {
+    year: options?.year ?? 'numeric',
+    month: options?.month ?? 'short',
+    day: options?.day ?? '2-digit'
+  })
 }
 
 export function absoluteUrl(path: string) {
@@ -40,7 +45,7 @@ export function maskEmail(email: string): string {
   if (!user || !domain) {
     console.log("Invalid email format");
   }
-  
+
   const maskedUser = user.length > 2 ? user.slice(0, 3) + '*'.repeat(3) : user;
   return `${maskedUser}@${domain}`;
 }
@@ -48,7 +53,7 @@ export function maskEmail(email: string): string {
 export function timeSince(pastDate: string | Date) {
 
   const currentDate = new Date();
-  
+
   if (typeof pastDate === 'string') {
     pastDate = new Date(pastDate);
   }
@@ -56,7 +61,7 @@ export function timeSince(pastDate: string | Date) {
   const diff = currentDate.getTime() - pastDate.getTime();
 
   const dayDiff = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hourDiff = Math.floor(diff / (1000 * 60 * 60)); 
+  const hourDiff = Math.floor(diff / (1000 * 60 * 60));
   const minDiff = Math.floor(diff / (1000 * 60));
 
   if (dayDiff > 365) {
@@ -73,7 +78,7 @@ export function timeSince(pastDate: string | Date) {
   } else if (hourDiff > 0) {
     return `${hourDiff} hour${hourDiff > 1 ? 's' : ''} ago`;
   } else if (minDiff > 0) {
-    return `${minDiff} minute${minDiff > 1 ? 's' : ''} ago`; 
+    return `${minDiff} minute${minDiff > 1 ? 's' : ''} ago`;
   } else {
     return 'Just now';
   }

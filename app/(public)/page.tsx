@@ -21,8 +21,8 @@ export default function Home() {
   return (
     <>
       <StructuredData data={homeSchema} />
-      <main className="w-full px-4">
-        <div className={cn(baseWidth, "min-h-screen mx-auto")}>
+      <main className="w-full px-6">
+        <div className={cn("max-w-screen-lg", "min-h-screen mx-auto")}>
           <div className="flex flex-col gap-12 py-24 pb-10 ">
             <Hero />
             <SocialMedia />

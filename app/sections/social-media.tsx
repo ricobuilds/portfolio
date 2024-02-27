@@ -37,10 +37,10 @@ export const SocialMedia = () => {
   return (
     <section id="social-media" className="flex flex-col gap-2">
       <h2 className="flex items-center gap-2 text-slate-500">
-        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" strokeLinejoin="round" className="lucide lucide-anchor"><path d="M12 22V8" /><path d="M5 12H2a10 10 0 0 0 20 0h-3" /><circle cx="12" cy="5" r="3" /></svg></span>
+        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-anchor"><path d="M12 22V8" /><path d="M5 12H2a10 10 0 0 0 20 0h-3" /><circle cx="12" cy="5" r="3" /></svg></span>
         Elsewhere
       </h2>
-      <ul className="flex w-full mt-6 space-x-10">
+      <ul className="grid w-full mt-6 space-y-3 md:space-y-0 md:space-x-10 md:flex">
         {
           profiles.map((i, idx) => (
             <li key={idx} className="group">

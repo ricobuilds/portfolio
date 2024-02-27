@@ -19,17 +19,17 @@ export const Journal = async () => {
   return (
     <section id="journal" className="flex flex-col gap-2">
       <h2 className="flex items-center gap-2 text-slate-500">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" strokeLinejoin="round" className="lucide lucide-anchor"><path d="M12 22V8" /><path d="M5 12H2a10 10 0 0 0 20 0h-3" /><circle cx="12" cy="5" r="3" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-anchor"><path d="M12 22V8" /><path d="M5 12H2a10 10 0 0 0 20 0h-3" /><circle cx="12" cy="5" r="3" /></svg>
         <span>Articles</span>
       </h2>
       {
         showBlogs ? (
-          <ul className="grid grid-cols-3 gap-8">
+          <ul className="grid gap-8 md:grid-cols-3">
             {
               blogs.map((i, idx: number) => (
                 <li key={idx} className="">
                   <Link href={i.url ? i.url : `/blog/${i.slug}`} className="group flex flex-col gap-2 active:scale-[0.98] outline-none">
-                    <Image src={"/base-og.png"} height={300} width={300} alt="" priority className="object-cover transition-all duration-500 ease-in-out rounded-lg h-52 group-hover:grayscale" />
+                    <Image src={"/base-og.png"} height={300} width={300} alt="" priority className="object-cover w-full transition-all duration-500 ease-in-out rounded-lg h-52 group-hover:grayscale" />
                     <div className="flex flex-col gap-2 px-2">
                       <p className="text-sm text-slate-400">{convertDate(i.publishedAt)}</p>
                       <h3>{i.name}</h3>

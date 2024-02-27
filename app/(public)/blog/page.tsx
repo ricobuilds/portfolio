@@ -11,7 +11,6 @@ import { Topic } from "@/app/types/Topic"
 import Image from "next/image"
 import { BreadcrumbList, CollectionPage, WithContext } from "schema-dts"
 import { StructuredData } from "@/app/components/structured-data"
-import { attachReactRefresh } from "next/dist/build/webpack-config"
 
 const title = 'Blog'
 const description = "Articles to share my thoughts, technical breakdowns and learnings on web development, artificial intelligence, machine learning and more."
@@ -125,9 +124,7 @@ export default async function Blog() {
       <main className="w-full px-4">
         <div className={cn(baseWidth, "min-h-screen w-full mx-auto")}>
           <div className="relative flex flex-col w-full gap-10 pt-20">
-            <h1 className="text-6xl font-semibold">Blog {articles.length > 0 && (
-              <span>({articles.length} {articles.length > 1 ? "posts" : "post"})</span>
-            )}</h1>
+            <h1 className="text-6xl font-semibold">Blog</h1>
             <div className="flex">
               {
                 // @ts-ignore
@@ -155,13 +152,20 @@ export default async function Blog() {
                   {
                     articles.map((i) => (
                       <li key={i._id}>
-                        <Link href={i.url ? i.url : `/blog/${i.slug}`} className="group flex flex-col gap-3 active:scale-[0.98] outline-none">
-                          <Image src={"/base-og.png"} height={300} width={300} alt="" priority className="object-cover transition-all duration-500 ease-in-out h-60 group-hover:grayscale" />
+                        <div className="group flex flex-col gap-3 active:scale-[0.98] outline-none">
+                          <Link href={`/blog/${i.slug}`}>
+                            <Image src={"/base-og.png"} height={300} width={300} alt="" priority className="object-cover transition-all duration-500 ease-in-out rounded-2xl h-60 group-hover:grayscale" />
+                          </Link>
                           <div className="flex flex-col gap-2 px-2">
-                            <p className="text-sm text-slate-400">{convertDate(i.publishedAt)}</p>
-                            <h3>{i.name}</h3>
+                            <Link href={`/topic/${i.tag?.slug ?? "ai"}`} className="text-[10px] w-fit uppercase text-amethyst-500">
+                              {i.tag?.title ?? "Artificial Intelligence"}
+                            </Link>
+                            <Link href={`/blog/${i.slug}`}>
+                              <h3 className="font-sans font-semibold hover:text-amethyst-500">{i.name}</h3>
+                            </Link>
+                            <p className="uppercase text-[10px]">By <span className="text-slate-500">{i.author?.name ?? "Enric Trillo"}</span>  / <span>{convertDate(i.publishedAt, { month: "long" })}</span></p>
                           </div>
-                        </Link>
+                        </div>
                       </li>
                     ))
                   }

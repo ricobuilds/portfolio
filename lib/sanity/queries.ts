@@ -31,13 +31,11 @@ export const getSixArticles = groq`*[_type == "article"] | order(publishedAt des
 
 // Get all topics
 // export const getTopics = groq`*[_type == "tag" && count(*[_type=="article" && references(^._id)]) > 0]{
-  export const getTopics = groq`*[_type == "tag"]{
+export const getTopics = groq`*[_type == "tag"]{
     _id,
     title,
-    description,
     "slug": slug.current
   }`
-  
 
 // Get a single post by its ID
 export const getArticleBySlug = (slug: string) => groq`*[_type == "article" && slug.current == "${slug}"][0]{
@@ -47,15 +45,8 @@ export const getArticleBySlug = (slug: string) => groq`*[_type == "article" && s
   _updatedAt,
   publishedAt,
   "tag": tag->{title, "slug": slug.current},
-  "author": author->{name, "slug": slug.current},
+  "author": author->{name},
   }`;
-
-  // Get all authors
-const getAuthors = groq`*[_type == "author"]{
-  "slug": slug.current,
-  _updatedAt
-}`
-
 
 // Get all article by author
 const getArticlesByAuthor = (slug: string) => groq`*[_type == "author" && slug.current == "${slug}"][0]{
@@ -68,9 +59,19 @@ const getArticlesByAuthor = (slug: string) => groq`*[_type == "author" && slug.c
 }`
 
 // Get all articles by cluster
- export const getArticlesByTopic = (slug: string) => groq`*[_type == "tag" && slug.current == "${slug}"][0]{
+export const getArticlesByTopic = (slug: string) => groq`*[_type == "tag" && slug.current == "${slug}"][0]{
   title,
   description,
   "slug": slug.current,
   "articles": *[_type == "article" && references(^._id)] | order(publishedAt desc) [0...10]{_id, name, publishedAt, snippet,"slug": slug.current}
+}`
+
+// Get the prev article with smaller timestamp
+export const getPrevArticle = (order: string) => groq`*[_type == "article" && publishedAt < "${order}"] | order(publishedAt desc)[0]{
+  "slug": slug.current
+}`
+
+// Get the nex article with bigger timestamp
+export const getNextArticle = (order: string) => groq`*[_type == "article" && publishedAt > "${order}"] | order(publishedAt asc)[0]{
+  "slug": slug.current
 }`
