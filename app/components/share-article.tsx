@@ -42,7 +42,7 @@ export const ShareArticleRow = ({ slug, title }: { slug: string, title: string }
   return (
     <div className="flex items-center gap-4">
       <div className="uppercase">Share article:</div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-3">
         <Link title={"Share article to Twitter via Enric Trillo"} href={`https://twitter.com/share?url=${siteMetadata.siteUrl}/blog/${slug}&text=${"Read " + title}&via=ricobuilds`}>
           <span>
             {logos.twitter}
