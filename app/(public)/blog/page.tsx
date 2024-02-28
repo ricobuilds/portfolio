@@ -117,6 +117,8 @@ export default async function Blog() {
     ]
   }
 
+  
+
   return (
     <>
       <StructuredData data={blogSchema} />
@@ -125,7 +127,7 @@ export default async function Blog() {
         <div className={cn(baseWidth, "min-h-screen w-full mx-auto")}>
           <div className="relative flex flex-col w-full gap-10 pt-20">
             <h1 className="text-6xl font-semibold">Blog</h1>
-            <div className="flex">
+            <div className="flex gap-3">
               {
                 // @ts-ignore
                 topics.sort((a, b) => {
@@ -138,7 +140,7 @@ export default async function Blog() {
                 }).map((topic: Topic, idx: number) => (
                   <Link key={idx} href={`/topic/${topic.slug}`}>
                     <div className="border cursor-pointer select-none hover:bg-slate-100">
-                      <div className="px-6 py-2">
+                      <div className="px-4 py-2">
                         <h2 className="text-lg font-medium">{topic.title}</h2>
                       </div>
                     </div>

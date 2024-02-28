@@ -1,1 +1,1 @@
-export const baseWidth = "max-w-screen-lg w-full"
+export const baseWidth = "max-w-[970px] w-full"
