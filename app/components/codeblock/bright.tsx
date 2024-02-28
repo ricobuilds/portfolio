@@ -1,0 +1,12 @@
+import { Code } from "bright"
+import { focus } from "./extensions/focus"
+
+export const BrightCode = ({ lang, code, lineNumbers }: { lang: string, code: string, lineNumbers?: boolean }) => {
+  return (
+    <div className="overflow-auto rounded-xl">
+      <Code lang={lang} theme={"github-dark"} lineNumbers={lineNumbers} extensions={[focus]}>
+        {code.trim()}
+      </Code>
+    </div>
+  )
+}

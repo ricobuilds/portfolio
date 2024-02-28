@@ -1,21 +1,18 @@
-
-
 import { Metadata, Viewport } from "next"
 import Image from "next/image"
 import styles from './Page.module.css'
 import { notFound } from "next/navigation"
 import { siteMetadata } from "@/lib/site.metadata"
 import { cn, convertDate } from "@/lib/shared-utils"
-import { Mdx } from "@/app/components/mdx"
 import { sanityQuery } from "@/lib/sanity/client"
 import { getAllArticles, getArticleBySlug, getNextArticle, getPrevArticle } from "@/lib/sanity/queries"
 import { Article } from "@/app/types/Article"
-import { WithContext, Article as BlogArticle, BreadcrumbList, BlogPosting } from "schema-dts"
+import { WithContext, BreadcrumbList, BlogPosting } from "schema-dts"
 import { StructuredData } from "@/app/components/structured-data"
 import Link from "next/link"
 import { ShareArticleRow } from "@/app/components/share-article"
-import { baseWidth } from "@/lib/config"
 import { BlockWrapper, serialisers } from "@/app/components/codeblock"
+import { BrightCode } from "@/app/components/codeblock/bright"
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -91,8 +88,8 @@ export default async function Page({ params }: { params: { article: string } }) 
     notFound()
   };
 
-  const prevArticle: {slug: string} = await sanityQuery(getPrevArticle(post.publishedAt))
-  const nextArticle: {slug: string} = await sanityQuery(getNextArticle(post.publishedAt))
+  const prevArticle: { slug: string } = await sanityQuery(getPrevArticle(post.publishedAt))
+  const nextArticle: { slug: string } = await sanityQuery(getNextArticle(post.publishedAt))
 
   const articleSchema: WithContext<BlogPosting> = {
     "@context": "https://schema.org",
@@ -199,6 +196,30 @@ export default async function Page({ params }: { params: { article: string } }) 
           <div className={styles.bloggo}>
             <BlockWrapper blocks={post?.content} serializers={serialisers} />
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem veniam provident qui vitae cumque nesciunt quos placeat velit similique neque ipsa ratione autem suscipit, optio delectus non quisquam aspernatur temporibus.</p>
+            <BrightCode lang="tsx" code={
+              `// src/app/layout.js
+
+import './globals.css'
+
+//👇 Import Open Sans font
+import { Open_Sans } from 'next/font/google'
+
+//👇 Configure our font object
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+})
+
+export default function RootLayout({ children }) {
+  return (
+    // 👇 Attach font to global JSX node
+    <html lang="en" className={openSans.className}>
+      <body>{children}</body>
+    </html>
+  )
+}
+              `
+            } />
           </div>
         </article>
         <section id="tags" className="flex gap-6 py-8 mt-4 uppercase">
@@ -213,9 +234,11 @@ export default async function Page({ params }: { params: { article: string } }) 
             }
           </ul>
         </section>
+
         <section id="share" className="mt-16">
           <ShareArticleRow slug={post.slug} title={post.name} />
         </section>
+
         <section id="cta" className={cn("max-w-[696px]", "w-full mx-auto hidden")}>
           <div className="flex flex-col gap-3 p-6 border rounded-lg bg-onyx">
             <h3 className="text-lg"><strong>{`Whenever you're ready, these are ${4} ways I can help you:`}</strong></h3>
@@ -223,6 +246,7 @@ export default async function Page({ params }: { params: { article: string } }) 
             <p><strong>2.</strong> <strong className="text-amethyst-500">YouTube channel:</strong> by sponsoring my newsletter.</p>
           </div>
         </section>
+
         <section id="article-nav" className={cn("max-w-[800]", "flex justify-between w-full mx-auto py-10 items-center gap-4 mt-16 border-t-[1px] border-dashed border-border")}>
           <Link href={prevArticle ? `/blog/${prevArticle.slug}` : ""} id="prev-item" className={cn("flex items-center gap-2 select-none", !prevArticle && "text-slate-400 pointer-events-none")}>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20 " viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-left"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>

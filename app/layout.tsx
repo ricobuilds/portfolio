@@ -1,10 +1,10 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
-import "../globals.css";
-import { Footer } from "../components/footer";
-import { Navbar } from "../components/navbar";
+import { Footer } from "./components/footer";
+import { Navbar } from "./components/navbar";
 import { siteMetadata } from "@/lib/site.metadata";
-import { UmamiScript } from "../components/umami-script";
+import { UmamiScript } from "./components/umami-script";
 import { cn } from "@/lib/shared-utils";
 
 export const metadata: Metadata = {

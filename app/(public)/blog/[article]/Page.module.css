@@ -9,20 +9,20 @@
 .bloggo h6 {
   @apply pt-5 mb-2 font-medium;
 }
-.bloggo h1 {
-  @apply text-2xl font-bold md:text-3xl;
-}
 .bloggo h2 {
-  @apply text-xl font-bold md:text-2xl;
+  @apply text-6xl font-bold;
 }
 .bloggo h3 {
-  @apply text-lg font-bold md:text-xl;
+  @apply text-2xl font-semibold;
 }
 .bloggo h4 {
-  @apply text-base font-bold md:text-lg;
+  @apply text-xl font-semibold;
+}
+.bloggo h5 {
+  @apply text-lg font-normal;
 }
 .bloggo p {
-  @apply mb-4 text-base font-normal;
+  @apply mb-6 font-normal;
 }
 .bloggo blockquote {
   @apply px-3 pt-4 pb-px my-6 bg-gray-100 border-l-8 border-gray-300;

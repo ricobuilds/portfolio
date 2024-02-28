@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: { params: { topic: string } }
   const { topic } = params
   const cluster: Topic = clusters.find((p: Topic) => p.slug === topic)
 
-  if (!cluster) return { title: 'Issue not found!' }
+  if (!cluster) return { title: 'Page not found' }
 
   return {
     title: cluster.title,
