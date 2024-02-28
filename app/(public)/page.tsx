@@ -11,7 +11,7 @@ import dynamic from "next/dynamic";
 import { siteMetadata } from "@/lib/site.metadata";
 import type { Person, WithContext } from "schema-dts"
 
-export const homeSchema: WithContext<Person> = {
+const homeSchema: WithContext<Person> = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": siteMetadata.title,
