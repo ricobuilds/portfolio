@@ -20,8 +20,8 @@ const Navbar = () => {
     },
   ]
   return (
-    <header className="w-full px-6 border-b h-18">
-      <nav className={cn(baseWidth, "flex justify-between py-5 mx-auto items-center")}>
+    <header className="flex justify-center w-full px-6 border-b h-18">
+      <nav className={cn(baseWidth, "flex justify-between w-full py-5 items-center")}>
         <Image src={'/ricobuilds.png'} alt="Enric Trillo Cryptopunk" width={64} height={64} className="inline w-8 h-8 transition-all duration-300 rounded-full" />
         <ul className="flex gap-2 -mr-2">
           {nav.map((i, idx) => (
