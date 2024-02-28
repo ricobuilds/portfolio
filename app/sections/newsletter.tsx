@@ -1,9 +1,11 @@
 export default function Newsletter() {
   return (
-    <section id="newsletter" className="flex flex-col gap-2">
+    <section id="newsletter" className="flex flex-col gap-10">
       <h2 className="flex items-center gap-2 text-slate-500">
-        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-anchor"><path d="M12 22V8" /><path d="M5 12H2a10 10 0 0 0 20 0h-3" /><circle cx="12" cy="5" r="3" /></svg></span>
-        Newsletter
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-anchor"><path d="M12 22V8" /><path d="M5 12H2a10 10 0 0 0 20 0h-3" /><circle cx="12" cy="5" r="3" /></svg>
+        <span className="text-2xl font-medium">
+          Newsletter
+        </span>
       </h2>
       {/* <h3 className="mt-6 text-2xl italic font-bold">The Metasyde</h3> */}
       <div className="">

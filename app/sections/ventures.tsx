@@ -14,14 +14,16 @@ export const Ventures = () => {
 
   const showVentures = true
   return (
-    <section id="ventures">
+    <section id="ventures" className="flex flex-col gap-10">
       <h2 className="flex items-center gap-2 text-slate-500">
-        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-anchor"><path d="M12 22V8" /><path d="M5 12H2a10 10 0 0 0 20 0h-3" /><circle cx="12" cy="5" r="3" /></svg></span>
-        Ventures
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-anchor"><path d="M12 22V8" /><path d="M5 12H2a10 10 0 0 0 20 0h-3" /><circle cx="12" cy="5" r="3" /></svg>
+        <span className="text-2xl font-medium">
+          Ventures
+        </span>
       </h2>
       {
         showVentures ? (
-          <div className="grid gap-2 mt-6 md:grid-cols-2">
+          <div className="grid gap-2 md:grid-cols-2">
             {
               ventures.map((i, idx) => (
                 <div key={idx} id="venture-card" className="p-6 rounded-lg bg-slate-100">

@@ -54,7 +54,7 @@ export default function Subscribe() {
             <div className="">
               <div className="flex justify-center mb-8 sm:justify-start">
                 <div className="relative w-24 h-24 overflow-hidden bg-white border rounded-full shadow-md">
-                  <Image src={"/headshot.jpeg"} className="absolute inset-0 object-cover w-full h-full" height={200} width={200} alt="headshot of Enric Trillo, Founder of Metasyde" />
+                  <Image priority src={"/headshot.jpeg"} className="absolute inset-0 object-cover w-full h-full" height={200} width={200} alt="headshot of Enric Trillo, Founder of Metasyde" />
                 </div>
               </div>
               <div className="w-full mb-8">
@@ -74,7 +74,7 @@ export default function Subscribe() {
             </div>
             <div className="flex items-center">
               <div className="relative hidden w-64 h-64 overflow-hidden shadow-lg pointer-events-none sm:block">
-                <Image src={"https://illustrations.popsy.co/purple/man-riding-a-rocket.svg"} fill className="inset-0 scale-x-100 border-2 rounded border-charkol" alt="The Metasyde" />
+                <Image priority src={"https://illustrations.popsy.co/purple/man-riding-a-rocket.svg"} fill className="inset-0 scale-x-100 border-2 rounded border-charkol" alt="The Metasyde" />
               </div>
             </div>
           </div>

@@ -20,7 +20,6 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      // "contentlayer/generated": ["./.contentlayer/generated"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.config.js", "app/components/codeblock/extensions/focus.js",],
