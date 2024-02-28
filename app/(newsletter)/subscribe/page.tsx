@@ -1,10 +1,24 @@
 import { StructuredData } from "@/app/components/structured-data"
+import { cn } from "@/lib/shared-utils"
 import { siteMetadata } from "@/lib/site.metadata"
 import Image from "next/image"
 import { WebPage, WithContext } from "schema-dts"
+import { Kanit } from "next/font/google"
+import { Metadata } from "next"
+
+const heroFont = Kanit({
+  subsets: ['latin'],
+  weight: "800",
+  display: 'swap',
+})
+
+export const metadata: Metadata = {
+  title: "The Metasyde: Top news & insights on AI Gaming and the Metaverse",
+  description: "Grow as a Metaverse enthusiast with the top news, data and insights — sent to your inbox every week."
+}
 
 export default function Subscribe() {
-  const name = "Enric Trillo"
+  const name = "Metasyde Ltd"
 
   const subscribeSchema: WithContext<WebPage> = {
     '@context': 'https://schema.org',
@@ -40,11 +54,11 @@ export default function Subscribe() {
             <div className="">
               <div className="flex justify-center mb-8 sm:justify-start">
                 <div className="relative w-24 h-24 overflow-hidden bg-white border rounded-full shadow-md">
-                  <Image src={"/headshot.jpeg"} className="absolute inset-0 object-cover w-full h-full" height={200} width={200} alt="" />
+                  <Image src={"/headshot.jpeg"} className="absolute inset-0 object-cover w-full h-full" height={200} width={200} alt="headshot of Enric Trillo, Founder of Metasyde" />
                 </div>
               </div>
               <div className="w-full mb-8">
-                <h1 className="text-6xl font-semibold text-center sm:text-left">The Metasyde</h1>
+                <h1 className={cn(heroFont.className, "text-6xl font-semibold text-center sm:text-left")}>The Metasyde</h1>
                 <p className="text-2xl text-center sm:text-left">Keep up with top news & insights on AI Gaming and the Metaverse, by Metasyde － relaunching soon.</p>
               </div>
               <div className="w-full mb-10">
@@ -59,13 +73,13 @@ export default function Subscribe() {
               </div>
             </div>
             <div className="flex items-center">
-              <div className="relative hidden w-64 h-64 overflow-hidden sm:block">
-                <Image src={"/headshot.jpeg"} fill className="inset-0" alt="" />
+              <div className="relative hidden w-64 h-64 overflow-hidden shadow-lg pointer-events-none sm:block">
+                <Image src={"https://illustrations.popsy.co/purple/man-riding-a-rocket.svg"} fill className="inset-0 scale-x-100 border-2 rounded border-charkol" alt="The Metasyde" />
               </div>
             </div>
           </div>
-          <div className="absolute -translate-x-1/2 bottom-4 sm:left-4 sm:translate-x-0 left-1/2">
-            <div id="copy" className="flex justify-center text-sm sm:justify-start">&copy; {new Date().getFullYear()} {name}. All rights reserved.</div>
+          <div className="absolute -translate-x-1/2 bottom-4 sm:left-4 sm:translate-x-0 left-1/2 w-96">
+            <p className="text-sm text-slate-500">&copy; {new Date().getFullYear()} Owned by <span className="text-charkol">{name}</span>. All rights reserved.</p>
           </div>
         </div>
       </main>
