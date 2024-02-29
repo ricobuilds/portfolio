@@ -266,18 +266,6 @@ export default async function Page({ params }: { params: { article: string } }) 
             <article className={cn(styles.bloggo)}>
               <p>hello</p>
               <BlockWrapper blocks={post?.content} serializers={serialisers} />
-              <h2>don't worry about it sweetheart</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem veniam provident qui vitae cumque nesciunt quos placeat velit similique neque ipsa ratione autem suscipit, optio delectus non quisquam aspernatur temporibus.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem veniam provident qui vitae cumque nesciunt quos placeat velit similique neque ipsa ratione autem suscipit, optio delectus non quisquam aspernatur temporibus.</p>
-              <h3>don't worry about it sweetheart</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem veniam provident qui vitae cumque nesciunt quos placeat velit similique neque ipsa ratione autem suscipit, optio delectus non quisquam aspernatur temporibus.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem veniam provident qui vitae cumque nesciunt quos placeat velit similique neque ipsa ratione autem suscipit, optio delectus non quisquam aspernatur temporibus.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem veniam provident qui vitae cumque nesciunt quos placeat velit similique neque ipsa ratione autem suscipit, optio delectus non quisquam aspernatur temporibus.</p>
-              <h4>don't worry about it sweetheart</h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem veniam provident qui vitae cumque nesciunt quos placeat velit similique neque ipsa ratione autem suscipit, optio delectus non quisquam aspernatur temporibus.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem veniam provident qui vitae cumque nesciunt quos placeat velit similique neque ipsa ratione autem suscipit, optio delectus non quisquam aspernatur temporibus.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem veniam provident qui vitae cumque nesciunt quos placeat velit similique neque ipsa ratione autem suscipit, optio delectus non quisquam aspernatur temporibus.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem veniam provident qui vitae cumque nesciunt quos placeat velit similique neque ipsa ratione autem suscipit, optio delectus non quisquam aspernatur temporibus.</p>
               <BrightCode lang="tsx" code={
 `// src/app/layout.js
 
