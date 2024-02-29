@@ -7,7 +7,7 @@ import { cn, convertDate } from "@/lib/shared-utils"
 import { sanityQuery } from "@/lib/sanity/client"
 import { getAllArticles, getArticleBySlug, getNextArticle, getPrevArticle } from "@/lib/sanity/queries"
 import { Article } from "@/app/types/Article"
-import { WithContext, BreadcrumbList, BlogPosting } from "schema-dts"
+import { WithContext, BreadcrumbList, Article as BlogPosting } from "schema-dts"
 import { StructuredData } from "@/app/components/structured-data"
 import Link from "next/link"
 import { ShareArticleRow } from "@/app/components/share-article"
@@ -15,6 +15,7 @@ import { BlockWrapper, serialisers } from "@/app/components/codeblock"
 import { BrightCode } from "@/app/components/codeblock/bright"
 import { StickyCard } from "./sticky-card"
 import { Kanit } from "next/font/google"
+import { ScrollProgress } from "@/app/components/scroll-progress"
 
 const heroFont = Kanit({
   subsets: ['latin'],
@@ -86,12 +87,12 @@ export async function generateMetadata({ params }: { params: { article: string }
 }
 
 export default async function Page({ params }: { params: { article: string } }) {
-  const posts: Article[] = await sanityQuery(getAllArticles) //deduped!
+  // const posts: Article[] = await sanityQuery(getAllArticles) //deduped!
   const { article } = params
 
-  if (!posts.find((p: Article) => p.slug?.includes(article))) return notFound()
+  // if (!posts.find((p: Article) => p.slug?.includes(article))) return notFound()
 
-  const post = posts.find((p: Article) => p.slug === article)
+  const post: Article = await sanityQuery(getArticleBySlug(article))
 
   if (!post) {
     notFound()
@@ -102,29 +103,27 @@ export default async function Page({ params }: { params: { article: string } }) 
 
   const articleSchema: WithContext<BlogPosting> = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
+    "@type": "Article",
     "headline": post.name,
     "description": post.snippet,
-    "datePublished": post.publishedAt,
-    "dateModified": post._updatedAt,
+    "datePublished": new Date(post.publishedAt).toISOString(),
+    "dateModified": new Date(post._updatedAt).toISOString(),
     "author": {
       "@type": "Person",
-      "name": siteMetadata.title
+      "name": siteMetadata.title,
+      "url": siteMetadata.siteUrl
     },
     "image": "https://www.mysite.com/path-to-article-image.jpg",
+    "url": `${siteMetadata.siteUrl}/blog/${post.slug}`,
     "publisher": {
       "@type": "Organization",
-      "name": "Enric",
+      "name": "Enric Trillo",
       "logo": {
         "@type": "ImageObject",
         "url": "https://yourwebsite.com/logo.png",
         // "width": 600,
         // "height": 60
       }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": siteMetadata.siteUrl + "/blog/" + post.slug
     }
   }
 
@@ -157,6 +156,7 @@ export default async function Page({ params }: { params: { article: string } }) 
     <>
       <StructuredData data={articleSchema} />
       <StructuredData data={articleBreadcrumbSchema} />
+      <ScrollProgress />
       <main className={cn("w-full", "relative flex flex-col flex-1 min-h-screen px-6")}>
         <section className="max-w-[970px] w-full mx-auto">
           <nav id="breadcrumb" className={cn("max-w-[970px]", "w-fit absolute mx-auto top-10")}>
@@ -198,7 +198,7 @@ export default async function Page({ params }: { params: { article: string } }) 
                     <span className='text-amethyst-500'>{post.author?.name ?? "Enric Trillo "}</span>
                     <span>/</span>
                   </div>
-                  <time dateTime={post.publishedAt} className="">{convertDate(post?.publishedAt, { month: "long" })} {new Date(post.publishedAt).toLocaleTimeString("en-GB", { timeStyle: "short", hourCycle: "h12" })}</time>
+                  <time dateTime={new Date(post.publishedAt).toISOString()}> Published {convertDate(post?.publishedAt, { month: "long" })} {new Date(post.publishedAt).toLocaleTimeString("en-GB", { timeStyle: "short", hourCycle: "h12" })}</time>
                 </div>
               </div>
               <div className="py-2" />

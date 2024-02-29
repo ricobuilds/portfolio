@@ -52,12 +52,12 @@
   /* for consistency with Prismjs theme */
 }
 .bloggo code {
-  @apply p-1 text-sm font-bold rounded-sm ;
+  @apply p-1 font-mono text-sm font-medium rounded bg-amethyst-400 bg-opacity-20 text-amethyst-500;
 }
 .bloggo code:before,
 .bloggo code:after {
-  @apply text-xs font-normal;
-  content: "`";
+  @apply text-xs;
+  /* content: "`"; */
 }
 .bloggo pre code {
   @apply p-0 font-normal bg-transparent;

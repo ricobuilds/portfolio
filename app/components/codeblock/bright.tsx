@@ -3,8 +3,8 @@ import { focus } from "./extensions/focus"
 
 export const BrightCode = ({ lang, code, lineNumbers }: { lang: string, code: string, lineNumbers?: boolean }) => {
   return (
-    <div className="overflow-auto rounded-xl">
-      <Code lang={lang} theme={"github-dark"} lineNumbers={lineNumbers} extensions={[focus]}>
+    <div className="overflow-auto">
+      <Code lang={lang} theme={"github-dark"} lineNumbers={lineNumbers} extensions={[focus]} style={{margin: 0,}}>
         {code.trim()}
       </Code>
     </div>
