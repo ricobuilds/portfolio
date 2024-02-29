@@ -84,7 +84,7 @@ export async function generateMetadata({ params }: { params: { article: string }
   }
 }
 
-export const CTA = () => {
+const CTA = () => {
   return (
     <section id="cta" className={cn("max-w-2xl mx-auto w-full")}>
       <div className="flex flex-col gap-3 p-6 rounded-lg shadow-xl ring-slate-300 ring-2 bg-obsidian-100">
@@ -96,7 +96,7 @@ export const CTA = () => {
   )
 }
 
-export const Tags = ({ post }: { post: Article }) => {
+const Tags = ({ post }: { post: Article }) => {
   return (
     <section id="tags" className="flex gap-6 py-8 mt-4 uppercase">
       <span className="text-gray-800">Tags:</span>
@@ -113,7 +113,7 @@ export const Tags = ({ post }: { post: Article }) => {
   )
 }
 
-export const Share = ({ title, slug }: { title: string, slug: string }) => {
+const Share = ({ title, slug }: { title: string, slug: string }) => {
   return (
     <section id="share" className="max-w-2xl mx-auto mt-16">
       <ShareArticleRow slug={slug} title={title} />
@@ -121,7 +121,7 @@ export const Share = ({ title, slug }: { title: string, slug: string }) => {
   )
 }
 
-export const Navigation = ({ prevPost, nextPost }: { prevPost: { slug: string }, nextPost: { slug: string } }) => {
+const Navigation = ({ prevPost, nextPost }: { prevPost: { slug: string }, nextPost: { slug: string } }) => {
   return (
     <section id="article-nav" className={cn("max-w-2xl", "flex justify-between w-full mx-auto py-10 items-center gap-4 mt-16 border-t-[1px] border-dashed border-border")}>
       <Link href={prevPost ? `/blog/${prevPost.slug}` : ""} id="prev-item" className={cn("flex items-center gap-2 select-none", !prevPost && "text-slate-400 pointer-events-none")}>
