@@ -5,6 +5,7 @@ export const routes = {
   newsletter: "/newsletter",
   subscribe: "/subscribe",
   rss: "/rss",
+  glossary: "/glossary",
   email: "mailto:hola@enrictrillo.com",
   twitter: "https://twitter.com/ricobuilds",
   linkedin: "https://www.linkedin.com/in/enrictrillo/",
