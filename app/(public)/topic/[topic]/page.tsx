@@ -69,8 +69,6 @@ export async function generateMetadata({ params }: { params: { topic: string } }
   }
 }
 
-export const revalidate = 3600 * 3 // revalidate at most every hour
-
 export default async function Page({ params }: { params: { topic: string } }) {
 
   const topics = await getTags() //deduped

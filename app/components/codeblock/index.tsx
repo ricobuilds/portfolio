@@ -17,7 +17,7 @@ const serialisers = {
   types: {
     code: ({ node }: any) => (
       <Generic node={node} />
-    )
+    ),
   }
 }
 
