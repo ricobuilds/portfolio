@@ -5,6 +5,7 @@ import Image from "next/image"
 import { WebPage, WithContext } from "schema-dts"
 import { Kanit } from "next/font/google"
 import { Metadata } from "next"
+import { routes } from "@/lib/routes"
 
 const heroFont = Kanit({
   subsets: ['latin'],
@@ -12,9 +13,30 @@ const heroFont = Kanit({
   display: 'swap',
 })
 
+const title = "The Metasyde: A newsletter for top news & insights on AI Gaming and the Metaverse"
+const description = "Grow as a Metaverse enthusiast with the top news, data and insights — sent to your inbox every week."
+
 export const metadata: Metadata = {
-  title: "The Metasyde: Top news & insights on AI Gaming and the Metaverse",
-  description: "Grow as a Metaverse enthusiast with the top news, data and insights — sent to your inbox every week."
+  title: title,
+  description: description,
+  openGraph: {
+    locale: 'en_GB',
+    title: title,
+    type: 'website',
+    url: siteMetadata.siteUrl + routes.subscribe,
+    images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/subscribe-og.png`,
+    description: description,
+    siteName: siteMetadata.title,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: title,
+    description: description,
+    creator: '@ricobuilds',
+    site: '@ricobuilds',
+    images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/subscribe-og.png`,
+  },
+  robots: "index, follow"
 }
 
 export default function Subscribe() {

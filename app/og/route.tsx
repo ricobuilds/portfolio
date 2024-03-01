@@ -32,12 +32,16 @@ export async function GET(req: NextRequest) {
         }}
       >
         <div
-          tw='ml-18 w-fit'
+          tw='ml-18 text-center'
           style={{
             display: 'flex',
+            justifyContent: "center",
+            textAlign: "center",
             width: "100%",
-            maxWidth: "720px",
-            fontSize: 64,
+            maxWidth: "800px",
+            marginLeft: "auto",
+            marginRight: "auto",
+            fontSize: 52,
             fontFamily: 'CalSans-Semibold',
             color: 'white',
           }}

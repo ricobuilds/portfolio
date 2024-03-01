@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     locale: 'en_GB',
     type: 'website',
-    images: `/base-og-image.png`,
+    images: `/base-og.png`,
     description,
     siteName: 'Enric Trillo',
   },
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     description,
     site: 'https://enrictrillo.com',
     title,
-    images: `/base-og-image.png`,
+    images: `/base-og.png`,
   },
   robots: "index, follow"
 }

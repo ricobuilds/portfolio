@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: { params: { topic: string } }
       title: cluster.title,
       type: 'article',
       url: siteMetadata.siteUrl + "/topic/" + params.topic,
-      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/og?title=Blog: ${cluster.title}`,
+      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/og?title=${cluster.title}`,
       description: cluster.description,
       siteName: siteMetadata.title,
       authors: "Enric Trillo"
