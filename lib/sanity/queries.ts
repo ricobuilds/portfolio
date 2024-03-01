@@ -34,6 +34,7 @@ export const getSixArticles = groq`*[_type == "article"] | order(publishedAt des
 export const getTopics = groq`*[_type == "tag"]{
     _id,
     title,
+    description,
     "slug": slug.current
   }`
 

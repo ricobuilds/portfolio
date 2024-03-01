@@ -28,13 +28,20 @@ export const Journal = async () => {
             {
               blogs.map((i, idx: number) => (
                 <li key={idx} className="">
-                  <Link href={i.url ? i.url : `/blog/${i.slug}`} className="group flex flex-col gap-2 active:scale-[0.98] outline-none">
-                    <Image src={"/og?title="+i.name} height={1200} width={630} alt="" priority className="object-contain w-full transition-all duration-500 ease-in-out rounded-lg aspect-auto group-hover:grayscale" />
+                  <div className="group flex flex-col gap-3 active:scale-[0.98] outline-none w-full">
+                    <Link href={`/blog/${i.slug}`} className="w-full transition-all duration-300 ring-0 group-hover:ring-2 rounded-2xl group-hover:ring-amethyst-500 ring-offset-2">
+                      <Image src={"/og?title=" + i.name} height={1200} width={630} alt="" loading="lazy" className="object-cover w-full transition-all duration-300 ease-in-out rounded-2xl group-hover:grayscale" />
+                    </Link>
                     <div className="flex flex-col gap-2 px-2">
-                      <p className="text-sm text-slate-400">{convertDate(i.publishedAt)}</p>
-                      <h3>{i.name}</h3>
+                      <Link href={`/topics/${i.tag?.slug ?? "ai"}`} className="text-[10px] w-fit uppercase text-amethyst-500">
+                        {i.tag?.title ?? "Artificial Intelligence"}
+                      </Link>
+                      <Link href={`/blog/${i.slug}`}>
+                        <h3 className="font-sans font-semibold hover:text-amethyst-500">{i.name}</h3>
+                      </Link>
+                      <p className="uppercase text-[10px]">By <span className="text-slate-500">{i.author?.name ?? "Enric Trillo"}</span>  / <span>{convertDate(i.publishedAt, { month: "long" })}</span></p>
                     </div>
-                  </Link>
+                  </div>
                 </li>
               ))
             }

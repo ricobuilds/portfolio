@@ -125,7 +125,7 @@ export default async function Blog() {
         <div className={cn(baseWidth, "min-h-screen w-full mx-auto")}>
           <div className="relative flex flex-col w-full gap-10 pt-20">
             <h1 className="text-6xl font-semibold">Blog</h1>
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
               {
                 // @ts-ignore
                 topics.sort((a, b) => {
@@ -136,9 +136,9 @@ export default async function Blog() {
                     return 1;
                   }
                 }).map((topic: Topic, idx: number) => (
-                  <Link key={idx} href={`/topic/${topic.slug}`}>
+                  <Link key={idx} href={`/topics/${topic.slug}`}>
                     <div className="border cursor-pointer select-none hover:bg-slate-100">
-                      <div className="px-4 py-2">
+                      <div className="px-3 py-2">
                         <h2 className="text-lg font-medium">{topic.title}</h2>
                       </div>
                     </div>
@@ -148,16 +148,16 @@ export default async function Blog() {
             </div>
             {
               articles.length > 0 ? (
-                <ul className="grid grid-cols-3 gap-8">
+                <ul className="grid w-full gap-8 md:grid-cols-3">
                   {
                     articles.map((i) => (
                       <li key={i._id}>
-                        <div className="group flex flex-col gap-3 active:scale-[0.98] outline-none">
-                          <Link href={`/blog/${i.slug}`} className="transition-all duration-300 ring-0 group-hover:ring-2 rounded-2xl w-fit group-hover:ring-amethyst-500 ring-offset-2">
-                            <Image src={"/og?title="+i.name} height={300} width={300} alt="" priority className="object-cover transition-all duration-300 ease-in-out rounded-2xl group-hover:grayscale" />
+                        <div className="group flex flex-col gap-3 active:scale-[0.98] outline-none w-full">
+                          <Link href={`/blog/${i.slug}`} className="w-full transition-all duration-300 ring-0 group-hover:ring-2 rounded-2xl group-hover:ring-amethyst-500 ring-offset-2">
+                            <Image src={"/og?title="+i.name} height={1200} width={630} alt="" loading="lazy" className="object-cover w-full transition-all duration-300 ease-in-out rounded-2xl group-hover:grayscale" />
                           </Link>
                           <div className="flex flex-col gap-2 px-2">
-                            <Link href={`/topic/${i.tag?.slug ?? "ai"}`} className="text-[10px] w-fit uppercase text-amethyst-500">
+                            <Link href={`/topics/${i.tag?.slug ?? "ai"}`} className="text-[10px] w-fit uppercase text-amethyst-500">
                               {i.tag?.title ?? "Artificial Intelligence"}
                             </Link>
                             <Link href={`/blog/${i.slug}`}>

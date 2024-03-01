@@ -40,7 +40,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }))
 
   const topicRoutes: Sitemap = topics.map((topic) => ({
-    url: `${process.env.NEXT_PUBLIC_BASE_URL}/topic/${topic.slug}`,
+    url: `${process.env.NEXT_PUBLIC_BASE_URL}/topics/${topic.slug}`,
     lastModified: new Date().toISOString().split('T')[0],
   }))
 
