@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   title: "Topics"
 }
 
+export const revalidate = 3600
+
 export default async function Topics() {
   const topics: Topic[] = await getAllTopics()
   return (
