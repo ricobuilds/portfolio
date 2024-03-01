@@ -1,3 +1,4 @@
+import { cn } from '@/lib/shared-utils';
 import { GeistSans } from 'geist/font/sans';
 import { ImageResponse } from 'next/og';
 import { NextRequest } from 'next/server';
@@ -8,13 +9,14 @@ export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
   const postTitle = searchParams.get('title');
   const font = fetch(
-    new URL(GeistSans.variable, import.meta.url)
+    new URL('../../public/fonts/CalSans-SemiBold.ttf', import.meta.url)
   ).then((res) => res.arrayBuffer());
   const fontData = await font;
 
   return new ImageResponse(
     (
       <div
+        tw='border'
         style={{
           height: '100%',
           width: '100%',
@@ -23,27 +25,21 @@ export async function GET(req: NextRequest) {
           alignItems: 'flex-start',
           justifyContent: 'center',
           backgroundRepeat: 'no-repeat',
+          fontStyle: "normal",
+          fontWeight: 800,
           backgroundSize: 'cover',
-          backgroundImage: `url(${process.env.NODE_ENV === 'production' ? 'https://enrictrillo.com' : 'http://localhost:3000'}/base-og.png)`,
+          backgroundImage: `url(${process.env.NODE_ENV === 'production' ? 'https://enrictrillo.com' : 'http://localhost:3000'}/dynamic-og.png)`,
         }}
       >
         <div
+          tw='ml-18 w-fit'
           style={{
             display: 'flex',
-            flexDirection: "row",
-            justifyContent: "center",
             width: "100%",
             maxWidth: "720px",
-            marginLeft: "auto",
-            marginRight: "auto",
-            textAlign: "center",
             fontSize: 64,
             fontFamily: 'CalSans-Semibold',
-            letterSpacing: '-0.05em',
-            fontStyle: 'normal',
             color: 'white',
-            lineHeight: '120px',
-            whiteSpace: 'pre-wrap',
           }}
         >
           {postTitle}
@@ -55,7 +51,7 @@ export async function GET(req: NextRequest) {
       height: 630,
       fonts: [
         {
-          name: 'Kaisei Tokumin',
+          name: 'CalSans',
           data: fontData,
           style: 'normal',
         },

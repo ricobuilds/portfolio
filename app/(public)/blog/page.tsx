@@ -117,8 +117,6 @@ export default async function Blog() {
     ]
   }
 
-  
-
   return (
     <>
       <StructuredData data={blogSchema} />
@@ -155,8 +153,8 @@ export default async function Blog() {
                     articles.map((i) => (
                       <li key={i._id}>
                         <div className="group flex flex-col gap-3 active:scale-[0.98] outline-none">
-                          <Link href={`/blog/${i.slug}`}>
-                            <Image src={"/base-og.png"} height={300} width={300} alt="" priority className="object-cover transition-all duration-500 ease-in-out rounded-2xl h-60 group-hover:grayscale" />
+                          <Link href={`/blog/${i.slug}`} className="transition-all duration-300 ring-0 group-hover:ring-2 rounded-2xl w-fit group-hover:ring-amethyst-500 ring-offset-2">
+                            <Image src={"/og?title="+i.name} height={300} width={300} alt="" priority className="object-cover transition-all duration-300 ease-in-out rounded-2xl group-hover:grayscale" />
                           </Link>
                           <div className="flex flex-col gap-2 px-2">
                             <Link href={`/topic/${i.tag?.slug ?? "ai"}`} className="text-[10px] w-fit uppercase text-amethyst-500">
