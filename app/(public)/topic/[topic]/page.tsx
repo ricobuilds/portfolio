@@ -69,6 +69,8 @@ export async function generateMetadata({ params }: { params: { topic: string } }
   }
 }
 
+export const revalidate = 3600
+
 export default async function Page({ params }: { params: { topic: string } }) {
 
   const topics = await getTags() //deduped

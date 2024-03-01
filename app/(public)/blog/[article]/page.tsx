@@ -136,6 +136,8 @@ const Navigation = ({ prevPost, nextPost }: { prevPost: { slug: string }, nextPo
   )
 }
 
+export const revalidate = 3600
+
 export default async function Page({ params }: { params: { article: string } }) {
   // const posts: Article[] = await sanityQuery(getAllArticles) //deduped!
   const { article } = params
