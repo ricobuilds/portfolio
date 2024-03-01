@@ -5,12 +5,18 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@portabletext/react':
+    specifier: ^3.0.11
+    version: 3.0.11(react@18.2.0)
   '@sanity/block-content-to-react':
     specifier: ^3.0.0
     version: 3.0.0(react@18.2.0)
   '@sanity/client':
     specifier: ^6.14.2
     version: 6.14.2
+  '@sanity/image-url':
+    specifier: ^1.0.2
+    version: 1.0.2
   bright:
     specifier: ^0.8.4
     version: 0.8.4(react@18.2.0)
@@ -426,6 +432,7 @@ packages:
 
   /@emotion/memoize@0.7.4:
     resolution: {integrity: sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==}
+    requiresBuild: true
     dev: false
     optional: true
 

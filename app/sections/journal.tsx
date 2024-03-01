@@ -1,4 +1,4 @@
-import { sanityQuery } from "@/lib/sanity/client"
+import { sanityQuery } from "@/lib/sanity/utils"
 import { getLatestArticles } from "@/lib/sanity/queries"
 import Link from "next/link"
 import { Article } from "../types/Article"

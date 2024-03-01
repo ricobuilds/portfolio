@@ -1,6 +1,21 @@
 import { groq } from "next-sanity";
 
 
+// # ARTICLES
+// # GLOSSARY
+const fetchTerm = groq`*[_type == "term"]`;
+
+export const fetchTermByID = (slug: string) => groq`*[_type == "term" && slug.current == "${slug}"][0]{
+  title,
+  content
+}`
+
+export const fetchTermByRef = (ref:string) => groq`*[_type == "term" && _id == "${ref}"][0]{
+  title,
+  "slug": slug.current
+}`
+// # TAGS
+
 // Homepage - Get 3 latest articles
 export const getLatestArticles = groq`*[_type == "article"] | order(_createdAt desc)[0..2]{
   _id,

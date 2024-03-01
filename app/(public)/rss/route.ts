@@ -1,6 +1,6 @@
 import { Article } from "@/app/types/Article"
 import { Topic } from "@/app/types/Topic"
-import { sanityQuery } from "@/lib/sanity/client"
+import { sanityQuery } from "@/lib/sanity/utils"
 import { getAllArticles, getTopics } from "@/lib/sanity/queries"
 import { siteMetadata } from "@/lib/site.metadata"
 import RSS from "rss"

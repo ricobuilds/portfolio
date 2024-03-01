@@ -1,6 +1,6 @@
 import { Topic } from "@/app/types/Topic"
 import { baseWidth } from "@/lib/config"
-import { sanityQuery } from "@/lib/sanity/client"
+import { sanityQuery } from "@/lib/sanity/utils"
 import { getTopics } from "@/lib/sanity/queries"
 import { cn } from "@/lib/shared-utils"
 import { Metadata } from "next"

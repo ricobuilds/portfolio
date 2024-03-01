@@ -1,5 +1,5 @@
 import { routes } from "@/lib/routes";
-import { sanityQuery } from "@/lib/sanity/client";
+import { sanityQuery } from "@/lib/sanity/utils";
 import { getAllArticles, getTopics } from "@/lib/sanity/queries";
 import { MetadataRoute } from "next";
 import { Article } from "./types/Article";
@@ -14,6 +14,7 @@ const listOfRoutes = [
   routes.rss,
   routes.home,
   routes.about,
+  routes.topics,
   routes.journal,
   routes.subscribe,
 ]

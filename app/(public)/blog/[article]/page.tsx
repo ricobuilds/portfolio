@@ -1,20 +1,20 @@
 import { Metadata, Viewport } from "next"
 import Image from "next/image"
-import styles from './Page.module.css'
 import { notFound } from "next/navigation"
 import { siteMetadata } from "@/lib/site.metadata"
 import { cn, convertDate } from "@/lib/shared-utils"
-import { sanityQuery } from "@/lib/sanity/client"
+import { sanityQuery } from "@/lib/sanity/utils"
 import { getAllArticles, getArticleBySlug, getNextArticle, getPrevArticle } from "@/lib/sanity/queries"
 import { Article } from "@/app/types/Article"
 import { WithContext, BreadcrumbList, Article as BlogPosting } from "schema-dts"
 import { StructuredData } from "@/app/components/structured-data"
 import Link from "next/link"
 import { ShareArticleRow } from "@/app/components/share-article"
-import { BlockWrapper, serialisers } from "@/app/components/codeblock"
 import { Kanit } from "next/font/google"
 import { ScrollProgress } from "@/app/components/scroll-progress"
 import { FramerPortal } from "./framer-portal"
+import { PortableText } from "@portabletext/react"
+import { components } from "@/app/components/portable"
 
 const heroFont = Kanit({
   subsets: ['latin'],
@@ -207,7 +207,7 @@ export default async function Page({ params }: { params: { article: string } }) 
       },
     ]
   }
-
+  
   return (
     <>
       <StructuredData data={articleSchema} />
@@ -259,12 +259,12 @@ export default async function Page({ params }: { params: { article: string } }) 
               </div>
             </div>
             <div className="mt-6 overflow-hidden rounded-xl">
-              <Image src={post.image ? post.image : `/base-og.png`} className={"w-full object-cover aspect-video"} alt={`${post.name} by Enric Trillo, founder of Metasyde`} width={1200} height={630} />
+              <Image src={post.image ? post.image : `/og?title=${post.name}`} className={"w-full object-cover aspect-video"} alt={`${post.name} by Enric Trillo, founder of Metasyde`} width={1200} height={630} />
             </div>
           </section>
           <section id="content" className="max-w-2xl mx-auto mt-8">
-            <article className={cn(styles.bloggo)}>
-              <BlockWrapper blocks={post?.content} serializers={serialisers} />
+            <article>
+              <PortableText value={post?.content} components={components} onMissingComponent={(message, options) => { console.log(message) }} />
             </article>
           </section>
           <section id="footer" className="">

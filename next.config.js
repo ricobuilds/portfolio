@@ -9,8 +9,9 @@ const nextConfig = {
       "ph-avatars.imgix.net",
       "media.beehiiv.com",
       "enrictrillo.com",
-      "github.com",
+      "cdn.sanity.io",
       "pbs.twimg.com",
+      "github.com",
       "xsgames.co",
       "localhost"
     ]

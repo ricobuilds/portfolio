@@ -6,3 +6,4 @@ export const config: ClientConfig = {
   apiVersion: "2023-03-04",
   useCdn: process.env.NODE_ENV === "production"
 }
+
