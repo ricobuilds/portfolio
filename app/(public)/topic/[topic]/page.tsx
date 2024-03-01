@@ -41,21 +41,17 @@ export async function generateMetadata({ params }: { params: { topic: string } }
   return {
     title: cluster.title,
     description: cluster.description,
-    authors: [
-      {
-        name: siteMetadata.title,
-        url: siteMetadata.siteUrl
-      }
-    ],
+    alternates: {
+      canonical: siteMetadata.siteUrl + "/topic/" + params.topic,
+    },
     openGraph: {
       locale: 'en_GB',
       title: cluster.title,
-      type: 'article',
+      type: 'website',
       url: siteMetadata.siteUrl + "/topic/" + params.topic,
-      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/og?title=${cluster.title}`,
+      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/base-og.png`,
       description: cluster.description,
       siteName: siteMetadata.title,
-      authors: "Enric Trillo"
     },
     twitter: {
       card: 'summary_large_image',
@@ -63,7 +59,7 @@ export async function generateMetadata({ params }: { params: { topic: string } }
       description: cluster.description,
       creator: '@ricobuilds',
       site: '@ricobuilds',
-      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/og?title=${cluster.title}`,
+      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/base-og.png`,
     },
     robots: "index, follow"
   }
@@ -136,9 +132,9 @@ export default async function Page({ params }: { params: { topic: string } }) {
       {/* <StructuredData data={topicBreadcrumbSchema} /> */}
       <main className={cn(baseWidth, "pt-20 mx-auto")}>
         <h1 className={cn(
-          "text-4xl lg:text-6xl font-bold",
+          "text-4xl lg:text-6xl font-bold lowercase",
           "text-charkol",
-        )}>{cluster?.title}</h1>
+        )}><span className="mr-2">/</span>{cluster?.title}</h1>
         <p>{cluster.description}</p>
         {/* <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 sm:grid-cols-2">
         { 
