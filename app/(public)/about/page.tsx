@@ -69,7 +69,7 @@ export default function About() {
     <>
       <StructuredData data={aboutSchema} />
       <StructuredData data={aboutBreadcrumbSchema} />
-      <main className="w-full px-4">
+      <main className="w-full px-6">
         <div className={cn(baseWidth, "w-full mx-auto")}>
           <div className="relative flex flex-col gap-10 pt-20">
             <h1 className="text-6xl font-semibold">About</h1>

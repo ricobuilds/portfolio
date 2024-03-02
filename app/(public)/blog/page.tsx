@@ -121,7 +121,7 @@ export default async function Blog() {
     <>
       <StructuredData data={blogSchema} />
       <StructuredData data={blogBreadcrumbSchema} />
-      <main className="w-full px-4">
+      <main className="w-full px-6">
         <div className={cn(baseWidth, "min-h-screen w-full mx-auto")}>
           <div className="relative flex flex-col w-full gap-10 pt-20">
             <h1 className="text-6xl font-semibold">Blog</h1>
