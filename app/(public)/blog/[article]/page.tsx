@@ -104,7 +104,7 @@ const Tags = ({ post }: { post: Article }) => {
         {
           (
             <li>
-              <Link className="transition-all duration-150 text-amethyst-500 hover:text-slate-400" href={`/topics/${post.tag?.slug ?? "ai"}`}>{post.tag?.title ?? "Artificial Intelligence"}</Link>
+              <Link className="transition-all duration-150 text-amethyst-500 hover:text-slate-400" href={`/topic${post.tag?.slug ?? "ai"}`}>{post.tag?.title ?? "Artificial Intelligence"}</Link>
             </li>
           )
         }
@@ -203,7 +203,7 @@ export default async function Page({ params }: { params: { article: string } }) 
         "@type": "ListItem",
         "position": 3,
         "name": post.tag?.title,
-        "item": siteMetadata.siteUrl + "/topics/" + post.tag?.slug,
+        "item": siteMetadata.siteUrl + "/topic/" + post.tag?.slug,
       },
     ]
   }
@@ -227,12 +227,12 @@ export default async function Page({ params }: { params: { article: string } }) 
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="ml-2 lucide lucide-chevron-left"><path d="m15 18-6-6 6-6" /></svg>
                 </li>
                 <li>
-                  <Link href={"/topics" + (post.tag?.slug ?? "/ar-vr")}>{post.tag?.title ?? "AR+VR"}</Link>
+                  <Link href={"/topic/" + (post.tag?.slug ?? "ar-vr")}>{post.tag?.title ?? "AR+VR"}</Link>
                 </li>
               </ol>
             </nav>
             <div id="meta" className="flex flex-col max-w-2xl gap-2 mt-20">
-              <Link href={`/topics/${post.tag?.slug ?? "ai"}`}>
+              <Link href={`/topic/${post.tag?.slug ?? "ai"}`}>
                 <div className={cn("w-fit px-2 py-0.5 rounded-lg", `bg-amethyst-400 bg-opacity-20 text-amethyst-600`)}>{post.tag?.title ?? "Artificial Intelligence"}</div>
               </Link>
               <h1 className={cn(

@@ -33,7 +33,7 @@ export const Journal = async () => {
                       <Image src={"/og?title=" + i.name} height={1200} width={630} alt="" loading="lazy" className="object-cover w-full transition-all duration-300 ease-in-out rounded-2xl group-hover:grayscale" />
                     </Link>
                     <div className="flex flex-col gap-2 px-2">
-                      <Link href={`/topics/${i.tag?.slug ?? "ai"}`} className="text-[10px] w-fit uppercase text-amethyst-500">
+                      <Link href={`/topic/${i.tag?.slug ?? "ai"}`} className="text-[10px] w-fit uppercase text-amethyst-500">
                         {i.tag?.title ?? "Artificial Intelligence"}
                       </Link>
                       <Link href={`/blog/${i.slug}`}>

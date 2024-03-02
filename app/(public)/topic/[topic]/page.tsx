@@ -42,13 +42,13 @@ export async function generateMetadata({ params }: { params: { topic: string } }
     title: cluster.title,
     description: cluster.description,
     alternates: {
-      canonical: siteMetadata.siteUrl + "/topics/" + params.topic,
+      canonical: siteMetadata.siteUrl + "/topic/" + params.topic,
     },
     openGraph: {
       locale: 'en_GB',
       title: cluster.title,
       type: 'website',
-      url: siteMetadata.siteUrl + "/topics/" + params.topic,
+      url: siteMetadata.siteUrl + "/topic/" + params.topic,
       images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/base-og.png`,
       description: cluster.description,
       siteName: siteMetadata.title,
@@ -87,7 +87,7 @@ export default async function Page({ params }: { params: { topic: string } }) {
     '@type': 'WebPage',
     "name": cluster.title,
     "description": cluster.description ?? "",
-    "url": siteMetadata.siteUrl + "/topics/" + cluster.slug,
+    "url": siteMetadata.siteUrl + "/topic/" + cluster.slug,
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -101,7 +101,7 @@ export default async function Page({ params }: { params: { topic: string } }) {
           "@type": "ListItem",
           "position": 2,
           "name": cluster.title,
-          "item": siteMetadata.siteUrl + "/topics/" + cluster.slug,
+          "item": siteMetadata.siteUrl + "/topic/" + cluster.slug,
         }
       ]
     },
@@ -121,7 +121,7 @@ export default async function Page({ params }: { params: { topic: string } }) {
   //       "@type": "ListItem",
   //       "position": 2,
   //       "name": cluster.title,
-  //       "item": siteMetadata.siteUrl + "/topics/" + cluster.slug,
+  //       "item": siteMetadata.siteUrl + "/topic/" + cluster.slug,
   //     }
   //   ]
   // }
