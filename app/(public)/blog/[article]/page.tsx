@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: { params: { article: string }
     title: post.name,
     description: post.snippet,
     alternates: {
-      canonical: `${siteMetadata.siteUrl}/blog/${post.slug}`,
+      canonical: `${siteMetadata.siteUrl}/blog/${article}`,
     },
     authors: [
       {
@@ -66,7 +66,7 @@ export async function generateMetadata({ params }: { params: { article: string }
       locale: 'en_GB',
       title: post.name,
       type: 'article',
-      url: siteMetadata.siteUrl + "/blog/" + post.slug,
+      url: siteMetadata.siteUrl + "/blog/" + article,
       images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/og?title=${post.name}`,
       description: post.snippet,
       siteName: siteMetadata.title,
