@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   title: title,
   description: description,
   alternates: {
-    canonical: siteMetadata + routes.subscribe
+    canonical: siteMetadata.siteUrl + routes.subscribe
   },
   openGraph: {
     locale: 'en_GB',
