@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     canonical: siteMetadata.siteUrl + routes.about
   },
   openGraph: {
+    title,
     locale: 'en_GB',
     type: 'website',
     images: `/base-og.png`,
