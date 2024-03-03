@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     locale: 'en_GB',
     type: 'website',
     images: `/base-og.png`,
+    url: siteMetadata.siteUrl + routes.about, 
     description,
     siteName: 'Enric Trillo',
   },

@@ -22,10 +22,11 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title,
+    description,
     locale: 'en_GB',
     type: 'website',
     images: `/base-og.png`,
-    description,
+    url: siteMetadata.siteUrl + routes.journal,
     siteName: 'Enric Trillo',
   },
   twitter: {
