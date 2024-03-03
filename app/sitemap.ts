@@ -11,8 +11,8 @@ type Sitemap = Array<{
 }>
 
 const listOfRoutes = [
-  routes.rss,
   routes.home,
+  routes.rss,
   routes.about,
   routes.journal,
   routes.subscribe,
