@@ -20,11 +20,13 @@ const homeSchema: WithContext<Person> = {
   "birthDate": "February 13, 1999",
   "jobTitle": "Fullstack Developer",
   "disambiguatingDescription": "Founder of Metasyde",
-  "nationality": "Spanish",
+  "nationality": {
+    "@type": "Country",
+    "name": "Spain"
+  },
   "birthPlace": {
     "@type": "Place",
     "name": "Alcorcón, Spain",
-
   },
   "knowsLanguage": [
     {
