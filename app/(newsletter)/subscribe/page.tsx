@@ -13,12 +13,15 @@ const heroFont = Kanit({
   display: 'swap',
 })
 
-const title = "The Metasyde: A newsletter for top news & insights on AI Gaming and the Metaverse"
-const description = "Grow as a Metaverse enthusiast with the top news, data and insights — sent to your inbox every week."
+const title = "The Metasyde: AI Gaming & Metaverse News"
+const description = "Stay ahead with The Metasyde newsletter for top AI Gaming and Metaverse insights. Subscribe now for the latest news and analysis."
 
 export const metadata: Metadata = {
   title: title,
   description: description,
+  alternates: {
+    canonical: siteMetadata + routes.subscribe
+  },
   openGraph: {
     locale: 'en_GB',
     title: title,
