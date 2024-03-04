@@ -1,9 +1,8 @@
-import { fetchTermByRef } from "@/lib/sanity/queries";
-import { sanityQuery } from "@/lib/sanity/utils";
+import { fetchTermByID } from "@/lib/sanity/queries";
 import Link from "next/link";
 
 export async function InternalLink({ value }: { value: { _ref: string, _type: string, _key: string } }) {
-  const resource = await sanityQuery(fetchTermByRef(value._ref))
+  const resource = await fetchTermByID(value._ref)
   return (
     <Link
       href={`/glossary/${resource?.slug}`}

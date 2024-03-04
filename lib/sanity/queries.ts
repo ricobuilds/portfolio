@@ -1,19 +1,30 @@
 import { groq } from "next-sanity";
+import { sanityQuery } from "./utils";
 
 
 // # ARTICLES
 // # GLOSSARY
-const fetchTerm = groq`*[_type == "term"]`;
+export const fetchTerms = async () => {
+  const res = await sanityQuery(groq`*[_type == "term"]`)
+  return res
+}
 
-export const fetchTermByID = (slug: string) => groq`*[_type == "term" && slug.current == "${slug}"][0]{
-  title,
-  content
-}`
+export const fetchTermBySlug = async (slug: string) => {
+  const res = await sanityQuery(groq`*[_type == "term" && slug.current == "${slug}"][0]{
+    title,
+    description,
+    content
+  }`)
+  return res
+}
 
-export const fetchTermByRef = (ref:string) => groq`*[_type == "term" && _id == "${ref}"][0]{
-  title,
-  "slug": slug.current
-}`
+export const fetchTermByID = async (ref: string) => {
+  const res = await sanityQuery(groq`*[_type == "term" && _id == "${ref}"][0]{
+    title,
+    "slug": slug.current
+  }`)
+  return res
+}
 // # TAGS
 
 // Homepage - Get 3 latest articles
