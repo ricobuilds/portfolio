@@ -3,7 +3,7 @@ import { cn } from "@/lib/shared-utils"
 import { Metadata } from "next"
 
 const title = "AI Gaming & Metaverse Glossary"
-const description = ""
+const description = "Your complete resource to learn the key terms shaping the world of deep learning, haptic technology, robotics, and the metaverse."
 
 export const metadata: Metadata = {
   title: title,
