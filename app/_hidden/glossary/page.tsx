@@ -44,22 +44,20 @@ export default async function Glossary() {
             <h1 className="text-6xl font-semibold">{title}</h1>
             {Object.entries(groupedTerms).map(([letter, terms]) => (
               <div key={letter} className="flex flex-col gap-8">
-                <div className={cn(font.className, "px-4 text-white bg-amethyst-500 w-fit mt-8")}>
+                <div className={cn(font.className, "px-4 text-white bg-amethyst-500 w-fit mt-8 rounded-md")}>
                   <h2 className="text-4xl ">
                     <span>{letter}</span>
                   </h2>
                 </div>
-                <ul>
-                  {/* @ts-ignore */}
-                  {terms.map((term) => (
-                    <li key={term._id} className="px-3 py-2 -mx-3 hover:bg-obsidian-100">
-                      <Link href={`/glossary/${term?.slug}`}>
-                        <h3 className="font-sans text-2xl font-medium">{term.title}</h3>
-                        <p>{term?.description ?? "lorem ipsum in this description ya so"}</p>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                {/* @ts-ignore */}
+                {terms.map((term) => (
+                  <div key={term._id} className="px-4 py-2 rounded hover:bg-obsidian-100">
+                    <Link href={`/glossary/${term?.slug}`} className="flex flex-col gap-1">
+                      <h3 className="font-sans text-2xl font-medium">{term.title}</h3>
+                      <p className="text-obsidian-600 w-fit max-w-[768px]">{term?.description ?? "lorem ipsum in this description ya so. lorem ipsum in this description ya so.lorem ipsum in this description ya so.lorem ipsum in this description ya so.lorem ipsum in this description ya so."}</p>
+                    </Link>
+                  </div>
+                ))}
               </div>
             ))}
           </div>
