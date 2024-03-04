@@ -13,9 +13,9 @@ export default function Newsletter() {
         <div className="w-full rounded-lg">
           <iframe src="https://embeds.beehiiv.com/b75aa27d-fe4f-4509-a4dc-82824921d067" className="w-full h-72" id="beehiiv-embed" data-test-id="beehiiv-embed" frameBorder="0" scrolling="yes" style={{ margin: '0', borderRadius: '0px !important', backgroundColor: 'transparent' }}></iframe>
         </div>
-        <div className="w-full">
+        <div className="w-full text-center">
           <div className="pt-4">
-            <span id="lipline" className="flex text-sm text-slate-400">Ps: I send emails every week, never spam or sell your data.</span>
+            <span id="lipline" className="text-sm text-slate-400">Ps: I send emails every week, never spam or sell your data.</span>
           </div>
         </div>
       </div>
