@@ -16,7 +16,7 @@ const components: PortableTextComponents = {
     },
     image: ({ value, isInline }) => {
       return (
-        <div className="flex flex-col items-center object-cover gap-3 p-2 aspect-auto ring-2 ring-slate-200 rounded-xl">
+        <div className="flex flex-col items-center object-cover gap-3 p-2 mb-4 aspect-auto rounded-xl">
           <Image
             width={700}
             height={700}
@@ -25,7 +25,9 @@ const components: PortableTextComponents = {
             loading="lazy"
             priority={false}
             className={cn(isInline ? 'inline-block' : 'block', "border")} />
-          <small className="mx-auto text-slate-500">{value.alt}</small>
+          <figcaption className="text-sm text-center text-slate-500">
+            <em>{value.alt}</em>
+          </figcaption>
         </div>
       )
     },
