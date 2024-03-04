@@ -36,7 +36,7 @@ const Navbar = () => {
             ))}
           </ul>
         </div>
-        <Link href={routes.subscribe} className="hidden sm:flex">
+        <Link href={routes.subscribe} className="hidden md:flex">
           <div className="px-2 py-2 text-white rounded-lg bg-charkol">Join Metasyde newsletter</div>
         </Link>
       </nav>
