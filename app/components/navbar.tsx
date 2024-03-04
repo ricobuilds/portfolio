@@ -18,6 +18,10 @@ const Navbar = () => {
       label: "Blog",
       route: routes.journal
     },
+    {
+      label: "Glossary",
+      route: routes.glossary
+    },
   ]
   return (
     <header className="flex justify-center w-full px-6 border-b h-18">
@@ -32,8 +36,8 @@ const Navbar = () => {
             ))}
           </ul>
         </div>
-        <Link href={routes.subscribe}>
-          <div className="px-2 py-2 text-white rounded-lg bg-charkol">Join Metasyde</div>
+        <Link href={routes.subscribe} className="hidden sm:flex">
+          <div className="px-2 py-2 text-white rounded-lg bg-charkol">Join Metasyde newsletter</div>
         </Link>
       </nav>
     </header>
