@@ -1,7 +1,6 @@
 import { groq } from "next-sanity";
 import { sanityQuery } from "./utils";
 
-
 // # ARTICLES
 // # GLOSSARY
 export const fetchTerms = async () => {
@@ -64,17 +63,6 @@ export const getTopics = groq`*[_type == "tag"]{
     "slug": slug.current
   }`
 
-// Get a single post by its ID
-export const getArticleBySlug = (slug: string) => groq`*[_type == "article" && slug.current == "${slug}"][0]{
-  name,
-  snippet,
-  content,
-  _updatedAt,
-  publishedAt,
-  "tag": tag->{title, "slug": slug.current},
-  "author": author->{name},
-  }`;
-
 // Get all article by author
 const getArticlesByAuthor = (slug: string) => groq`*[_type == "author" && slug.current == "${slug}"][0]{
   _id,
@@ -93,12 +81,37 @@ export const getArticlesByTopic = (slug: string) => groq`*[_type == "tag" && slu
   "articles": *[_type == "article" && references(^._id)] | order(publishedAt desc) [0...10]{_id, name, publishedAt, snippet,"slug": slug.current}
 }`
 
+// # /blog/[article] Queries
+
+// Get a single post by its ID
+export const fetchArticleBySlug = async (slug: string) => {
+  const res = await sanityQuery(groq`*[_type == "article" && slug.current == "${slug}"][0]{
+    name,
+    snippet,
+    content,
+    _updatedAt,
+    publishedAt,
+    "tag": tag->{title, "slug": slug.current},
+    "author": author->{name},
+    }`)
+
+  return res
+}
+
 // Get the prev article with smaller timestamp
-export const getPrevArticle = (order: string) => groq`*[_type == "article" && publishedAt < "${order}"] | order(publishedAt desc)[0]{
+export const getPrevArticle = async (order: string) => {
+  const res = await sanityQuery(groq`*[_type == "article" && publishedAt < "${order}"] | order(publishedAt desc)[0]{
   "slug": slug.current
-}`
+}`)
+
+  return res
+}
 
 // Get the nex article with bigger timestamp
-export const getNextArticle = (order: string) => groq`*[_type == "article" && publishedAt > "${order}"] | order(publishedAt asc)[0]{
+export const getNextArticle = async (order: string) => {
+  const res = await sanityQuery(groq`*[_type == "article" && publishedAt > "${order}"] | order(publishedAt asc)[0]{
   "slug": slug.current
-}`
+}`)
+
+  return res
+}

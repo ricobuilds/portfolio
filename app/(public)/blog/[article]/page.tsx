@@ -4,7 +4,7 @@ import { notFound } from "next/navigation"
 import { siteMetadata } from "@/lib/site.metadata"
 import { cn, convertDate } from "@/lib/shared-utils"
 import { sanityQuery } from "@/lib/sanity/utils"
-import { getAllArticles, getArticleBySlug, getNextArticle, getPrevArticle } from "@/lib/sanity/queries"
+import { getAllArticles, fetchArticleBySlug, getNextArticle, getPrevArticle } from "@/lib/sanity/queries"
 import { Article } from "@/app/types/Article"
 import { WithContext, BreadcrumbList, Article as BlogPosting } from "schema-dts"
 import { StructuredData } from "@/app/components/structured-data"
@@ -29,7 +29,7 @@ export const viewport: Viewport = {
 }
 
 async function getArticle(article: string) {
-  const post = await sanityQuery(getArticleBySlug(article))
+  const post = await fetchArticleBySlug(article)
   // console.log(post)
   return post
 }
@@ -144,14 +144,14 @@ export default async function Page({ params }: { params: { article: string } }) 
 
   // if (!posts.find((p: Article) => p.slug?.includes(article))) return notFound()
 
-  const post: Article = await sanityQuery(getArticleBySlug(article))
+  const post: Article = await fetchArticleBySlug(article)
 
   if (!post) {
     notFound()
   };
 
-  const prevArticle: { slug: string } = await sanityQuery(getPrevArticle(post.publishedAt))
-  const nextArticle: { slug: string } = await sanityQuery(getNextArticle(post.publishedAt))
+  const prevArticle: { slug: string } = await getPrevArticle(post.publishedAt)
+  const nextArticle: { slug: string } = await getNextArticle(post.publishedAt)
 
   const articleSchema: WithContext<BlogPosting> = {
     "@context": "https://schema.org",
@@ -207,7 +207,7 @@ export default async function Page({ params }: { params: { article: string } }) 
       },
     ]
   }
-  
+
   return (
     <>
       <StructuredData data={articleSchema} />
