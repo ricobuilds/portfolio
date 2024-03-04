@@ -1,6 +1,6 @@
 import { baseWidth } from "@/lib/config"
 import { sanityQuery } from "@/lib/sanity/utils"
-import { getTopics } from "@/lib/sanity/queries"
+import { fetchTopics } from "@/lib/sanity/queries"
 import { cn } from "@/lib/shared-utils"
 import { siteMetadata } from "@/lib/site.metadata"
 import { Topic } from "@/app/types/Topic"
@@ -16,14 +16,8 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
-async function getTags() {
-  const query = await sanityQuery(getTopics)
-  // console.log(query)
-  return query
-}
-
 export async function generateStaticParams() {
-  const topics = await getTags() //deduped
+  const topics = await fetchTopics() //deduped
 
   return topics.map((topic: Topic) => ({
     topic: topic.slug
@@ -32,7 +26,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: { topic: string } }): Promise<Metadata> {
 
-  const clusters = await getTags() //deduped
+  const clusters = await fetchTopics() //deduped
   const { topic } = params
   const cluster: Topic = clusters.find((p: Topic) => p.slug === topic)
 
@@ -69,7 +63,7 @@ export const revalidate = 3600
 
 export default async function Page({ params }: { params: { topic: string } }) {
 
-  const topics = await getTags() //deduped
+  const topics = await fetchTopics() //deduped
   const { topic } = params
 
   if (!topics.find((p: Topic) => p.slug === (topic))) return notFound()

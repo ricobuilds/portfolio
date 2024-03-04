@@ -1,13 +1,12 @@
 import { Article } from "@/app/types/Article"
 import { Topic } from "@/app/types/Topic"
-import { sanityQuery } from "@/lib/sanity/utils"
-import { getAllArticles, getTopics } from "@/lib/sanity/queries"
+import { fetchAllArticles, fetchTopics } from "@/lib/sanity/queries"
 import { siteMetadata } from "@/lib/site.metadata"
 import RSS from "rss"
 
 export async function GET() {
-  const posts: Article[] = await sanityQuery(getAllArticles) // import blog posts
-  const tags: Topic[] = await sanityQuery(getTopics)
+  const posts: Article[] = await fetchAllArticles()
+  const tags: Topic[] = await fetchTopics()
 
   const feed = new RSS({
     title: `${siteMetadata.title}'s Blog`,

@@ -3,8 +3,7 @@ import Image from "next/image"
 import { notFound } from "next/navigation"
 import { siteMetadata } from "@/lib/site.metadata"
 import { cn, convertDate } from "@/lib/shared-utils"
-import { sanityQuery } from "@/lib/sanity/utils"
-import { getAllArticles, fetchArticleBySlug, getNextArticle, getPrevArticle } from "@/lib/sanity/queries"
+import { fetchAllArticles, fetchArticleBySlug, getNextArticle, getPrevArticle } from "@/lib/sanity/queries"
 import { Article } from "@/app/types/Article"
 import { WithContext, BreadcrumbList, Article as BlogPosting } from "schema-dts"
 import { StructuredData } from "@/app/components/structured-data"
@@ -28,14 +27,8 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
-async function getArticle(article: string) {
-  const post = await fetchArticleBySlug(article)
-  // console.log(post)
-  return post
-}
-
 export async function generateStaticParams() {
-  const posts: Article[] = await sanityQuery(getAllArticles) //deduped!
+  const posts: Article[] = await fetchAllArticles() //deduped!
 
   return posts.map((post) => ({
     article: post.slug
@@ -46,7 +39,7 @@ export async function generateMetadata({ params }: { params: { article: string }
 
   const { article } = params
 
-  const post = await getArticle(article)
+  const post = await fetchArticleBySlug(article)
 
   if (!post) return { title: 'Issue not found!' }
 

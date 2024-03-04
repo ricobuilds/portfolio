@@ -1,19 +1,13 @@
 import { sanityQuery } from "@/lib/sanity/utils"
-import { getLatestArticles } from "@/lib/sanity/queries"
+import { fetchLatestArticles } from "@/lib/sanity/queries"
 import Link from "next/link"
 import { Article } from "../types/Article"
 import { convertDate } from "@/lib/shared-utils"
 import Image from "next/image"
 
-async function getBlogs() {
-  const query = await sanityQuery(getLatestArticles)
-  // console.log(query)
-  return query
-}
-
 export const Journal = async () => {
 
-  const blogs: Article[] = await getBlogs()
+  const articles: Article[] = await fetchLatestArticles()
 
   const showBlogs = true
   return (
@@ -26,7 +20,7 @@ export const Journal = async () => {
         showBlogs ? (
           <ul className="grid gap-8 md:grid-cols-3">
             {
-              blogs.map((article, idx: number) => (
+              articles.map((article, idx: number) => (
                 <li key={idx} className="">
                   <div className="group flex flex-col gap-3 active:scale-[0.98] outline-none w-full">
                     <Link href={`/blog/${article.slug}`} className="w-full transition-all duration-300 ring-0 group-hover:ring-2 rounded-2xl group-hover:ring-amethyst-500 ring-offset-2">

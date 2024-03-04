@@ -1,89 +1,20 @@
 import { groq } from "next-sanity";
 import { sanityQuery } from "./utils";
 
-// # ARTICLES
-// # GLOSSARY
-export const fetchTerms = async () => {
-  const res = await sanityQuery(groq`*[_type == "term"]`)
-  return res
-}
-
-export const fetchTermBySlug = async (slug: string) => {
-  const res = await sanityQuery(groq`*[_type == "term" && slug.current == "${slug}"][0]{
-    title,
-    description,
-    content
-  }`)
-  return res
-}
-
-export const fetchTermByID = async (ref: string) => {
-  const res = await sanityQuery(groq`*[_type == "term" && _id == "${ref}"][0]{
-    title,
-    "slug": slug.current
-  }`)
-  return res
-}
-// # TAGS
-
-// Homepage - Get 3 latest articles
-export const getLatestArticles = groq`*[_type == "article"] | order(_createdAt desc)[0..2]{
-  _id,
-  name,
-  snippet,
-  publishedAt,
-  "slug": slug.current,
-}
-`
-
-// Get all articles
-export const getAllArticles = groq`*[_type == "article"] | order(publishedAt desc){
-  _id,
-  name,
-  snippet,
-  publishedAt,
-  "slug": slug.current,
-}`
-
-// Get 6 latest articles
-export const getSixArticles = groq`*[_type == "article"] | order(publishedAt desc)[0..4]{
-  _id,
-  name,
-  snippet,
-  publishedAt,
-  "slug": slug.current,
-}`
-
-// Get all topics
-// export const getTopics = groq`*[_type == "tag" && count(*[_type=="article" && references(^._id)]) > 0]{
-export const getTopics = groq`*[_type == "tag"]{
+// # Article Queries
+export const fetchLatestArticles = async () => {
+  const res = await sanityQuery(groq`*[_type == "article"] | order(_createdAt desc)[0..2]{
     _id,
-    title,
-    description,
-    "slug": slug.current
-  }`
+    name,
+    snippet,
+    publishedAt,
+    "slug": slug.current,
+  }
+  `)
 
-// Get all article by author
-const getArticlesByAuthor = (slug: string) => groq`*[_type == "author" && slug.current == "${slug}"][0]{
-  _id,
-  name,
-  "image": image.asset->url,
-  _updatedAt,
-  bio,
-  "articles": *[_type == "article" && references(^._id)]{_id, name, publishedAt, snippet,"slug": slug.current}
-}`
+  return res
+}
 
-// Get all articles by cluster
-export const getArticlesByTopic = (slug: string) => groq`*[_type == "tag" && slug.current == "${slug}"][0]{
-  title,
-  description,
-  "slug": slug.current,
-  "articles": *[_type == "article" && references(^._id)] | order(publishedAt desc) [0...10]{_id, name, publishedAt, snippet,"slug": slug.current}
-}`
-
-// # /blog/[article] Queries
-
-// Get a single post by its ID
 export const fetchArticleBySlug = async (slug: string) => {
   const res = await sanityQuery(groq`*[_type == "article" && slug.current == "${slug}"][0]{
     name,
@@ -98,7 +29,6 @@ export const fetchArticleBySlug = async (slug: string) => {
   return res
 }
 
-// Get the prev article with smaller timestamp
 export const getPrevArticle = async (order: string) => {
   const res = await sanityQuery(groq`*[_type == "article" && publishedAt < "${order}"] | order(publishedAt desc)[0]{
   "slug": slug.current
@@ -107,11 +37,86 @@ export const getPrevArticle = async (order: string) => {
   return res
 }
 
-// Get the nex article with bigger timestamp
 export const getNextArticle = async (order: string) => {
   const res = await sanityQuery(groq`*[_type == "article" && publishedAt > "${order}"] | order(publishedAt asc)[0]{
   "slug": slug.current
 }`)
 
+  return res
+}
+
+export const fetchAllArticles = async () => {
+  const res = await sanityQuery(groq`*[_type == "article"] | order(publishedAt desc){
+    _id,
+    name,
+    snippet,
+    publishedAt,
+    "slug": slug.current,
+  }`)
+
+  return res
+}
+
+export const fetchSixArticles = async () => {
+  const res = await sanityQuery(groq`*[_type == "article"] | order(publishedAt desc)[0..4]{
+    _id,
+    name,
+    snippet,
+    publishedAt,
+    "slug": slug.current,
+  }`)
+
+  return res
+}
+
+// # Tag Queries
+// export const fetchTopics = groq`*[_type == "tag" && count(*[_type=="article" && references(^._id)]) > 0]{
+export const fetchTopics = async () => {
+  const res = await sanityQuery(groq`*[_type == "tag"]{
+        _id,
+        title,
+        description,
+        "slug": slug.current
+      }`)
+
+  return res
+}
+
+export const getArticlesByTopic = async (slug: string) => {
+  const res = await sanityQuery(groq`*[_type == "tag" && slug.current == "${slug}"][0]{
+    title,
+    description,
+    "slug": slug.current,
+    "articles": *[_type == "article" && references(^._id)] | order(publishedAt desc) [0...10]{_id, name, publishedAt, snippet, "slug": slug.current}
+  }`)
+
+  return res
+}
+
+// # Term Queries
+export const fetchTerms = async () => {
+  const res = await sanityQuery(groq`*[_type == "term"]{
+    _id,
+    title,
+    description,
+    "slug": slug.current
+  }`)
+  return res
+}
+
+export const fetchTermByID = async (ref: string) => {
+  const res = await sanityQuery(groq`*[_type == "term" && _id == "${ref}"][0]{
+    title,
+    "slug": slug.current
+  }`)
+  return res
+}
+
+export const fetchTermBySlug = async (slug: string) => {
+  const res = await sanityQuery(groq`*[_type == "term" && slug.current == "${slug}"][0]{
+    title,
+    description,
+    content
+  }`)
   return res
 }

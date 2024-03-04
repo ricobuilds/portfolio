@@ -4,8 +4,7 @@ import { siteMetadata } from "@/lib/site.metadata"
 import { cn, convertDate } from "@/lib/shared-utils"
 import Link from "next/link"
 import { baseWidth } from "@/lib/config"
-import { sanityQuery } from "@/lib/sanity/utils"
-import { getAllArticles, getSixArticles, getTopics } from "@/lib/sanity/queries"
+import { fetchAllArticles, fetchSixArticles, fetchTopics } from "@/lib/sanity/queries"
 import { Article } from "@/app/types/Article"
 import { Topic } from "@/app/types/Topic"
 import Image from "next/image"
@@ -40,21 +39,6 @@ export const metadata: Metadata = {
   robots: "index, follow"
 }
 
-async function fetchArticles() {
-  const articles = await sanityQuery(getAllArticles)
-  return articles
-}
-
-async function fetchSixArticles() {
-  const articles = await sanityQuery(getSixArticles)
-  return articles
-}
-
-async function fetchTags() {
-  const topics = await sanityQuery(getTopics)
-  return topics
-}
-
 function formatSixArticles(articles: Article[]) {
   const fortmattedSixArticles = articles.map((article) => ({
     "@type": "BlogPosting",
@@ -86,8 +70,8 @@ function formatSixArticles(articles: Article[]) {
 export const revalidate = 3600 // revalidate at most every hour
 
 export default async function Blog() {
-  const articles: Article[] = await fetchArticles()
-  const topics: Topic[] = await fetchTags()
+  const articles: Article[] = await fetchAllArticles()
+  const topics: Topic[] = await fetchTopics()
   const latestSixArticles = await fetchSixArticles()
 
   const blogSchema: WithContext<CollectionPage> = {
@@ -156,7 +140,7 @@ export default async function Blog() {
                       <li key={article._id}>
                         <div className="group flex flex-col gap-3 active:scale-[0.98] outline-none w-full">
                           <Link href={`/blog/${article.slug}`} className="w-full transition-all duration-300 ring-0 group-hover:ring-2 rounded-2xl group-hover:ring-amethyst-500 ring-offset-2">
-                            <Image src={"/og?title="+article.name} height={1200} width={630} alt={article.name} loading="lazy" className="object-cover w-full transition-all duration-300 ease-in-out rounded-2xl group-hover:grayscale" />
+                            <Image src={"/og?title=" + article.name} height={1200} width={630} alt={article.name} loading="lazy" className="object-cover w-full transition-all duration-300 ease-in-out rounded-2xl group-hover:grayscale" />
                           </Link>
                           <div className="flex flex-col gap-2 px-2">
                             <Link href={`/topic/${article.tag?.slug ?? "ai"}`} className="text-[10px] w-fit uppercase text-amethyst-500">
