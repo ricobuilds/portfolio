@@ -1,5 +1,4 @@
 import { baseWidth } from "@/lib/config"
-import { sanityQuery } from "@/lib/sanity/utils"
 import { fetchTopics } from "@/lib/sanity/queries"
 import { cn } from "@/lib/shared-utils"
 import { siteMetadata } from "@/lib/site.metadata"

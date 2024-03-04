@@ -4,4 +4,6 @@ export type Term = {
   description?: string
   slug?: string
   content?: any
+  _createdAt?: string
+  _updatedAt?: string
 }

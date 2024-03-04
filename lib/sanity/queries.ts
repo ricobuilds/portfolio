@@ -69,6 +69,15 @@ export const fetchSixArticles = async () => {
   return res
 }
 
+export const fetchArticleSitemap = async () => {
+  const res = await sanityQuery(groq`*[_type == "article"]{
+    "slug": slug.current,
+    _createdAt,
+    _updatedAt
+  }`)
+  return res
+}
+
 // # Tag Queries
 // export const fetchTopics = groq`*[_type == "tag" && count(*[_type=="article" && references(^._id)]) > 0]{
 export const fetchTopics = async () => {
@@ -88,6 +97,16 @@ export const getArticlesByTopic = async (slug: string) => {
     description,
     "slug": slug.current,
     "articles": *[_type == "article" && references(^._id)] | order(publishedAt desc) [0...10]{_id, name, publishedAt, snippet, "slug": slug.current}
+  }`)
+
+  return res
+}
+
+export const fetchTopicSitemap = async () => {
+  const res = await sanityQuery(groq`*[_type == "tag"]{
+    "slug": slug.current,
+    _createdAt,
+    _updatedtAt,
   }`)
 
   return res
@@ -117,6 +136,15 @@ export const fetchTermBySlug = async (slug: string) => {
     title,
     description,
     content
+  }`)
+  return res
+}
+
+export const fetchTermSitemap = async () => {
+  const res = await sanityQuery(groq`*[_type == "term"]{
+    "slug": slug.current,
+    _created,
+    _updatedAt
   }`)
   return res
 }

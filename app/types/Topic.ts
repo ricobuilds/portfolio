@@ -4,4 +4,6 @@ export type Topic = {
   description?: string
   slug?: string
   articles?: {}[]
+  _createdAt?: string
+  _updatedAt?: string
 }
