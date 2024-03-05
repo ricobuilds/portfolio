@@ -131,7 +131,7 @@ export default function About() {
           <Link href={routes.youtube} className="text-amethyst-500">YouTube</Link>
         </li>
       </ul>
-      <p>The 8 main topics I discuss online include: AR + VR, Artificial Intelligence, Blockchain, Gaming, Haptic, Metaverse, Robotics and Web.</p>
+      <p>The 8 main topics I discuss online include: AR + VR, Artificial Intelligence, Blockchain, Gaming, Haptic technology, Metaverse, Robotics and Web.</p>
     </section>
   )
   const journey = () => (
