@@ -1,5 +1,5 @@
 import { baseWidth } from "@/lib/config"
-import { fetchTopics } from "@/lib/sanity/queries"
+import { fetchTopic, fetchTopics } from "@/lib/sanity/queries"
 import { cn } from "@/lib/shared-utils"
 import { siteMetadata } from "@/lib/site.metadata"
 import { Topic } from "@/app/types/Topic"
@@ -62,14 +62,9 @@ export const revalidate = 3600
 
 export default async function Page({ params }: { params: { topic: string } }) {
 
-  const topics = await fetchTopics() //deduped
   const { topic } = params
 
-  if (!topics.find((p: Topic) => p.slug === (topic))) return notFound()
-
-  // if (topics.find((p: Topic) => p.slug === topic && p.articles.length === 0)) return notFound()
-
-  const cluster: Topic = topics.find((p: Topic) => p.slug === topic)
+  const cluster: Topic = await fetchTopic(topic)
 
   if (!cluster) {
     notFound()

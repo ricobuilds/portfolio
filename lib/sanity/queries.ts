@@ -22,7 +22,7 @@ export const fetchArticleBySlug = async (slug: string) => {
     content,
     _updatedAt,
     publishedAt,
-    "tag": tag->{title, "slug": slug.current},
+    "topic": topic->{title, "slug": slug.current},
     "author": author->{name},
     }`)
 
@@ -81,7 +81,7 @@ export const fetchArticleSitemap = async () => {
 // # Tag Queries
 // export const fetchTopics = groq`*[_type == "tag" && count(*[_type=="article" && references(^._id)]) > 0]{
 export const fetchTopics = async () => {
-  const res = await sanityQuery(groq`*[_type == "tag"]{
+  const res = await sanityQuery(groq`*[_type == "topic"]{
         _id,
         title,
         description,
@@ -91,19 +91,19 @@ export const fetchTopics = async () => {
   return res
 }
 
-export const getArticlesByTopic = async (slug: string) => {
-  const res = await sanityQuery(groq`*[_type == "tag" && slug.current == "${slug}"][0]{
+export const fetchTopic = async (slug: string) => {
+  const res = await sanityQuery(groq`*[_type == "topic" && slug.current == "${slug}"][0]{
     title,
     description,
     "slug": slug.current,
-    "articles": *[_type == "article" && references(^._id)] | order(publishedAt desc) [0...10]{_id, name, publishedAt, snippet, "slug": slug.current}
+    "articles": *[_type == "article" && references(^._id)] | order(publishedAt desc) [0...10]{_id, title, publishedAt, description, "slug": slug.current}
   }`)
 
   return res
 }
 
 export const fetchTopicSitemap = async () => {
-  const res = await sanityQuery(groq`*[_type == "tag"]{
+  const res = await sanityQuery(groq`*[_type == "topic"]{
     "slug": slug.current,
     _createdAt,
     _updatedtAt,
