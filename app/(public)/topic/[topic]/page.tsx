@@ -118,7 +118,7 @@ export default async function Page({ params }: { params: { topic: string } }) {
     <>
       <StructuredData data={topicSchema} />
       {/* <StructuredData data={topicBreadcrumbSchema} /> */}
-      <main className={cn(baseWidth, "pt-20 mx-auto")}>
+      <main className={cn(baseWidth, "pt-20 mx-auto flex-1")}>
         <h1 className={cn(
           "text-4xl lg:text-6xl font-bold lowercase",
           "text-charkol",
