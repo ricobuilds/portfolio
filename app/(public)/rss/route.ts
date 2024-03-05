@@ -33,11 +33,11 @@ export async function GET() {
 
   posts.forEach((post) => {
     feed.item({
-      title: post.name!,
+      title: post.title as string,
       guid: post._id,
       url: `${siteMetadata.siteUrl}/blog/${post.slug}`,
-      date: post.publishedAt!,
-      description: post.snippet! ?? null,
+      date: post.publishedAt as string,
+      description: post.description as string ?? null,
       categories: post.tag ? [post.tag.title] : [],
       author: post.author?.name ?? undefined
     })

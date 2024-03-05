@@ -44,8 +44,8 @@ export async function generateMetadata({ params }: { params: { article: string }
   if (!post) return { title: 'Issue not found!' }
 
   return {
-    title: post.name,
-    description: post.snippet,
+    title: post.title,
+    description: post.description,
     alternates: {
       canonical: `${siteMetadata.siteUrl}/blog/${article}`,
     },
@@ -57,21 +57,21 @@ export async function generateMetadata({ params }: { params: { article: string }
     ],
     openGraph: {
       locale: 'en_GB',
-      title: post.name,
+      title: post.title,
       type: 'article',
       url: siteMetadata.siteUrl + "/blog/" + article,
-      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/og?title=${post.name}`,
-      description: post.snippet,
+      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/og?title=${post.title}`,
+      description: post.description,
       siteName: siteMetadata.title,
       authors: siteMetadata.title
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.name,
-      description: post.snippet,
+      title: post.title,
+      description: post.description,
       creator: '@ricobuilds',
       site: siteMetadata.siteUrl,
-      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/og?title=${post.name}`,
+      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/og?title=${post.title}`,
     },
     robots: "index, follow",
   }
@@ -143,8 +143,8 @@ export default async function Page({ params }: { params: { article: string } }) 
     notFound()
   };
 
-  const prevArticle: { slug: string } = await getPrevArticle(post.publishedAt)
-  const nextArticle: { slug: string } = await getNextArticle(post.publishedAt)
+  const prevArticle: { slug: string } = await getPrevArticle(post.publishedAt as string)
+  const nextArticle: { slug: string } = await getNextArticle(post.publishedAt as string)
 
   const articleSchema: WithContext<BlogPosting> = {
     "@context": "https://schema.org",
@@ -153,8 +153,8 @@ export default async function Page({ params }: { params: { article: string } }) 
       "@type": "WebPage",
       "@id": siteMetadata.siteUrl + "/blog/" + post.slug
     },
-    "headline": post.name,
-    "description": post.snippet,
+    "headline": post.title,
+    "description": post.description,
     "datePublished": post.publishedAt,
     "dateModified": post._updatedAt,
     "author": {
@@ -225,16 +225,16 @@ export default async function Page({ params }: { params: { article: string } }) 
               </ol>
             </nav>
             <div id="meta" className="flex flex-col max-w-2xl gap-2 mt-20">
-              <Link href={`/topic/${post.tag?.slug ?? "ai"}`}>
+              <Link href={`/topic/${post.tag?.slug ?? "ai"}`} className="w-fit">
                 <div className={cn("w-fit px-2 py-0.5 rounded-lg", `bg-amethyst-400 bg-opacity-20 text-amethyst-600`)}>{post.tag?.title ?? "Artificial Intelligence"}</div>
               </Link>
               <h1 className={cn(
                 "text-5xl lg:text-6xl",
                 heroFont.className,
                 "text-charkol",
-              )}>{post.name}</h1>
+              )}>{post.title}</h1>
               <div>
-                <p itemProp="description" className="text-obsidian-400">{post.snippet ?? "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur ipsa omnis ratione"} </p>
+                <p itemProp="description" className="text-obsidian-400">{post.description ?? "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur ipsa omnis ratione"} </p>
               </div>
               <div className="flex items-center gap-4 text-charkol">
                 <Image src={'/headshot.jpeg'} width={600} height={600} priority className='w-10 h-10 rounded-full pointer-events-none select-none' alt={siteMetadata.title} />
@@ -245,14 +245,14 @@ export default async function Page({ params }: { params: { article: string } }) 
                   </div>
                   <div className="relative flex items-start justify-start gap-1 uppercase">
                     <time dateTime={post.publishedAt}>
-                      {convertDate(post?.publishedAt, { month: "long" })} {new Date(post.publishedAt).toLocaleTimeString("en-GB", { timeStyle: "short", hourCycle: "h12" })}
+                      {convertDate(post?.publishedAt as string, { month: "long" })} {new Date(post.publishedAt as string).toLocaleTimeString("en-GB", { timeStyle: "short", hourCycle: "h12" })}
                     </time>
                   </div>
                 </div>
               </div>
             </div>
             <div className="mt-6 overflow-hidden rounded-xl">
-              <Image src={post.image ? post.image : `/og?title=${post.name}`} className={"w-full object-cover aspect-video"} alt={`${post.name} by Enric Trillo, founder of Metasyde`} width={1200} height={630} />
+              <Image src={`/og?title=${post.title}`} className={"w-full object-cover aspect-video"} alt={`${post.title} by Enric Trillo, founder of Metasyde`} width={1200} height={630} />
             </div>
           </section>
           <section id="content" className="max-w-2xl mx-auto mt-8">
@@ -263,7 +263,7 @@ export default async function Page({ params }: { params: { article: string } }) 
           <section id="footer" className="">
             <CTA />
             {/* <Tags post={post} /> */}
-            <Share title={post.name} slug={params.article} />
+            <Share title={post.title as string} slug={params.article} />
             <Navigation prevPost={prevArticle} nextPost={nextArticle} />
           </section>
         </FramerPortal >

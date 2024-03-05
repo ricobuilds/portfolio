@@ -1,19 +1,18 @@
 export type Article = {
-  _id: string
-  name: string
-  slug: string
-  image: string
-  snippet: string
-  url: string
-  content: any
-  publishedAt: string
-  _updatedAt: string
-  _createdAt: string
-  author: {
+  _id?: string
+  title?: string
+  slug?: string
+  description?: string
+  youtube_url?: string
+  content?: any
+  publishedAt?: string
+  _updatedAt?: string
+  _createdAt?: string
+  author?: {
     name: string
     slug: string
   },
-  tag: {
+  tag?: {
     title: string
     slug: string
   }

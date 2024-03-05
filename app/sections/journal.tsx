@@ -24,16 +24,16 @@ export const Journal = async () => {
                 <li key={idx} className="">
                   <div className="group flex flex-col gap-3 active:scale-[0.98] outline-none w-full">
                     <Link href={`/blog/${article.slug}`} className="w-full transition-all duration-300 ring-0 group-hover:ring-2 rounded-2xl group-hover:ring-amethyst-500 ring-offset-2">
-                      <Image src={"/og?title=" + article.name} height={1200} width={630} alt={article.name} loading="lazy" className="object-cover w-full transition-all duration-300 ease-in-out rounded-2xl group-hover:grayscale" />
+                      <Image src={"/og?title=" + article?.title} height={1200} width={630} alt={article?.title as string} loading="lazy" className="object-cover w-full transition-all duration-300 ease-in-out rounded-2xl group-hover:grayscale" />
                     </Link>
                     <div className="flex flex-col gap-2 px-2">
                       <Link href={`/topic/${article.tag?.slug ?? "ai"}`} className="text-[10px] w-fit uppercase text-amethyst-500">
                         {article.tag?.title ?? "Artificial Intelligence"}
                       </Link>
                       <Link href={`/blog/${article.slug}`}>
-                        <h3 className="font-sans font-semibold hover:text-amethyst-500">{article.name}</h3>
+                        <h3 className="font-sans font-semibold hover:text-amethyst-500">{article.title}</h3>
                       </Link>
-                      <p className="uppercase text-[10px]">By <span className="text-slate-500">{article.author?.name ?? "Enric Trillo"}</span>  / <span>{convertDate(article.publishedAt, { month: "long" })}</span></p>
+                      <p className="uppercase text-[10px]">By <span className="text-slate-500">{article.author?.name ?? "Enric Trillo"}</span>  / <span>{convertDate(article.publishedAt as string, { month: "long" })}</span></p>
                     </div>
                   </div>
                 </li>

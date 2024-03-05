@@ -5,8 +5,8 @@ import { sanityQuery } from "./utils";
 export const fetchLatestArticles = async () => {
   const res = await sanityQuery(groq`*[_type == "article"] | order(_createdAt desc)[0..2]{
     _id,
-    name,
-    snippet,
+    title,
+    description,
     publishedAt,
     "slug": slug.current,
   }
@@ -17,8 +17,8 @@ export const fetchLatestArticles = async () => {
 
 export const fetchArticleBySlug = async (slug: string) => {
   const res = await sanityQuery(groq`*[_type == "article" && slug.current == "${slug}"][0]{
-    name,
-    snippet,
+    title,
+    description,
     content,
     _updatedAt,
     publishedAt,
@@ -48,8 +48,8 @@ export const getNextArticle = async (order: string) => {
 export const fetchAllArticles = async () => {
   const res = await sanityQuery(groq`*[_type == "article"] | order(publishedAt desc){
     _id,
-    name,
-    snippet,
+    title,
+    description,
     publishedAt,
     "slug": slug.current,
   }`)
@@ -60,8 +60,8 @@ export const fetchAllArticles = async () => {
 export const fetchSixArticles = async () => {
   const res = await sanityQuery(groq`*[_type == "article"] | order(publishedAt desc)[0..4]{
     _id,
-    name,
-    snippet,
+    title,
+    description,
     publishedAt,
     "slug": slug.current,
   }`)
