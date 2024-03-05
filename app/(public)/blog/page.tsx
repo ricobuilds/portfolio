@@ -115,10 +115,12 @@ export default async function Blog() {
               {
                 // @ts-ignore
                 topics.sort((a, b) => {
-                  if (a.title < b.title) {
+                  // @ts-ignore
+                  if (a?.title < b?.title) {
                     return -1;
                   }
-                  if (a.title > b.title) {
+                  // @ts-ignore
+                  if (a?.title > b?.title) {
                     return 1;
                   }
                 }).map((topic: Topic, idx: number) => (

@@ -6,7 +6,7 @@ import RSS from "rss"
 
 export async function GET() {
   const posts: Article[] = await fetchAllArticles()
-  const tags: Topic[] = await fetchTopics()
+  const topics: Topic[] = await fetchTopics()
 
   const feed = new RSS({
     title: `${siteMetadata.title}'s Blog`,
@@ -18,12 +18,15 @@ export async function GET() {
     copyright: `Copyright © ${new Date().getFullYear()} Enric Trillo (${siteMetadata.siteUrl})`,
     language: "en",
     pubDate: new Date(),
-    categories: [...tags
+    // @ts-ignore
+    categories: [...topics
       // @ts-ignore
       .sort((a, b) => {
+        // @ts-ignore
         if (a.title < b.title) {
           return -1;
         }
+        // @ts-ignore
         if (a.title > b.title) {
           return 1;
         }
