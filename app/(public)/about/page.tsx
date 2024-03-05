@@ -4,7 +4,10 @@ import { routes } from "@/lib/routes"
 import { cn } from "@/lib/shared-utils"
 import { siteMetadata } from "@/lib/site.metadata"
 import { Metadata } from "next"
+import { Kanit } from "next/font/google"
+import Image from "next/image"
 import Link from "next/link"
+import Balancer from "react-wrap-balancer"
 import { BreadcrumbList, WebPage, WithContext } from "schema-dts"
 
 const title = 'About Me'
@@ -21,7 +24,7 @@ export const metadata: Metadata = {
     locale: 'en_GB',
     type: 'website',
     images: `/base-og.png`,
-    url: siteMetadata.siteUrl + routes.about, 
+    url: siteMetadata.siteUrl + routes.about,
     description,
     siteName: 'Enric Trillo',
   },
@@ -66,7 +69,71 @@ const aboutBreadcrumbSchema: WithContext<BreadcrumbList> = {
   ]
 }
 
+const kanit = Kanit({
+  weight: "800",
+  subsets: ["latin"]
+})
+
 export default function About() {
+
+  const intro = () => (
+    <section id="intro">
+      <h2 className={cn(kanit.className, "font-semibold text-xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>About me</h2>
+      <p className="mb-6">
+        I&apos;m a fullstack developer, with 6+ years of development experience, passionate for building the future of gaming using AI and emerging technologies.
+        My journey began as a multi-faceted creative. In 2014, I became a well-known DJ at just 15 years old,
+        setting the stage for my diverse journey. At 16, I wrote my first line of code in Python and ventured into graphic design during
+        my time at St. Francis Xavier College. Over the years, I've honed my skills in UI/UX design, motion graphics, videography, and more.
+      </p>
+      <p className="mb-6">
+        My journey into the world of AI began during my time at the <strong>University of Northampton</strong>. I graduated with a degree in Computing (Graphics & Visualisation) and my interest in AI was sparked by the AI module taught by Professor Mu Mu, where I achieved an A* and later wrote about my experience in a <Link target={"_blank"} href={"https://medium.com/swlh/an-image-classifier-with-keras-2f0e9b868a36"} className="text-amethyst-500">Medium article</Link> featured by The Startup publication.
+      </p>
+      <p>Some of my recent gigs include working as a Fullstack Web3 Developer at CWJ Capital.</p>
+    </section>
+  )
+
+  const mission = () => (
+    <section id="mission">
+      <h2 className={cn(kanit.className, "font-semibold text-xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>My Mission</h2>
+      <p>
+        <strong>Metasyde was born in 2022</strong>, marking the start of my quest to follow my curiosity and redefine the gaming experience.
+        My mission is to push the boundaries of what&apos;s possible in gaming through cutting-edge AI technologies. I look to evangelise the <span className="italic">boundless mindset</span> too.
+      </p>
+    </section>
+  )
+
+  const vision = () => (
+    <section id="vision">
+      <h2 className={cn(kanit.className, "font-semibold text-xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Metasyde Vision</h2>
+      <p className="mb-6">
+        At Metasyde, we envision a future where artificial intelligence seamlessly integrates with gaming to create immersive, intelligent,
+        and dynamic experiences for players. Our goal is to be at the forefront of this evolution, pioneering new ways to engage with games
+        and the metaverse.
+      </p>
+      <p>
+        We see AI Gaming as a layer that contributes to the overall concept of the "Metaverse," just as we view emerging technologies like Web3 as another layer that contributes to this vision.
+      </p>
+    </section>
+  )
+
+  const journey = () => (
+    <section id="journey">
+      <h2 className={cn(kanit.className, "font-semibold text-xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Follow the Journey</h2>
+      <p className="mb-6">I (plan to) write content around AI Gaming and the Metaverse across my <Link href={routes.journal} className="text-amethyst-500">blog</Link> and and social media channels:</p>
+      <ul className="mb-6 ml-8 list-disc">
+        <li>
+          <Link href={routes.twitter} className="text-amethyst-500">Twitter</Link>
+        </li>
+        <li>
+          <Link href={routes.linkedin} className="text-amethyst-500">LinkedIn</Link>
+        </li>
+        <li>
+          <Link href={routes.youtube} className="text-amethyst-500">YouTube</Link>
+        </li>
+      </ul>
+      <p>I&apos;m on a journey to shape the future of AI Gaming and the Metaverse. Whether you&apos;re a gamer, fellow developer or an enthusiast curious about the possibilities of AI in gaming, I&apos;d be excited to connect and collaborate.</p>
+    </section>
+  )
   return (
     <>
       <StructuredData data={aboutSchema} />
@@ -74,27 +141,18 @@ export default function About() {
       <main className="w-full px-6">
         <div className={cn(baseWidth, "w-full mx-auto")}>
           <div className="relative flex flex-col gap-10 pt-20">
-            <h1 className="text-6xl font-semibold">About</h1>
-            <p>Hey I&apos;m Enric Trillo, a fullstack web developer, based in London, specialising in frontend development.</p>
-            <h3 className={cn("font-semibold text-xl")}>My Journey</h3>
-            <p>In 2014, I become a sound engineer (a DJ) at the age of 15. A year later, I wrote my first ever line of code in Python, and picked up Graphic design at 16 during my time at St. Francis Xavier college.</p>
-            <p>I graduated from University of Northampton in 2020 with a degree in Computing (Graphics & Visualisation).</p>
-            <p>During those years, between 2015 and 2020, I picked up more skills in UI/UX design, motion graphics, videography and more along the way.</p>
-            <p>Artificial Intelligence Techniques was a module taught by Professor Mu Mu, which was the beginning of my love for AI. I got an A* on the module and wrote a Medium article on what I did, resulting in the article getting featured by The Startup publication. Read it <Link href={"https://medium.com/swlh/an-image-classifier-with-keras-2f0e9b868a36"} target="_blank">here</Link></p>
-            <p>Some highlights:</p>
-            <ul className="ml-8 list-disc">
-              <li>Worked as a Hybrid SDR/BDR at European Gateway</li>
-              <li>Contracted as a Fullstack Web3 Developer with CWJ Capital</li>
-              <li>Built the GPT2Markdown chrome extension used by 1100+ users</li>
-            </ul>
-            <h3 className={cn("font-semibold text-xl")}>Now</h3>
-            <ul className="ml-8 list-disc">
-              <li>Updating my personal website</li>
-              <li>Building the site for <Link href={"https://metasyde.com"} target="_blank" className="underline text-celuria-500">metasyde.com</Link></li>
-              <li>Relaunching my newsletter as The Metasyde</li>
-              <li>Building media channels for business moat throughout Q1 2024</li>
-              <li>Grow proficiency in Pixel Art & Game Development through Q1-Q2 2024</li>
-            </ul>
+            {/* <h1 className="text-6xl font-semibold">About</h1> */}
+            <Image src={'/headshot.jpeg'} alt="Enric Trillo" width={600} height={600} className="inline w-24 h-24 mx-auto transition-all duration-300 rounded-full ring-2 ring-slate-200/80 hover:ring-4" />
+            <Balancer as={"h1"} className={cn(kanit.className, "text-3xl md:text-5xl lg:text-7xl text-center")}>
+              Hey, I&apos;m <span className="text-amethyst-500">Enric Trillo</span>, a fullstack developer building the future of gaming.
+            </Balancer>
+            <div id="content" className="flex flex-col gap-8 max-w-[696px] mx-auto">
+              {intro()}
+              {mission()}
+              {vision()}
+              {journey()}
+              <p>Let&apos;s create the next level of gaming together.</p>
+            </div>
           </div>
         </div>
       </main>
