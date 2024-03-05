@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 function groupByFirstLetter(terms: Term[]) {
   return terms.reduce((acc, term) => {
-    const firstLetter = term.title.charAt(0).toUpperCase();
+    const firstLetter = term.title?.charAt(0).toUpperCase();
     // @ts-ignore
     if (!acc[firstLetter]) {
       // @ts-ignore
@@ -45,24 +45,30 @@ export default async function Glossary() {
               <h1 className="text-6xl font-semibold">{title}</h1>
               <p>{description} Brought to you by the founder of Metasyde - an AI studio building the future of gaming.</p>
             </div>
-            {Object.entries(groupedTerms).map(([letter, terms]) => (
-              <div key={letter} className="flex flex-col gap-8">
-                <div className={cn(font.className, "px-4 text-white bg-amethyst-500 w-fit mt-8 rounded-md")}>
-                  <h2 className="text-4xl ">
-                    <span>{letter}</span>
-                  </h2>
-                </div>
-                {/* @ts-ignore */}
-                {terms.map((term) => (
-                  <div key={term._id} className="px-4 py-2 rounded hover:bg-obsidian-100">
-                    <Link href={`/glossary/${term?.slug}`} className="flex flex-col gap-1">
-                      <h3 className="font-sans text-2xl font-medium">{term.title}</h3>
-                      <p className="text-obsidian-600 w-fit">{term?.description ?? "lorem ipsum in this description ya so. lorem ipsum in this description ya so.lorem ipsum in this description ya so.lorem ipsum in this description ya so.lorem ipsum in this description ya so."}</p>
-                    </Link>
+            {
+              terms.length > 0 ?
+                Object.entries(groupedTerms).map(([letter, terms]) => (
+                  <div key={letter} className="flex flex-col gap-8">
+                    <div className={cn(font.className, "px-4 text-white bg-amethyst-500 w-fit mt-8 rounded-md")}>
+                      <h2 className="text-4xl ">
+                        {letter}
+                      </h2>
+                    </div>
+                    {/* @ts-ignore */}
+                    {terms.map((term) => (
+                      <div key={term._id} className="px-4 py-2 rounded hover:bg-obsidian-100">
+                        <Link href={`/glossary/${term?.slug}`} className="flex flex-col gap-1">
+                          <h3 className="font-sans text-2xl font-medium">{term.title}</h3>
+                          <p className="text-obsidian-600 w-fit">{term?.description ?? "lorem ipsum in this description ya so. lorem ipsum in this description ya so.lorem ipsum in this description ya so.lorem ipsum in this description ya so.lorem ipsum in this description ya so."}</p>
+                        </Link>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            ))}
+                ))
+                : (
+                  <p className="pt-6">No posts here... yet.</p>
+                )
+            }
           </div>
         </div>
       </main>
