@@ -116,10 +116,10 @@ export default function About() {
     </section>
   )
 
-  const journey = () => (
-    <section id="journey">
-      <h2 className={cn(kanit.className, "font-semibold text-xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Follow the Journey</h2>
-      <p className="mb-6">I (plan to) write content around AI Gaming and the Metaverse across my <Link href={routes.journal} className="text-amethyst-500">blog</Link> and and social media channels:</p>
+  const topics = () => (
+    <section id="topics">
+      <h2 className={cn(kanit.className, "font-semibold text-xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Topics</h2>
+      <p className="mb-6">I write content about my 8 topics to help you keep up with top news & insights on AI Gaming and the Metaverse across my <Link href={routes.journal} className="text-amethyst-500">blog</Link>, <Link href={routes.subscribe} className="text-amethyst-500">newsletter</Link> and social media channels:</p>
       <ul className="mb-6 ml-8 list-disc">
         <li>
           <Link href={routes.twitter} className="text-amethyst-500">Twitter</Link>
@@ -131,6 +131,12 @@ export default function About() {
           <Link href={routes.youtube} className="text-amethyst-500">YouTube</Link>
         </li>
       </ul>
+      <p>The 8 main topics I discuss online include: AR + VR, Artificial Intelligence, Blockchain, Gaming, Haptic, Metaverse, Robotics and Web.</p>
+    </section>
+  )
+  const journey = () => (
+    <section id="journey">
+      <h2 className={cn(kanit.className, "font-semibold text-xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Follow the Journey</h2>
       <p>I&apos;m on a journey to shape the future of AI Gaming and the Metaverse. Whether you&apos;re a gamer, fellow developer or an enthusiast curious about the possibilities of AI in gaming, I&apos;d be excited to connect and collaborate.</p>
     </section>
   )
@@ -149,6 +155,7 @@ export default function About() {
               {intro()}
               {mission()}
               {vision()}
+              {topics()}
               {journey()}
               <p>Let&apos;s create the next level of gaming together.</p>
             </div>
