@@ -141,7 +141,6 @@ export default function About() {
       <main className="w-full px-6">
         <div className={cn(baseWidth, "w-full mx-auto")}>
           <div className="relative flex flex-col gap-10 pt-20">
-            {/* <h1 className="text-6xl font-semibold">About</h1> */}
             <Image src={'/headshot.jpeg'} alt="Enric Trillo" width={600} height={600} className="inline w-24 h-24 mx-auto transition-all duration-300 rounded-full ring-2 ring-slate-200/80 hover:ring-4" />
             <Balancer as={"h1"} className={cn(kanit.className, "text-3xl md:text-5xl lg:text-7xl text-center")}>
               Hey, I&apos;m <span className="text-amethyst-500">Enric Trillo</span>, a fullstack developer building the future of gaming.

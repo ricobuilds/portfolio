@@ -89,23 +89,6 @@ const CTA = () => {
   )
 }
 
-const Tags = ({ post }: { post: Article }) => {
-  return (
-    <section id="tags" className="flex gap-6 py-8 mt-4 uppercase">
-      <span className="text-gray-800">Tags:</span>
-      <ul className="flex flex-row flex-wrap gap-3 divide">
-        {
-          (
-            <li>
-              <Link className="transition-all duration-150 text-amethyst-500 hover:text-slate-400" href={`/topic${post.tag?.slug ?? "ai"}`}>{post.tag?.title ?? "Artificial Intelligence"}</Link>
-            </li>
-          )
-        }
-      </ul>
-    </section>
-  )
-}
-
 const Share = ({ title, slug }: { title: string, slug: string }) => {
   return (
     <section id="share" className="max-w-2xl mx-auto mt-16">
@@ -132,10 +115,7 @@ const Navigation = ({ prevPost, nextPost }: { prevPost: { slug: string }, nextPo
 export const revalidate = 3600
 
 export default async function Page({ params }: { params: { article: string } }) {
-  // const posts: Article[] = await sanityQuery(getAllArticles) //deduped!
   const { article } = params
-
-  // if (!posts.find((p: Article) => p.slug?.includes(article))) return notFound()
 
   const post: Article = await fetchArticleBySlug(article)
 
@@ -262,7 +242,6 @@ export default async function Page({ params }: { params: { article: string } }) 
           </section>
           <section id="footer" className="">
             <CTA />
-            {/* <Tags post={post} /> */}
             <Share title={post.title as string} slug={params.article} />
             <Navigation prevPost={prevArticle} nextPost={nextArticle} />
           </section>

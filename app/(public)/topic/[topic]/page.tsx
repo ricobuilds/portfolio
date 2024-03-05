@@ -4,10 +4,8 @@ import { cn } from "@/lib/shared-utils"
 import { siteMetadata } from "@/lib/site.metadata"
 import { Topic } from "@/app/types/Topic"
 import { Metadata, Viewport } from "next"
-import Image from "next/image"
-import Link from "next/link"
 import { notFound } from "next/navigation"
-import { WithContext, WebPage, BreadcrumbList } from "schema-dts"
+import { WithContext, WebPage } from "schema-dts"
 import { StructuredData } from "@/app/components/structured-data"
 
 export const viewport: Viewport = {

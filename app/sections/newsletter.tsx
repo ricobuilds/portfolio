@@ -12,7 +12,6 @@ export default function Newsletter() {
       <h2 className={cn(kanit.className, "flex items-center text-2xl font-medium px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
         Newsletter
       </h2>
-      {/* <h3 className="mt-6 text-2xl italic font-bold">The Metasyde</h3> */}
       <div className="">
         <p className="hidden mb-8">Get notified when I write something about top news & insights on AI Gaming and the Metaverse, or launch a new project right in your inbox.</p>
         <div className="w-full rounded-lg">
