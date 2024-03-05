@@ -83,7 +83,7 @@ export default function About() {
         I&apos;m a fullstack developer, with 6+ years of development experience, passionate for building the future of gaming using AI and emerging technologies.
         My journey began as a multi-faceted creative. In 2014, I became a well-known DJ at just 15 years old,
         setting the stage for my diverse journey. At 16, I wrote my first line of code in Python and ventured into graphic design during
-        my time at St. Francis Xavier College. Over the years, I've honed my skills in UI/UX design, motion graphics, videography, and more.
+        my time at St. Francis Xavier College. Over the years, I&apos;ve honed my skills in UI/UX design, motion graphics, videography, and more.
       </p>
       <p className="mb-6">
         My journey into the world of AI began during my time at the <strong>University of Northampton</strong>. I graduated with a degree in Computing (Graphics & Visualisation) and my interest in AI was sparked by the AI module taught by Professor Mu Mu, where I achieved an A* and later wrote about my experience in a <Link target={"_blank"} href={"https://medium.com/swlh/an-image-classifier-with-keras-2f0e9b868a36"} className="text-amethyst-500">Medium article</Link> featured by The Startup publication.
@@ -111,7 +111,7 @@ export default function About() {
         and the metaverse.
       </p>
       <p>
-        We see AI Gaming as a layer that contributes to the overall concept of the "Metaverse," just as we view emerging technologies like Web3 as another layer that contributes to this vision.
+        We see AI Gaming as a layer that contributes to the overall concept of the &quot;Metaverse&quot;, just as we view emerging technologies like Web3 as another layer that contributes to this vision.
       </p>
     </section>
   )
