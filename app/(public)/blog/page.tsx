@@ -4,12 +4,12 @@ import { siteMetadata } from "@/lib/site.metadata"
 import { cn, convertDate } from "@/lib/shared-utils"
 import Link from "next/link"
 import { baseWidth } from "@/lib/config"
-import { fetchAllArticles, fetchSixArticles, fetchTopics } from "@/lib/sanity/queries"
 import { Article } from "@/app/types/Article"
 import { Topic } from "@/app/types/Topic"
 import Image from "next/image"
 import { BreadcrumbList, CollectionPage, WithContext } from "schema-dts"
 import { StructuredData } from "@/app/components/structured-data"
+import { sanityQuery } from "@/lib/sanity/utils"
 
 const title = 'Blog'
 const description = "Articles to share my thoughts, technical breakdowns and learnings on web development, artificial intelligence, machine learning and more."
@@ -70,9 +70,21 @@ function formatSixArticles(articles: Article[]) {
 export const revalidate = 3600 // revalidate at most every hour
 
 export default async function Blog() {
-  const articles: Article[] = await fetchAllArticles()
-  const topics: Topic[] = await fetchTopics()
-  const latestSixArticles = await fetchSixArticles()
+  const articles: Article[] = await sanityQuery(`*[_type == "article"] | order(publishedAt desc){
+    _id,
+    title,
+    description,
+    publishedAt,
+    "slug": slug.current
+  }`)
+  const topics: Topic[] = []
+  const latestSixArticles = await sanityQuery(`*[_type == "article"] | order(publishedAt desc)[0..4]{
+    _id,
+    title,
+    description,
+    publishedAt,
+    "slug": slug.current,
+  }`)
 
   const blogSchema: WithContext<CollectionPage> = {
     "@context": "https://schema.org",
@@ -111,7 +123,7 @@ export default async function Blog() {
         <div className={cn(baseWidth, "min-h-screen w-full mx-auto")}>
           <div className="relative flex flex-col w-full gap-10 pt-20">
             <h1 className="text-6xl font-semibold">Blog</h1>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex-wrap hidden gap-3">
               {
                 // @ts-ignore
                 topics.sort((a, b) => {

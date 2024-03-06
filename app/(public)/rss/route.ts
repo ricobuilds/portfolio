@@ -1,12 +1,22 @@
 import { Article } from "@/app/types/Article"
 import { Topic } from "@/app/types/Topic"
-import { fetchAllArticles, fetchTopics } from "@/lib/sanity/queries"
+import { sanityQuery } from "@/lib/sanity/utils"
 import { siteMetadata } from "@/lib/site.metadata"
 import RSS from "rss"
 
 export async function GET() {
-  const posts: Article[] = await fetchAllArticles()
-  const topics: Topic[] = await fetchTopics()
+  const posts: Article[] = await sanityQuery(`*[_type == "article"] | order(publishedAt desc){
+    _id,
+    title,
+    description,
+    publishedAt,
+    "slug": slug.current,
+    "tag": tag->{title},
+    "author": author->{name}
+  }`)
+  const topics: Topic[] = await sanityQuery(`*[_type == "topic"]{
+    title
+  }`)
 
   const feed = new RSS({
     title: `${siteMetadata.title}'s Blog`,

@@ -21,6 +21,7 @@ const Footer = () => {
       <div className="flex justify-center w-full py-10 mb-4 space-x-4 border-y">
         <Link href={routes.about} className="hover:text-obsidian-500">About</Link>
         <Link href={routes.journal} className="hover:text-obsidian-500">Blog</Link>
+        <Link href={routes.topics} className="hover:text-obsidian-500">Topics</Link>
         <Link href={routes.glossary} className="hover:text-obsidian-500">Glossary</Link>
         <Link href={routes.rss} className="inline-flex items-center gap-1 hover:text-obsidian-500">
           RSS

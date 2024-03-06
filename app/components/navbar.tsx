@@ -15,6 +15,10 @@ const Navbar = () => {
       route: routes.about
     },
     {
+      label: "Topics",
+      route: routes.topics
+    },
+    {
       label: "Blog",
       route: routes.journal
     },

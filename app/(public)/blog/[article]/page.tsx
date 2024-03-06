@@ -3,7 +3,6 @@ import Image from "next/image"
 import { notFound } from "next/navigation"
 import { siteMetadata } from "@/lib/site.metadata"
 import { cn, convertDate } from "@/lib/shared-utils"
-import { fetchAllArticles, fetchArticleBySlug, getNextArticle, getPrevArticle } from "@/lib/sanity/queries"
 import { Article } from "@/app/types/Article"
 import { WithContext, BreadcrumbList, Article as BlogPosting } from "schema-dts"
 import { StructuredData } from "@/app/components/structured-data"
@@ -14,6 +13,7 @@ import { ScrollProgress } from "@/app/components/scroll-progress"
 import { FramerPortal } from "./framer-portal"
 import { PortableText } from "@portabletext/react"
 import { components } from "@/app/components/portable"
+import { sanityQuery } from "@/lib/sanity/utils"
 
 const heroFont = Kanit({
   subsets: ['latin'],
@@ -28,7 +28,9 @@ export const viewport: Viewport = {
 }
 
 export async function generateStaticParams() {
-  const posts: Article[] = await fetchAllArticles() //deduped!
+  const posts: Article[] = await sanityQuery(`*[_type == "article"] | order(publishedAt desc){
+    "slug": slug.current,
+  }`)
 
   return posts.map((post) => ({
     article: post.slug
@@ -39,7 +41,15 @@ export async function generateMetadata({ params }: { params: { article: string }
 
   const { article } = params
 
-  const post = await fetchArticleBySlug(article)
+  const post = await sanityQuery(`*[_type == "article" && slug.current == "${article}"][0]{
+    title,
+    description,
+    content,
+    _updatedAt,
+    publishedAt,
+    "topic": topic->{title, "slug": slug.current},
+    "author": author->{name},
+    }`)
 
   if (!post) return { title: 'Issue not found!' }
 
@@ -117,14 +127,26 @@ export const revalidate = 3600
 export default async function Page({ params }: { params: { article: string } }) {
   const { article } = params
 
-  const post: Article = await fetchArticleBySlug(article)
+  const post: Article = await sanityQuery(`*[_type == "article" && slug.current == "${article}"][0]{
+    title,
+    description,
+    content,
+    _updatedAt,
+    publishedAt,
+    "topic": topic->{title, "slug": slug.current},
+    "author": author->{name},
+    }`)
 
   if (!post) {
     notFound()
   };
 
-  const prevArticle: { slug: string } = await getPrevArticle(post.publishedAt as string)
-  const nextArticle: { slug: string } = await getNextArticle(post.publishedAt as string)
+  const prevArticle: { slug: string } = await sanityQuery(`*[_type == "article" && publishedAt < "${post.publishedAt}"] | order(publishedAt desc)[0]{
+    "slug": slug.current
+  }`)
+  const nextArticle: { slug: string } = await sanityQuery(`*[_type == "article" && publishedAt > "${post.publishedAt}"] | order(publishedAt asc)[0]{
+    "slug": slug.current
+  }`)
 
   const articleSchema: WithContext<BlogPosting> = {
     "@context": "https://schema.org",

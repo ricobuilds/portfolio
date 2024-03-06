@@ -1,6 +1,6 @@
 import { Term } from "@/app/types/Term"
 import { baseWidth } from "@/lib/config"
-import { fetchTerms } from "@/lib/sanity/queries"
+import { sanityQuery } from "@/lib/sanity/utils"
 import { cn } from "@/lib/shared-utils"
 import { Metadata } from "next"
 import { Kanit } from "next/font/google"
@@ -34,7 +34,12 @@ function groupByFirstLetter(terms: Term[]) {
 }
 
 export default async function Glossary() {
-  const terms: Term[] = await fetchTerms()
+  const terms: Term[] = await sanityQuery(`*[_type == "term"]{
+    _id,
+    title,
+    "slug": slug.current,
+    description
+  }`)
   const groupedTerms = groupByFirstLetter(terms)
   return (
     <>

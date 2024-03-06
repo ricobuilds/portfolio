@@ -1,5 +1,4 @@
 import { sanityQuery } from "@/lib/sanity/utils"
-import { fetchLatestArticles } from "@/lib/sanity/queries"
 import Link from "next/link"
 import { Article } from "../types/Article"
 import { cn, convertDate } from "@/lib/shared-utils"
@@ -13,7 +12,13 @@ const kanit = Kanit({
 
 export const Journal = async () => {
 
-  const articles: Article[] = await fetchLatestArticles()
+  const articles: Article[] = await sanityQuery(`*[_type == "article"] | order(_createdAt desc)[0..2]{
+    _id,
+    title,
+    description,
+    publishedAt,
+    "slug": slug.current,
+  }`)
 
   const showBlogs = true
   return (

@@ -1,9 +1,9 @@
 import { routes } from "@/lib/routes";
-import { fetchAllArticles, fetchArticleSitemap, fetchTermSitemap, fetchTopicSitemap, fetchTopics } from "@/lib/sanity/queries";
 import { MetadataRoute } from "next";
 import { Article } from "./types/Article";
 import { Topic } from "./types/Topic";
 import { Term } from "./types/Term";
+import { sanityQuery } from "@/lib/sanity/utils";
 
 type Sitemap = Array<{
   url: string
@@ -14,6 +14,7 @@ const listOfRoutes = [
   routes.home,
   routes.about,
   routes.journal,
+  routes.topics,
   routes.glossary,
   routes.rss,
   routes.subscribe,
@@ -21,11 +22,23 @@ const listOfRoutes = [
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
-  const topics: Topic[] = await fetchTopicSitemap()
+  const topics: Topic[] = await sanityQuery(`*[_type == "topic"]{
+    "slug": slug.current,
+    _updatedAt,
+    _createdAt
+  }`)
 
-  const articles: Article[] = await fetchArticleSitemap()
+  const articles: Article[] = await sanityQuery(`*[_type == "article"]{
+    "slug": slug.current,
+    _updatedAt,
+    publishedAt
+  }`)
 
-  const terms: Term[] = await fetchTermSitemap()
+  const terms: Term[] = await sanityQuery(`*[_type == "term"]{
+    "slug": slug.current,
+    _updatedAt,
+    _createdAt
+  }`)
 
   const baseRoutes: Sitemap = listOfRoutes.map((route) => ({
     url: `${process.env.NEXT_PUBLIC_BASE_URL}${route}`,

@@ -1,5 +1,4 @@
 import { baseWidth } from "@/lib/config"
-import { fetchTopic, fetchTopics } from "@/lib/sanity/queries"
 import { cn } from "@/lib/shared-utils"
 import { siteMetadata } from "@/lib/site.metadata"
 import { Topic } from "@/app/types/Topic"
@@ -7,6 +6,7 @@ import { Metadata, Viewport } from "next"
 import { notFound } from "next/navigation"
 import { WithContext, WebPage } from "schema-dts"
 import { StructuredData } from "@/app/components/structured-data"
+import { sanityQuery } from "@/lib/sanity/utils"
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -14,7 +14,9 @@ export const viewport: Viewport = {
 }
 
 export async function generateStaticParams() {
-  const topics = await fetchTopics() //deduped
+  const topics = await sanityQuery(`*[_type == "topic"]{
+    "slug": slug.current
+  }`)
 
   return topics.map((topic: Topic) => ({
     topic: topic.slug
@@ -23,9 +25,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: { topic: string } }): Promise<Metadata> {
 
-  const clusters = await fetchTopics() //deduped
+  // const clusters = await fetchTopics() //deduped
   const { topic } = params
-  const cluster: Topic = clusters.find((p: Topic) => p.slug === topic)
+  const cluster: Topic = await sanityQuery(`*[_type == "topic" && slug.current == "${topic}"][0]`)
 
   if (!cluster) return { title: 'Page not found' }
 
@@ -62,7 +64,11 @@ export default async function Page({ params }: { params: { topic: string } }) {
 
   const { topic } = params
 
-  const cluster: Topic = await fetchTopic(topic)
+  const cluster: Topic = await sanityQuery(`*[_type == "topic" && slug.current == "${topic}"][0]{
+    title,
+    description,
+    "slug": slug.current
+  }`)
 
   if (!cluster) {
     notFound()
@@ -116,7 +122,7 @@ export default async function Page({ params }: { params: { topic: string } }) {
     <>
       <StructuredData data={topicSchema} />
       {/* <StructuredData data={topicBreadcrumbSchema} /> */}
-      <main className={cn(baseWidth, "pt-20 mx-auto flex-1")}>
+      <main className={cn(baseWidth, "pt-20 mx-auto flex-1 px-6")}>
         <h1 className={cn(
           "text-4xl lg:text-6xl font-bold lowercase",
           "text-charkol",
