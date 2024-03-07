@@ -92,6 +92,12 @@ export default async function Page({ params }: { params: { topic: string } }) {
         {
           "@type": "ListItem",
           "position": 2,
+          "name": "Topics",
+          "item": siteMetadata.siteUrl + "/topic",
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
           "name": cluster.title,
           "item": siteMetadata.siteUrl + "/topic/" + cluster.slug,
         }

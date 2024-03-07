@@ -7,7 +7,7 @@ import { baseWidth } from "@/lib/config"
 import { Article } from "@/app/types/Article"
 import { Topic } from "@/app/types/Topic"
 import Image from "next/image"
-import { BreadcrumbList, CollectionPage, WithContext } from "schema-dts"
+import { BreadcrumbList, WithContext, Blog} from "schema-dts"
 import { StructuredData } from "@/app/components/structured-data"
 import { sanityQuery } from "@/lib/sanity/utils"
 
@@ -86,9 +86,9 @@ export default async function Blog() {
     "slug": slug.current,
   }`)
 
-  const blogSchema: WithContext<CollectionPage> = {
+  const blogSchema: WithContext<Blog> = {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
+    "@type": "Blog",
     "name": "Blog",
     "description": "Welcome to the blog of MySite! Stay updated with the latest articles on AI Gaming and the Metaverse.",
     "url": siteMetadata.siteUrl + "/blog",
