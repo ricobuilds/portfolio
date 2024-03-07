@@ -149,7 +149,7 @@ export default function About() {
           <div className="relative flex flex-col gap-10 pt-20">
             <Image src={'/headshot.jpeg'} alt="Enric Trillo" width={600} height={600} className="inline w-24 h-24 mx-auto transition-all duration-300 rounded-full ring-2 ring-slate-200/80 hover:ring-4" />
             <h1 className="mx-auto">
-              <Balancer className={cn(kanit.className, "text-3xl md:text-5xl lg:text-7xl text-center")}>
+              <Balancer className={cn(kanit.className, "text-2xl md:text-5xl lg:text-7xl text-center")}>
                 Hey, I&apos;m <span className="text-amethyst-500">Enric Trillo</span>, a fullstack developer building the future of gaming.
               </Balancer>
             </h1>
