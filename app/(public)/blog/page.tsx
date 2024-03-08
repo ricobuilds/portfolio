@@ -86,17 +86,17 @@ export default async function Blog() {
     "slug": slug.current,
   }`)
 
-  const blogSchema: WithContext<Blog> = {
+  const schema: WithContext<Blog> = {
     "@context": "https://schema.org",
     "@type": "Blog",
     "name": "Blog",
-    "description": "Welcome to the blog of MySite! Stay updated with the latest articles on AI Gaming and the Metaverse.",
+    "description": "Stay updated with the latest articles on AI Gaming and the Metaverse.",
     "url": siteMetadata.siteUrl + "/blog",
     // @ts-ignore
     "mainEntity": formatSixArticles(latestSixArticles)
   }
 
-  const blogBreadcrumbSchema: WithContext<BreadcrumbList> = {
+  const breadcrumbSchema: WithContext<BreadcrumbList> = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
@@ -117,8 +117,8 @@ export default async function Blog() {
 
   return (
     <>
-      <StructuredData data={blogSchema} />
-      <StructuredData data={blogBreadcrumbSchema} />
+      <StructuredData data={schema} />
+      <StructuredData data={breadcrumbSchema} />
       <main className="w-full px-6">
         <div className={cn(baseWidth, "min-h-screen w-full mx-auto")}>
           <div className="relative flex flex-col w-full gap-10 pt-20">

@@ -1,3 +1,4 @@
+import { StructuredData } from "@/app/components/structured-data"
 import { Term } from "@/app/types/Term"
 import { baseWidth } from "@/lib/config"
 import { sanityQuery } from "@/lib/sanity/utils"
@@ -5,6 +6,7 @@ import { cn } from "@/lib/shared-utils"
 import { Metadata } from "next"
 import { Kanit } from "next/font/google"
 import Link from "next/link"
+import { WebPage, WithContext } from "schema-dts"
 
 const font = Kanit({
   weight: "800",
@@ -17,6 +19,13 @@ const description = "Your complete resource to learn the key terms shaping the w
 export const metadata: Metadata = {
   title: title,
   description: description
+}
+
+const schema: WithContext<WebPage> = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  headline: title,
+  description: description,
 }
 
 function groupByFirstLetter(terms: Term[]) {
@@ -43,6 +52,7 @@ export default async function Glossary() {
   const groupedTerms = groupByFirstLetter(terms)
   return (
     <>
+      <StructuredData data={schema} />
       <main className="w-full px-6">
         <div className={cn(baseWidth, "min-h-screen w-full mx-auto")}>
           <div className="relative flex flex-col w-full gap-10 pt-20">
