@@ -21,7 +21,6 @@ const heroFont = Kanit({
   display: 'swap',
 })
 
-
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
@@ -130,6 +129,7 @@ export default async function Page({ params }: { params: { article: string } }) 
   const post: Article = await sanityQuery(`*[_type == "article" && slug.current == "${article}"][0]{
     title,
     description,
+    "headings": content[style in ["h2", "h3", "h4", "h5", "h6"]],
     content,
     _updatedAt,
     publishedAt,
@@ -140,6 +140,8 @@ export default async function Page({ params }: { params: { article: string } }) 
   if (!post) {
     notFound()
   };
+
+  console.log(post.headings)
 
   const prevArticle: { slug: string } = await sanityQuery(`*[_type == "article" && publishedAt < "${post.publishedAt}"] | order(publishedAt desc)[0]{
     "slug": slug.current
@@ -272,3 +274,24 @@ export default async function Page({ params }: { params: { article: string } }) 
     </>
   )
 };
+
+const ToC = ({ headings }: any) => {
+  return (
+    <div className="bg-white overflow-hidden pt-6 px-6 pb-2.5 relative border-2 rounded-xl">
+      <div className="font-bold">Table of Contents</div>
+      <nav>
+        <ul>
+          {
+            headings?.map((heading: any) => (
+              <li key={heading?._key}>
+                <Link href={`#${heading.children[0].text}`}>
+                  {heading.children[0].text}
+                </Link>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+  )
+}

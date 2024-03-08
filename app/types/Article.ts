@@ -8,6 +8,7 @@ export type Article = {
   publishedAt?: string
   _updatedAt?: string
   _createdAt?: string
+  headings?: Array<string>
   author?: {
     name: string
     slug: string
