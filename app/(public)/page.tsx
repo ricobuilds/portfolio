@@ -10,6 +10,7 @@ import { cn } from "@/lib/shared-utils";
 import dynamic from "next/dynamic";
 import { siteMetadata } from "@/lib/site.metadata";
 import type { Person, WithContext } from "schema-dts"
+import { Intro } from "../sections/intro";
 
 const homeSchema: WithContext<Person> = {
   "@context": "https://schema.org",
@@ -74,6 +75,7 @@ export default function Home() {
         <div className={cn("max-w-[970px]", "mx-auto")}>
           <div className="flex flex-col gap-12 py-24 pb-10">
             <Hero />
+            <Intro/>
             <Journal />
             <Ventures />
             <Products />

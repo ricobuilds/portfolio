@@ -66,9 +66,9 @@ export const Hero = () => {
               </Balancer>
             </p>
           </div>
-          <Link href={routes.subscribe} className="flex md:hidden">
+          {/* <Link href={routes.subscribe} className="flex md:hidden">
             <div className="px-2 py-2 text-white rounded-lg bg-charkol">Subscribe to Metasyde newsletter</div>
-          </Link>
+          </Link> */}
           <ul className="flex gap-6 mx-auto mt-6 w-fit">
             {
               profiles.map((i, idx) => (
