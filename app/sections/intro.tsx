@@ -23,7 +23,7 @@ export const Intro = () => {
         <p>These statistics highlight the immense potential and growth opportunities in AI Gaming and the Metaverse. To capitalise on this rapidly evolving landscape, you must take informed action and innovate.</p>
         <p>Here at Metasyde, we see a future where AI integrates seamlessly with Gaming to create immersive characters, worlds and systems. We&apos;re an AI studio pioneering the future of gaming through groundbreaking AI and Metaverse technologies. Our cutting-edge offers will range from:</p>
         <ul className="ml-6 space-y-2 list-decimal">
-          <li>Games - we&apos;re obsessed with building adaptive gaming worlds that respond to players' actions, taking game immersion to the next level.</li>
+          <li>Games - we&apos;re obsessed with building adaptive gaming worlds that respond to players&apos; actions, taking game immersion to the next level.</li>
           <li>Products - we believe in helping forward-facing businesses unlock the world of next-gen technology through the likes of AI models and software.</li>
           <li>Services - offering our skillsets through consulting, research and development services to help teams and businesses leverage the future.</li>
         </ul>
