@@ -11,6 +11,7 @@ import dynamic from "next/dynamic";
 import { siteMetadata } from "@/lib/site.metadata";
 import type { Person, WithContext } from "schema-dts"
 import { Intro } from "../sections/intro";
+import { LogoCloud } from "../sections/logo-cloud";
 
 const homeSchema: WithContext<Person> = {
   "@context": "https://schema.org",
@@ -75,7 +76,8 @@ export default function Home() {
         <div className={cn("max-w-[970px]", "mx-auto")}>
           <div className="flex flex-col gap-12 py-24 pb-10">
             <Hero />
-            <Intro/>
+            <LogoCloud />
+            <Intro />
             <Journal />
             <Ventures />
             <Products />

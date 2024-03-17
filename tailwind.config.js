@@ -173,6 +173,10 @@ const config = {
         },
       },
       keyframes: {
+        "marquee": {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
         // Dropdown menu
         "scale-in": {
           "0%": { opacity: 0, transform: "scale(0)" },
@@ -268,37 +272,38 @@ const config = {
         },
       },
       animation: {
-        // Dropdown menu
-        "scale-in": "scale-in 0.2s ease-in-out",
-        "slide-down": "slide-down 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
-        "slide-up": "slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
-        // Tooltip
-        "slide-up-fade": "slide-up-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-        "slide-right-fade":
-          "slide-right-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-        "slide-down-fade": "slide-down-fade 1s cubic-bezier(0.16, 1, 0.3, 1)",
-        "slide-left-fade": "slide-left-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-        // Navigation menu
-        "enter-from-right": "enter-from-right 0.25s ease",
-        "enter-from-left": "enter-from-left 0.25s ease",
-        "exit-to-right": "exit-to-right 0.25s ease",
-        "exit-to-left": "exit-to-left 0.25s ease",
-        "scale-in-content": "scale-in-content 0.2s ease",
-        "scale-out-content": "scale-out-content 0.2s ease",
-        "fade-in": "fade-in 0.2s ease",
-        "fade-out": "fade-out 0.2s ease",
-        // Toast
-        'hide': 'hide 100ms ease-in',
-        'slideIn': 'slideIn 150ms cubic-bezier(0.16, 1, 0.3, 1)',
-        'swipeOut': 'swipeOut 100ms ease-out',
-        // Hover Card
-        'slideUpAndFade': 'slideUpAndFade 500ms cubic-bezier(0.16, 0, 0.13, 1)',
-        'slideDownAndFade': 'slideDownAndFade 500ms cubic-bezier(0.16, 0, 0.13, 1)',
-        'slideRightAndFade': 'slideRightAndFade 500ms cubic-bezier(0.16, 0, 0.13, 1)',
-        'slideLeftAndFade': 'slideLeftAndFade 500ms cubic-bezier(0.16, 0, 0.13, 1)',
+          "marquee": 'marquee 25s linear infinite',
+          // Dropdown menu
+          "scale-in": "scale-in 0.2s ease-in-out",
+          "slide-down": "slide-down 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+          "slide-up": "slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+          // Tooltip
+          "slide-up-fade": "slide-up-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+          "slide-right-fade":
+            "slide-right-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+          "slide-down-fade": "slide-down-fade 1s cubic-bezier(0.16, 1, 0.3, 1)",
+          "slide-left-fade": "slide-left-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+          // Navigation menu
+          "enter-from-right": "enter-from-right 0.25s ease",
+          "enter-from-left": "enter-from-left 0.25s ease",
+          "exit-to-right": "exit-to-right 0.25s ease",
+          "exit-to-left": "exit-to-left 0.25s ease",
+          "scale-in-content": "scale-in-content 0.2s ease",
+          "scale-out-content": "scale-out-content 0.2s ease",
+          "fade-in": "fade-in 0.2s ease",
+          "fade-out": "fade-out 0.2s ease",
+          // Toast
+          'hide': 'hide 100ms ease-in',
+          'slideIn': 'slideIn 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+          'swipeOut': 'swipeOut 100ms ease-out',
+          // Hover Card
+          'slideUpAndFade': 'slideUpAndFade 500ms cubic-bezier(0.16, 0, 0.13, 1)',
+          'slideDownAndFade': 'slideDownAndFade 500ms cubic-bezier(0.16, 0, 0.13, 1)',
+          'slideRightAndFade': 'slideRightAndFade 500ms cubic-bezier(0.16, 0, 0.13, 1)',
+          'slideLeftAndFade': 'slideLeftAndFade 500ms cubic-bezier(0.16, 0, 0.13, 1)',
+        },
       },
     },
-  },
-  plugins: [],
-};
-export default config;
+    plugins: [],
+  };
+  export default config;
