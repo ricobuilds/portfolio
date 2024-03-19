@@ -12,6 +12,7 @@ import { siteMetadata } from "@/lib/site.metadata";
 import type { Person, WithContext } from "schema-dts"
 import { Intro } from "../sections/intro";
 import { LogoCloud } from "../sections/logo-cloud";
+import { Certifications } from "../sections/certifications";
 
 const homeSchema: WithContext<Person> = {
   "@context": "https://schema.org",
@@ -80,8 +81,7 @@ export default function Home() {
             <Intro />
             <Journal />
             <Ventures />
-            <Products />
-            <Stack />
+            <Certifications/>
             <DynamicNewsletter />
             <Outro />
           </div>
