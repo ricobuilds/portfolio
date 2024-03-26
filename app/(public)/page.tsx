@@ -13,6 +13,7 @@ import type { Person, WithContext } from "schema-dts"
 import { Intro } from "../sections/intro";
 import { LogoCloud } from "../sections/logo-cloud";
 import { Certifications } from "../sections/certifications";
+import { Services } from "../sections/services";
 
 const homeSchema: WithContext<Person> = {
   "@context": "https://schema.org",
@@ -81,6 +82,7 @@ export default function Home() {
             <Intro />
             <Journal />
             <Ventures />
+            <Services/>
             <Certifications/>
             <DynamicNewsletter />
             <Outro />

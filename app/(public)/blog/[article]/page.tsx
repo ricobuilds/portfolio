@@ -276,7 +276,7 @@ export default async function Page({ params }: { params: { article: string } }) 
             </section>
           </FramerPortal>
           <aside className="lg:min-w-[270px] lg:max-w-[270px] pt-20">
-            <div className="sticky flex flex-col gap-6 top-24">
+            <div className="sticky flex-col hidden gap-6 lg:flex top-24">
               <ToC headings={post.headings} />
               <div className="bg-white overflow-hidden pt-6 px-4 pb-2.5 relative border-2 rounded-xl">
                 <div className="mb-2 font-bold">About {post.author?.name ?? "Enric Trillo"}</div>
