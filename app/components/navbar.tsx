@@ -32,16 +32,16 @@ const Navbar = () => {
       <nav className={cn(baseWidth, "flex justify-between w-full py-5 items-center")}>
         <div className="flex items-center gap-4">
           <Image src={'/ricobuilds.png'} alt="Enric Trillo Cryptopunk" width={64} height={64} className="inline w-8 h-8 transition-all duration-300 rounded-full" />
-          <ul className="flex flex-wrap gap-2 text-sm">
+          <ul className="flex flex-wrap gap-1 text-sm">
             {nav.map((i, idx) => (
               <li key={idx}>
-                <Link className="px-2 py-2 rounded-md hover:bg-slate-100" href={i.route}>{i.label}</Link>
+                <Link className="flex items-center h-8 px-3 rounded-md hover:bg-slate-100" href={i.route}>{i.label}</Link>
               </li>
             ))}
           </ul>
         </div>
         <Link href={routes.subscribe} className="hidden md:flex">
-          <div className="px-2 py-2 text-white rounded-lg bg-charkol">Join Metasyde newsletter</div>
+          <div className="px-3 py-2 text-sm text-white bg-charkol hover:bg-charkol/90">Join Metasyde</div>
         </Link>
       </nav>
     </header>

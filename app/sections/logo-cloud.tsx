@@ -46,7 +46,7 @@ export const LogoCloud = () => {
   ]
   return (
     <section id="logo-cloud" className="w-full max-w-xl mx-auto">
-      <h2 className="text-sm text-center text-obsidian-400">Certified by top technology companies</h2>
+      <h2 className="text-sm text-center text-obsidian-400">Recognised by top technology companies</h2>
       <div className="flex w-full h-16 max-w-2xl gap-6 mt-10">
         <Marquee speed={12} autoFill gradient className="flex gap-8 select-none">
           {

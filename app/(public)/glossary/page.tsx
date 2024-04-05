@@ -13,7 +13,7 @@ const font = Kanit({
   subsets: ['latin']
 })
 
-const title = "AI Gaming & Metaverse Glossary"
+const title = "Web3 Gaming & Metaverse Glossary"
 const description = "Your complete resource to learn the key terms shaping the world of deep learning, haptic technology, robotics, and the metaverse."
 
 export const metadata: Metadata = {

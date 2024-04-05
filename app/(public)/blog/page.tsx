@@ -90,7 +90,7 @@ export default async function Blog() {
     "@context": "https://schema.org",
     "@type": "Blog",
     "name": "Blog",
-    "description": "Stay updated with the latest articles on AI Gaming and the Metaverse.",
+    "description": "Stay updated with the latest articles on Web3 Gaming and the Metaverse.",
     "url": siteMetadata.siteUrl + "/blog",
     // @ts-ignore
     "mainEntity": formatSixArticles(latestSixArticles)

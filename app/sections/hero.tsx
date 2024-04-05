@@ -62,7 +62,7 @@ export const Hero = () => {
             <p className="mt-3 text-obsidian-500">
               <Balancer>
                 Hey👋 I&apos;m a fullstack developer with 7 years experience developing frontend interfaces,
-                on a mission to build the future of gaming with AI & emerging technologies @ <b className="text-charkol">Metasyde</b>.
+                on a mission to build the future of gaming with Web3 & emerging technologies @ <b className="text-charkol">Metasyde</b>.
               </Balancer>
             </p>
           </div>

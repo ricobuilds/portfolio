@@ -19,7 +19,7 @@ const homeSchema: WithContext<Person> = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": siteMetadata.title,
-  "description": "Enric J. 'Rico' Trillo Nchana is a fullstack developer from Croydon, London and founder of Metasyde. He continues to contributing to the future of AI Gaming.",
+  "description": "Enric J. 'Rico' Trillo Nchana is a fullstack developer from Croydon, London and founder of Metasyde. He continues to contributing to the future of Web3 Gaming.",
   "url": siteMetadata.siteUrl,
   "birthDate": "February 13, 1999",
   "jobTitle": "Fullstack Developer",

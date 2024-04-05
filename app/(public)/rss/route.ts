@@ -20,7 +20,7 @@ export async function GET() {
 
   const feed = new RSS({
     title: `${siteMetadata.title}'s Blog`,
-    description: `Top news & insights around AI Gaming and the Metaverse, by the founder of Metasyde.`,
+    description: `Top news & insights around Web3 Gaming and the Metaverse, by the founder of Metasyde.`,
     site_url: siteMetadata.siteUrl,
     feed_url: `${siteMetadata.siteUrl}/rss`,
     managingEditor: `${siteMetadata.title}`,

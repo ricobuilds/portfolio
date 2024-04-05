@@ -148,24 +148,27 @@ export default async function Term({ params }: { params: { term: string } }) {
     <>
       <StructuredData data={schema} />
       <StructuredData data={breadcrumbSchema} />
-      <main id="glossary-term" className="relative flex-1 w-full max-w-full px-6 mx-auto">
-        <section id="header" className="w-full max-w-2xl mx-auto">
-          <div id="meta" className="flex flex-col w-full gap-2 mt-20">
-            <h1 className={cn(
-              "text-5xl lg:text-6xl",
-              heroFont.className,
-              "text-charkol",
-            )}>{post.title}</h1>
-            <div>
-              <p itemProp="description" className="text-obsidian-400">{post.description ?? "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur ipsa omnis ratione"} </p>
+      <main id="glossary-term" className="relative flex-1 w-full px-6 mx-auto">
+        <div className="w-full max-w-[970px] mx-auto">
+          <section id="header" className="w-full mx-auto">
+            <div id="meta" className="flex flex-col w-full gap-2 mt-20">
+              <h1 className={cn(
+                "text-4xl lg:text-5xl",
+                heroFont.className,
+                "text-charkol",
+              )}>{post.title}</h1>
+              <p itemProp="description" className="max-w-2xl text-xl text-obsidian-400">
+                {post.description ?? "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur ipsa omnis ratione"}
+              </p>
             </div>
-          </div>
-        </section>
-        <section id="content" className="max-w-2xl mx-auto mt-8">
-          <article>
-            <PortableText value={post?.content} components={components} />
-          </article>
-        </section>
+          </section>
+          <hr className="max-w-2xl mt-10"/>
+          <section id="content" className="max-w-2xl mt-8">
+            <article>
+              <PortableText value={post?.content} components={components} />
+            </article>
+          </section>
+        </div>
       </main>
     </>
   )

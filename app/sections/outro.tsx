@@ -5,7 +5,7 @@ export const Outro = () => {
   If you think I'd be a good fit for your next project, please send me an email.
   I’m currently available for consulting/contract work.`
 
-  const content = "Book a call"
+  const content = "hola@enrictrillo.com"
 
   return (
     <div id="outro" className="flex flex-col gap-8 py-16">

@@ -50,10 +50,10 @@ const components: PortableTextComponents = {
     // }
   },
   block: {
-    h2: ({ children }) => <h2 className="mt-3 mb-2 text-3xl font-bold">{children}</h2>,
-    h3: ({ children }) => <h3 className="mt-3 mb-2 text-2xl font-semibold">{children}</h3>,
-    h4: ({ children }) => <h4 className="mt-3 mb-2 text-xl font-semibold">{children}</h4>,
-    h5: ({ children }) => <h5 className="mt-3 mb-2 text-lg font-normal">{children}</h5>,
+    h2: ({ children }) => <h2 className="mt-3 mb-2 font-sans text-3xl font-bold">{children}</h2>,
+    h3: ({ children }) => <h3 className="mt-3 mb-2 font-sans text-2xl font-semibold">{children}</h3>,
+    h4: ({ children }) => <h4 className="mt-3 mb-2 font-sans text-xl font-semibold">{children}</h4>,
+    h5: ({ children }) => <h5 className="mt-3 mb-2 font-sans text-lg font-normal">{children}</h5>,
     normal: ({ children }) => {
       return (
         <p className="mb-6">{children}</p>
@@ -66,8 +66,8 @@ const components: PortableTextComponents = {
     },
   },
   list: {
-    bullet: ({ children }) => <ul className="list-disc mt-xl">{children}</ul>,
-    number: ({ children }) => <ol className="list-decimal mt-lg">{children}</ol>,
+    bullet: ({ children }) => <ul className="ml-8 list-disc mt-xl">{children}</ul>,
+    number: ({ children }) => <ol className="ml-8 list-decimal mt-lg">{children}</ol>,
 
     // Ex. 2: rendering custom lists
     checkmarks: ({ children }) => <ol className="m-auto text-lg">{children}</ol>,

@@ -11,7 +11,7 @@ import Balancer from "react-wrap-balancer"
 import { BreadcrumbList, WebPage, WithContext } from "schema-dts"
 
 const title = 'About Me'
-const description = "Enric J Trillo Nchana is the founder of Metasyde, a fullstack developer and content creator writing daily insights on the future of AI gaming and the Metaverse."
+const description = "Enric J Trillo Nchana is the founder of Metasyde, a fullstack developer and content creator writing daily insights on the future of Web3 Gaming & the Metaverse."
 
 export const metadata: Metadata = {
   title,
@@ -81,12 +81,11 @@ export default function About() {
       <h2 className={cn(kanit.className, "font-semibold text-xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>About me</h2>
       <p className="mb-6">
         I&apos;m a fullstack developer, with 6+ years of development experience, passionate for building the future of gaming using AI and emerging technologies.
-        My journey began as a multi-faceted creative. In 2014, I became a well-known DJ at just 15 years old,
-        setting the stage for my diverse journey. At 16, I wrote my first line of code in Python and ventured into graphic design during
-        my time at St. Francis Xavier College. Over the years, I&apos;ve honed my skills in UI/UX design, motion graphics, videography, and more.
+        My journey began as a multi-faceted creative. In 2014, I made a name for myself as a DJ at just 15 years old,
+        setting the stage for my diverse journey. By 16, I was writing my first line of code in Python and going deep into graphic design during my time at St. Francis Xavier College. Over the years, I&apos;ve honed skills in UI/UX design, motion graphics, videography and more.
       </p>
       <p className="mb-6">
-        My journey into the world of AI began during my time at the <strong>University of Northampton</strong>. I graduated with a degree in Computing (Graphics & Visualisation) and my interest in AI was sparked by the AI module taught by Professor Mu Mu, where I achieved an A* and later wrote about my experience in a <Link target={"_blank"} href={"https://medium.com/swlh/an-image-classifier-with-keras-2f0e9b868a36"} className="text-amethyst-500">Medium article</Link> featured by The Startup publication.
+        My journey into the world of AI began during my time at the <strong>University of Northampton</strong>, where I earned a degree in Computing (Graphics & Visualisation) in 2020. The interest for AI sparked from the AI module taught by Professor Mu Mu, where I achieved an A* and later wrote about my experience in a <Link target={"_blank"} href={"https://medium.com/swlh/an-image-classifier-with-keras-2f0e9b868a36"} className="text-amethyst-500">Medium article</Link> featured by The Startup publication.
       </p>
       <p>Some of my recent gigs include working as a Fullstack Web3 Developer at CWJ Capital.</p>
     </section>
@@ -95,8 +94,8 @@ export default function About() {
   const mission = () => (
     <section id="mission">
       <h2 className={cn(kanit.className, "font-semibold text-xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>My Mission</h2>
-      <p>
-        <strong>Metasyde was born in 2022</strong>, marking the start of my quest to follow my curiosity and redefine the gaming experience.
+      <p>In 2022,
+        <strong>Metasyde was born</strong>, marking the beginning of my quest to follow my curiosity and redefine gaming with emerging technologies.
         My mission is to push the boundaries of what&apos;s possible in gaming through cutting-edge AI technologies. I look to evangelise the <span className="italic">boundless mindset</span> too.
       </p>
     </section>
@@ -106,12 +105,12 @@ export default function About() {
     <section id="vision">
       <h2 className={cn(kanit.className, "font-semibold text-xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Metasyde Vision</h2>
       <p className="mb-6">
-        At Metasyde, we envision a future where artificial intelligence seamlessly integrates with gaming to create immersive, intelligent,
+        At Metasyde, we see a future where blockchain seamlessly integrates with gaming to create immersive, intuitive,
         and dynamic experiences for players. Our goal is to be at the forefront of this evolution, pioneering new ways to engage with games
         and the metaverse.
       </p>
       <p>
-        We see AI Gaming as a layer that contributes to the overall concept of the &quot;Metaverse&quot;, just as we view emerging technologies like Web3 as another layer that contributes to this vision.
+        We see Web3 Gaming as a critical layer contributing to the overall concept of the &quot;Metaverse&quot;, alongside emerging technologies like AI and NFTs.
       </p>
     </section>
   )
@@ -119,7 +118,7 @@ export default function About() {
   const topics = () => (
     <section id="topics">
       <h2 className={cn(kanit.className, "font-semibold text-xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Topics</h2>
-      <p className="mb-6">I write content about my 8 topics to help you keep up with top news & insights on AI Gaming and the Metaverse across my <Link href={routes.journal} className="text-amethyst-500">blog</Link>, <Link href={routes.subscribe} className="text-amethyst-500">newsletter</Link> and social media channels:</p>
+      <p className="mb-6">I write content about my 8 topics to help you keep up with top news & insights on Web3 Gaming and the Metaverse across my <Link href={routes.journal} className="text-amethyst-500">blog</Link>, <Link href={routes.subscribe} className="text-amethyst-500">newsletter</Link> and social media channels:</p>
       <ul className="mb-6 ml-8 list-disc">
         <li>
           <Link href={routes.twitter} className="text-amethyst-500">Twitter</Link>
@@ -137,7 +136,7 @@ export default function About() {
   const journey = () => (
     <section id="journey">
       <h2 className={cn(kanit.className, "font-semibold text-xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Follow the Journey</h2>
-      <p>I&apos;m on a journey to shape the future of AI Gaming and the Metaverse. Whether you&apos;re a gamer, fellow developer or an enthusiast curious about the possibilities of AI in gaming, I&apos;d be excited to connect and collaborate.</p>
+      <p>I&apos;m on a mission to shape the future of Web3 Gaming and the Metaverse. Whether you&apos;re a gamer, fellow developer or simply curious about Web3 in gaming, I&apos;d love to connect and collaborate.</p>
     </section>
   )
   return (

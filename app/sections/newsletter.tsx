@@ -13,7 +13,7 @@ export default function Newsletter() {
         Newsletter
       </h2>
       <div className="">
-        <p className="hidden mb-8">Get notified when I write something about top news & insights on AI Gaming and the Metaverse, or launch a new project right in your inbox.</p>
+        <p className="hidden mb-8">Get notified when I write something about top news & insights on Web3 Gaming and the Metaverse, or launch a new project right in your inbox.</p>
         <div className="w-full rounded-lg">
           <iframe src="https://embeds.beehiiv.com/b75aa27d-fe4f-4509-a4dc-82824921d067" className="w-full h-72" id="beehiiv-embed" data-test-id="beehiiv-embed" frameBorder="0" scrolling="yes" style={{ margin: '0', borderRadius: '0px !important', backgroundColor: 'transparent' }}></iframe>
         </div>
