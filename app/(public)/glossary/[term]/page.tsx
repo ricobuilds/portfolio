@@ -2,7 +2,7 @@ import { components } from "@/app/components/portable"
 import { PortableText } from "@portabletext/react"
 import { sanityQuery } from "@/lib/sanity/utils"
 import { Metadata, Viewport } from "next"
-import { Term } from "@/app/types/Term"
+import { Term as TermType} from "@/app/types/Term"
 import { siteMetadata } from "@/lib/site.metadata"
 import { cn, convertDate } from "@/lib/shared-utils"
 import Link from "next/link"
@@ -23,7 +23,7 @@ export const viewport: Viewport = {
 }
 
 export async function generateStaticParams() {
-  const terms: Term[] = await sanityQuery(`*[_type == "term"] | order(publishedAt desc){
+  const terms: TermType[] = await sanityQuery(`*[_type == "term"] | order(publishedAt desc){
     "slug": slug.current,
   }`)
 
@@ -82,7 +82,7 @@ export async function generateMetadata({ params }: { params: { term: string } })
 
 export default async function Term({ params }: { params: { term: string } }) {
   const { term } = params
-  const post: Term = await sanityQuery(`*[_type == "term" && slug.current == "${term}"][0]{
+  const post: TermType = await sanityQuery(`*[_type == "term" && slug.current == "${term}"][0]{
     title,
     description,
     content,

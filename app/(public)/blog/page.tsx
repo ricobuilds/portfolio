@@ -7,7 +7,7 @@ import { baseWidth } from "@/lib/config"
 import { Article } from "@/app/types/Article"
 import { Topic } from "@/app/types/Topic"
 import Image from "next/image"
-import { BreadcrumbList, WithContext, Blog} from "schema-dts"
+import { BreadcrumbList, WithContext, Blog as BlogSchema} from "schema-dts"
 import { StructuredData } from "@/app/components/structured-data"
 import { sanityQuery } from "@/lib/sanity/utils"
 
@@ -86,7 +86,7 @@ export default async function Blog() {
     "slug": slug.current,
   }`)
 
-  const schema: WithContext<Blog> = {
+  const schema: WithContext<BlogSchema> = {
     "@context": "https://schema.org",
     "@type": "Blog",
     "name": "Blog",

@@ -238,51 +238,18 @@ export default async function Page({ params }: { params: { article: string } }) 
             <section id="content" className="max-w-2xl mx-auto mt-8">
               <article>
                 <PortableText value={post?.content} components={components} onMissingComponent={(message, options) => { console.log(message + "reekz") }} />
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, excepturi fugit non sequi fugiat repudiandae quibusdam repellendus libero eius quasi adipisci voluptatem mollitia a eligendi ducimus iusto, pariatur omnis asperiores.</p>
               </article>
             </section>
           </FramerPortal>
-          <aside className="lg:min-w-[270px] lg:max-w-[270px] pt-20">
-            <div className="sticky flex-col hidden gap-6 lg:flex top-24">
-              <ToC headings={post.headings} />
-              <div className="bg-white overflow-hidden pt-6 px-4 pb-2.5 relative border-2 rounded-xl">
-                <div className="mb-2 font-bold">About {post.author?.name ?? "Enric Trillo"}</div>
-                <p className="text-sm text-obsidian-500">He is the founder of <Link className="underline text-charkol" href={""}>Metasyde</Link>, an AI studio with a mission to build immersive experiences using emerging tech. Certified by top technology companies, Enric&apos;s expertise and passion spans various domains, including artificial intelligence, augmented/virtual reality, blockchain, robotics, and web development.</p>
+          <aside className="lg:min-w-[270px] lg:max-w-[270px] pt-10 lg:pt-20">
+            <div className="flex flex-col gap-6 top-24">
+              <div className="bg-white overflow-hidden pt-6 px-4 pb-2.5 relative rounded-xl">
+                <div className="w-full mb-5">
+                  <Image src={'/headshot.jpeg'} alt="Enric Trillo" width={300} height={300} className="w-32 h-32 mx-auto transition-all duration-300 rounded-full ring-2 ring-slate-200/80 hover:ring-4" />
+                </div>
+                <div className="mb-2 font-bold">Who is {post.author?.name ?? "Enric Trillo"}?</div>
+                <p className="text-sm text-obsidian-500">I am a fullstack developer & founder of <Link className="underline text-charkol" href={""}>Metasyde</Link>, a studio building immersive game experiences with Web3. I am obsessed with pushing the bounds of gaming with modern technologies.</p>
               </div>
-              <ShareArticleRow title={post.title as string} slug={params.article} />
             </div>
           </aside>
         </div>
