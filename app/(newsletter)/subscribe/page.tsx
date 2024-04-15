@@ -86,7 +86,7 @@ export default function Subscribe() {
                 </div>
                 <div className="w-full mb-8">
                   <h1 className={cn(heroFont.className, "text-6xl font-semibold text-center sm:text-left")}>Metasyde</h1>
-                  <p className="text-2xl text-center sm:text-left">Keep up with top news & insights on Web3 Gaming & the Metaverse, by Metasyde － relaunching soon.</p>
+                  <p className="text-2xl text-center sm:text-left">Keep up with top news & insights on AI, Web3 Gaming & the Metaverse, by Metasyde － relaunching soon.</p>
                 </div>
                 <div className="w-full mb-10">
                   <div className="w-full rounded-lg sm:max-w-md">
