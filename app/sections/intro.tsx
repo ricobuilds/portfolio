@@ -11,8 +11,8 @@ const kanit = Kanit({
 export const Intro = () => {
   return (
     <section id="intro" className="flex flex-col max-w-2xl gap-5 mx-auto">
-      <h2 className={cn(kanit.className, "flex items-center text-2xl font-medium md:mx-auto px-4 py-1 mb-3 text-white uppercase max-w-fit bg-amethyst-500")}>
-        The future of Gaming = Web3 & the Metaverse
+      <h2 className={cn(kanit.className, "flex items-center text-center text-lg md:text-2xl font-medium mx-auto px-4 py-1 mb-3 text-white uppercase max-w-fit bg-amethyst-500")}>
+        The future of Gaming = Web3 + Metaverse
       </h2>
       <div className="flex flex-col gap-6">
         <p className="">Industry research from market reports show that:</p>
@@ -29,7 +29,7 @@ export const Intro = () => {
         </ul>
         <p>Join us at the forefront of the Web3 Gaming and Metaverse revolution. Join the <strong>Metasyde</strong> to keep up with top insights being shaped by these game-changing technologies.</p>
         <p>Don&apos;t get left behind.</p>
-        <Link href={routes.subscribe} className="py-2 text-center text-white bg-charkol">Join the Metasyde</Link>
+        <Link href={routes.subscribe} className="py-2 text-center text-white bg-charkol">Join Metasyde</Link>
       </div>
     </section>
   )

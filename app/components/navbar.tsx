@@ -3,6 +3,16 @@ import { routes } from "@/lib/routes"
 import { cn } from "@/lib/shared-utils"
 import Image from "next/image"
 import Link from "next/link"
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/app/components/sheet"
+
+
 
 const Navbar = () => {
   const nav = [
@@ -32,7 +42,7 @@ const Navbar = () => {
       <nav className={cn(baseWidth, "flex justify-between w-full py-5 items-center")}>
         <div className="flex items-center gap-4">
           <Image src={'/ricobuilds.png'} alt="Enric Trillo Cryptopunk" width={64} height={64} className="inline w-8 h-8 transition-all duration-300 rounded-full" />
-          <ul className="flex flex-wrap gap-1 text-sm">
+          <ul className="flex-wrap hidden gap-1 text-sm md:flex">
             {nav.map((i, idx) => (
               <li key={idx}>
                 <Link className="flex items-center h-8 px-3 rounded-md hover:bg-slate-100" href={i.route}>{i.label}</Link>
@@ -43,6 +53,34 @@ const Navbar = () => {
         <Link href={routes.subscribe} className="hidden md:flex">
           <div className="px-3 py-2 text-sm text-white bg-charkol hover:bg-charkol/90">Join Metasyde</div>
         </Link>
+        <div className="flex md:hidden">
+          <Sheet>
+            <SheetTrigger className="flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></svg>
+            </SheetTrigger>
+            <SheetContent className="bg-white">
+              <SheetHeader>
+                <SheetTitle>Enric Trillo － Fullstack Developer</SheetTitle>
+                <SheetDescription className="text-obsidian-500">
+                  Building immersive characters, worlds & systems.
+                </SheetDescription>
+              </SheetHeader>
+              <p className="mt-8 mb-3 font-bold">Navigation</p>
+              <div className="flex flex-col gap-2">
+                {nav.map((i, idx) => (
+                  <Link href={i.route} key={idx}>
+                    <div className="cursor-pointer before:content-['→'] before:mr-2">{i.label}</div>
+                  </Link>
+                ))}
+              </div>
+              <div className="mt-3">
+                <Link href={routes.subscribe}>
+                  <div className="px-3 py-2 text-sm text-center text-white bg-charkol hover:bg-charkol/90">Join Metasyde</div>
+                </Link>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </nav>
     </header>
   )
