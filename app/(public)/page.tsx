@@ -76,7 +76,7 @@ export default function Home() {
       <StructuredData data={homeSchema} />
       <main className="w-full px-6">
         <div className={cn("max-w-[970px]", "mx-auto")}>
-          <div className="flex flex-col gap-12 py-24 pb-10">
+          <div className="flex flex-col gap-16 py-24 pb-10">
             <Hero />
             <LogoCloud />
             <Intro />
