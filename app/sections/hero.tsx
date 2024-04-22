@@ -57,7 +57,7 @@ export const Hero = () => {
         <div className="flex flex-col items-center gap-4">
           <Image src={'/headshot.jpeg'} alt="Enric Trillo" width={64} height={64} className="inline w-16 h-16 transition-all duration-300 rounded-full ring-2 ring-slate-200/80 hover:ring-4" />
           <div className="flex flex-col max-w-[969px] text-center">
-            <p className="text-obsidian-400">Fullstack Developer</p>
+            <p className="inline px-3 py-1 mx-auto text-sm border rounded-full text-obsidian-400 bg-obsidian-100 w-fit">Fullstack Developer</p>
             <h1 className={cn(heroFont.className, "text-4xl md:text-7xl")}><Balancer>Building immersive characters, worlds & systems</Balancer></h1>
             <p className="mt-3 text-obsidian-500">
               <Balancer>
