@@ -50,8 +50,8 @@ export const LogoCloud = () => {
       <div className="flex w-full h-16 max-w-2xl gap-6 mt-10">
         <Marquee speed={12} autoFill gradient className="flex gap-8 select-none">
           {
-            certs.map(({image, styles}) => (
-              <Image className={styles} src={`/certs/${image}.jpeg`} alt={`${image}_logo`} width={300} height={300} />
+            certs.map(({image, styles}, idx) => (
+              <Image key={idx} className={styles} src={`/certs/${image}.jpeg`} alt={`${image}_logo`} width={300} height={300} />
             ))
           }
         </Marquee>
