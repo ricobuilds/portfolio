@@ -9,9 +9,10 @@ const kanit = Kanit({
 export const Services = () => {
   return (
     <section id="services">
-      <h2 className={cn(kanit.className, "flex items-center text-2xl font-medium px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
+      <h2 className={cn(kanit.className, "flex items-center mx-auto text-2xl font-medium px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
         Services
       </h2>
+      <div className=""></div>
     </section>
   )
 }
