@@ -20,15 +20,15 @@ export const Ventures = () => {
     },
   ]
 
-  const showVentures = true
+  const showVentures = false
   return (
-    <section id="ventures" className="flex flex-col gap-10">
-     <h2 className={cn(kanit.className, "flex items-center text-2xl font-medium px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
+    <section id="ventures" className="flex flex-col py-16">
+      <h2 className={cn(kanit.className, "flex items-center text-2xl font-medium mx-auto px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
         Ventures
       </h2>
       {
         showVentures ? (
-          <div className="grid gap-2 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2">
             {
               ventures.map((i, idx) => (
                 <div key={idx} id="venture-card" className="p-6 rounded-lg bg-slate-100">
@@ -42,7 +42,7 @@ export const Ventures = () => {
                 </div>
               ))}
           </div>
-        ) : <p>No ventures... yet.</p>
+        ) : <p className="mx-auto text-obsidian-500">Stay tuned for exciting projects in the pipeline.</p>
       }
     </section >
   )
