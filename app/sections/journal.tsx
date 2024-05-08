@@ -22,13 +22,14 @@ export const Journal = async () => {
 
   const showBlogs = true
   return (
-    <section id="journal" className="flex flex-col gap-10 py-16">
+    <section id="journal" className="flex flex-col py-16">
       <h2 className={cn(kanit.className, "flex items-center mx-auto text-2xl font-medium px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
         Articles
       </h2>
+      <p className="text-center text-obsidian-600">The man behind Metasyde</p>
       {
         showBlogs ? (
-          <ul className="grid gap-8 md:grid-cols-3">
+          <ul className="grid gap-8 mt-10 md:grid-cols-3">
             {
               articles.map((article, idx: number) => (
                 <li key={idx} className="">

@@ -52,7 +52,7 @@ export const Certifications = () => {
       <h2 className={cn(kanit.className, "flex items-center text-2xl font-medium px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
         Certifications
       </h2>
-      <p className="text-obsidian-500">I&apos;m certified by top technology companies.</p>
+      <p className="text-obsidian-500">I&apos;m certified by top technology companies</p>
       <div className="mt-10">
         <ul role="list" className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {

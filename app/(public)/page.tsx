@@ -14,6 +14,8 @@ import { Intro } from "../sections/intro";
 import { LogoCloud } from "../sections/logo-cloud";
 import { Certifications } from "../sections/certifications";
 import { Services } from "../sections/services";
+import { USP } from "../sections/usp";
+import { AboutMe } from "../sections/about-me";
 
 const homeSchema: WithContext<Person> = {
   "@context": "https://schema.org",
@@ -81,7 +83,8 @@ export default function Home() {
             <LogoCloud />
             <Intro />
             <Journal />
-            <Ventures />
+            {/* <Ventures /> */}
+            <USP/>
             <Services/>
             <Certifications/>
             <DynamicNewsletter />

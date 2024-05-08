@@ -13,7 +13,7 @@ export const Services = () => {
         Services
       </h2>
       <div className="">
-        <p className="text-obsidian-500">Coming soon–innovative services to revolutionize the gaming industry.</p>
+        <p className="text-obsidian-500">Coming soon–innovative services to revolutionize the gaming industry</p>
       </div>
     </section>
   )
