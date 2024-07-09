@@ -19,7 +19,7 @@ export const ShareArticle = ({ slug, title }: { slug: string, title: string }) =
     <div className="flex flex-col items-center justify-center gap-4">
       <div className="font-semibold">Share this article</div>
       <div className="flex items-center gap-2">
-        <Link title={"Share article to Twitter - Enric Trillo"} href={`https://twitter.com/share?url=${siteMetadata.siteUrl}/blog/${slug}&text=${"Read " + title}&via=ricobuilds`}>Twitter</Link>
+        <Link title={"Share article to Twitter - Enric Trillo"} href={`https://x.com/share?url=${siteMetadata.siteUrl}/blog/${slug}&text=${"Read " + title}&via=ricobuilds`}>Twitter</Link>
         <Link title={"Share article to LinkedIn - Enric Trillo"} href={`https://www.linkedin.com/shareArticle/?url=${siteMetadata.siteUrl}/blog/${slug}&mini=true&title=${"Read " + title}`}>Linkedin</Link>
         <div onClick={() => handleCopy(`${siteMetadata.siteUrl}/blog/${slug}`)}>
           {!copy ? <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-copy"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg> : <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check"><path d="M20 6 9 17l-5-5" /></svg>}
@@ -43,7 +43,7 @@ export const ShareArticleRow = ({ slug, title }: { slug: string, title: string }
     <div className="flex flex-col gap-4">
       <div className="">Share this article online:</div>
       <div className="flex items-center gap-3">
-        <Link title={"Share article to Twitter via Enric Trillo"} href={`https://twitter.com/share?url=${siteMetadata.siteUrl}/blog/${slug}&text=${"Read " + title}&via=ricobuilds`}>
+        <Link title={"Share article to Twitter via Enric Trillo"} href={`https://x.com/share?url=${siteMetadata.siteUrl}/blog/${slug}&text=${"Read " + title}&via=ricobuilds`}>
           <span>
             {logos.twitter}
           </span>

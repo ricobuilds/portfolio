@@ -16,6 +16,9 @@ import { Certifications } from "../sections/certifications";
 import { Services } from "../sections/services";
 import { USP } from "../sections/usp";
 import { AboutMe } from "../sections/about-me";
+import { Work } from "../sections/work";
+import { Skills } from "../sections/skills";
+import { Showcase } from "../sections/showcase";
 
 const homeSchema: WithContext<Person> = {
   "@context": "https://schema.org",
@@ -61,7 +64,7 @@ const homeSchema: WithContext<Person> = {
     "url": "https://www.northampton.ac.uk/"
   },
   "sameAs": [
-    "https://twitter.com/ricobuilds",
+    "https://x.com/ricobuilds",
     "https://linkedin.com/in/enrictrillo",
     "https://youtube.com/@ricobuilds",
     "https://github.com/ricobuilds"
@@ -76,19 +79,17 @@ export default function Home() {
   return (
     <>
       <StructuredData data={homeSchema} />
-      <main className="w-full px-6">
+      <main className="flex-1 w-full px-6">
         <div className={cn("max-w-[970px]", "mx-auto")}>
           <div className="flex flex-col gap-16 py-24 pb-10">
             <Hero />
-            <LogoCloud />
-            <Intro />
+            <Showcase/>
             <Journal />
-            {/* <Ventures /> */}
-            <USP/>
-            <Services/>
+            <AboutMe/>
             <Certifications/>
+            <Skills/>
+            <Work />
             <DynamicNewsletter />
-            <Outro />
           </div>
         </div>
       </main>

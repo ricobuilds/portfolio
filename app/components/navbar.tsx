@@ -25,16 +25,12 @@ const Navbar = () => {
       route: routes.about
     },
     {
-      label: "Topics",
-      route: routes.topics
-    },
-    {
       label: "Blog",
       route: routes.journal
     },
     {
-      label: "Glossary",
-      route: routes.glossary
+      label: "Work",
+      route: routes.home + "/#work"
     },
   ]
   return (
@@ -42,17 +38,19 @@ const Navbar = () => {
       <nav className={cn(baseWidth, "flex justify-between w-full py-5 items-center")}>
         <div className="flex items-center gap-4">
           <Image src={'/ricobuilds.png'} alt="Enric Trillo Cryptopunk" width={64} height={64} className="inline w-8 h-8 transition-all duration-300 rounded-full" />
-          <ul className="flex-wrap hidden gap-1 text-sm md:flex">
-            {nav.map((i, idx) => (
-              <li key={idx}>
-                <Link className="flex items-center h-8 px-3 rounded-md hover:bg-slate-100" href={i.route}>{i.label}</Link>
-              </li>
-            ))}
-          </ul>
         </div>
-        <Link href={routes.subscribe} className="hidden md:flex">
-          <div className="px-3 py-2 text-sm text-white bg-charkol hover:bg-charkol/90">Join Metasyde</div>
-        </Link>
+        <ul className="absolute flex-wrap hidden gap-1 text-sm -translate-x-1/2 md:flex left-1/2">
+          {nav.map((i, idx) => (
+            <li key={idx}>
+              <Link className="flex items-center h-8 px-3 rounded-md hover:bg-slate-100" href={i.route}>{i.label}</Link>
+            </li>
+          ))}
+        </ul>
+        <div className="flex">
+          <Link href={routes.subscribe} className="hidden md:flex">
+            <button className="flex items-center px-3 py-2 text-sm text-white rounded-full bg-charkol hover:bg-charkol/90">Join Shift Forward</button>
+          </Link>
+        </div>
         <div className="flex md:hidden">
           <Sheet>
             <SheetTrigger className="flex items-center justify-center">
@@ -60,9 +58,9 @@ const Navbar = () => {
             </SheetTrigger>
             <SheetContent className="bg-white">
               <SheetHeader>
-                <SheetTitle>Enric Trillo － Fullstack Developer</SheetTitle>
+                <SheetTitle>Enric Trillo － Disruptive Technology</SheetTitle>
                 <SheetDescription className="text-obsidian-500">
-                  Building immersive characters, worlds & systems.
+                  Fullstack dev writing and building around disruptive tech.
                 </SheetDescription>
               </SheetHeader>
               <p className="mt-8 mb-3 font-bold">Navigation</p>
@@ -75,7 +73,7 @@ const Navbar = () => {
               </div>
               <div className="mt-3">
                 <Link href={routes.subscribe}>
-                  <div className="px-3 py-2 text-sm text-center text-white bg-charkol hover:bg-charkol/90">Join Metasyde</div>
+                  <div className="px-3 py-2 text-sm text-center text-white bg-charkol hover:bg-charkol/90">Join Shift Forward</div>
                 </Link>
               </div>
             </SheetContent>

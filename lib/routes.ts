@@ -6,7 +6,6 @@ export const routes = {
   newsletter: "/newsletter",
   rss: "/rss",
   subscribe: "/subscribe",
-  topics: "/topic",
   glossary: "/glossary",
   // topics
   arvr: "/topic/ar-vr",
@@ -19,7 +18,7 @@ export const routes = {
   web: "/topic/web",
   // socials
   email: "mailto:hola@enrictrillo.com",
-  twitter: "https://twitter.com/ricobuilds",
+  twitter: "https://x.com/ricobuilds",
   linkedin: "https://www.linkedin.com/in/enrictrillo/",
   discord: "https://discord.com/users/0xreeko#1744",
   github: "https://github.com/ricobuilds",

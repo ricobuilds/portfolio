@@ -14,11 +14,11 @@ export default function Newsletter() {
   return (
     <section id="newsletter" className="flex flex-col py-16">
       <h2 className={cn(kanit.className, "flex items-center text-2xl font-medium px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
-        Metasyde Newsletter
+        Shift Forward Newsletter
       </h2>
       <div className="w-full max-w-2xl mx-auto">
         <h3 className={cn("flex items-center mx-auto mb-3 text-lg font-medium text-center w-fit")}>
-          <Balancer>Get notified when I push out top alpha on AI, Web3 Gaming & Metaverse, or launch a new Metasyde project right in your inbox.</Balancer>
+          <Balancer>Get notified when I push out top alpha on disruptive technologies, or launch a new Metasyde project right in your inbox.</Balancer>
         </h3>
         <div className="flex justify-center pb-1">
           <span id="browline" className="invisible hidden text-sm text-slate-400">{`Subscribe and get a ${type.length > 0 ? type : "FREE"} ${resource.length > 0 ? resource : " [resource]"} to ${solution.length > 0 ? solution : "[solution]"}.`}</span>

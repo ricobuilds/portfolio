@@ -148,7 +148,7 @@ export default async function Blog() {
             </div>
             {
               articles.length > 0 ? (
-                <ul className="grid w-full gap-8 md:grid-cols-3">
+                <ul className="grid w-full gap-8 md:grid-cols-2">
                   {
                     articles.map((article) => (
                       <li key={article._id}>
@@ -157,8 +157,8 @@ export default async function Blog() {
                             <Image src={"/og?title=" + article.title} height={1200} width={630} alt={article.title as string} loading="lazy" className="object-cover w-full transition-all duration-300 ease-in-out rounded-2xl group-hover:grayscale" />
                           </Link>
                           <div className="flex flex-col gap-2 px-2">
-                            <Link href={`/topic/${article.tag?.slug ?? "ai"}`} className="text-[10px] w-fit uppercase text-amethyst-500">
-                              {article.tag?.title ?? "Artificial Intelligence"}
+                            <Link href={`/topic/${article.topic?.slug ?? "ai"}`} className="text-[10px] w-fit uppercase text-amethyst-500">
+                              {article.topic?.title ?? "Artificial Intelligence"}
                             </Link>
                             <Link href={`/blog/${article.slug}`}>
                               <h3 className="font-sans font-semibold hover:text-amethyst-500">{article.title}</h3>

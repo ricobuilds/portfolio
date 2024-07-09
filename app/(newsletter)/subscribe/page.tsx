@@ -14,8 +14,8 @@ const heroFont = Kanit({
   display: 'swap',
 })
 
-const title = "The Metasyde: Web3 Gaming & Metaverse News"
-const description = "Stay ahead with the Metasyde newsletter for top Web3 Gaming and Metaverse insights. Subscribe now for the latest news and analysis."
+const title = "Shift Forward: Disruptive Tech Analysis"
+const description = "Stay ahead with the Shift Forward newsletter for the latest insights on disruptive technologies. Subscribe now for the latest news and analysis."
 
 export const metadata: Metadata = {
   title: title,
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: title,
     type: 'website',
     url: siteMetadata.siteUrl + routes.subscribe,
-    images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/subscribe-og.png`,
+    images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3001"}/subscribe-og.png`,
     description: description,
     siteName: siteMetadata.title,
   },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     description: description,
     creator: '@ricobuilds',
     site: '@ricobuilds',
-    images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/subscribe-og.png`,
+    images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3001"}/subscribe-og.png`,
   },
   robots: "index, follow"
 }
@@ -50,7 +50,7 @@ export default function Subscribe() {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     "name": "Subscribe Page",
-    "description": "Subscribe to the Metasyde newsletter for the latest updates on W Gaming and the Metaverse.",
+    "description": "Subscribe to the Shift Forward newsletter for the latest insights on disruptive technologies.",
     "url": siteMetadata.siteUrl + "/subscribe",
     "breadcrumb": {
       "@type": "BreadcrumbList",
@@ -85,8 +85,8 @@ export default function Subscribe() {
                   </div>
                 </div>
                 <div className="w-full mb-8">
-                  <h1 className={cn(heroFont.className, "text-6xl font-semibold text-center sm:text-left")}>Metasyde</h1>
-                  <p className="text-2xl text-center sm:text-left">Keep up with top news & insights on AI, Web3 Gaming & the Metaverse, by Metasyde － relaunching soon.</p>
+                  <h1 className={cn(heroFont.className, "text-6xl font-semibold text-center sm:text-left")}>Shift Forward</h1>
+                  <p className="text-2xl text-center sm:text-left">Keep up with top disruptive tech insights and their impact across industries worldwide － relaunching soon.</p>
                 </div>
                 <div className="w-full mb-10">
                   <div className="w-full rounded-lg sm:max-w-md">

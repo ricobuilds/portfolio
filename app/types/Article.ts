@@ -13,7 +13,7 @@ export type Article = {
     name: string
     slug: string
   },
-  tag?: {
+  topic?: {
     title: string
     slug: string
   }

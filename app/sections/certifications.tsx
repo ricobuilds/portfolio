@@ -54,7 +54,7 @@ export const Certifications = () => {
       </h2>
       <p className="text-obsidian-500">I&apos;m certified by top technology companies</p>
       <div className="mt-10">
-        <ul role="list" className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <ul role="list" className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
           {
             certs.map(({ company, title, image }, idx) => (
               <CertificationCard key={idx} company={company} title={title} image={image} />

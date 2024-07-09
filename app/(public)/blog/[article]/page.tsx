@@ -69,7 +69,7 @@ export async function generateMetadata({ params }: { params: { article: string }
       title: post.title,
       type: 'article',
       url: siteMetadata.siteUrl + "/blog/" + article,
-      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/og?title=${post.title}`,
+      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3001"}/og?title=${post.title}`,
       description: post.description,
       siteName: siteMetadata.title,
       authors: siteMetadata.title
@@ -80,7 +80,7 @@ export async function generateMetadata({ params }: { params: { article: string }
       description: post.description,
       creator: '@ricobuilds',
       site: siteMetadata.siteUrl,
-      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/og?title=${post.title}`,
+      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3001"}/og?title=${post.title}`,
     },
     robots: "index, follow",
   }
@@ -189,8 +189,8 @@ export default async function Page({ params }: { params: { article: string } }) 
       {
         "@type": "ListItem",
         "position": 3,
-        "name": post.tag?.title,
-        "item": siteMetadata.siteUrl + "/topic/" + post.tag?.slug,
+        "name": post.topic?.title,
+        "item": siteMetadata.siteUrl + "/topic/" + post.topic?.slug,
       },
     ]
   }
@@ -205,8 +205,8 @@ export default async function Page({ params }: { params: { article: string } }) 
           <FramerPortal>
             <section id="header" className="w-full max-w-2xl mx-auto">
               <div id="meta" className="flex flex-col max-w-2xl gap-2 mt-20">
-                <Link href={`/topic/${post.tag?.slug ?? "ai"}`} className="w-fit">
-                  <div className={cn("w-fit px-2 py-0.5 rounded-lg", `bg-amethyst-400 bg-opacity-20 text-amethyst-600`)}>{post.tag?.title ?? "Artificial Intelligence"}</div>
+                <Link href={`/topic/${post.topic?.slug ?? null}`} className="w-fit">
+                  <div className={cn("w-fit px-2 py-0.5 rounded-lg", `bg-amethyst-400 bg-opacity-20 text-amethyst-600`)}>{post.topic?.title ?? null}</div>
                 </Link>
                 <h1 className={cn(
                   "text-5xl lg:text-6xl",

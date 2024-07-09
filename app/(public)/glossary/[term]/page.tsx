@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: { params: { term: string } })
       title: post.title,
       type: 'article',
       url: siteMetadata.siteUrl + "/glossary/" + term,
-      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/og?title=${post.title}`,
+      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3001"}/og?title=${post.title}`,
       description: post.description,
       siteName: siteMetadata.title,
       authors: siteMetadata.title
@@ -74,7 +74,7 @@ export async function generateMetadata({ params }: { params: { term: string } })
       description: post.description,
       creator: '@ricobuilds',
       site: siteMetadata.siteUrl,
-      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/og?title=${post.title}`,
+      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3001"}/og?title=${post.title}`,
     },
     robots: "index, follow",
   }

@@ -26,7 +26,7 @@ export const Hero = () => {
   const profiles = [
     {
       label: "Twitter",
-      url: "https://twitter.com/ricobuilds",
+      url: "https://x.com/ricobuilds",
       logo: logos.twitter,
       styles: "fill-lazure-500 group-hover:fill-lazure-600"
     },
@@ -53,16 +53,16 @@ export const Hero = () => {
 
   return (
     <section id="hero">
-      <div className="w-full mx-auto space-y-8">
+      <div className="flex-1 w-full mx-auto space-y-8">
         <div className="flex flex-col items-center gap-4">
-          <Image src={'/headshot.jpeg'} alt="Enric Trillo" width={64} height={64} className="inline w-16 h-16 transition-all duration-300 rounded-full ring-2 ring-slate-200/80 hover:ring-4" />
+          {/* <Image src={'/headshot.jpeg'} alt="Enric Trillo" width={64} height={64} className="inline w-16 h-16 transition-all duration-300 rounded-full ring-2 ring-slate-200/80 hover:ring-4" /> */}
           <div className="flex flex-col max-w-[969px] text-center">
-            <p className="inline px-3 py-1 mx-auto text-sm border rounded-full text-obsidian-400 bg-obsidian-100 w-fit">Fullstack Developer</p>
-            <h1 className={cn(heroFont.className, "text-4xl md:text-7xl")}><Balancer>Building immersive characters, worlds & systems</Balancer></h1>
-            <p className="mt-3 text-obsidian-500">
+            {/* <p className="inline px-3 py-1 mx-auto text-lg italic border rounded-full text-obsidian-400 bg-obsidian-100 w-fit">– Hello, I&apos;m Enric</p> */}
+            <h1 className={cn(heroFont.className, "text-4xl md:text-[64px]")}><Balancer>Fullstack & NoCode Developer</Balancer></h1>
+            <p className="mt-3 text-lg text-obsidian-500">
               <Balancer>
-                Hey👋 I&apos;m a fullstack developer with 7 years experience developing frontend interfaces,
-                on a mission to build the future of gaming with Web3 & emerging technologies @ <b className="text-charkol">Metasyde</b>.
+                A fullstack developer with 7+ years experience developing frontend interfaces,
+                focused on creating content and building around disruptive tech @ <b className="text-charkol">Metasyde</b>.
               </Balancer>
             </p>
           </div>
@@ -75,6 +75,9 @@ export const Hero = () => {
               ))
             }
           </ul>
+          <Link href="/#work" className="px-4 py-2 mt-8 capitalize border border-charkol hover:cursor-pointer hover:border-amethyst-400 hover:bg-amethyst-500 hover:text-white">
+            Explore my work
+          </Link>
         </div>
       </div>
     </section>

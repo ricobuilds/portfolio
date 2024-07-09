@@ -3,6 +3,7 @@ import { sanityQuery } from "@/lib/sanity/utils";
 import Link from "next/link";
 
 export async function InternalLink({ value }: { value: { _ref: string, _type: string, _key: string } }) {
+  
   const resource = await sanityQuery(`*[_type == "term" && _id == "${value._ref}"][0]{
     title,
     "slug": slug.current

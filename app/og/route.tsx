@@ -28,7 +28,7 @@ export async function GET(req: NextRequest) {
           fontStyle: "normal",
           fontWeight: 800,
           backgroundSize: 'cover',
-          backgroundImage: `url(${process.env.NODE_ENV === 'production' ? 'https://enrictrillo.com' : 'http://localhost:3000'}/dynamic-og.png)`,
+          backgroundImage: `url(${process.env.NODE_ENV === 'development' ? 'https://enrictrillo.com' : 'http://localhost:3001'}/dynamic-og.png)`,
         }}
       >
         <div

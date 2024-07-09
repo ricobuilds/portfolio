@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: { params: { issue: string } }
       initialScale: 1
     },
     alternates: {
-      canonical: `${process.env.NODE_ENV === "development" ? "https://localhost:3000" : process.env.NEXT_PUBLIC_BASE_URL}/newsletter/${params.issue}`
+      canonical: `${process.env.NODE_ENV === "development" ? "https://localhost:3001" : process.env.NEXT_PUBLIC_BASE_URL}/newsletter/${params.issue}`
     },
     openGraph: {
       locale: 'en_GB',

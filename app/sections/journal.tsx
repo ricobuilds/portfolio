@@ -2,7 +2,6 @@ import { sanityQuery } from "@/lib/sanity/utils"
 import Link from "next/link"
 import { Article } from "../types/Article"
 import { cn, convertDate } from "@/lib/shared-utils"
-import Image from "next/image"
 import { Kanit } from "next/font/google"
 
 const kanit = Kanit({
@@ -12,22 +11,45 @@ const kanit = Kanit({
 
 export const Journal = async () => {
 
-  const articles: Article[] = await sanityQuery(`*[_type == "article"] | order(_createdAt desc)[0..2]{
+  const articles: Article[] = await sanityQuery(`*[_type == "article"] | order(_createdAt desc)[0..9]{
     _id,
     title,
-    description,
     publishedAt,
     "slug": slug.current,
+    "topic": topic->{title, "slug": slug.current},
   }`)
 
   const showBlogs = true
   return (
-    <section id="journal" className="flex flex-col py-16">
+    <section id="writing" className="flex flex-col py-16">
       <h2 className={cn(kanit.className, "flex items-center mx-auto text-2xl font-medium px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
-        Articles
+        Writing
       </h2>
-      <p className="text-center text-obsidian-600">The man behind Metasyde</p>
+      <p className="text-center text-obsidian-600">Check out my 10 latest takes and tutorials.</p>
       {
+        showBlogs ? (
+          <ul className="grid w-full max-w-2xl gap-8 mx-auto mt-10">
+            {
+              articles.map((article, idx: number) => (
+                <li key={idx} className="before:content-['≫'] flex w-full">
+                  <div className="group flex items-center gap-3 active:scale-[0.98] outline-none w-full">
+                    <div className="flex items-center w-full gap-2 px-2">
+                      {article.topic?.slug ? <Link href={`/topic/${article.topic?.slug}`} className="text-[10px] w-fit px-2 py-1 uppercase hover:text-amethyst-500 border border-amethyst-500">
+                        {article.topic?.title}
+                      </Link> : <></>}
+                      <Link href={`/blog/${article.slug}`} className="flex flex-1 ">
+                        <h3 className="w-full font-sans font-semibold hover:text-amethyst-500">{article.title}</h3>
+                      </Link>
+                      <p className="uppercase text-[10px]"><span>{convertDate(article.publishedAt as string, { month: "numeric" })}</span></p>
+                    </div>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        ) : <p className="pt-6">No posts here... yet.</p>
+      }
+      {/* {
         showBlogs ? (
           <ul className="grid gap-8 mt-10 md:grid-cols-3">
             {
@@ -52,7 +74,7 @@ export const Journal = async () => {
             }
           </ul>
         ) : <p className="pt-6">No posts here... yet.</p>
-      }
+      } */}
     </section >
   )
 }

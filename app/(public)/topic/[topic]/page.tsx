@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: { params: { topic: string } }
       title: cluster.title,
       type: 'website',
       url: siteMetadata.siteUrl + "/topic/" + params.topic,
-      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/base-og.png`,
+      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3001"}/base-og.png`,
       description: cluster.description,
       siteName: siteMetadata.title,
     },
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: { params: { topic: string } }
       description: cluster.description,
       creator: '@ricobuilds',
       site: '@ricobuilds',
-      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3000"}/base-og.png`,
+      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3001"}/base-og.png`,
     },
     robots: "index, follow"
   }
