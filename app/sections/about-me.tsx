@@ -34,7 +34,7 @@ export const AboutMe = () => {
 
 
   return (
-    <section id="about" className="left-0 flex flex-col px-4 max-w-screen">
+    <section id="bio" className="left-0 flex flex-col px-4 mt-0 max-w-screen">
       {/* <h2 className={cn(kanit.className, "flex items-center text-2xl font-medium mx-auto px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
         About Me
       </h2>

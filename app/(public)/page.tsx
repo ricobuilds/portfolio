@@ -12,7 +12,7 @@ import { siteMetadata } from "@/lib/site.metadata";
 import type { Person, WithContext } from "schema-dts"
 import { Intro } from "../sections/intro";
 import { LogoCloud } from "../sections/logo-cloud";
-import { Certifications } from "../sections/certifications";
+import { Certifications as Certs } from "../sections/certifications";
 import { Services } from "../sections/services";
 import { USP } from "../sections/usp";
 import { AboutMe } from "../sections/about-me";
@@ -83,11 +83,12 @@ export default function Home() {
         <div className={cn("max-w-[970px]", "mx-auto")}>
           <div className="flex flex-col gap-16 py-24 pb-10">
             <Hero />
-            <Showcase/>
+            <LogoCloud />
+            {/* <Showcase/> */}
+            <AboutMe />
+            <Certs />
             <Journal />
-            <AboutMe/>
-            <Certifications/>
-            <Skills/>
+            {/* <Skills/> */}
             <Work />
             <DynamicNewsletter />
           </div>

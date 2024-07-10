@@ -1,5 +1,7 @@
+import { routes } from "@/lib/routes"
 import { cn } from "@/lib/shared-utils"
 import { Kanit } from "next/font/google"
+import Link from "next/link"
 import Balancer from "react-wrap-balancer"
 
 const kanit = Kanit({
@@ -21,14 +23,15 @@ export default function Newsletter() {
           <Balancer>Get notified when I push out top alpha on disruptive technologies, or launch a new Metasyde project right in your inbox.</Balancer>
         </h3>
         <div className="flex justify-center pb-1">
+          <p id="browline" className="text-sm text-center text-slate-600">Shift Forward is more than a newsletter for keeping up with disruptive technology. It&apos;s a mindset, a way of life, a movement, a philosophy. The <Link href={routes.twitter} className="underline text-celuria-500 underline-offset-2">#ShiftForward</Link> movement is the home for proactive, resilient and forward-thinking individuals – Shifters.</p>
           <span id="browline" className="invisible hidden text-sm text-slate-400">{`Subscribe and get a ${type.length > 0 ? type : "FREE"} ${resource.length > 0 ? resource : " [resource]"} to ${solution.length > 0 ? solution : "[solution]"}.`}</span>
         </div>
-        <div className="w-full text-center">
+        {/* <div className="w-full text-center">
           <div className="pb-4">
             <span id="lipline" className="text-xs text-slate-400">Ps: I send emails every week, never spam or sell your data.</span>
           </div>
-        </div>
-        <div className="flex justify-center w-full">
+        </div> */}
+        <div className="flex justify-center w-full mt-8">
           <iframe src="https://embeds.beehiiv.com/b75aa27d-fe4f-4509-a4dc-82824921d067?slim=true" className="w-[448px] h-[180px] mx-auto" id="beehiiv-embed" data-test-id="beehiiv-embed" frameBorder="0" scrolling="yes" style={{ margin: '0', borderRadius: '0px !important', backgroundColor: 'transparent' }}></iframe>
         </div>
       </div>
