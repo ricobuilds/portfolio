@@ -23,12 +23,6 @@ export const getPostBySlug = async (slug: string) => {
 
   const { title, date, description, tags, author, youtube } = data
 
-  console.log(`bits: `, {
-    slug,
-    data,
-    source: content,
-  })
-
   return {
     slug,
     title,
