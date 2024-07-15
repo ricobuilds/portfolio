@@ -2,7 +2,7 @@ import { baseWidth } from "@/lib/config"
 import { routes } from "@/lib/routes"
 import { cn } from "@/lib/shared-utils"
 import Link from "next/link"
-import { logos } from "../sections/hero"
+import { logos } from "../app/sections/hero"
 
 const Footer = () => {
 

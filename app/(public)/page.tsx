@@ -1,7 +1,7 @@
 import { Hero } from "../sections/hero";
 import { Journal } from "../sections/journal";
 // import { Newsletter } from "../sections/newsletter";
-import { StructuredData } from "../components/structured-data";
+import { StructuredData } from "../../components/structured-data";
 import { Ventures } from "../sections/ventures";
 import { Products } from "../sections/products"
 import { Stack } from "../sections/stack";
@@ -19,6 +19,11 @@ import { AboutMe } from "../sections/about-me";
 import { Work } from "../sections/work";
 import { Skills } from "../sections/skills";
 import { Showcase } from "../sections/showcase";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: ""
+}
 
 const homeSchema: WithContext<Person> = {
   "@context": "https://schema.org",

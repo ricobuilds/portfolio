@@ -1,4 +1,4 @@
-import { components } from "@/app/components/portable"
+import { components } from "@/components/portable"
 import { PortableText } from "@portabletext/react"
 import { sanityQuery } from "@/lib/sanity/utils"
 import { Metadata, Viewport } from "next"
@@ -9,7 +9,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Kanit } from "next/font/google"
 import { Article, BlogPosting, BreadcrumbList, WithContext } from "schema-dts"
-import { StructuredData } from "@/app/components/structured-data"
+import { StructuredData } from "@/components/structured-data"
 
 const heroFont = Kanit({
   subsets: ['latin'],

@@ -8,7 +8,7 @@ import { Article } from "@/app/types/Article"
 import { Topic } from "@/app/types/Topic"
 import Image from "next/image"
 import { BreadcrumbList, WithContext, Blog as BlogSchema} from "schema-dts"
-import { StructuredData } from "@/app/components/structured-data"
+import { StructuredData } from "@/components/structured-data"
 import { sanityQuery } from "@/lib/sanity/utils"
 
 const title = 'Blog'

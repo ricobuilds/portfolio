@@ -5,7 +5,7 @@ import { Topic } from "@/app/types/Topic"
 import { Metadata, Viewport } from "next"
 import { notFound } from "next/navigation"
 import { WithContext, WebPage } from "schema-dts"
-import { StructuredData } from "@/app/components/structured-data"
+import { StructuredData } from "@/components/structured-data"
 import { sanityQuery } from "@/lib/sanity/utils"
 
 export const viewport: Viewport = {

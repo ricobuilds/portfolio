@@ -2,7 +2,7 @@ import { siteMetadata } from "@/lib/site.metadata"
 import { GeistSans } from "geist/font/sans"
 import { Metadata } from "next"
 import "../globals.css";
-import { UmamiScript } from "../components/umami-script";
+import { UmamiScript } from "../../components/umami-script";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),

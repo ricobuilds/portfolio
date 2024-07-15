@@ -1,4 +1,4 @@
-import { StructuredData } from "@/app/components/structured-data"
+import { StructuredData } from "@/components/structured-data"
 import { cn } from "@/lib/shared-utils"
 import { siteMetadata } from "@/lib/site.metadata"
 import Image from "next/image"

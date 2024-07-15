@@ -1,4 +1,4 @@
-import { StructuredData } from "@/app/components/structured-data"
+import { StructuredData } from "@/components/structured-data"
 import { baseWidth } from "@/lib/config"
 import { routes } from "@/lib/routes"
 import { cn } from "@/lib/shared-utils"
