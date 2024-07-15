@@ -5,7 +5,7 @@ import { cn, convertDate } from "@/lib/shared-utils"
 import { Kanit } from "next/font/google"
 import Image from "next/image"
 import { routes } from "@/lib/routes"
-import { getAllPosts } from "@/lib/mdx"
+import { formatTag, getAllPosts } from "@/lib/mdx"
 
 const kanit = Kanit({
   weight: "800",
@@ -15,22 +15,27 @@ const kanit = Kanit({
 const PostsList = ({ posts }: { posts: MDXArticle[] }) => {
 
   return (
-    <div className="flex flex-col w-full space-y-4">
-      {posts.map((post) => (
-        <Link href={`/blog/${post.slug}`} className="p-4 rounded-md hover:bg-slate-100">
-          <article>
-            <h3 className="text-lg font-bold">{post.title}</h3>
-            <time className="relative z-10 order-first mb-3 flex items-center text-sm text-gray-400 dark:text-gray-500 pl-3.5" dateTime={post.date}>
-              <span className="absolute inset-y-0 left-0 flex items-center">
-                <span className="h-4 w-0.5 rounded-full bg-gray-200 dark:bg-gray-500"></span>
-              </span>
-              {convertDate(post.date,)}
-            </time>
-            <p>{post.description}</p>
-          </article>
-        </Link>
+    <ul className="grid w-full gap-8 mt-10 md:grid-cols-2">
+      {posts.map((post, idx) => (
+        <li key={idx}>
+          <div className="flex flex-col w-full gap-3 outline-none group">
+            <Link href={`/blog/${post.slug}`} className="w-full transition-all duration-300 ring-0 group-hover:ring-2 rounded-2xl group-hover:ring-amethyst-500 ring-offset-2">
+              <Image src={"/blog-og.png"} height={1200} width={630} alt={post.title} loading="lazy" className="object-cover w-full transition-all duration-300 ease-in-out rounded-2xl group-hover:grayscale" />
+            </Link>
+            <div className="flex flex-col gap-2 px-2">
+              <Link href={`/topic/${formatTag(post.tags[0]) ?? "ai"}`} className="text-[10px] w-fit uppercase text-amethyst-500">
+                {post.tags[0] ?? "Artificial Intelligence"}
+              </Link>
+              <Link href={`/blog/${post.slug}`}>
+                <h3 className="font-sans font-semibold hover:text-amethyst-500">{post.title}</h3>
+              </Link>
+              <p className="text-sm line-clamp-1">{post.description ?? "This is a lorem ipsum alternative since there's no bio for this post in the Sanity backend."}</p>
+              <p className="uppercase text-[10px]">By <span className="text-slate-500">{post.author.name}</span>  / <span>{convertDate(post.date as string, { month: "long" })}</span></p>
+            </div>
+          </div>
+        </li>
       ))}
-    </div>
+    </ul>
   )
 }
 
@@ -79,7 +84,7 @@ export const Journal = async () => {
       } */}
       {
         showBlogs ? (
-          <ul className="grid gap-8 mt-10 md:grid-cols-3">
+          <ul className="grid gap-8 mt-8 md:grid-cols-3">
             {
               articles.map((article, idx: number) => (
                 <li key={idx}>

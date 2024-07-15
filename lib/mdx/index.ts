@@ -11,6 +11,8 @@ export const allSlugs = fs.readdirSync(content_path)
 
 export const extractSlug = (slug: string) => slug.replace(/\.mdx$/, '')
 
+export const formatTag = (tag: string) => tag.toLowerCase().replace(' ', '-')
+
 export const getPostBySlug = async (slug: string) => {
   const postFilePath = path.join(content_path, `${slug}.mdx`);
 
