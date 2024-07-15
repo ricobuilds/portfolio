@@ -29,10 +29,11 @@ export type MDXArticle = {
     name: string
     picture: string
   }
-  og: {
+  og?: {
     url: string
   }
-  youtube: {
+  youtube?: {
     url: string
   }
+  content: any
 }

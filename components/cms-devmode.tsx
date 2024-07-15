@@ -2,6 +2,10 @@ import Link from "next/link"
 
 export const CMSDevMode = () => {
 
+  let show = false
+
+  if (show === false) return null
+
   return (
     <div className="fixed flex items-center h-10 text-white bottom-6 right-6 bg-amethyst-500">
       <Link href="/cms" className="flex items-center gap-2 px-4 py-2">

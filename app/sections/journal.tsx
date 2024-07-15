@@ -1,3 +1,4 @@
+import React from "react"
 import { sanityQuery } from "@/lib/sanity/utils"
 import Link from "next/link"
 import { Article, MDXArticle } from "../types/Article"

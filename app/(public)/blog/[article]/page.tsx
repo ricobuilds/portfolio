@@ -3,7 +3,7 @@ import Image from "next/image"
 import { notFound } from "next/navigation"
 import { siteMetadata } from "@/lib/site.metadata"
 import { cn, convertDate } from "@/lib/shared-utils"
-import { Article } from "@/app/types/Article"
+import { Article, MDXArticle } from "@/app/types/Article"
 import { WithContext, BreadcrumbList, Article as BlogPosting } from "schema-dts"
 import { StructuredData } from "@/components/structured-data"
 import Link from "next/link"
@@ -14,6 +14,8 @@ import { FramerPortal } from "./framer-portal"
 import { PortableText } from "@portabletext/react"
 import { components } from "@/components/portable"
 import { sanityQuery } from "@/lib/sanity/utils"
+import { allSlugs, extractSlug, formatTag, getAllPosts, getPostBySlug } from "@/lib/mdx"
+import { CustomMDX } from "@/components/mdx"
 
 const heroFont = Kanit({
   subsets: ['latin'],
@@ -27,28 +29,15 @@ export const viewport: Viewport = {
 }
 
 export async function generateStaticParams() {
-  const posts: Article[] = await sanityQuery(`*[_type == "article"] | order(publishedAt desc){
-    "slug": slug.current,
-  }`)
 
-  return posts.map((post) => ({
-    article: post.slug
+  return allSlugs.map((slug) => ({
+    article: extractSlug(slug)
   }))
 }
 
-export async function generateMetadata({ params }: { params: { article: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { article: string } }): Promise<any> {
 
-  const { article } = params
-
-  const post = await sanityQuery(`*[_type == "article" && slug.current == "${article}"][0]{
-    title,
-    description,
-    content,
-    _updatedAt,
-    publishedAt,
-    "topic": topic->{title, "slug": slug.current},
-    "author": author->{name},
-    }`)
+  const post = getAllPosts().find((p) => p.slug === params.article)
 
   if (!post) return { title: 'Issue not found!' }
 
@@ -56,7 +45,7 @@ export async function generateMetadata({ params }: { params: { article: string }
     title: post.title,
     description: post.description,
     alternates: {
-      canonical: `${siteMetadata.siteUrl}/blog/${article}`,
+      canonical: `${siteMetadata.siteUrl}/blog/${params.article}`,
     },
     authors: [
       {
@@ -68,7 +57,7 @@ export async function generateMetadata({ params }: { params: { article: string }
       locale: 'en_GB',
       title: post.title,
       type: 'article',
-      url: siteMetadata.siteUrl + "/blog/" + article,
+      url: siteMetadata.siteUrl + "/blog/" + params.article,
       images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3001"}/og?title=${post.title}`,
       description: post.description,
       siteName: siteMetadata.title,
@@ -108,7 +97,7 @@ const Share = ({ title, slug }: { title: string, slug: string }) => {
 
 const Navigation = ({ prevPost, nextPost }: { prevPost: { slug: string }, nextPost: { slug: string } }) => {
   return (
-    <section id="article-nav" className={cn("max-w-3xl", "flex justify-between w-full py-10 items-center gap-4 mt-16 border-t-[1px] border-dashed border-border")}>
+    <section id="article-nav" className={cn("max-w-2xl", "flex justify-between w-full py-10 items-center gap-4 mt-16 border-t-[1px] border-dashed border-border")}>
       <Link href={prevPost ? `/blog/${prevPost.slug}` : ""} id="prev-item" className={cn("flex items-center gap-2 select-none", !prevPost && "text-slate-400 pointer-events-none")}>
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20 " viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-left"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
         <span>Prev Article</span>
@@ -121,41 +110,31 @@ const Navigation = ({ prevPost, nextPost }: { prevPost: { slug: string }, nextPo
   )
 }
 
-export const revalidate = 3600
-
 export default async function Page({ params }: { params: { article: string } }) {
-  const { article } = params
 
-  const post: Article = await sanityQuery(`*[_type == "article" && slug.current == "${article}"][0]{
-    title,
-    description,
-    "headings": content[style in ["h2", "h3", "h4", "h5", "h6"]],
-    content,
-    _updatedAt,
-    publishedAt,
-    "slug": slug.current,
-    "topic": topic->{title, "slug": slug.current},
-    "author": author->{name},
-    }`)
+  const post: MDXArticle = await getPostBySlug(params.article)
+  const postIndex = getAllPosts().findIndex((p) => p.slug === params.article)
+  const prev = getAllPosts()[(postIndex + 1)]
+  const next = getAllPosts()[(postIndex - 1)]
 
   if (!post) {
     notFound()
   };
 
-  const prevArticle: { slug: string } = await sanityQuery(`*[_type == "article" && publishedAt < "${post.publishedAt}"] | order(publishedAt desc)[0]{
-    "slug": slug.current
-  }`)
-  const nextArticle: { slug: string } = await sanityQuery(`*[_type == "article" && publishedAt > "${post.publishedAt}"] | order(publishedAt asc)[0]{
-    "slug": slug.current
-  }`)
+  // const prevArticle: { slug: string } = await sanityQuery(`*[_type == "article" && publishedAt < "${post.publishedAt}"] | order(publishedAt desc)[0]{
+  //   "slug": slug.current
+  // }`)
+  // const nextArticle: { slug: string } = await sanityQuery(`*[_type == "article" && publishedAt > "${post.publishedAt}"] | order(publishedAt asc)[0]{
+  //   "slug": slug.current
+  // }`)
 
   const articleSchema: WithContext<BlogPosting> = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": post.title,
     "description": post.description,
-    "datePublished": post.publishedAt,
-    "dateModified": post._updatedAt,
+    "datePublished": post.date,
+    "dateModified": post.date,
     "author": {
       "@type": "Person",
       "name": siteMetadata.title,
@@ -189,8 +168,8 @@ export default async function Page({ params }: { params: { article: string } }) 
       {
         "@type": "ListItem",
         "position": 3,
-        "name": post.topic?.title,
-        "item": siteMetadata.siteUrl + "/topic/" + post.topic?.slug,
+        "name": post.tags?.[0],
+        "item": siteMetadata.siteUrl + "/topic/" + post.tags?.[0],
       },
     ]
   }
@@ -202,10 +181,10 @@ export default async function Page({ params }: { params: { article: string } }) 
       <ScrollProgress />
       <main id="article" className="relative flex-1 w-full max-w-full px-6 mx-auto">
         <div className="flex flex-col justify-between mt-8 lg:flex-col max-w-[970px] mx-auto">
-          <section id="header" className="w-full max-w-3xl mx-auto">
-            <div id="meta" className="flex flex-col max-w-3xl gap-2 mt-20">
-              <Link href={`/topic/${post.topic?.slug ?? null}`} className="w-fit">
-                <div className={cn("w-fit px-2 py-0.5 rounded-lg", `bg-amethyst-400 bg-opacity-20 text-amethyst-600`)}>{post.topic?.title ?? null}</div>
+          <section id="header" className="w-full max-w-2xl mx-auto">
+            <div id="meta" className="flex flex-col max-w-3xl gap-2 mt-10">
+              <Link href={`/topic/${formatTag(post.tags[0])}`} className="w-fit">
+                <div className={cn("w-fit px-2 py-0.5 rounded-lg", `bg-amethyst-400 bg-opacity-20 text-amethyst-600`)}>{post.tags[0] ?? null}</div>
               </Link>
               <h1 className={cn(
                 "text-5xl lg:text-6xl",
@@ -213,32 +192,35 @@ export default async function Page({ params }: { params: { article: string } }) 
                 "text-charkol",
               )}>{post.title}</h1>
               <div>
-                <p itemProp="description" className="text-obsidian-400">{post.description ?? "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur ipsa omnis ratione"} </p>
+                <p itemProp="description" className="text-obsidian-400">{post.description}</p>
               </div>
               <div className="flex items-center gap-4 text-charkol">
                 <Image src={'/headshot.jpeg'} width={600} height={600} priority className='w-10 h-10 rounded-full pointer-events-none select-none' alt={siteMetadata.title} />
                 <div className="flex flex-wrap items-start justify-start gap-1 text-xs">
                   <div className="flex flex-wrap gap-1 uppercase">
-                    Written by <span className='text-amethyst-500'>{post.author?.name ?? "Enric Trillo "}</span>
+                    Written by <span className='text-amethyst-500'>{post.author?.name}</span>
                     <span> /</span>
                   </div>
                   <div className="relative flex items-start justify-start gap-1 uppercase">
-                    <time dateTime={post.publishedAt}>
-                      Published on {convertDate(post?.publishedAt as string, { month: "long" })}
+                    <time dateTime={post.date}>
+                      Published on {convertDate(post.date, { month: "short" })}
                     </time>
                   </div>
                 </div>
               </div>
             </div>
             <div className="mt-6 overflow-hidden rounded-xl">
-              <Image src={`/blog-og.png`} className={"w-full object-cover aspect-video"} alt={`${post.title} by Enric Trillo, founder of Metasyde`} width={1200} height={630} />
+              {!post.youtube?.url && <Image src={`/blog-og.png`} className={"w-full object-cover aspect-video"} alt={`${post.title} by Enric Trillo, founder of Metasyde`} width={1200} height={630} />}
             </div>
           </section>
-          <section id="content" className="max-w-3xl mx-auto mt-8">
+          <article className='max-w-2xl pt-10 mx-auto prose'>
+            <CustomMDX source={post.content} />
+          </article>
+          {/* <section id="content" className="max-w-2xl mx-auto mt-8">
             <article>
               <PortableText value={post?.content} components={components} onMissingComponent={(message, options) => { console.log(message + "reekz") }} />
             </article>
-          </section>
+          </section> */}
           {/* <aside className="lg:min-w-[270px] lg:max-w-[270px] pt-10 lg:pt-20">
               <div className="flex flex-col gap-6 top-24">
                 <div className="bg-white overflow-hidden pt-6 px-4 pb-2.5 relative rounded-xl">
@@ -251,10 +233,10 @@ export default async function Page({ params }: { params: { article: string } }) 
               </div>
             </aside> */}
         </div>
-        <section id="footer" className="w-full max-w-3xl mx-auto mt-8">
+        <section id="footer" className="w-full max-w-2xl mx-auto mt-8">
           <CTA />
           <Share title={post.title as string} slug={params.article} />
-          <Navigation prevPost={prevArticle} nextPost={nextArticle} />
+          <Navigation prevPost={prev} nextPost={next} />
         </section>
       </main >
     </>

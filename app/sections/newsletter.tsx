@@ -1,3 +1,4 @@
+import React from 'react'
 import { routes } from "@/lib/routes"
 import { cn } from "@/lib/shared-utils"
 import { Kanit } from "next/font/google"

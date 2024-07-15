@@ -2,12 +2,13 @@ import fs from 'fs';
 import path from 'path';
 import matter from "gray-matter"
 import { serialize } from "next-mdx-remote/serialize"
+import { MDXArticle } from '@/app/types/Article';
 
 const root = process.cwd();
 
 const content_path = path.join(root, 'content')
 
-export const allSlugs = fs.readdirSync(content_path)
+export const allSlugs = fs.readdirSync(content_path).filter((file) => path.extname(file) === '.mdx')
 
 export const extractSlug = (slug: string) => slug.replace(/\.mdx$/, '')
 
@@ -18,18 +19,25 @@ export const getPostBySlug = async (slug: string) => {
 
   const source = fs.readFileSync(postFilePath)
 
-  const { content, data } = matter(source)
+  const { content, data } = await matter(source)
 
-  const mdxSource = await serialize(content)
+  const { title, date, description, tags, author, youtube } = data
 
-  const frontMatter = {
-    ...data,
-    slug
-  }
+  console.log(`bits: `, {
+    slug,
+    data,
+    source: content,
+  })
 
   return {
-    source: mdxSource,
-    frontMatter
+    slug,
+    title,
+    date,
+    description,
+    tags,
+    author,
+    youtube,
+    content: content,
   }
 }
 
@@ -55,4 +63,6 @@ export const getAllPosts = () => {
 const dateSortDesc = (a: any, b: any) => {
   if (a > b) return -1
   if (a < b) return 1
+
+  return 0
 }

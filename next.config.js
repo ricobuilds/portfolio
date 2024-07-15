@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  transpilePackages: ['next-mdx-remote'],
   images: {
     domains: [
       "vercel-og-nextjs-six.vercel.app",
@@ -18,4 +19,4 @@ const nextConfig = {
   },
 };
 
-module.exports = (nextConfig);
+module.exports = nextConfig
