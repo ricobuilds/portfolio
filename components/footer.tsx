@@ -37,7 +37,7 @@ const Footer = () => {
 
   return (
     <footer className="flex flex-col items-center py-10">
-      <div className="flex justify-center w-full gap-4 py-10 mb-4 border-y">
+      <div className="flex flex-col justify-center w-full gap-4 py-10 mb-4 md:flex-row border-y">
         <Link href={routes.home} className="hover:text-obsidian-500">Home</Link>
         <Link href={routes.about} className="hover:text-obsidian-500">About</Link>
         <Link href={routes.journal} className="hover:text-obsidian-500">Blog</Link>
