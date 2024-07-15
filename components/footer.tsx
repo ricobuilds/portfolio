@@ -36,18 +36,20 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="flex flex-col items-center py-10">
-      <div className="flex flex-col justify-center w-full gap-4 py-10 mb-4 md:flex-row border-y">
-        <Link href={routes.home} className="hover:text-obsidian-500">Home</Link>
-        <Link href={routes.about} className="hover:text-obsidian-500">About</Link>
-        <Link href={routes.journal} className="hover:text-obsidian-500">Blog</Link>
-        <Link href={routes.rss} className="inline-flex items-center gap-1 hover:text-obsidian-500">
-          RSS
-          <span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-rss"><path d="M4 11a9 9 0 0 1 9 9" /><path d="M4 4a16 16 0 0 1 16 16" /><circle cx="5" cy="19" r="1" /></svg>
-          </span>
-        </Link>
-        <div className="flex items-center gap-4 ml-10">
+    <footer className="flex flex-col items-center max-w-2xl pb-10 mx-auto">
+      <div className="flex flex-col items-center justify-center gap-4 py-10 mb-4">
+        <div className="flex justify-center w-full gap-4 ">
+          <Link href={routes.home} className="hover:text-obsidian-500">Home</Link>
+          <Link href={routes.about} className="hover:text-obsidian-500">About</Link>
+          <Link href={routes.journal} className="hover:text-obsidian-500">Blog</Link>
+          <Link href={routes.rss} className="inline-flex items-center gap-1 hover:text-obsidian-500">
+            RSS
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-rss"><path d="M4 11a9 9 0 0 1 9 9" /><path d="M4 4a16 16 0 0 1 16 16" /><circle cx="5" cy="19" r="1" /></svg>
+            </span>
+          </Link>
+        </div>
+        <div className="flex items-center gap-4">
           {
             profiles.map((profile, idx) => (
               <Link key={idx} href={profile.url}>
