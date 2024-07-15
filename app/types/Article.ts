@@ -24,6 +24,7 @@ export type MDXArticle = {
   title: string
   date: string
   description: string
+  tags: string[]
   author: {
     name: string
     picture: string
