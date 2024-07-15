@@ -31,4 +31,7 @@ export type MDXArticle = {
   og: {
     url: string
   }
+  youtube: {
+    url: string
+  }
 }

@@ -15,17 +15,17 @@ const kanit = Kanit({
 const PostsList = ({ posts }: { posts: MDXArticle[] }) => {
 
   return (
-    <div className="flex flex-col w-full space-y-16">
+    <div className="flex flex-col w-full space-y-4">
       {posts.map((post) => (
-        <Link href={`/blog/${post.slug}`}>
+        <Link href={`/blog/${post.slug}`} className="p-4 rounded-md hover:bg-slate-100">
           <article>
+            <h3 className="text-lg font-bold">{post.title}</h3>
             <time className="relative z-10 order-first mb-3 flex items-center text-sm text-gray-400 dark:text-gray-500 pl-3.5" dateTime={post.date}>
               <span className="absolute inset-y-0 left-0 flex items-center">
                 <span className="h-4 w-0.5 rounded-full bg-gray-200 dark:bg-gray-500"></span>
               </span>
               {convertDate(post.date,)}
             </time>
-            <h3 className="text-lg font-bold">{post.title}</h3>
             <p>{post.description}</p>
           </article>
         </Link>
