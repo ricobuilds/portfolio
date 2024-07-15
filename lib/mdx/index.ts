@@ -9,7 +9,7 @@ const content_path = path.join(root, 'content')
 
 export const allSlugs = fs.readdirSync(content_path)
 
-export const formatSlug = (slug: string) => slug.replace(/\.mdx$/, '')
+export const extractSlug = (slug: string) => slug.replace(/\.mdx$/, '')
 
 export const getPostBySlug = async (slug: string) => {
   const postFilePath = path.join(content_path, `${slug}.mdx`);
@@ -41,7 +41,7 @@ export const getAllPosts = () => {
 
     frontMatter.push({
       ...data,
-      slug: formatSlug(slug),
+      slug: extractSlug(slug),
       date: new Date(data.date).toISOString()
     })
   })

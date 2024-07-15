@@ -18,3 +18,17 @@ export type Article = {
     slug: string
   }
 }
+
+export type MDXArticle = {
+  slug: string
+  title: string
+  date: string
+  description: string
+  author: {
+    name: string
+    picture: string
+  }
+  og: {
+    url: string
+  }
+}

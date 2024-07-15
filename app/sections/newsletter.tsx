@@ -18,7 +18,7 @@ export default function Newsletter() {
       <h2 className={cn(kanit.className, "flex items-center text-2xl font-medium px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
         Shift Forward Newsletter
       </h2>
-      <div className="w-full max-w-2xl mx-auto">
+      <div className="w-full max-w-3xl mx-auto">
         <h3 className={cn("flex items-center mx-auto mb-3 text-lg font-medium text-center w-fit")}>
           <Balancer>Get notified when I push out top alpha on disruptive technologies, or launch a new Metasyde project right in your inbox.</Balancer>
         </h3>

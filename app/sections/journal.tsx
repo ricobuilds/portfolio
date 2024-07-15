@@ -1,16 +1,38 @@
 import { sanityQuery } from "@/lib/sanity/utils"
 import Link from "next/link"
-import { Article } from "../types/Article"
+import { Article, MDXArticle } from "../types/Article"
 import { cn, convertDate } from "@/lib/shared-utils"
 import { Kanit } from "next/font/google"
 import Image from "next/image"
 import { routes } from "@/lib/routes"
-import { Topic } from "../types/Topic"
+import { getAllPosts } from "@/lib/mdx"
 
 const kanit = Kanit({
   weight: "800",
   subsets: ['latin']
 })
+
+const PostsList = ({ posts }: { posts: MDXArticle[] }) => {
+
+  return (
+    <div className="flex flex-col w-full space-y-16">
+      {posts.map((post) => (
+        <Link href={`/blog/${post.slug}`}>
+          <article>
+            <time className="relative z-10 order-first mb-3 flex items-center text-sm text-gray-400 dark:text-gray-500 pl-3.5" dateTime={post.date}>
+              <span className="absolute inset-y-0 left-0 flex items-center">
+                <span className="h-4 w-0.5 rounded-full bg-gray-200 dark:bg-gray-500"></span>
+              </span>
+              {convertDate(post.date,)}
+            </time>
+            <h3 className="text-lg font-bold">{post.title}</h3>
+            <p>{post.description}</p>
+          </article>
+        </Link>
+      ))}
+    </div>
+  )
+}
 
 export const Journal = async () => {
 
@@ -22,6 +44,8 @@ export const Journal = async () => {
     "topic": topic->{title, "slug": slug.current},
   }`)
 
+  const posts: MDXArticle[] = getAllPosts()
+
   const showBlogs = true
   return (
     <section id="writing" className="flex flex-col py-16">
@@ -29,9 +53,10 @@ export const Journal = async () => {
         Writing
       </h2>
       <p className="text-center text-obsidian-600">Check out my latest takes and tutorials.</p>
+      <PostsList posts={posts} />
       {/* {
         showBlogs ? (
-          <ul className="grid w-full max-w-2xl grid-cols-3 gap-8 mx-auto mt-10">
+          <ul className="grid w-full max-w-3xl grid-cols-3 gap-8 mx-auto mt-10">
             {
               articles.map((article, idx: number) => (
                 <li key={idx} className="before:content-['≫'] flex w-full">

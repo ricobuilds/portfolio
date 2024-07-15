@@ -91,7 +91,7 @@ const Page = async ({ params }: { params: { issue: string } }) => {
           <Link href={'/newsletter'} className="absolute mt-[110px] -left-24 border group border-obsidian-300 hover:border-obsidian-600 rounded-lg p-1 active:outline-2">
             `{'>'}`
           </Link>
-          <div className="flex flex-col max-w-2xl gap-4 mx-auto mt-[100px]">
+          <div className="flex flex-col max-w-3xl gap-4 mx-auto mt-[100px]">
             <div className="flex flex-col text-center">
               <h1 className={cn(
                 "text-3xl font-bold text-center uppercase",

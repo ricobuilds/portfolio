@@ -24,7 +24,7 @@ export const LogoCloud = () => {
   ]
   return (
     <section id="skill-cloud" className="w-full max-w-xl mx-auto">
-      <div className="flex w-full h-16 max-w-2xl gap-6">
+      <div className="flex w-full h-16 max-w-3xl gap-6">
         <Marquee speed={25} autoFill gradient className="flex gap-8 select-none">
           {
             skills.map((image, idx) => (

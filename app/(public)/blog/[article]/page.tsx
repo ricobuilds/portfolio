@@ -88,7 +88,7 @@ export async function generateMetadata({ params }: { params: { article: string }
 
 const CTA = () => {
   return (
-    <section id="cta" className={cn("max-w-2xl w-full")}>
+    <section id="cta" className={cn("max-w-3xl w-full")}>
       <div className="flex flex-col gap-3 p-6 rounded-lg shadow-xl ring-slate-300 ring-2 bg-obsidian-100">
         <h3 className={cn(heroFont.className, "text-xl")}><strong>{`Whenever you're ready, these are ${4} ways I can help you:`}</strong></h3>
         <p><strong>1.</strong> <strong className="text-amethyst-500">Metasyde Newsletter:</strong> Join 3,500+ entrepreneurs in my flagship course. The Creator MBA teaches you exactly how to build a lean, focused, and profitable Internet business. Come inside and get 5 years of online business expertise, proven methods, and actionable strategies across 111 in-depth lessons.</p>
@@ -100,7 +100,7 @@ const CTA = () => {
 
 const Share = ({ title, slug }: { title: string, slug: string }) => {
   return (
-    <section id="share" className="max-w-2xl mt-16">
+    <section id="share" className="max-w-3xl mt-16">
       <ShareArticleRow slug={slug} title={title} />
     </section>
   )
@@ -108,7 +108,7 @@ const Share = ({ title, slug }: { title: string, slug: string }) => {
 
 const Navigation = ({ prevPost, nextPost }: { prevPost: { slug: string }, nextPost: { slug: string } }) => {
   return (
-    <section id="article-nav" className={cn("max-w-2xl", "flex justify-between w-full py-10 items-center gap-4 mt-16 border-t-[1px] border-dashed border-border")}>
+    <section id="article-nav" className={cn("max-w-3xl", "flex justify-between w-full py-10 items-center gap-4 mt-16 border-t-[1px] border-dashed border-border")}>
       <Link href={prevPost ? `/blog/${prevPost.slug}` : ""} id="prev-item" className={cn("flex items-center gap-2 select-none", !prevPost && "text-slate-400 pointer-events-none")}>
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20 " viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-left"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
         <span>Prev Article</span>
@@ -202,8 +202,8 @@ export default async function Page({ params }: { params: { article: string } }) 
       <ScrollProgress />
       <main id="article" className="relative flex-1 w-full max-w-full px-6 mx-auto">
         <div className="flex flex-col justify-between mt-8 lg:flex-col max-w-[970px] mx-auto">
-          <section id="header" className="w-full max-w-2xl mx-auto">
-            <div id="meta" className="flex flex-col max-w-2xl gap-2 mt-20">
+          <section id="header" className="w-full max-w-3xl mx-auto">
+            <div id="meta" className="flex flex-col max-w-3xl gap-2 mt-20">
               <Link href={`/topic/${post.topic?.slug ?? null}`} className="w-fit">
                 <div className={cn("w-fit px-2 py-0.5 rounded-lg", `bg-amethyst-400 bg-opacity-20 text-amethyst-600`)}>{post.topic?.title ?? null}</div>
               </Link>
@@ -234,7 +234,7 @@ export default async function Page({ params }: { params: { article: string } }) 
               <Image src={`/blog-og.png`} className={"w-full object-cover aspect-video"} alt={`${post.title} by Enric Trillo, founder of Metasyde`} width={1200} height={630} />
             </div>
           </section>
-          <section id="content" className="max-w-2xl mx-auto mt-8">
+          <section id="content" className="max-w-3xl mx-auto mt-8">
             <article>
               <PortableText value={post?.content} components={components} onMissingComponent={(message, options) => { console.log(message + "reekz") }} />
             </article>
@@ -251,7 +251,7 @@ export default async function Page({ params }: { params: { article: string } }) 
               </div>
             </aside> */}
         </div>
-        <section id="footer" className="w-full max-w-2xl mx-auto mt-8">
+        <section id="footer" className="w-full max-w-3xl mx-auto mt-8">
           <CTA />
           <Share title={post.title as string} slug={params.article} />
           <Navigation prevPost={prevArticle} nextPost={nextArticle} />

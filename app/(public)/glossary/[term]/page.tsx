@@ -157,13 +157,13 @@ export default async function Term({ params }: { params: { term: string } }) {
                 heroFont.className,
                 "text-charkol",
               )}>{post.title}</h1>
-              <p itemProp="description" className="max-w-2xl text-xl text-obsidian-400">
+              <p itemProp="description" className="max-w-3xl text-xl text-obsidian-400">
                 {post.description ?? "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur ipsa omnis ratione"}
               </p>
             </div>
           </section>
-          <hr className="max-w-2xl mt-10"/>
-          <section id="content" className="max-w-2xl mt-8">
+          <hr className="max-w-3xl mt-10"/>
+          <section id="content" className="max-w-3xl mt-8">
             <article>
               <PortableText value={post?.content} components={components} />
             </article>

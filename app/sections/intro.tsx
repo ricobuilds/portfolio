@@ -10,7 +10,7 @@ const kanit = Kanit({
 
 export const Intro = () => {
   return (
-    <section id="intro" className="flex flex-col max-w-2xl gap-5 mx-auto">
+    <section id="intro" className="flex flex-col max-w-3xl gap-5 mx-auto">
       <h2 className={cn(kanit.className, "flex items-center text-center text-lg md:text-2xl font-medium mx-auto px-4 py-1 mb-3 text-white uppercase max-w-fit bg-amethyst-500")}>
         The future of Gaming = Web3 + Metaverse
       </h2>
