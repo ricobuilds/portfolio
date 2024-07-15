@@ -1,6 +1,4 @@
 import { Article } from "@/app/types/Article"
-import { Topic } from "@/app/types/Topic"
-import { sanityQuery } from "@/lib/sanity/utils"
 import { siteMetadata } from "@/lib/site.metadata"
 import RSS from "rss"
 
