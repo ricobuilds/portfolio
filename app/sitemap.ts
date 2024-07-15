@@ -14,7 +14,6 @@ const listOfRoutes = [
   routes.home,
   routes.about,
   routes.journal,
-  routes.topics,
   routes.glossary,
   routes.rss,
   routes.subscribe,
@@ -45,10 +44,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date().toISOString().split('T')[0],
   }))
 
-  const topicRoutes: Sitemap = topics.map((topic) => ({
-    url: `${process.env.NEXT_PUBLIC_BASE_URL}/topic/${topic.slug}`,
-    lastModified: new Date((topic?._updatedAt ?? topic?._createdAt) as string).toISOString().split('T')[0],
-  }))
+  // const topicRoutes: Sitemap = topics.map((topic) => ({
+  //   url: `${process.env.NEXT_PUBLIC_BASE_URL}/topic/${topic.slug}`,
+  //   lastModified: new Date((topic?._updatedAt ?? topic?._createdAt) as string).toISOString().split('T')[0],
+  // }))
 
   const articleRoutes: Sitemap = articles.map((article) => ({
     url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${article.slug}`,
@@ -62,7 +61,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     ...baseRoutes,
-    ...topicRoutes,
     ...articleRoutes,
     ...termRoutes
   ]
