@@ -16,7 +16,7 @@ export default function Newsletter() {
   const solution = "get exclusive insights on Web3 Gaming"
   return (
     <section id="newsletter" className="flex flex-col py-16">
-      <h2 className={cn(kanit.className, "flex items-center text-2xl font-medium px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
+      <h2 className={cn(kanit.className, "flex items-center  text-center text-2xl font-medium px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
         Shift Forward Newsletter
       </h2>
       <div className="w-full max-w-3xl mx-auto">
