@@ -119,7 +119,7 @@ export default async function Blog() {
                       <li key={post.slug}>
                         <div className="group flex flex-col gap-3 active:scale-[0.98] outline-none w-full">
                           <Link href={`/blog/${post.slug}`} className="w-full transition-all duration-300 ring-0 group-hover:ring-2 rounded-2xl group-hover:ring-amethyst-500 ring-offset-2">
-                            <Image src={"/og?title=" + post.title} height={1200} width={630} alt={post.title as string} loading="lazy" className="object-cover w-full transition-all duration-300 ease-in-out rounded-2xl group-hover:grayscale" />
+                            <Image src={"/blog-og.png"} height={1200} width={630} alt={post.title as string} loading="lazy" className="object-cover w-full transition-all duration-300 ease-in-out rounded-2xl group-hover:grayscale" />
                           </Link>
                           <div className="flex flex-col gap-2 px-2">
                             <Link href={`/topic/${formatTag(post.tags?.[0]) ?? "ai"}`} className="text-[10px] w-fit uppercase text-amethyst-500">
