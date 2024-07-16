@@ -78,7 +78,7 @@ export default function Home() {
             {/* <Showcase/> */}
             <Bio />
             <Certs />
-            <Journal />
+            <Blog />
             {/* <Skills/> */}
             <Work />
             <DynamicNewsletter />
