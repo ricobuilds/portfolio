@@ -1,7 +1,6 @@
 import { routes } from "@/lib/routes";
 import { MetadataRoute } from "next";
 import { Article } from "./types/Article";
-import { Topic } from "./types/Topic";
 import { Term } from "./types/Term";
 import { sanityQuery } from "@/lib/sanity/utils";
 import { getAllPosts } from "@/lib/mdx";
