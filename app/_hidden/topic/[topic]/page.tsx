@@ -1,12 +1,10 @@
 import { baseWidth } from "@/lib/config"
 import { cn } from "@/lib/shared-utils"
 import { siteMetadata } from "@/lib/site.metadata"
-import { Topic } from "@/app/types/Topic"
 import { Metadata, Viewport } from "next"
 import { notFound } from "next/navigation"
 import { WithContext, WebPage } from "schema-dts"
 import { StructuredData } from "@/components/structured-data"
-import { sanityQuery } from "@/lib/sanity/utils"
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -14,11 +12,9 @@ export const viewport: Viewport = {
 }
 
 export async function generateStaticParams() {
-  const topics = await sanityQuery(`*[_type == "topic"]{
-    "slug": slug.current
-  }`)
+  const topics: any = []
 
-  return topics.map((topic: Topic) => ({
+  return topics.map((topic: any) => ({
     topic: topic.slug
   }))
 }
@@ -27,7 +23,7 @@ export async function generateMetadata({ params }: { params: { topic: string } }
 
   // const clusters = await fetchTopics() //deduped
   const { topic } = params
-  const cluster: Topic = await sanityQuery(`*[_type == "topic" && slug.current == "${topic}"][0]`)
+  const cluster: any = []
 
   if (!cluster) return { title: 'Page not found' }
 
@@ -64,12 +60,7 @@ export default async function Page({ params }: { params: { topic: string } }) {
 
   const { topic } = params
 
-  const cluster: Topic = await sanityQuery(`*[_type == "topic" && slug.current == "${topic}"][0]{
-    title,
-    description,
-    "slug": slug.current
-  }`)
-
+  const cluster: any = []
   if (!cluster) {
     notFound()
   }
