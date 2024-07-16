@@ -152,7 +152,7 @@ export default function About() {
                 Hey, I&apos;m <span className="text-amethyst-500">Enric Trillo</span>, a fullstack developer building the future of gaming.
               </Balancer>
             </h1>
-            <div id="content" className="flex flex-col gap-8 max-w-[696px] mx-auto">
+            <div id="content" className="flex flex-col gap-8 max-w-[680px] mx-auto">
               {intro()}
               {mission()}
               {vision()}
