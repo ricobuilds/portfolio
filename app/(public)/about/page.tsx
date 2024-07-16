@@ -30,10 +30,10 @@ export const metadata = generateMetadata({
     siteName: 'Enric Trillo',
   },
   twitter: {
-    creator: '@ricobuilds',
     card: 'summary_large_image',
+    creator: '@ricobuilds',
     description,
-    site: 'https://enrictrillo.com',
+    site: siteMetadata.siteUrl,
     title,
     images: `/base-og.png`,
   },
