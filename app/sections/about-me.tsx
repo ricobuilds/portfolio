@@ -19,7 +19,7 @@ export const Icon = ({ className, ...rest }: any) => {
   );
 };
 
-export const AboutMe = () => {
+export const Bio = () => {
 
   const card__TextOne = "I was born & raised in Madrid, based in London since my early teens, and I'm from a small Hispanic nation in Central Africa few can mark on the map – Equatorial Guinea."
   const card__TextTwo = "I have 7+ years of experience, and now I'm focused on building around disruptive tech to deliver impactful digital experiences."

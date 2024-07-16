@@ -8,7 +8,7 @@ import { siteMetadata } from "@/lib/site.metadata";
 import type { Person, WithContext } from "schema-dts"
 import { LogoCloud } from "../sections/logo-cloud";
 import { Certifications as Certs } from "../sections/certifications";
-import { AboutMe } from "../sections/about-me";
+import { Bio } from "../sections/about-me";
 import { Work } from "../sections/work";
 
 const homeSchema: WithContext<Person> = {
@@ -76,7 +76,7 @@ export default function Home() {
             <Hero />
             <LogoCloud />
             {/* <Showcase/> */}
-            <AboutMe />
+            <Bio />
             <Certs />
             <Journal />
             {/* <Skills/> */}
