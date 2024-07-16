@@ -2,6 +2,7 @@ import { logos } from "@/app/sections/hero"
 import { StructuredData } from "@/components/structured-data"
 import { baseWidth } from "@/lib/config"
 import { routes } from "@/lib/routes"
+import { generateMetadata } from "@/lib/seo"
 import { cn } from "@/lib/shared-utils"
 import { siteMetadata } from "@/lib/site.metadata"
 import { Metadata } from "next"
@@ -13,7 +14,7 @@ import { BreadcrumbList, WebPage, WithContext } from "schema-dts"
 const title = 'About Me'
 const description = "Enric J Trillo Nchana is the founder of Metasyde, a fullstack developer and content creator writing daily insights on the future of Web3 Gaming & the Metaverse."
 
-export const metadata: Metadata = {
+export const metadata = generateMetadata({
   title,
   description,
   alternates: {
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     images: `/base-og.png`,
   },
   robots: "index, follow"
-}
+})
 
 const aboutSchema: WithContext<WebPage> = {
   "@context": "https://schema.org",
