@@ -154,6 +154,11 @@ export default function About() {
                     </div>
                   </Link>
                 </div>
+                <div className="flex flex-col gap-3 p-4 border rounded-xl">
+                  <h2 className="font-bold">Shift Forward Newsletter</h2>
+                  <p className="text-slate-500">Sharing the latest insights and developments in the world of disruptive technologies to help you thrive in a future driven by AI.</p>
+                  <Link href={routes.subscribe} className="px-4 py-2 text-center text-white rounded-full bg-amethyst-500">Subscribe</Link>
+                </div>
               </div>
               {bio()}
               {media()}
