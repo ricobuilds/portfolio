@@ -8,7 +8,7 @@ import { siteMetadata } from "@/lib/site.metadata";
 import type { Person, WithContext } from "schema-dts"
 import { LogoCloud } from "../sections/logo-cloud";
 import { Certifications as Certs } from "../sections/certifications";
-import { Bio } from "../sections/about-me";
+import { Bio } from "../sections/bio";
 import { Work } from "../sections/work";
 
 const homeSchema: WithContext<Person> = {
