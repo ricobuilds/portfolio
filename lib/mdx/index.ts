@@ -6,16 +6,14 @@ import { MDXArticle } from '@/app/types/Article';
 
 const root = process.cwd();
 
-const content_path = path.join(root, 'content')
-
-export const allSlugs = fs.readdirSync(content_path).filter((file) => path.extname(file) === '.mdx')
+export const allSlugs = fs.readdirSync(path.join(root, 'content', 'blog')).filter((file) => path.extname(file) === '.mdx')
 
 export const extractSlug = (slug: string) => slug.replace(/\.mdx$/, '')
 
 export const formatTag = (tag: string) => tag.toLowerCase().replace(' ', '-')
 
 export const getPostBySlug = async (slug: string) => {
-  const postFilePath = path.join(content_path, `${slug}.mdx`);
+  const postFilePath = path.join(root, 'content', 'blog', `${slug}.mdx`);
 
   const source = fs.readFileSync(postFilePath)
 
@@ -56,7 +54,7 @@ export const getAllPosts = () => {
   const frontMatter: any[] = []
 
   allSlugs.forEach((slug: string) => {
-    const source = fs.readFileSync(path.join(content_path, slug), 'utf-8')
+    const source = fs.readFileSync(path.join(root, 'content', 'blog', slug), 'utf-8')
 
     const { data } = matter(source)
 
