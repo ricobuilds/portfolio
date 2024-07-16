@@ -35,6 +35,23 @@ export const getPostBySlug = async (slug: string) => {
   }
 }
 
+export const generateTags = (allPosts: MDXArticle[]) => {
+  const tags: Record<string, number> = {}
+  allPosts.forEach((p) => {
+    if (p.tags) { 
+      p.tags.forEach((tag) => {
+        const formattedTag = formatTag(tag)
+        if (formattedTag in tags) {
+          tags[formattedTag] += 1
+        } else {
+          tags[formattedTag] = 1
+        }
+      })
+    }
+  })
+  fs.writeFileSync(path.join(root, 'tag-data.json'), JSON.stringify(tags))
+}
+
 export const getAllPosts = () => {
   const frontMatter: any[] = []
 
