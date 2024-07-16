@@ -130,11 +130,9 @@ export default async function Page({ params }: { params: { article: string } }) 
     "headline": post.title,
     "description": post.description,
     "datePublished": post.date,
-    "dateModified": post.date,
     "author": {
       "@type": "Person",
-      "name": siteMetadata.title,
-      "url": siteMetadata.siteUrl
+      name: post.author.name
     },
     "image": "https://www.mysite.com/path-to-article-image.jpg",
     "url": `${siteMetadata.siteUrl}/blog/${post.slug}`,
@@ -198,8 +196,9 @@ export default async function Page({ params }: { params: { article: string } }) 
                     <span> /</span>
                   </div>
                   <div className="relative flex items-start justify-start gap-1 uppercase">
+                    Published on
                     <time dateTime={post.date}>
-                      Published on {convertDate(post.date, { month: "short" })}
+                      {convertDate(post.date, { month: "long", weekday: "long", day: "numeric", year: "numeric" })}
                     </time>
                   </div>
                 </div>

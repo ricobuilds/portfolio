@@ -11,17 +11,8 @@ export function sleep(ms: number) {
   return new Promise<void>((r) => setTimeout(r, ms))
 }
 
-export const convertDate = (_date: string, options?: {
-  locale?: string,
-  year?: "numeric" | "2-digit" | undefined
-  month?: "numeric" | "2-digit" | "long" | "short" | "narrow" | undefined
-  day?: "numeric" | "2-digit" | undefined
-}) => {
-  return new Date(_date).toLocaleDateString(options?.locale ?? "en-US", {
-    year: options?.year ?? 'numeric',
-    month: options?.month ?? 'short',
-    day: options?.day ?? '2-digit'
-  })
+export const convertDate = (_date: string, options?: Intl.DateTimeFormatOptions) => {
+  return new Date(_date).toLocaleDateString("en-US", {...options})
 }
 
 export function absoluteUrl(path: string) {
