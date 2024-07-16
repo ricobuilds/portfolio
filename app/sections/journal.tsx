@@ -12,9 +12,11 @@ const kanit = Kanit({
   subsets: ['latin']
 })
 
+const POSTS_MAX = 5
+
 const PostsList = ({ posts }: { posts: MDXArticle[] }) => {
 
-  const slicedPostList = posts.slice(0, 5)
+  const slicedPostList = posts.slice(0, POSTS_MAX)
   return (
     <ul className="grid w-full gap-8 mt-10 md:grid-cols-6">
       {slicedPostList.map((post, idx) => (
@@ -44,7 +46,7 @@ const PostsList = ({ posts }: { posts: MDXArticle[] }) => {
   )
 }
 
-export const Journal = async () => {
+export const Blog = async () => {
 
   const posts: MDXArticle[] = getAllPosts()
 

@@ -1,5 +1,5 @@
 import { Hero } from "../sections/hero";
-import { Journal } from "../sections/journal";
+import { Blog } from "../sections/journal";
 
 import { StructuredData } from "../../components/structured-data";
 import { cn } from "@/lib/shared-utils";
