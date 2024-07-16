@@ -1,9 +1,7 @@
 import { cn } from "@/lib/shared-utils"
-import Image from "next/image"
 import Link from "next/link"
 import Balancer from "react-wrap-balancer"
 import { Kanit } from "next/font/google"
-import { routes } from "@/lib/routes"
 
 const heroFont = Kanit({
   subsets: ['latin'],

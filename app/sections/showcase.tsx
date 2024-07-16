@@ -1,5 +1,4 @@
 "use client"
-import { motion, useTransform, useScroll } from "framer-motion"
 import Image from "next/image";
 import Marquee from "react-fast-marquee"
 

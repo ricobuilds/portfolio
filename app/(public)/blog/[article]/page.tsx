@@ -1,19 +1,15 @@
-import { Metadata, Viewport } from "next"
+import { Viewport } from "next"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import { siteMetadata } from "@/lib/site.metadata"
 import { cn, convertDate } from "@/lib/shared-utils"
-import { Article, MDXArticle } from "@/app/types/Article"
+import { MDXArticle } from "@/app/types/Article"
 import { WithContext, BreadcrumbList, Article as BlogPosting } from "schema-dts"
 import { StructuredData } from "@/components/structured-data"
 import Link from "next/link"
 import { ShareArticleRow } from "@/components/share-article"
 import { Kanit } from "next/font/google"
 import { ScrollProgress } from "@/components/scroll-progress"
-import { FramerPortal } from "./framer-portal"
-import { PortableText } from "@portabletext/react"
-import { components } from "@/components/portable"
-import { sanityQuery } from "@/lib/sanity/utils"
 import { allSlugs, extractSlug, formatTag, getAllPosts, getPostBySlug } from "@/lib/mdx"
 import { CustomMDX } from "@/components/mdx"
 
@@ -216,22 +212,6 @@ export default async function Page({ params }: { params: { article: string } }) 
           <article className='max-w-2xl pt-10 mx-auto prose'>
             <CustomMDX source={post.content} />
           </article>
-          {/* <section id="content" className="max-w-2xl mx-auto mt-8">
-            <article>
-              <PortableText value={post?.content} components={components} onMissingComponent={(message, options) => { console.log(message + "reekz") }} />
-            </article>
-          </section> */}
-          {/* <aside className="lg:min-w-[270px] lg:max-w-[270px] pt-10 lg:pt-20">
-              <div className="flex flex-col gap-6 top-24">
-                <div className="bg-white overflow-hidden pt-6 px-4 pb-2.5 relative rounded-xl">
-                  <div className="w-full mb-5">
-                    <Image src={'/headshot.jpeg'} alt="Enric Trillo" width={300} height={300} className="w-32 h-32 mx-auto transition-all duration-300 rounded-full ring-2 ring-slate-200/80 hover:ring-4" />
-                  </div>
-                  <div className="mb-2 font-bold">Who is {post.author?.name ?? "Enric Trillo"}?</div>
-                  <p className="text-sm text-obsidian-500">I am a fullstack developer & founder of <Link className="underline text-charkol" href={""}>Metasyde</Link>, a studio building immersive game experiences with Web3. I am obsessed with pushing the bounds of gaming with modern technologies.</p>
-                </div>
-              </div>
-            </aside> */}
         </div>
         <section id="footer" className="w-full max-w-2xl mx-auto mt-8">
           <CTA />

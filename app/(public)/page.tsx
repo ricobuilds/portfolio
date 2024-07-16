@@ -1,28 +1,19 @@
 import { Hero } from "../sections/hero";
 import { Journal } from "../sections/journal";
-// import { Newsletter } from "../sections/newsletter";
+
 import { StructuredData } from "../../components/structured-data";
-import { Ventures } from "../sections/ventures";
-import { Products } from "../sections/products"
-import { Stack } from "../sections/stack";
-import { Outro } from "../sections/outro";
 import { cn } from "@/lib/shared-utils";
 import dynamic from "next/dynamic";
 import { siteMetadata } from "@/lib/site.metadata";
 import type { Person, WithContext } from "schema-dts"
-import { Intro } from "../sections/intro";
 import { LogoCloud } from "../sections/logo-cloud";
 import { Certifications as Certs } from "../sections/certifications";
-import { Services } from "../sections/services";
-import { USP } from "../sections/usp";
 import { AboutMe } from "../sections/about-me";
 import { Work } from "../sections/work";
-import { Skills } from "../sections/skills";
-import { Showcase } from "../sections/showcase";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: ""
+  title: siteMetadata.title
 }
 
 const homeSchema: WithContext<Person> = {

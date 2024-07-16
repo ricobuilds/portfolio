@@ -1,6 +1,5 @@
 import { logos } from "@/app/sections/hero"
 import { StructuredData } from "@/components/structured-data"
-import { Button } from "@/components/ui/button"
 import { baseWidth } from "@/lib/config"
 import { routes } from "@/lib/routes"
 import { cn } from "@/lib/shared-utils"
@@ -9,7 +8,6 @@ import { Metadata } from "next"
 import { Kanit } from "next/font/google"
 import Image from "next/image"
 import Link from "next/link"
-import Balancer from "react-wrap-balancer"
 import { BreadcrumbList, WebPage, WithContext } from "schema-dts"
 
 const title = 'About Me'

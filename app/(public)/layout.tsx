@@ -4,7 +4,6 @@ import { cn } from "@/lib/shared-utils";
 import { Navbar } from "../../components/navbar";
 import { UmamiScript } from "../../components/umami-script";
 import { Footer } from "../../components/footer";
-import { CMSDevMode } from "../../components/cms-devmode";
 
 export default function RootLayout({
   children,
@@ -18,7 +17,6 @@ export default function RootLayout({
         {children}
         <UmamiScript />
         <Footer />
-        <CMSDevMode/>
       </body>
     </html>
   );

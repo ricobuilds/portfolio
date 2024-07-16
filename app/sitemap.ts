@@ -1,8 +1,5 @@
 import { routes } from "@/lib/routes";
 import { MetadataRoute } from "next";
-import { Article } from "./types/Article";
-import { Term } from "./types/Term";
-import { sanityQuery } from "@/lib/sanity/utils";
 import { getAllPosts } from "@/lib/mdx";
 
 type Sitemap = Array<{

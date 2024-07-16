@@ -4,12 +4,10 @@ import { siteMetadata } from "@/lib/site.metadata"
 import { cn, convertDate } from "@/lib/shared-utils"
 import Link from "next/link"
 import { baseWidth } from "@/lib/config"
-import { Article, MDXArticle } from "@/app/types/Article"
-import { Topic } from "@/app/types/Topic"
+import { MDXArticle } from "@/app/types/Article"
 import Image from "next/image"
 import { BreadcrumbList, WithContext, Blog as BlogSchema} from "schema-dts"
 import { StructuredData } from "@/components/structured-data"
-import { sanityQuery } from "@/lib/sanity/utils"
 import { formatTag, getAllPosts } from "@/lib/mdx"
 
 const title = 'Blog'

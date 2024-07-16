@@ -1,7 +1,6 @@
 import React from "react"
-import { sanityQuery } from "@/lib/sanity/utils"
 import Link from "next/link"
-import { Article, MDXArticle } from "../types/Article"
+import { MDXArticle } from "../types/Article"
 import { cn, convertDate } from "@/lib/shared-utils"
 import { Kanit } from "next/font/google"
 import Image from "next/image"
@@ -47,17 +46,8 @@ const PostsList = ({ posts }: { posts: MDXArticle[] }) => {
 
 export const Journal = async () => {
 
-  const articles: Article[] = await sanityQuery(`*[_type == "article"] | order(_createdAt desc)[0..2]{
-    _id,
-    title,
-    publishedAt,
-    "slug": slug.current,
-    "topic": topic->{title, "slug": slug.current},
-  }`)
-
   const posts: MDXArticle[] = getAllPosts()
 
-  const showBlogs = true
   return (
     <section id="writing" className="flex flex-col py-16">
       <h2 className={cn(kanit.className, "flex items-center mx-auto text-2xl font-medium px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
