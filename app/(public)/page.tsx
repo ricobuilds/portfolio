@@ -10,11 +10,6 @@ import { LogoCloud } from "../sections/logo-cloud";
 import { Certifications as Certs } from "../sections/certifications";
 import { AboutMe } from "../sections/about-me";
 import { Work } from "../sections/work";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: siteMetadata.title
-}
 
 const homeSchema: WithContext<Person> = {
   "@context": "https://schema.org",
