@@ -1,12 +1,9 @@
-import { StructuredData } from "@/components/structured-data"
 import { cn } from "@/lib/shared-utils"
-import { siteMetadata } from "@/lib/site.metadata"
 import Image from "next/image"
-import { WebPage, WithContext } from "schema-dts"
 import { Kanit } from "next/font/google"
-import { Metadata } from "next"
 import { routes } from "@/lib/routes"
 import Link from "next/link"
+import { generateMetadata } from "@/lib/seo"
 
 const heroFont = Kanit({
   subsets: ['latin'],
@@ -14,66 +11,17 @@ const heroFont = Kanit({
   display: 'swap',
 })
 
-const title = "Shift Forward: Disruptive Tech Analysis"
-const description = "Stay ahead with the Shift Forward newsletter for the latest insights on disruptive technologies. Subscribe now for the latest news and analysis."
-
-export const metadata: Metadata = {
-  title: title,
-  description: description,
-  alternates: {
-    canonical: siteMetadata.siteUrl + routes.subscribe
-  },
-  openGraph: {
-    locale: 'en_GB',
-    title: title,
-    type: 'website',
-    url: siteMetadata.siteUrl + routes.subscribe,
-    images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3001"}/subscribe-og.png`,
-    description: description,
-    siteName: siteMetadata.title,
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: title,
-    description: description,
-    creator: '@ricobuilds',
-    site: '@ricobuilds',
-    images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3001"}/subscribe-og.png`,
-  },
-  robots: "index, follow"
-}
+export const metadata = generateMetadata({
+  title: "Shift Forward: Disruptive Tech Analysis",
+  description: "Stay ahead with the Shift Forward newsletter for the latest insights on disruptive technologies. Subscribe now for the latest news and analysis."
+})
 
 export default function Subscribe() {
   const name = "Metasyde Ltd"
 
-  const subscribeSchema: WithContext<WebPage> = {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    "name": "Subscribe Page",
-    "description": "Subscribe to the Shift Forward newsletter for the latest insights on disruptive technologies.",
-    "url": siteMetadata.siteUrl + "/subscribe",
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": siteMetadata.siteUrl
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Newsletter",
-          "item": siteMetadata.siteUrl + "/subscribe",
-        }
-      ]
-    },
-  }
-
   return (
     <>
-      <StructuredData data={subscribeSchema} />
+      {/* <StructuredData data={subscribeSchema} /> */}
       <main className="w-full">
         <div className="relative flex items-center h-screen p-4">
           <div className="flex flex-col gap-6 mx-auto">
