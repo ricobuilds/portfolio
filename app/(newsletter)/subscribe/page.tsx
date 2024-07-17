@@ -13,7 +13,7 @@ const heroFont = Kanit({
 
 export const metadata = generateMetadata({
   title: "Shift Forward: Disruptive Tech Analysis",
-  description: "Stay ahead with the Shift Forward newsletter for the latest insights on disruptive technologies. Subscribe now for the latest news and analysis."
+  description: "Follow the latest developments and analysis on disruptive technologies to thrive in your profession and business in a future driven by AI."
 })
 
 export default function Subscribe() {
@@ -49,7 +49,7 @@ export default function Subscribe() {
               </div>
               <div id="art" className="flex items-center">
                 <div className="relative hidden w-64 h-64 overflow-hidden shadow-lg pointer-events-none sm:block">
-                  <Image priority src={"https://illustrations.popsy.co/purple/man-riding-a-rocket.svg"} fill className="inset-0 scale-x-100 border-2 rounded border-charkol" alt="The Metasyde" />
+                  <Image priority src={"/sf-logo.png"} fill className="inset-0 scale-x-100 border-2 rounded border-charkol" alt="Shift Forward Newsletter" />
                 </div>
               </div>
             </div>
