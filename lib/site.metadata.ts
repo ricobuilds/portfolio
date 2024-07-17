@@ -6,5 +6,6 @@ export const siteMetadata = {
   twitter: "https://x.com/ricobuilds",
   locale: "en-GB",
   language: "en-gb",
-  baseUrlImage: "/base-og.png"
+  baseUrlImage: "/base-og.png",
+  keywword: "ricobuilds, enrict trillo, fullstack development, learn machine learning, learn deep learning, learn typescript, learn nextjs, learn python"
 }
