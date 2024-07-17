@@ -4,8 +4,6 @@ import { notFound } from "next/navigation"
 import { siteMetadata } from "@/lib/site.metadata"
 import { cn, convertDate } from "@/lib/shared-utils"
 import { MDXArticle } from "@/app/types/Article"
-import { WithContext, BreadcrumbList, Article as BlogPosting } from "schema-dts"
-import { StructuredData } from "@/components/structured-data"
 import Link from "next/link"
 import { ShareArticleRow } from "@/components/share-article"
 import { Kanit } from "next/font/google"
@@ -33,15 +31,18 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: { article: string } }): Promise<any> {
 
-  const post = getAllPosts().find((p) => p.slug === params.article)
+  const post: MDXArticle = getAllPosts().find((p) => p.slug === params.article)
 
   if (!post) return { title: 'Issue not found!' }
+
+  const publishedAt = new Date(post.date).toISOString()
+  const modifiedAt = new Date(post.date).toISOString()
 
   return {
     title: post.title,
     description: post.description,
     alternates: {
-      canonical: `${siteMetadata.siteUrl}/blog/${params.article}`,
+      canonical: './',
     },
     authors: [
       {
@@ -53,8 +54,10 @@ export async function generateMetadata({ params }: { params: { article: string }
       locale: 'en_GB',
       title: post.title,
       type: 'article',
-      url: siteMetadata.siteUrl + "/blog/" + params.article,
-      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3001"}/og?title=${post.title}`,
+      url: './',
+      publishedTime: publishedAt,
+      modifiedTime: modifiedAt,
+      images: post.og?.url ? [post.og?.url] : siteMetadata.baseUrlImage,
       description: post.description,
       siteName: siteMetadata.title,
       authors: siteMetadata.title
@@ -65,7 +68,7 @@ export async function generateMetadata({ params }: { params: { article: string }
       description: post.description,
       creator: '@ricobuilds',
       site: siteMetadata.siteUrl,
-      images: `${process.env.NODE_ENV === "production" ? "https://enrictrillo.com" : "http://localhost:3001"}/og?title=${post.title}`,
+      images: post.og?.url ? [post.og?.url] : siteMetadata.baseUrlImage,
     },
     robots: "index, follow",
   }
@@ -117,61 +120,10 @@ export default async function Page({ params }: { params: { article: string } }) 
     notFound()
   };
 
-  // const prevArticle: { slug: string } = await sanityQuery(`*[_type == "article" && publishedAt < "${post.publishedAt}"] | order(publishedAt desc)[0]{
-  //   "slug": slug.current
-  // }`)
-  // const nextArticle: { slug: string } = await sanityQuery(`*[_type == "article" && publishedAt > "${post.publishedAt}"] | order(publishedAt asc)[0]{
-  //   "slug": slug.current
-  // }`)
-
-  const articleSchema: WithContext<BlogPosting> = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": post.title,
-    "description": post.description,
-    "datePublished": post.date,
-    "author": {
-      "@type": "Person",
-      name: post.author.name
-    },
-    "image": "https://www.mysite.com/path-to-article-image.jpg",
-    "url": `${siteMetadata.siteUrl}/blog/${post.slug}`,
-    "publisher": {
-      "@type": "Person",
-      "name": "Enric Trillo",
-      "url": siteMetadata.siteUrl
-    }
-  }
-
-  const articleBreadcrumbSchema: WithContext<BreadcrumbList> = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": siteMetadata.siteUrl
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Blog",
-        "item": siteMetadata.siteUrl + "/blog",
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": post.tags?.[0],
-        "item": siteMetadata.siteUrl + "/topic/" + post.tags?.[0],
-      },
-    ]
-  }
-
   return (
     <>
-      <StructuredData data={articleSchema} />
-      <StructuredData data={articleBreadcrumbSchema} />
+      {/* <StructuredData data={articleSchema} />
+      <StructuredData data={articleBreadcrumbSchema} /> */}
       <ScrollProgress />
       <main id="article" className="relative flex-1 w-full max-w-full px-6 mx-auto">
         <div className="flex flex-col justify-between mt-8 lg:flex-col max-w-[970px] mx-auto">
