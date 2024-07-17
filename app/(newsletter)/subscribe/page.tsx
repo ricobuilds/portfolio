@@ -34,7 +34,7 @@ export default function Subscribe() {
                 </div>
                 <div className="w-full mb-8">
                   <h1 className={cn(heroFont.className, "text-6xl font-semibold text-center sm:text-left")}>Shift Forward</h1>
-                  <p className="text-2xl text-center sm:text-left">Keep up with top disruptive tech insights and their impact across industries worldwide － relaunching soon.</p>
+                  <p className="text-2xl text-center sm:text-left">Keep up with top disruptive tech insights to thrive in a future world driven by AI － relaunching soon.</p>
                 </div>
                 <div className="w-full mb-10">
                   <div className="w-full rounded-lg sm:max-w-md">
