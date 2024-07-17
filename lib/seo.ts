@@ -11,32 +11,28 @@ interface PageSEOProps extends Metadata {
 export function generateMetadata({ title, description, image, ...rest }: PageSEOProps): Metadata {
   return {
     metadataBase: new URL(siteMetadata.siteUrl),
-    title: {
-      default: siteMetadata.default,
-      template: `%s - ${siteMetadata.title}`
-    },
-    description: siteMetadata.description,
+    title,
+    description: description || siteMetadata.description,
     alternates: {
-      canonical: siteMetadata.siteUrl
+      canonical: './'
     },
     openGraph: {
       title: siteMetadata.default,
       description: siteMetadata.description,
-      url: siteMetadata.siteUrl,
+      url: './',
       siteName: siteMetadata.title,
       locale: 'en_GB',
       type: 'website',
-      images: siteMetadata.baseUrlImage,
+      images: image ? [image] : siteMetadata.baseUrlImage,
     },
     twitter: {
       card: 'summary_large_image',
-      title: siteMetadata.default,
-      description: siteMetadata.description,
+      title: `${title} | ${siteMetadata.title}`,
+      description: description,
       creator: '@ricobuilds',
       site: "@ricobuilds",
-      images: siteMetadata.baseUrlImage,
+      images: image ? [image] : siteMetadata.baseUrlImage,
     },
-
     ...rest
   }
 }
