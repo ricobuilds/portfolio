@@ -8,7 +8,8 @@ import { generateMetadata } from "@/lib/seo"
 
 export const metadata = generateMetadata({
   title: 'Blog',
-  description: "Articles to share my thoughts, technical breakdowns and learnings on web development, artificial intelligence, machine learning and more."
+  description: "Sharing my thoughts, personal experiences and what I learn as a Fullstack Developer – covering many topics including fullstack development, AI development, gaming and more.",
+  keywords: "disruptive technology, full stack developer, blog, tech insights"
 })
 
 export default async function Blog() {
