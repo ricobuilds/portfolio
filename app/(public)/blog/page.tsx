@@ -1,111 +1,24 @@
-import { Metadata } from "next"
-import { routes } from "@/lib/routes"
-import { siteMetadata } from "@/lib/site.metadata"
 import { cn, convertDate } from "@/lib/shared-utils"
 import Link from "next/link"
 import { baseWidth } from "@/lib/config"
 import { MDXArticle } from "@/app/types/Article"
 import Image from "next/image"
-import { BreadcrumbList, WithContext, Blog as BlogSchema} from "schema-dts"
-import { StructuredData } from "@/components/structured-data"
 import { formatTag, getAllPosts } from "@/lib/mdx"
 import { generateMetadata } from "@/lib/seo"
 
-const title = 'Blog'
-const description = "Articles to share my thoughts, technical breakdowns and learnings on web development, artificial intelligence, machine learning and more."
-export const metadata: Metadata = generateMetadata({
-  title,
-  description,
-  alternates: {
-    canonical: siteMetadata.siteUrl + routes.blog
-  },
-  openGraph: {
-    title,
-    description,
-    locale: 'en_GB',
-    type: 'website',
-    images: `/base-og.png`,
-    url: siteMetadata.siteUrl + routes.blog,
-    siteName: 'Enric Trillo',
-  },
-  twitter: {
-    creator: '@ricobuilds',
-    card: 'summary_large_image',
-    description,
-    site: siteMetadata.siteUrl,
-    title,
-    images: `/base-og.png`,
-  },
-  robots: "index, follow"
+export const metadata = generateMetadata({
+  title: 'Blog',
+  description: "Articles to share my thoughts, technical breakdowns and learnings on web development, artificial intelligence, machine learning and more."
 })
-
-function formatSixArticles(posts: MDXArticle[]) {
-  const fortmattedSixArticles = posts.map((post) => ({
-    "@type": "BlogPosting",
-    "headline": post.title,
-    "description": post.description,
-    "datePublished": post.date,
-    "author": {
-      "@type": "Person",
-      "name": siteMetadata.title
-    },
-    "image": siteMetadata.siteUrl + `/og?title=${post.title}`,
-    "publisher": {
-      "@type": "Organization",
-      "name": "Metasyde",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.mysite.com/path-to-logo-image.jpg"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": siteMetadata.siteUrl + "/blog/" + post.slug
-    }
-  }))
-
-  return fortmattedSixArticles
-}
-
-export const revalidate = 3600 // revalidate at most every hour
 
 export default async function Blog() {
 
   const posts: MDXArticle[] = getAllPosts()
 
-  const schema: WithContext<BlogSchema> = {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "Blog",
-    "description": "Stay updated with the latest articles on Web3 Gaming and the Metaverse.",
-    "url": siteMetadata.siteUrl + "/blog",
-    // @ts-ignore
-    "mainEntity": formatSixArticles(posts)
-  }
-
-  const breadcrumbSchema: WithContext<BreadcrumbList> = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": siteMetadata.siteUrl
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Blog",
-        "item": siteMetadata.siteUrl + "/blog"
-      },
-    ]
-  }
-
   return (
     <>
-      <StructuredData data={schema} />
-      <StructuredData data={breadcrumbSchema} />
+      {/* <StructuredData data={schema} />
+      <StructuredData data={breadcrumbSchema} /> */}
       <main className="w-full px-6">
         <div className={cn(baseWidth, "min-h-screen w-full mx-auto")}>
           <div className="relative flex flex-col w-full gap-10 pt-20">
