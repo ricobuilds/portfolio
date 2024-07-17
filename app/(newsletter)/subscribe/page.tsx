@@ -13,7 +13,7 @@ const heroFont = Kanit({
 
 export const metadata = generateMetadata({
   title: "Shift Forward: Disruptive Tech Analysis",
-  description: "Follow the latest developments and analysis on disruptive technologies to thrive in your profession and business in a future driven by AI."
+  description: "Get the latest insights and analysis on disruptive technologies to thrive in a future driven by AI."
 })
 
 export default function Subscribe() {
