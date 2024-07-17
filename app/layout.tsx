@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { siteMetadata } from "@/lib/site.metadata";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -49,7 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      {children}
+    { children }
     </>
   );
 }
