@@ -47,48 +47,11 @@ export default async function Blog() {
                     ))
                   }
                 </ul>
-                // <div className="relative -mx-3">
-                //   {
-                //     // @ts-ignore
-                //     articles.sort((a, b) => (new Date(b.publishedAt) - new Date(a.publishedAt))).map((item: Article, idx: number) => (
-                //       <div key={idx} className="flex flex-col flex-1 w-full">
-                //         <Link href={item.url ? item.url : `/blog/${item.slug}`} scroll={false} className="flex items-center justify-between w-full gap-2 px-3 py-2 rounded-lg group hover:bg-slate-100">
-                //           <p className="text-lg font-medium underline group-hover:text-slate-600 group-hover:decoration-slate-600">{item.name}</p>
-                //           <p className="flex flex-col">
-                //             <small className="font-light text-obsidian-600">{convertDate(item.publishedAt)}</small>
-                //           </p>
-                //         </Link>
-                //       </div>
-                //     ))
-                //   }
-                // </div>
               ) : <p>No posts here... yet.</p>
             }
           </div>
         </div>
       </main>
     </>
-  )
-  return (
-    <main className="w-full px-4">
-      <div className="w-full mx-auto baseWidth">
-        <div className="relative flex flex-col gap-10 pt-20">
-          <h1 className="text-6xl font-semibold">Blog</h1>
-          {
-            // @ts-ignore
-            articles.sort((a, b) => (new Date(b.date) - new Date(a.date))).map((item: Post, idx: number) => (
-              <div key={idx} className="flex flex-col flex-1 w-full">
-                <Link href={item.url ? item.url : `/blog/${item._raw.flattenedPath}`} scroll={false} className="flex items-center justify-between w-full gap-2 py-2 hover:bg-slate-100 ">
-                  <p className="text-lg font-medium underline">{item.title}</p>
-                  <p className="flex flex-col">
-                    <small className="font-light text-obsidian-600">{convertDate(item.date)}</small>
-                  </p>
-                </Link>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </main>
   )
 }
