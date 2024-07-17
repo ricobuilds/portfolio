@@ -3,25 +3,14 @@ export const routes = {
   home: "/",
   about: "/about",
   blog: "/blog",
-  newsletter: "/newsletter",
-  rss: "/rss",
+  rss: "/rss.xml",
   subscribe: "/subscribe",
   glossary: "/glossary",
-  // topics
-  arvr: "/topic/ar-vr",
-  ai: "/topic/ai",
-  blockchain: "/topic/blockchain",
-  gaming: "/topic/gaming",
-  haptic: "/topic/haptic",
-  metaverse: "/topic/metaverse",
-  robotics: "/topic/robotics",
-  web: "/topic/web",
+ 
   // socials
   email: "mailto:hola@enrictrillo.com",
   twitter: "https://x.com/ricobuilds",
   linkedin: "https://www.linkedin.com/in/enrictrillo/",
-  discord: "https://discord.com/users/0xreeko#1744",
   github: "https://github.com/ricobuilds",
   youtube: "https://youtube.com/@ricobuilds",
-  medium: "https://medium.com/@enrictrillo"
 } as const

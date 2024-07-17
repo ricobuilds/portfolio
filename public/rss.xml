@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[Enric Trillo]]></title>
+        <description><![CDATA[Top insights & developments in disruptive technologies to thrive in your profession and business in an AI-driven world.]]></description>
+        <link>https://enrictrillo.com</link>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Wed, 17 Jul 2024 11:46:18 GMT</lastBuildDate>
+        <atom:link href="https://enrictrillo.com/rss.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Wed, 17 Jul 2024 11:46:18 GMT</pubDate>
+        <copyright><![CDATA[All rights reserved 2024,Enric Trillo]]></copyright>
+        <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Hello 2025]]></title>
+            <description><![CDATA[Here is what I've been up to for the past 6 months]]></description>
+            <link>https://enrictrillo.com/blog/2025</link>
+            <guid isPermaLink="false">https://enrictrillo.com/blog/2025</guid>
+            <category><![CDATA[Personal]]></category>
+            <dc:creator><![CDATA[Enric Trillo]]></dc:creator>
+            <pubDate>Mon, 15 Jul 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Hello 2024]]></title>
+            <description><![CDATA[Here is what I've been up to for the past 6 months]]></description>
+            <link>https://enrictrillo.com/blog/hello</link>
+            <guid isPermaLink="false">https://enrictrillo.com/blog/hello</guid>
+            <category><![CDATA[Generative AI]]></category>
+            <category><![CDATA[Python]]></category>
+            <dc:creator><![CDATA[Enric Trillo]]></dc:creator>
+            <pubDate>Sun, 14 Jul 2024 00:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>

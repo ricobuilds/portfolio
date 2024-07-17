@@ -12,6 +12,7 @@ const listOfRoutes = [
   routes.about,
   routes.blog,
   routes.subscribe,
+  routes.rss
 ]
 
 const posts = getAllPosts()
@@ -23,9 +24,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date().toISOString().split('T')[0],
   }))
 
-  const blogRoutes: Sitemap = posts.map((article) => ({
-    url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${article.slug}`,
-    lastModified: new Date(article.date).toISOString().split('T')[0],
+  const blogRoutes: Sitemap = posts.map((post) => ({
+    url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${post.slug}`,
+    lastModified: new Date(post.date).toISOString().split('T')[0],
   }))
 
   // const termRoutes: Sitemap = terms.map((term) => ({
