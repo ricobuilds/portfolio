@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     template: `%s - ${siteMetadata.title}`
   },
   description: siteMetadata.description,
+  keywords: siteMetadata.keywword,
   alternates: {
     canonical: siteMetadata.siteUrl
   },
@@ -50,7 +51,7 @@ export default function RootLayout({
 }>) {
   return (
     <>
-    { children }
+      {children}
     </>
   );
 }
