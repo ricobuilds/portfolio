@@ -8,8 +8,9 @@ import Image from "next/image"
 import Link from "next/link"
 
 export const metadata = generateMetadata({
-  title: 'About Me',
-  description: "Enric J Trillo Nchana is the founder of Metasyde, a fullstack developer and content creator writing daily insights on the future of Web3 Gaming & the Metaverse.",
+  title: 'About Me | Disruptive Tech Enthusiast',
+  description: "Get to know me, a fullstack developer with a multi-disciplinary background, with a passion for disruptive technologies.",
+  keywords: "full stack developer, disruptive technology, about me, tech enthusiast"
 })
 
 const kanit = Kanit({
