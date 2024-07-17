@@ -9,14 +9,15 @@ import Image from "next/image"
 import { BreadcrumbList, WithContext, Blog as BlogSchema} from "schema-dts"
 import { StructuredData } from "@/components/structured-data"
 import { formatTag, getAllPosts } from "@/lib/mdx"
+import { generateMetadata } from "@/lib/seo"
 
 const title = 'Blog'
 const description = "Articles to share my thoughts, technical breakdowns and learnings on web development, artificial intelligence, machine learning and more."
-export const metadata: Metadata = {
+export const metadata: Metadata = generateMetadata({
   title,
   description,
   alternates: {
-    canonical: siteMetadata.siteUrl + routes.journal
+    canonical: siteMetadata.siteUrl + routes.blog
   },
   openGraph: {
     title,
@@ -24,19 +25,19 @@ export const metadata: Metadata = {
     locale: 'en_GB',
     type: 'website',
     images: `/base-og.png`,
-    url: siteMetadata.siteUrl + routes.journal,
+    url: siteMetadata.siteUrl + routes.blog,
     siteName: 'Enric Trillo',
   },
   twitter: {
     creator: '@ricobuilds',
     card: 'summary_large_image',
     description,
-    site: 'https://enrictrillo.com',
+    site: siteMetadata.siteUrl,
     title,
     images: `/base-og.png`,
   },
   robots: "index, follow"
-}
+})
 
 function formatSixArticles(posts: MDXArticle[]) {
   const fortmattedSixArticles = posts.map((post) => ({

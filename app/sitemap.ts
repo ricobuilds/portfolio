@@ -10,7 +10,7 @@ type Sitemap = Array<{
 const listOfRoutes = [
   routes.home,
   routes.about,
-  routes.journal,
+  routes.blog,
   routes.subscribe,
 ]
 

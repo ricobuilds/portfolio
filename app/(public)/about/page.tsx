@@ -95,7 +95,7 @@ export default function About() {
   const media = () => (
     <section id="media">
       <h2 className={cn(kanit.className, "font-semibold text-xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Media</h2>
-      <p className="mb-6">Aside from being a developer doing <i>developer</i> things, I publish content about disruptive technologies across my <Link href={routes.journal} className="text-amethyst-500">blog</Link>, <Link href={routes.subscribe} className="text-amethyst-500">email</Link> and media channels:</p>
+      <p className="mb-6">Aside from being a developer doing <i>developer</i> things, I publish content about disruptive technologies across my <Link href={routes.blog} className="text-amethyst-500">blog</Link>, <Link href={routes.subscribe} className="text-amethyst-500">email</Link> and media channels:</p>
       <ul className="mb-6 ml-8 list-disc">
         <li>
           <Link href={routes.twitter} className="text-amethyst-500">Twitter</Link>

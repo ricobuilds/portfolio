@@ -26,7 +26,7 @@ const Navbar = () => {
     },
     {
       label: "Blog",
-      route: routes.journal
+      route: routes.blog
     },
     {
       label: "Work",

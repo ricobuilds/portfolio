@@ -58,7 +58,7 @@ export const Blog = async () => {
       <p className="text-center text-obsidian-600">Check out my latest takes and tutorials.</p>
       <PostsList posts={posts} />
       <div className="flex mt-10">
-        <Link href={routes.journal} className="flex mx-auto">
+        <Link href={routes.blog} className="flex mx-auto">
           <div className="flex items-center px-3 py-2 text-sm text-white rounded-full bg-charkol hover:bg-charkol/90">View All Posts</div>
         </Link>
       </div>

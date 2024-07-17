@@ -2,7 +2,7 @@ export const routes = {
   // top level
   home: "/",
   about: "/about",
-  journal: "/blog",
+  blog: "/blog",
   newsletter: "/newsletter",
   rss: "/rss",
   subscribe: "/subscribe",
