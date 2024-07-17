@@ -1,73 +1,16 @@
-import { logos } from "@/app/sections/hero"
-import { StructuredData } from "@/components/structured-data"
+import { logos } from "@/app/sections/hero" 
 import { baseWidth } from "@/lib/config"
 import { routes } from "@/lib/routes"
 import { generateMetadata } from "@/lib/seo"
 import { cn } from "@/lib/shared-utils"
-import { siteMetadata } from "@/lib/site.metadata"
 import { Kanit } from "next/font/google"
 import Image from "next/image"
 import Link from "next/link"
-import { BreadcrumbList, WebPage, WithContext } from "schema-dts"
-
-const title = 'About Me'
-const description = "Enric J Trillo Nchana is the founder of Metasyde, a fullstack developer and content creator writing daily insights on the future of Web3 Gaming & the Metaverse."
 
 export const metadata = generateMetadata({
-  title,
-  description,
-  alternates: {
-    canonical: siteMetadata.siteUrl + routes.about
-  },
-  openGraph: {
-    title,
-    locale: 'en_GB',
-    type: 'website',
-    images: `/base-og.png`,
-    url: siteMetadata.siteUrl + routes.about,
-    description,
-    siteName: 'Enric Trillo',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    creator: '@ricobuilds',
-    description,
-    site: siteMetadata.siteUrl,
-    title,
-    images: `/base-og.png`,
-  },
-  robots: "index, follow"
+  title: 'About Me',
+  description: "Enric J Trillo Nchana is the founder of Metasyde, a fullstack developer and content creator writing daily insights on the future of Web3 Gaming & the Metaverse.",
 })
-
-const aboutSchema: WithContext<WebPage> = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "About Me",
-  "description": description,
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": siteMetadata.siteUrl
-  },
-}
-
-const aboutBreadcrumbSchema: WithContext<BreadcrumbList> = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": siteMetadata.siteUrl
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "About",
-      "item": siteMetadata.siteUrl + "/about"
-    },
-  ]
-}
 
 const kanit = Kanit({
   weight: "800",
@@ -118,8 +61,8 @@ export default function About() {
   )
   return (
     <>
-      <StructuredData data={aboutSchema} />
-      <StructuredData data={aboutBreadcrumbSchema} />
+      {/* <StructuredData data={aboutSchema} />
+      <StructuredData data={aboutBreadcrumbSchema} /> */}
       <main className="w-full px-6">
         <div className={cn(baseWidth, "w-full mx-auto")}>
           <div className="relative flex flex-col items-center gap-6 pt-20">
