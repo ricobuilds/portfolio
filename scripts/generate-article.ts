@@ -79,6 +79,7 @@ type: "${metadata.type}"
 
   let content = '';
 
+  // TODO: #1 Update article templates
   switch (metadata.type) {
     case 'How-To Guide':
       content = `
