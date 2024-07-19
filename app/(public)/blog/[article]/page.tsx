@@ -10,6 +10,8 @@ import { Kanit } from "next/font/google"
 import { ScrollProgress } from "@/components/scroll-progress"
 import { allSlugs, extractSlug, formatTag, getAllPosts, getPostBySlug } from "@/lib/mdx"
 import { CustomMDX } from "@/components/mdx"
+import { MDXComponents } from "mdx/types"
+import { YouTubeEmbed } from "@/components/youtube-embed"
 
 const heroFont = Kanit({
   subsets: ['latin'],
@@ -158,6 +160,7 @@ export default async function Page({ params }: { params: { article: string } }) 
             </div>
             <div className="mt-6 overflow-hidden rounded-xl">
               {!post.youtube?.url && <Image src={`/blog-og.png`} className={"w-full object-cover aspect-video"} alt={`${post.title} by Enric Trillo, founder of Metasyde`} width={1200} height={630} />}
+              {post.youtube?.url && <YouTubeEmbed url={post.youtube.url} title={`${post.title} embed`} />}
             </div>
           </section>
           <article className='max-w-2xl pt-10 mx-auto prose'>
