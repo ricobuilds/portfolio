@@ -22,13 +22,11 @@ export type Article = {
 export type MDXArticle = {
   slug: string
   title: string
-  date: string
   description: string
+  date: string
+  modifiedDate?: string
   tags: string[]
-  author: {
-    name: string
-    picture: string
-  }
+  author: string
   og?: {
     url: string
   }

@@ -27,7 +27,7 @@ async function generateRssFeed() {
       date: p.date,
       description: p.description,
       categories: p.tags,
-      author: p.author.name
+      author: p.author
     })
   })
 

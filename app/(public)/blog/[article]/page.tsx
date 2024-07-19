@@ -144,7 +144,7 @@ export default async function Page({ params }: { params: { article: string } }) 
                 <Image src={'/headshot.jpeg'} width={600} height={600} priority className='w-10 h-10 rounded-full pointer-events-none select-none' alt={siteMetadata.title} />
                 <div className="flex flex-wrap items-start justify-start gap-1 text-xs">
                   <div className="flex flex-wrap gap-1 uppercase">
-                    Written by <span className='text-amethyst-500'>{post.author?.name}</span>
+                    Written by <span className='text-amethyst-500'>{post.author}</span>
                     <span> /</span>
                   </div>
                   <div className="relative flex items-start justify-start gap-1 uppercase">

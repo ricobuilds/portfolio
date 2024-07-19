@@ -36,8 +36,8 @@ const PostsList = ({ posts }: { posts: MDXArticle[] }) => {
               <Link href={`/blog/${post.slug}`}>
                 <h3 className="font-sans font-semibold">{post.title}</h3>
               </Link>
-              <p className="text-sm line-clamp-1">{post.description ?? "This is a lorem ipsum alternative since there's no bio for this post in the Sanity backend."}</p>
-              <p className="uppercase text-[10px]">By <span className="text-slate-500">{post.author.name}</span>  / <span>{convertDate(post.date as string, { month: "long" })}</span></p>
+              <p className="text-sm line-clamp-1">{post.description}</p>
+              <p className="uppercase text-[10px]">By <span className="text-slate-500">{post.author}</span>  / <span>{convertDate(post.date, { day: "2-digit", month: "long", year: "numeric" })}</span></p>
             </div>
           </div>
         </li>

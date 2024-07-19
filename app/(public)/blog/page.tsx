@@ -41,7 +41,7 @@ export default async function Blog() {
                             <Link href={`/blog/${post.slug}`}>
                               <h3 className="font-sans font-semibold hover:text-amethyst-500">{post.title}</h3>
                             </Link>
-                            <p className="uppercase text-[10px]">By <span className="text-slate-500">{post.author?.name ?? "Enric Trillo"}</span>  / <span>{convertDate(post.date as string, { month: "long" })}</span></p>
+                            <p className="uppercase text-[10px]">By <span className="text-slate-500">{post.author}</span>  / <span>{convertDate(post.date as string, { month: "long" })}</span></p>
                           </div>
                         </div>
                       </li>
