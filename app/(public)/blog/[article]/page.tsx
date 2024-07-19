@@ -10,8 +10,8 @@ import { Kanit } from "next/font/google"
 import { ScrollProgress } from "@/components/scroll-progress"
 import { allSlugs, extractSlug, formatTag, getAllPosts, getPostBySlug } from "@/lib/mdx"
 import { CustomMDX } from "@/components/mdx"
-import { MDXComponents } from "mdx/types"
 import { YouTubeEmbed } from "@/components/youtube-embed"
+import { components } from "@/components/mdx/index"
 
 const heroFont = Kanit({
   subsets: ['latin'],
@@ -164,7 +164,7 @@ export default async function Page({ params }: { params: { article: string } }) 
             </div>
           </section>
           <article className='max-w-2xl pt-10 mx-auto prose'>
-            <CustomMDX source={post.content} />
+            <CustomMDX source={post.content} components={components} />
           </article>
         </div>
         <section id="footer" className="w-full max-w-2xl mx-auto mt-8">

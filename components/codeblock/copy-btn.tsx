@@ -8,7 +8,7 @@ export const CopyButton = ({ node }: { node: any }) => {
   const [copy, setCopy] = useState(false)
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(node.code)
+    navigator.clipboard.writeText(node)
     setCopy(true)
     setTimeout(() => {
       setCopy(false)
