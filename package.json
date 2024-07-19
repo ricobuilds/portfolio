@@ -7,6 +7,8 @@
     "build": "rm -rf .next && pnpm generate-tags && pnpm generate-rss && next build",
     "start": "next start",
     "lint": "next lint",
+    "generate-iso-date": "tsx scripts/generate-iso-date.ts",
+    "generate-article": "tsx scripts/generate-article.ts",
     "generate-tags": "tsx scripts/generate-tags.ts",
     "generate-rss": "tsx scripts/generate-rss.ts"
   },
