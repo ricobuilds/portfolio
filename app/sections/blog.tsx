@@ -28,7 +28,7 @@ const PostsList = ({ posts }: { posts: MDXArticle[] }) => {
             <div className="flex flex-col gap-2 px-2">
               <div className="flex gap-2">
                 {post.tags && post.tags.map((t, idx) => (
-                  <Link key={idx} href={`/topic/${formatTag(t)}`} className="text-[10px] w-fit uppercase underline text-amethyst-500">
+                  <Link key={idx} href={`/tags/${formatTag(t)}`} className="text-[10px] w-fit uppercase underline text-amethyst-500">
                     {t}
                   </Link>
                 ))}

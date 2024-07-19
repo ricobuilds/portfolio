@@ -32,10 +32,18 @@ export const getPostBySlug = async (slug: string) => {
   }
 }
 
+export const getPostsByTag = async (tag: string) => {
+  const allPosts: MDXArticle[] = getAllPosts()
+
+  const filtered = allPosts.filter((p) => p.tags.includes(tag))
+
+  return filtered
+}
+
 export const generateTags = (allPosts: MDXArticle[]) => {
   const tags: Record<string, number> = {}
   allPosts.forEach((p) => {
-    if (p.tags) { 
+    if (p.tags) {
       p.tags.forEach((tag) => {
         const formattedTag = formatTag(tag)
         if (formattedTag in tags) {
