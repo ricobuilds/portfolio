@@ -1,6 +1,7 @@
 import { routes } from "@/lib/routes";
 import { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/mdx";
+import data from "@/tag-data.json"
 
 type Sitemap = Array<{
   url: string
@@ -29,6 +30,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date(post.date).toISOString().split('T')[0],
   }))
 
+  const tagRoutes: Sitemap = Object.keys(data).map((tag) => ({
+    url: `${process.env.NEXT_PUBLIC_BASE_URL}/tags/${tag}`,
+    lastModified: new Date().toISOString().split('T')[0],
+  }))
+
   // const termRoutes: Sitemap = terms.map((term) => ({
   //   url: `${process.env.NEXT_PUBLIC_BASE_URL}/glossary/${term.slug}`,
   //   lastModified: new Date((term?._updatedAt ?? term?._createdAt) as string).toISOString().split('T')[0],
@@ -37,6 +43,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     ...baseRoutes,
     ...blogRoutes,
+    ...tagRoutes,
     // ...termRoutes
   ]
 }
