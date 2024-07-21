@@ -30,18 +30,23 @@ export default async function Blog() {
                   {
                     posts.map((post) => (
                       <li key={post.slug}>
-                        <div className="group flex flex-col gap-3 active:scale-[0.98] outline-none w-full">
-                          <Link href={`/blog/${post.slug}`} className="w-full transition-all duration-300 ring-0 group-hover:ring-2 rounded-2xl group-hover:ring-amethyst-500 ring-offset-2">
-                            <Image src={"/blog-og.png"} height={1200} width={630} alt={post.title as string} loading="lazy" className="object-cover w-full transition-all duration-300 ease-in-out rounded-2xl group-hover:grayscale" />
+                        <div className="flex flex-col w-full gap-3 outline-none group">
+                          <Link href={`/blog/${post.slug}`} className="w-full overflow-hidden duration-300 ring-0 rounded-2xl">
+                            <Image src={"/blog-og.png"} height={1200} width={630} alt={post.title} loading="lazy" className="object-cover w-full transition-all duration-300 ease-in-out rounded-2xl group-hover:scale-[1.03]" />
                           </Link>
                           <div className="flex flex-col gap-2 px-2">
-                            <Link href={`/topic/${formatTag(post.tags?.[0]) ?? "ai"}`} className="text-[10px] w-fit uppercase text-amethyst-500">
-                              {post.tags?.[0] ?? "Artificial Intelligence"}
-                            </Link>
+                            <div className="flex gap-2">
+                              {post.tags && post.tags.map((t, idx) => (
+                                <Link key={idx} href={`/tags/${formatTag(t)}`} className="text-[10px] w-fit uppercase underline text-amethyst-500">
+                                  {t}
+                                </Link>
+                              ))}
+                            </div>
                             <Link href={`/blog/${post.slug}`}>
-                              <h3 className="font-sans font-semibold hover:text-amethyst-500">{post.title}</h3>
+                              <h3 className="font-sans font-semibold">{post.title}</h3>
                             </Link>
-                            <p className="uppercase text-[10px]">By <span className="text-slate-500">{post.author}</span>  / <span>{convertDate(post.date as string, { month: "long" })}</span></p>
+                            <p className="text-sm line-clamp-1">{post.description}</p>
+                            <p className="uppercase text-[10px]">By <span className="text-slate-500">{post.author}</span>  / <span>{convertDate(post.date, { day: "2-digit", month: "long", year: "numeric" })}</span></p>
                           </div>
                         </div>
                       </li>
