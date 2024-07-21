@@ -4,13 +4,34 @@ import { revalidatePath } from "next/cache"
 import { verifyEmail } from "./shared-utils"
 import { siteMetadata } from "./site.metadata"
 
-export async function createSubscriber(formData: FormData) {
+type State = {
+  errors?: {
+    value?: string
+  } | undefined
+  message?: string
+}
+
+export async function createSubscriber(prevState: State, formData: FormData) {
 
   const email = formData.get("email") as string
 
+  if (email == "") return {
+    errors: {
+      value: "The input field cannot be empty",
+    },
+    message: "Enter a valid email"
+  }
+
+  if (!email.includes("@")) return {
+    errors: {
+      value: "The input field has invalid content",
+    },
+    message: "Enter a valid email"
+  }
+
   const isDisposable = verifyEmail(email)
 
-  if (isDisposable) return
+  if (isDisposable) return { errors: {value: "Email domain is disposable. Please enter a different one."}, message: "Disposable emails are not accepted" }
 
   try {
 
@@ -40,6 +61,6 @@ export async function createSubscriber(formData: FormData) {
     revalidatePath("/")
     return { message: "Thank you for subscribing!" }
   } catch (error) {
-    return { message: error}
+    return { errors: { value: "There's an issue"},  message: `${error}` }
   }
 }
