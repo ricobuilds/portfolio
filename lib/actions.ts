@@ -31,7 +31,7 @@ export async function createSubscriber(formData: FormData) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${process.env.BH_API_KEY}`,
       },
-      body: JSON.stringify({}),
+      body: JSON.stringify(data),
     }
     )
 
