@@ -12,7 +12,7 @@ export function sleep(ms: number) {
 }
 
 export const convertDate = (_date: string, options?: Intl.DateTimeFormatOptions) => {
-  return new Date(_date).toLocaleDateString("en-US", {...options})
+  return new Date(_date).toLocaleDateString("en-US", { ...options })
 }
 
 export function absoluteUrl(path: string) {
@@ -83,4 +83,32 @@ export function slugify(text: string) {
     .trim()
     .replace(/\s+/g, "-")
     .replace(/[^\w-]+/g, "")
+}
+
+const disposableEmailDomains = [
+  "10minutemail.com",
+  "tempmail.com",
+  "guerrillamail.com",
+  "mailinator.com",
+  "throwawaymail.com",
+  "yopmail.com",
+  "getairmail.com",
+  "fakeinbox.com",
+  "sharklasers.com",
+  "guerrillamailblock.com",
+  "dispostable.com",
+  "tempmailaddress.com",
+  "tmpmail.net",
+  "mailnesia.com",
+  "maildrop.cc",
+  "trashmail.com",
+  "anonbox.net",
+  "duck.com",
+  "temp-mail.org",
+  "emailondeck.com"
+];
+
+export function verifyEmail(email: string) {
+  const domain = email.split('@')[1]
+  return disposableEmailDomains.includes(domain.toLowerCase());
 }

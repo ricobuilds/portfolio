@@ -6,6 +6,9 @@ import { cn } from "@/lib/shared-utils"
 import { Kanit } from "next/font/google"
 import Image from "next/image"
 import Link from "next/link"
+import { AtSign } from "lucide-react"
+import { createSubscriber } from "@/lib/actions"
+import { BeehiivCustom } from "@/components/beehiiv-custom"
 
 export const metadata = generateMetadata({
   title: 'About Me | Disruptive Tech Enthusiast',
@@ -108,7 +111,9 @@ export default function About() {
                 <div className="flex flex-col gap-3 p-4 border rounded-xl">
                   <h2 className="font-bold">Shift Forward Newsletter</h2>
                   <p className="text-slate-500">Sharing the latest insights and developments in the world of disruptive technologies to help you thrive in a future driven by AI.</p>
-                  <Link href={routes.subscribe} className="px-4 py-2 text-center text-white rounded-full bg-amethyst-500">Subscribe</Link>
+                  <div className="flex items-center gap-2">
+                    <BeehiivCustom />
+                  </div>
                 </div>
               </div>
               {bio()}

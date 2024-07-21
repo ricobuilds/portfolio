@@ -4,6 +4,7 @@ import { Kanit } from "next/font/google"
 import { routes } from "@/lib/routes"
 import Link from "next/link"
 import { generateMetadata } from "@/lib/seo"
+import { BeehiivCustom } from "@/components/beehiiv-custom"
 
 const heroFont = Kanit({
   subsets: ['latin'],
@@ -32,13 +33,13 @@ export default function Subscribe() {
                     <Image priority src={"/headshot.jpeg"} className="absolute inset-0 object-cover w-full h-full" height={200} width={200} alt="headshot of Enric Trillo, Founder of Metasyde" />
                   </div>
                 </div>
-                <div className="w-full mb-8">
-                  <h1 className={cn(heroFont.className, "text-6xl font-semibold text-center sm:text-left")}>Shift Forward</h1>
-                  <p className="text-2xl text-center sm:text-left">Keep up with top disruptive tech insights to thrive in a future world driven by AI － relaunching soon.</p>
+                <div className="w-full max-w-2xl mb-8">
+                  <h1 className={cn(heroFont.className, "text-6xl font-semibold text-center sm:text-left")}>Shift Forward Newsletter</h1>
+                  <p className="text-2xl text-center sm:text-left">Keep up with actionable top disruptive tech insights to thrive in a future world driven by AI － relaunching soon.</p>
                 </div>
                 <div className="w-full mb-10">
                   <div className="w-full rounded-lg sm:max-w-md">
-                    <iframe src="https://embeds.beehiiv.com/3c368bcd-bcd6-4c10-9330-43ca61994c35?slim=true" className="w-full" data-test-id="beehiiv-embed" height="52" frameBorder="0" scrolling="no" style={{ margin: '0', borderRadius: '0px !important', backgroundColor: 'transparent' }}></iframe>
+                    <BeehiivCustom/>
                   </div>
                 </div>
                 <div className="w-full">
