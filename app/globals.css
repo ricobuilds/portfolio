@@ -13,4 +13,37 @@
   body {
     @apply text-black bg-white;
   }
+  .prose .anchor {
+    @apply absolute invisible no-underline;
+  
+    margin-left: -1em;
+    padding-right: 0.5em;
+    width: 80%;
+    max-width: 700px;
+    cursor: pointer;
+  }
+  
+  .anchor:hover {
+    @apply visible;
+  }
+  
+  .prose a {
+    @apply transition-all decoration-amethyst-500 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
+  }
+  
+  .prose .anchor:after {
+    @apply text-neutral-300 dark:text-neutral-700;
+    content: '#';
+  }
+  
+  .prose *:hover > .anchor {
+    @apply visible;
+  }
+
+  table {
+    display: block;
+    max-width: fit-content;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 }

@@ -3,11 +3,79 @@ import { BrightCode } from "../codeblock/bright";
 import { CopyButton } from "../codeblock/copy-btn";
 import Image from "next/image";
 import Link from "next/link";
+import { formatTag } from "@/lib/mdx";
+import React from "react";
+import { TweetComponent } from "../tweet";
+
+function createHeading(level: number) {
+  return ({ children }: any) => {
+    let slug = formatTag(children);
+    return React.createElement(
+      `h${level}`,
+      { id: slug },
+      [
+        React.createElement('a', {
+          href: `#${slug}`,
+          key: `link-${slug}`,
+          className: 'anchor',
+        }),
+      ],
+      children
+    );
+  };
+}
+
+function CustomLink(props: any) {
+  let href = props.href;
+
+  if (href.startsWith('/')) {
+    return (
+      <Link href={href} className="underline underline-offset-2 decoration-amethyst-500" {...props}>
+        {props.children}
+      </Link>
+    );
+  }
+
+  if (href.startsWith('#')) {
+    return <a {...props} />;
+  }
+
+  return <a target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 decoration-amethyst-500" {...props} />;
+}
+
+function Table({ data }: any) {
+  let headers = data.headers.map((header: any, index: number) => (
+    <th key={index}>{header}</th>
+  ));
+  let rows = data.rows.map((row: any, index: number) => (
+    <tr key={index}>
+      {row.map((cell: any, cellIndex: number) => (
+        <td key={cellIndex}>{cell}</td>
+      ))}
+    </tr>
+  ));
+
+  return (
+    <table>
+      <thead>
+        <tr>{headers}</tr>
+      </thead>
+      <tbody>{rows}</tbody>
+    </table>
+  );
+}
 
 export const components: MDXComponents = {
+  h1: createHeading(1),
+  h2: createHeading(2),
+  h3: createHeading(3),
+  h4: createHeading(4),
+  h5: createHeading(5),
+  h6: createHeading(6),
+  a: CustomLink,
   Link: (props: any) => {
     return (
-      <Link {...props} className="underline underline-offset-2 decoration-amethyst-500 hover:text-amethyst-500" />
+      <Link {...props}  />
     )
   },
   code: ({ children }: any) => {
@@ -34,5 +102,7 @@ export const components: MDXComponents = {
         <figcaption className='text-center'>{alt}</figcaption>
       </>
     )
-  }
+  },
+  Table,
+  StaticTweet: TweetComponent
 };

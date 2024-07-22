@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: { params: { article: string }
   if (!post) return { title: 'Issue not found!' }
 
   const publishedAt = new Date(post.date).toISOString()
-  const modifiedAt = new Date(post.date).toISOString()
+  const modifiedAt = new Date(post?.modifiedDate || post.date).toISOString()
 
   return {
     title: post.title,
@@ -79,12 +79,6 @@ export async function generateMetadata({ params }: { params: { article: string }
 
 const CTA = () => {
 
-  let x = [
-    {
-      title: "Shift Forward Newsletter",
-      description: "Shift Forward is my newsletter focused on breaking hot trends and topics in disruptive technologies to help you thrive in your profession and business in our world with AI.",
-    }
-  ]
   return (
     <section id="cta" className={cn("max-w-3xl w-full")}>
       <div className="flex flex-col gap-3 p-6 rounded-lg shadow-xl ring-slate-300 ring-2 bg-obsidian-100">
@@ -125,8 +119,8 @@ const Tags = ({ post }: { post: MDXArticle }) => {
     <div className="flex items-center gap-4 py-8 mt-4">
       <span>Tags:</span>
       <div className="flex flex-wrap items-center gap-2">
-        {post.tags.map((t) => (
-          <Link href={`/tags/${formatTag(t)}`} className="w-fit">
+        {post.tags.map((t, idx) => (
+          <Link key={idx} href={`/tags/${formatTag(t)}`} className="w-fit">
             <div className={cn("w-fit px-2 py-0.5 rounded-lg", `bg-amethyst-400 bg-opacity-20 text-amethyst-600`)}>{formatTag(t)}</div>
           </Link>
         ))}
@@ -180,7 +174,7 @@ export default async function Page({ params }: { params: { article: string } }) 
               </div>
             </div>
             <div className="mt-6 overflow-hidden rounded-xl">
-              {!post.youtube?.url && <Image src={`/blog-og.png`} className={"w-full object-cover aspect-video"} alt={`${post.title} by Enric Trillo, founder of Metasyde`} width={1200} height={630} />}
+              {!post.youtube?.url && <Image src={`/blog/${params.article}.png`} className={"w-full object-cover aspect-video"} alt={`${post.title} by Enric Trillo, founder of Metasyde`} width={1200} height={630} />}
               {post.youtube?.url && <YouTubeEmbed url={post.youtube.url} title={`${post.title} embed`} />}
             </div>
           </section>
@@ -191,7 +185,7 @@ export default async function Page({ params }: { params: { article: string } }) 
         <section id="footer" className="w-full max-w-2xl mx-auto mt-8">
           <CTA />
           <Tags post={post} />
-          <Share title={post.title as string} slug={params.article} />
+          <Share title={post.title} slug={params.article} />
           <Navigation prevPost={prev} nextPost={next} />
         </section>
       </main >

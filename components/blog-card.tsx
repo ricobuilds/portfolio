@@ -9,7 +9,7 @@ export const BlogCard = ({ post }: { post: MDXArticle }) => {
   return (
     <article className="flex flex-col w-full gap-3 outline-none group">
       <Link href={`/blog/${post.slug}`} className="w-full overflow-hidden duration-300 ring-0 rounded-2xl">
-        <Image src={"/blog-og.png"} height={1200} width={630} alt={post.title} loading="lazy" className="object-cover w-full rounded-2xl" />
+        <Image src={`/blog/${post.slug}.png`} height={1200} width={630} alt={post.title} loading="lazy" className="object-cover w-full rounded-2xl" />
       </Link>
       <div className="flex flex-col gap-2 px-2">
         <div className="flex gap-2">
