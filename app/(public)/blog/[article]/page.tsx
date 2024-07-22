@@ -12,6 +12,7 @@ import { allSlugs, extractSlug, formatTag, getAllPosts, getPostBySlug } from "@/
 import { CustomMDX } from "@/components/mdx"
 import { YouTubeEmbed } from "@/components/youtube-embed"
 import { components } from "@/components/mdx/index"
+import { routes } from "@/lib/routes"
 
 const heroFont = Kanit({
   subsets: ['latin'],
@@ -77,12 +78,20 @@ export async function generateMetadata({ params }: { params: { article: string }
 }
 
 const CTA = () => {
+
+  let x = [
+    {
+      title: "Shift Forward Newsletter",
+      description: "Shift Forward is my newsletter focused on breaking hot trends and topics in disruptive technologies to help you thrive in your profession and business in our world with AI.",
+    }
+  ]
   return (
     <section id="cta" className={cn("max-w-3xl w-full")}>
       <div className="flex flex-col gap-3 p-6 rounded-lg shadow-xl ring-slate-300 ring-2 bg-obsidian-100">
-        <h3 className={cn(heroFont.className, "text-xl")}><strong>{`Whenever you're ready, these are ${4} ways I can help you:`}</strong></h3>
-        <p><strong>1.</strong> <strong className="text-amethyst-500">Metasyde Newsletter:</strong> Join 3,500+ entrepreneurs in my flagship course. The Creator MBA teaches you exactly how to build a lean, focused, and profitable Internet business. Come inside and get 5 years of online business expertise, proven methods, and actionable strategies across 111 in-depth lessons.</p>
-        <p><strong>2.</strong> <strong className="text-amethyst-500">YouTube channel:</strong> by sponsoring my newsletter.</p>
+        <h3 className={cn(heroFont.className, "text-xl")}><strong> Whenever you're ready, these are 3 ways I can help you:</strong></h3>
+        <p><strong>#1.</strong> Shift Forward is my newsletter focused on breaking hot trends and topics in disruptive technologies to help you thrive in your profession and business in our world with AI <i>{">>>"} <Link href="/subscribe" rel="noopener noreferrer" className={cn("underline text-amethyst-500 font-bold underline-offset-2")}>Sign up</Link></i></p>
+        <p><strong>#2.</strong> Follow me on <Link href={routes.twitter} target="_blank" className="font-bold underline text-amethyst-500">Twitter</Link> and <Link href={routes.twitter} target="_blank" className="font-bold underline text-amethyst-500">LinkedIn</Link> for top insights on disruptive technologies, exploring our Shifter philosophy and sharing my personal journey.</p>
+        <p><strong>#3.</strong> I&apos;m building a new project, Framer Plug – a design and development studio focused on delivering no-code solutions. Follow us on <Link href={"https://x.com/framerplug"} target={"_blank"} className="font-bold underline text-amethyst-500">Twitter</Link> for updates.</p>
       </div>
     </section>
   )
@@ -111,6 +120,21 @@ const Navigation = ({ prevPost, nextPost }: { prevPost: { slug: string }, nextPo
   )
 }
 
+const Tags = ({ post }: { post: MDXArticle }) => {
+  return (
+    <div className="flex items-center gap-4 py-8 mt-4">
+      <span>Tags:</span>
+      <div className="flex flex-wrap items-center gap-2">
+        {post.tags.map((t) => (
+          <Link href={`/tags/${formatTag(t)}`} className="w-fit">
+            <div className={cn("w-fit px-2 py-0.5 rounded-lg", `bg-amethyst-400 bg-opacity-20 text-amethyst-600`)}>{formatTag(t)}</div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default async function Page({ params }: { params: { article: string } }) {
 
   const post: MDXArticle = await getPostBySlug(params.article)
@@ -131,9 +155,6 @@ export default async function Page({ params }: { params: { article: string } }) 
         <div className="flex flex-col justify-between mt-8 lg:flex-col max-w-[970px] mx-auto">
           <section id="header" className="w-full max-w-2xl mx-auto">
             <div id="meta" className="flex flex-col max-w-3xl gap-2 mt-10">
-              <Link href={`/topic/${formatTag(post.tags[0])}`} className="w-fit">
-                <div className={cn("w-fit px-2 py-0.5 rounded-lg", `bg-amethyst-400 bg-opacity-20 text-amethyst-600`)}>{post.tags[0] ?? null}</div>
-              </Link>
               <h1 className={cn(
                 "text-5xl lg:text-6xl",
                 heroFont.className,
@@ -169,6 +190,7 @@ export default async function Page({ params }: { params: { article: string } }) 
         </div>
         <section id="footer" className="w-full max-w-2xl mx-auto mt-8">
           <CTA />
+          <Tags post={post} />
           <Share title={post.title as string} slug={params.article} />
           <Navigation prevPost={prev} nextPost={next} />
         </section>

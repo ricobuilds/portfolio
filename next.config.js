@@ -4,18 +4,20 @@ const nextConfig = {
   swcMinify: true,
   transpilePackages: ['next-mdx-remote'],
   images: {
-    domains: [
-      "vercel-og-nextjs-six.vercel.app",
-      "lh3.googleusercontent.com",
-      "ph-avatars.imgix.net",
-      "media.beehiiv.com",
-      "enrictrillo.com",
-      "cdn.sanity.io",
-      "pbs.twimg.com",
-      "github.com",
-      "xsgames.co",
-      "localhost"
-    ]
+    remotePatterns: [
+      { protocol: 'https', hostname: 'pbs.twimg.com' }
+    ],
+    // domains: [
+    //   "vercel-og-nextjs-six.vercel.app",
+    //   "lh3.googleusercontent.com",
+    //   "ph-avatars.imgix.net",
+    //   "media.beehiiv.com",
+    //   "enrictrillo.com",
+    //   "cdn.sanity.io",
+    //   "github.com",
+    //   "xsgames.co",
+    //   "localhost"
+    // ]
   },
 };
 
