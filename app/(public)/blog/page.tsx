@@ -1,15 +1,13 @@
-import { cn, convertDate } from "@/lib/shared-utils"
-import Link from "next/link"
+import { cn } from "@/lib/shared-utils"
 import { baseWidth } from "@/lib/config"
 import { MDXArticle } from "@/app/types/Article"
-import Image from "next/image"
-import { formatTag, getAllPosts } from "@/lib/mdx"
+import { getAllPosts } from "@/lib/mdx"
 import { generateMetadata } from "@/lib/seo"
 import { BlogCard } from "@/components/blog-card"
 
 export const metadata = generateMetadata({
   title: 'Blog',
-  description: "Sharing my thoughts, personal experiences and what I learn as a Fullstack Developer – covering many topics including fullstack development, AI development, gaming and more.",
+  description: "Sharing my thoughts and what I learn as a Fullstack Developer – covering many topics including fullstack development, AI development, gaming and more.",
   keywords: "disruptive technology, full stack developer, blog, tech insights"
 })
 

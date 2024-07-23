@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: { tag: string } }):
   const tag = params.tag.replace('-', ' ').replace(/\b\w/g, (char) => char.toUpperCase())
   const metadata = genMetadata({
     title: `${tag} Articles`,
-    description: `The latest trends and developments I talk and write about around ${tag}`,
+    description: `Discover Enric Trillo's latest ${tag}-related blog posts. Stay updated with articles, insights, and resources to thrive in the AI-driven world.`,
     keywords: "disruptive technology, full stack developer, blog, tech insights"
   })
   return metadata
