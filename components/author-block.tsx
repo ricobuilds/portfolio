@@ -10,7 +10,7 @@ export function AuthorBlock({ title }: { title: string }) {
   const author = authors[title]
   return (
     <div id="author" className="flex items-start gap-4 my-10 text-sm">
-      <Image id="author-image" src={'/headshot.jpeg'} width={600} height={600} priority className='w-16 h-16 rounded-full pointer-events-none select-none' alt={title} />
+      <Image id="author-image" src={'/headshot.jpeg'} width={600} height={600} className='w-16 h-16 rounded-full pointer-events-none select-none' alt={title} />
       <div className="">
         <div className="flex gap-2">
           <span id="author-name" className="font-bold uppercase">{author.title}</span>

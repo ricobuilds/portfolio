@@ -159,7 +159,6 @@ export default async function Page({ params }: { params: { article: string } }) 
                 <p itemProp="description" className="text-obsidian-400">{post.description}</p>
               </div>
               <div className="flex items-center gap-4 text-charkol">
-                <Image src={'/headshot.jpeg'} width={600} height={600} priority className='w-10 h-10 rounded-full pointer-events-none select-none' alt={siteMetadata.title} />
                 <div className="flex flex-wrap items-start justify-start gap-1 text-xs">
                   <div className="flex flex-wrap gap-1 uppercase">
                     Written by <span className='text-amethyst-500'>{post.author}</span>
