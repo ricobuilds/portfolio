@@ -84,9 +84,9 @@ const CTA = () => {
     <section id="cta" className={cn("max-w-3xl w-full")}>
       <div className="flex flex-col gap-3 p-6 rounded-lg shadow-xl ring-slate-300 ring-2 bg-obsidian-100">
         <h3 className={cn(heroFont.className, "text-xl")}><strong> Whenever you're ready, these are 3 ways I can help you:</strong></h3>
-        <p><strong>#1.</strong> Shift Forward is my newsletter focused on breaking hot trends and topics in disruptive technologies to help you thrive in your profession and business in our world with AI <i>{">>>"} <Link href="/subscribe" rel="noopener noreferrer" className={cn("underline text-amethyst-500 font-bold underline-offset-2")}>Sign up</Link></i></p>
-        <p><strong>#2.</strong> Follow me on <Link href={routes.twitter} target="_blank" className="font-bold underline text-amethyst-500">Twitter</Link> and <Link href={routes.twitter} target="_blank" className="font-bold underline text-amethyst-500">LinkedIn</Link> for top insights on disruptive technologies, exploring our Shifter philosophy and sharing my personal journey.</p>
-        <p><strong>#3.</strong> I&apos;m building a new project, Framer Plug – a design and development studio focused on delivering no-code solutions. Follow us on <Link href={"https://x.com/framerplug"} target={"_blank"} className="font-bold underline text-amethyst-500">Twitter</Link> for updates.</p>
+        <p><strong>#1.</strong> If you want to learn more about how I can help you assemble AI multi-agent systems that handle the boring work for you, let&apos;s connect and schedule a call.</p>
+        <p><strong>#2.</strong> Shift Forward is my newsletter focused on breaking hot trends and topics in disruptive technologies to help you thrive in your profession and business in our world with AI <i>{">>>"} <Link href="/subscribe" rel="noopener noreferrer" className={cn("underline text-amethyst-500 font-bold underline-offset-2")}>Subscribe to Shift Forward</Link></i></p>
+        <p><strong>#3.</strong> Follow me on <Link href={routes.twitter} target="_blank" className="font-bold underline text-amethyst-500">X</Link> and <Link href={routes.twitter} target="_blank" className="font-bold underline text-amethyst-500">LinkedIn</Link> for more insights on disruptive technologies, AI multi-agent systems, and the Shifter philosophy.</p>
       </div>
     </section>
   )
