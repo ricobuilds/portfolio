@@ -40,27 +40,39 @@ export const ShareArticleRow = ({ slug, title }: { slug: string, title: string }
   }
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="">Share this article online:</div>
+    <div className="flex items-center gap-4">
+      <div className="">Share</div>
       <div className="flex items-center gap-3">
-        <Link title={"Share article to Twitter via Enric Trillo"} href={`https://x.com/share?url=${siteMetadata.siteUrl}/blog/${slug}&text=${"Read " + title}&via=ricobuilds`}>
+        <Link className="p-1 rounded-md bg-slate-200 hover:bg-amethyst-400" title={"Share on X"} href={`https://x.com/share?url=${siteMetadata.siteUrl}/blog/${slug}&text=${"Read " + title}&via=ricobuilds`}>
           <span>
-            {logos.twitter}
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48">
+              <path fill="#212121" fill-rule="evenodd" d="M38,42H10c-2.209,0-4-1.791-4-4V10c0-2.209,1.791-4,4-4h28	c2.209,0,4,1.791,4,4v28C42,40.209,40.209,42,38,42z" clip-rule="evenodd"></path><path fill="#fff" d="M34.257,34h-6.437L13.829,14h6.437L34.257,34z M28.587,32.304h2.563L19.499,15.696h-2.563 L28.587,32.304z"></path><polygon fill="#fff" points="15.866,34 23.069,25.656 22.127,24.407 13.823,34"></polygon><polygon fill="#fff" points="24.45,21.721 25.355,23.01 33.136,14 31.136,14"></polygon>
+            </svg>
           </span>
         </Link>
-        <Link title={"Share article to LinkedIn via Enric Trillo"} href={`https://www.linkedin.com/shareArticle/?url=${siteMetadata.siteUrl}/blog/${slug}&mini=true&title=${"Read " + title}`}>
+        <Link className="p-1 rounded-md bg-slate-200 hover:bg-amethyst-400" title={"Share on LinkedIn"} href={`https://www.linkedin.com/shareArticle/?url=${siteMetadata.siteUrl}/blog/${slug}&mini=true&title=${"Read " + title}`}>
           <span>
             {logos.linkedin}
           </span>
         </Link>
-        <Link title={"Email"} href={`mailto:?subject=${title}&body=Hey!%0ACheck%20out%20this%20article%20on%20${title}%20from%20${siteMetadata.title+"'s"}%20Blog:%0A${siteMetadata.siteUrl}/blog/${slug}`}>
+        <Link className="p-1 rounded-md bg-slate-200 hover:bg-amethyst-400" title={"Share via Email"} href={`mailto:?subject=${title}&body=Hey!%0ACheck%20out%20this%20article%20on%20${title}%20from%20${siteMetadata.title + "'s"}%20Blog:%0A${siteMetadata.siteUrl}/blog/${slug}`}>
           <span>
             {logos.mail}
           </span>
         </Link>
-        <div title="Copy link" onClick={() => handleCopy(`${siteMetadata.siteUrl}/blog/${slug}`)}>
+        <Link className="p-1 rounded-md bg-slate-200 hover:bg-amethyst-400" title={"Share on Facebook"} href={`https://www.facebook.com/sharer/sharer.php?u=${siteMetadata.siteUrl}/blog/${slug}`}>
+          <span>
+            {logos.facebook}
+          </span>
+        </Link>
+        <Link className="p-1 rounded-md bg-slate-200 hover:bg-amethyst-400" title={"Share via Whatsapp"} href={`https://api.whatsapp.com/send?text=${siteMetadata.siteUrl}/blog/${slug}&resubmit=true&title=${title}`}>
+          <span>
+            {logos.whatsapp}
+          </span>
+        </Link>
+        {/* <div title="Copy link" onClick={() => handleCopy(`${siteMetadata.siteUrl}/blog/${slug}`)}>
           {!copy ? logos.link : logos.check}
-        </div>
+        </div> */}
       </div>
     </div>
   )

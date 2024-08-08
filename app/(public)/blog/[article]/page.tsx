@@ -13,6 +13,7 @@ import { CustomMDX } from "@/components/mdx"
 import { YouTubeEmbed } from "@/components/youtube-embed"
 import { components } from "@/components/mdx/index"
 import { routes } from "@/lib/routes"
+import { AuthorBlock } from "@/components/author-block"
 
 const heroFont = Kanit({
   subsets: ['latin'],
@@ -93,7 +94,7 @@ const CTA = () => {
 
 const Share = ({ title, slug }: { title: string, slug: string }) => {
   return (
-    <section id="share" className="max-w-3xl mt-16">
+    <section id="share" className="max-w-3xl mt-4">
       <ShareArticleRow slug={slug} title={title} />
     </section>
   )
@@ -183,6 +184,7 @@ export default async function Page({ params }: { params: { article: string } }) 
           </article>
         </div>
         <section id="footer" className="w-full max-w-2xl mx-auto mt-8">
+          <AuthorBlock title={post.author} />
           <CTA />
           <Tags post={post} />
           <Share title={post.title} slug={params.article} />
