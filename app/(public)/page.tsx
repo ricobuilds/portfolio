@@ -69,7 +69,7 @@ const DynamicNewsletter = dynamic(() => import("../sections/newsletter"), {
 export default function Home() {
   return (
     <>
-      <StructuredData data={homeSchema} />
+      {/* <StructuredData data={homeSchema} /> */}
       <main className="flex-1 w-full px-6">
         <div className={cn("max-w-[970px]", "mx-auto")}>
           <div className="flex flex-col gap-16 py-24 pb-10">
