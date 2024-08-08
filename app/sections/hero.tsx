@@ -56,11 +56,11 @@ export const Hero = () => {
           {/* <Image src={'/headshot.jpeg'} alt="Enric Trillo" width={64} height={64} className="inline w-16 h-16 transition-all duration-300 rounded-full ring-2 ring-slate-200/80 hover:ring-4" /> */}
           <div className="flex flex-col max-w-[969px] text-center">
             {/* <p className="inline px-3 py-1 mx-auto text-lg italic border rounded-full text-obsidian-400 bg-obsidian-100 w-fit">– Hello, I&apos;m Enric</p> */}
-            <h1 className={cn(heroFont.className, "text-4xl md:text-[64px]")}><Balancer>Fullstack & NoCode Developer</Balancer></h1>
+            <h1 className={cn(heroFont.className, "text-4xl md:text-[64px]")}><Balancer>Fullstack & AI Agent Developer</Balancer></h1>
             <p className="mt-3 text-lg text-obsidian-500">
               <Balancer>
-                A fullstack developer with 7+ years experience developing frontend interfaces,
-                focused on creating content and building around disruptive technologies.
+                A fullstack developer with 7+ years experience building disruptive technologies,
+                focused on assembling multi-agent systems and sharing my personal journey.
               </Balancer>
             </p>
           </div>
