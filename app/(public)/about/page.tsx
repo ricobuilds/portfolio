@@ -11,9 +11,9 @@ import { createSubscriber } from "@/lib/actions"
 import { BeehiivCustom } from "@/components/beehiiv-custom"
 
 export const metadata = generateMetadata({
-  title: 'About Me | Disruptive Tech Enthusiast',
-  description: "Get to know me, a fullstack developer with a multi-disciplinary background, with a passion for disruptive technologies.",
-  keywords: "full stack developer, disruptive technology, about me, tech enthusiast"
+  title: 'About',
+  description: "Enric Trillo is a Fullstack & AI Agents developer based in London. Constantly learning and building with disruptive technologies, and at present, actively working on multi agent systems.",
+  keywords: "full stack developer, enric trillo, disruptive technology, about me, tech enthusiast, multi agent systems"
 })
 
 const kanit = Kanit({
@@ -75,7 +75,7 @@ export default function About() {
               <div className="flex flex-col items-center max-w-[560px] gap-4">
                 <Image src={'/headshot.jpeg'} alt="Enric Trillo" width={600} height={600} className="inline w-24 h-24 mx-auto transition-all duration-300 rounded-full ring-2 ring-slate-200/80 hover:ring-4" />
                 <h1 className="text-lg font-bold">Enric Trillo</h1>
-                <p className="text-slate-600">Fullstack & NoCode Developer</p>
+                <p className="text-slate-600">Fullstack & AI Agents Developer</p>
                 <p>
                   I&apos;m Enric, born & raised in southern Madrid 🇪🇸, I&apos;ve been living in London 🇬🇧 since my early teens, and I&apos;m from a small hispanic nation in Central Africa few can mark on the map – Equatorial Guinea 🇬🇶.
                 </p>
