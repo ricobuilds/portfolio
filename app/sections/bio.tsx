@@ -22,7 +22,7 @@ export const Icon = ({ className, ...rest }: any) => {
 export const Bio = () => {
 
   const card__TextOne = "I was born & raised in Madrid, based in London since my early teens, and I'm from a small Hispanic nation in Central Africa few can mark on the map – Equatorial Guinea."
-  const card__TextTwo = "I have 7+ years of experience, and now I'm focused on building around disruptive tech to deliver impactful digital experiences."
+  const card__TextTwo = "I have 7+ years experience, currently focused on building with disruptive tech and actively assembling multi agent systems."
   const card__TextThree = "I've put the reps in with the tools I use to solve problems – NextJS and React with Typescript, SQL and NoSQL, Python, and many more. I dedicate a good chunk daily to learning new skills."
   const card__TextFour = "When I'm not coding, you can find me sharing insights online, exploring new ideas to push the boundaries of what's possible, or travelling since I'm heavy on learning languages and cultures."
 
