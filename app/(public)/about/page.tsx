@@ -60,7 +60,7 @@ export default function About() {
   const journey = () => (
     <section id="journey">
       <h2 className={cn(kanit.className, "font-semibold text-xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Journey</h2>
-      <p>I&apos;m on a mission to learn new skills and disruptive tech. For this, I need to upgrade my current skillset by going back into my ways of being a multi-faceted creative, and develop skills across tech disciplines – this is how I plan to cultivate a multi-disciplinary skillset.</p>
+      <p>I&apos;m on a mission to build disruptive tech and assemble AI multi-agent systems. For this, I&apos;m developing skills across tech disciplines to thrive in a world with AI – this is how I plan to cultivate a multi-disciplinary skillset.</p>
     </section>
   )
   return (
@@ -120,7 +120,7 @@ export default function About() {
               {media()}
               {journey()}
               <p>Reach out to collaborate.</p>
-              <Link href={routes.email} className="w-full px-4 py-2 text-center text-white rounded-md bg-charkol">hola@enrictrillo.com</Link>
+              <Link href={routes.email} className="w-full px-4 py-2 text-center text-white rounded-md bg-charkol">→ hola@enrictrillo.com</Link>
             </div>
           </div>
         </div>
