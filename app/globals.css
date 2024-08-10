@@ -40,6 +40,11 @@
     @apply visible;
   }
 
+  .prose img {
+    /* Don't apply styles to next/image */
+    @apply m-0;
+  }
+
   table {
     display: block;
     max-width: fit-content;
