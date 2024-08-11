@@ -72,7 +72,7 @@ export default function About() {
           <div className="relative flex flex-col items-center gap-6 pt-20">
 
             <div id="content" className="flex flex-col gap-8 max-w-[560px] mx-auto">
-              <div className="flex flex-col items-center max-w-[560px] gap-4">
+              <div className="flex flex-col items-center gap-4">
                 <Image src={'/headshot.jpeg'} alt="Enric Trillo" width={600} height={600} className="inline w-24 h-24 mx-auto transition-all duration-300 rounded-full ring-2 ring-slate-200/80 hover:ring-4" />
                 <h1 className="text-lg font-bold">About Enric Trillo</h1>
                 <p className="text-slate-600">Fullstack & AI Agents Developer</p>
@@ -96,8 +96,10 @@ export default function About() {
                 <p>
                   During my years at the <Link target="_blank" className="font-bold underline text-amethyst-500" href="https://www.northampton.ac.uk/">University of Northampton</Link> (2017-2020), I didn&apos;t just stick to one thing. I explored everything from journalism to UI/UX design, motion graphics, video editing, and even bartending. But it was in my third year that I discovered my true passion: Artificial Intelligence. This revelation led to an A* grade and the publication of a featured Medium article with The Startup, where I shared my process and insights on AI.
                 </p>
+                <p>I graduated in 2020–during a time where the world was brought to a stop by the global pandemic. Picture being a 21-year-old fresh out of university with a computing degree, burning passion for emerging technologies and an ambitious spirit, but finding yourself stuck with a flimsy job market and a whooping <strong>5-figures in student debt</strong>. <i>That</i> was my intro into the real world.</p>
+                <p>Instead of letting that define me, I flipped the script. I hopped on mastering hot, in-demand skills, which led me to secure a £5000/mo Fullstack Web3 Developer contract role at the age of 23. That opportunity was the catalyst for what will become <Link className="font-bold underline text-amethyst-500" href="https://metasyde.com?ref=enrictrillo">Metasyde</Link>, my company dedicated to building profitable and innovative solutions with disruptive technologies.</p>
               </section>
-              <section id="mission">
+              <section id="mission" className="space-y-6">
                 <h2 className={cn(kanit.className, "font-semibold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Mission</h2>
                 <p>Today, I&apos;m on a mission to build disruptive tech and assemble AI multi-agent systems that can transform industries. I&apos;m continuously learning new skills across tech disciplines to stay ahead in this rapidly evolving landscape.</p>
               </section>
@@ -123,7 +125,7 @@ export default function About() {
                 <h2 className={cn(kanit.className, "font-semibold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Awards & Recognition</h2>
                 <ul className="mb-0 ml-8 list-disc">
                   <li>
-                    <strong>Featured in Medium&apos;s The Startup</strong>: For my <Link className="underline text-amethyst-500" href="https://medium.com/swlh/an-image-classifier-with-keras-2f0e9b868a36">article</Link> on AI and my academic journey.
+                    <strong>Featured in Medium&apos;s The Startup</strong>: For <Link className="underline text-amethyst-500" href="https://medium.com/swlh/an-image-classifier-with-keras-2f0e9b868a36">my article on AI</Link> and my academic journey.
                   </li>
                   <li>
                     <strong>University of Northampton</strong>: Achieved an A* grade in AI during my final year.
@@ -185,9 +187,10 @@ export default function About() {
                   </li>
                 </ul>
               </section>
-              <section id="cta">
+              <section id="cta" className="space-y-6">
                 <h2 className={cn(kanit.className, "font-semibold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Shift Forward</h2>
-                <p className="mb-6">Join <strong>Shift Forward</strong> for weekly actionable insights on disruptive tech, like Web3, Extended Reality & Robotics, to thrive in a future world driven by AI.</p>
+                <p>I created Shift Forward to share what I learn about emerging tech, what I'm building, and spark a new generation of Shifters who thrive in hard times.</p>
+                <p className="mb-6">Join <strong>Shift Forward</strong> for weekly actionable insights on disruptive tech like Web3 and Robotics, and updates of what we're building at Metasyde.</p>
                 <div className="flex items-center gap-2">
                   <BeehiivCustom />
                 </div>
