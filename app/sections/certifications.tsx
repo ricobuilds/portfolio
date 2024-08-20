@@ -7,6 +7,7 @@ interface ICCard {
   company: string
   title: string
   image: string
+  date: string
   url?: string
 }
 
@@ -20,17 +21,22 @@ const certs: ICCard[] = [
     company: "Google",
     title: "Fundamentals of Digital Marketing",
     image: "google",
+    date: "February 2022",
     url: "https://skillshop.exceedlms.com/student/collection/654330-digital-marketing?sid=0339c211-017a-43b7-9485-6c24e997a4aa&sid_i=1"
   },
   {
     company: "Semrush",
     title: "Keyword Research with Semrush",
-    image: "semrush"
+    image: "semrush",
+    date: "",
+    url: ""
   },
   {
+    image: "deeplearningai",
     company: "DeepLearning.ai",
     title: "Build LLM Apps with LangChain.js",
-    image: "deeplearningai"
+    date: "",
+    url: "",
   },
 ]
 
@@ -61,8 +67,8 @@ export const Certifications = () => {
       <div className="mt-10">
         <ul role="list" className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
           {
-            certs.map(({ company, title, image, url }, idx) => (
-              <CertificationCard key={idx} company={company} title={title} image={image} url={url} />
+            certs.map(({ company, title, image, date,  url }, idx) => (
+              <CertificationCard key={idx} company={company} title={title} image={image} url={url} date={date} />
             ))
           }
         </ul>

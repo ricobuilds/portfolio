@@ -1,6 +1,6 @@
 export const authors: {[key in string]: {title: string, caption: string}} = {
   "Enric Trillo": {
     title: "Enric Trillo",
-    caption: "I'm a fullstack & AI multi-agents developer. As a previous digital developer and hybrid tech sales rep, I now focus on disruptive technologies and multi agent systems. I also run Shift Forward Newsletter, the guide for weekly actionable insights to thrive in a world with AI."
+    caption: "Enric is a fullstack & AI multi-agents developer with over 7 years of experience. As a previous digital developer and hybrid tech sales rep, he now focuses on disruptive technologies and assembling multi-agent systems. Enric also runs Shift Forward Newsletter, a guide for weekly actionable insights to thrive in a world with AI."
   }
 }
