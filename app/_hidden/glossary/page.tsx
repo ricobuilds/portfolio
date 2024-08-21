@@ -7,14 +7,17 @@ import { Metadata } from "next"
 import { Kanit } from "next/font/google"
 import Link from "next/link"
 import { WebPage, WithContext } from "schema-dts"
+import { routes } from "@/lib/routes"
 
 const font = Kanit({
   weight: "800",
   subsets: ['latin']
 })
 
-const title = "Web3 Gaming & Metaverse Glossary"
-const description = "Your complete resource to learn the key terms shaping the world of deep learning, haptic technology, robotics, and the metaverse."
+const title = "Disruptive Technology Glossary"
+// const description = "Your complete resource to learn the key terms shaping the world of deep learning, haptic technology, robotics, and the metaverse."
+// const desc = 'Explore our Disruptive Tech Glossary, your go-to resource for understanding the latest in AI, blockchain, Web3, and other cutting-edge technologies. Stay ahead with clear definitions, in-depth explanations, and links to tutorials, tools, and courses.'
+const description = 'A list of terms and definitions related to disruptive technologies, content creation, and programming. You can use this complete glossary to understand the most common technical terms in the industry as well as the concepts discussed on social media, the blog, and Shift Forward by Enric Trillo.'
 
 export const metadata: Metadata = {
   title: title,
@@ -54,11 +57,20 @@ export default async function Glossary() {
     <>
       <StructuredData data={schema} />
       <main className="w-full px-6">
-        <div className={cn(baseWidth, "min-h-screen w-full mx-auto")}>
+        <div className={cn("min-h-screen w-full max-w-3xl mx-auto")}>
           <div className="relative flex flex-col w-full gap-10 pt-20">
             <div className="space-y-3">
-              <h1 className="text-6xl font-semibold">{title}</h1>
-              <p>{description} Brought to you by the founder of Metasyde - an AI studio building the future of gaming.</p>
+              <h1 className="text-3xl font-bold sm:text-5xl">{title}</h1>
+              <p>{description}</p>
+            </div>
+            <div className="p-4 border rounded-md border-slate-300 bg-slate-100">
+              <h3 className="font-bold">Spot a missing glossary term?</h3>
+              <p>Reach out to let me know and I&apos;ll be sure to add it pronto!</p>
+              <div className="flex w-full gap-3 mt-3">
+                <Link className="flex-1 px-4 py-2 text-center text-white bg-black border rounded-md" href={routes.twitter}>Twitter</Link>
+                <Link className="flex-1 px-4 py-2 text-center text-white bg-black border rounded-md" href={routes.linkedin}>LinkedIn</Link>
+                <Link className="flex-1 px-4 py-2 text-center text-white bg-black border rounded-md" href={routes.email}>Email</Link>
+              </div>
             </div>
             {
               terms.length > 0 ?

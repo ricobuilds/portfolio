@@ -32,6 +32,11 @@ export const Blog = async () => {
 
   const posts: MDXArticle[] = getAllPosts()
 
+  // @ts-ignore
+  if (posts.some(p => p.error)) {
+    return 
+  }
+
   return (
     <section id="writing" className="flex flex-col py-16">
       <h2 className={cn(kanit.className, "flex items-center mx-auto text-2xl font-medium px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>

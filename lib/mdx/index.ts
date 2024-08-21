@@ -64,6 +64,12 @@ export const getAllPosts = () => {
     const source = fs.readFileSync(path.join(root, 'content', 'blog', slug), 'utf-8')
 
     const { data } = matter(source)
+    
+    if (Object.keys(data).length <= 0) {
+      return {
+        error: "The file has been corrupted"
+      }
+    }
 
     frontMatter.push({
       ...data,

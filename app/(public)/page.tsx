@@ -11,6 +11,10 @@ import { Certifications as Certs } from "../sections/certifications";
 import { Bio } from "../sections/bio";
 import { Work } from "../sections/work";
 
+export const metadata = {
+  description: siteMetadata.description
+}
+
 const homeSchema: WithContext<Person> = {
   "@context": "https://schema.org",
   "@type": "Person",
