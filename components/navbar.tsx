@@ -46,7 +46,8 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <div className="flex">
+        <div className="hidden gap-2 md:flex">
+          <button className="flex items-center px-3 py-2 text-sm rounded-full hover:bg-obsidian-100">Log In</button>
           <Link href={routes.subscribe} className="hidden md:flex">
             <button className="flex items-center px-3 py-2 text-sm text-white rounded-full bg-charkol hover:bg-charkol/90">Join Shift Forward</button>
           </Link>
