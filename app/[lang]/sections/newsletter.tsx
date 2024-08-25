@@ -2,7 +2,7 @@ import React from 'react'
 import { cn } from "@/lib/shared-utils"
 import { Kanit } from "next/font/google"
 import Balancer from "react-wrap-balancer"
-import {BeehiivCustom} from "@/components/beehiiv-custom"
+import { BeehiivCustom } from '@/components/beehiiv-custom'
 
 const kanit = Kanit({
   weight: "800",

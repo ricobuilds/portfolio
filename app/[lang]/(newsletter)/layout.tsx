@@ -1,6 +1,7 @@
-import "../globals.css";
+import "../../globals.css";
 import { GeistSans } from "geist/font/sans"
-import { UmamiScript } from "@/components/umami-script";
+import { UmamiScript } from "../components/umami-script";
+
 
 export default function RootLayout({
   children,

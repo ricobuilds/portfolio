@@ -8,7 +8,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { AtSign } from "lucide-react"
 import { createSubscriber } from "@/lib/actions"
-import { BeehiivCustom } from "@/components/beehiiv-custom"
+import { BeehiivCustom } from "../../components/beehiiv-custom"
 
 export const metadata = generateMetadata({
   title: 'About',
@@ -22,47 +22,6 @@ const kanit = Kanit({
 })
 
 export default function About() {
-
-  const story = () => (
-    <section id="story">
-      <h2 className={cn(kanit.className, "font-semibold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Story</h2>
-      <p className="mb-6">
-        In 2014, I started DJing at 15. A year later, I learned graphic design and coding at <strong>St. Francis Xavier College</strong>. These skills helped me create covers for my mixes and write my first line of Python code at 16.
-      </p>
-      <p className="mb-6">
-        During my time at the <strong>University of Northampton</strong>, between 2017 and 2020, I experimented with a bunch of skills–journalism, UI/UX, motion design, video editing and videography, even bartending.
-      </p>
-      <p>
-        My love for AI sparked in my third year, which led me to an A* grade, and writing about my experience in a <Link target={"_blank"} href={"https://medium.com/swlh/an-image-classifier-with-keras-2f0e9b868a36"} className="text-amethyst-500">featured Medium article</Link> with The Startup.
-      </p>
-    </section>
-  )
-
-  const media = () => (
-    <section id="media">
-      <h2 className={cn(kanit.className, "font-semibold text-xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Media</h2>
-      <p className="mb-6">Aside from being a developer doing <i>developer</i> things, I publish content about disruptive technologies across my <Link href={routes.blog} className="text-amethyst-500">blog</Link>, <Link href={routes.subscribe} className="text-amethyst-500">email</Link> and media channels:</p>
-      <ul className="mb-6 ml-8 list-disc">
-        <li>
-          <Link href={routes.twitter} className="text-amethyst-500">Twitter</Link>
-        </li>
-        <li>
-          <Link href={routes.linkedin} className="text-amethyst-500">LinkedIn</Link>
-        </li>
-        <li>
-          <Link href={routes.youtube} className="text-amethyst-500">YouTube</Link>
-        </li>
-      </ul>
-      <p>The tech topics I like to talk about include: AR and VR, Artificial Intelligence, Blockchain, Gaming, Haptic technology, Metaverse, Robotics and Web.</p>
-    </section>
-  )
-
-  const journey = () => (
-    <section id="journey">
-      <h2 className={cn(kanit.className, "font-semibold text-xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Journey</h2>
-      <p>I&apos;m on a mission to build disruptive tech and assemble AI multi-agent systems. For this, I&apos;m developing skills across tech disciplines to thrive in a world with AI – this is how I plan to cultivate a multi-disciplinary skillset.</p>
-    </section>
-  )
   return (
     <>
       {/* <StructuredData data={aboutSchema} />

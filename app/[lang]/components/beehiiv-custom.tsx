@@ -1,5 +1,5 @@
 "use client"
-import { createSubscriber } from "../lib/actions"
+import { createSubscriber } from "@/lib/actions"
 import { AtSign } from "lucide-react"
 import { useFormState } from "react-dom"
 

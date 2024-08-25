@@ -4,7 +4,7 @@ import { Kanit } from "next/font/google"
 import { routes } from "@/lib/routes"
 import Link from "next/link"
 import { generateMetadata } from "@/lib/seo"
-import { BeehiivCustom } from "@/components/beehiiv-custom"
+import { BeehiivCustom } from "../../components/beehiiv-custom"
 
 const heroFont = Kanit({
   subsets: ['latin'],

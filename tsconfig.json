@@ -20,9 +20,12 @@
       }
     ],
     "paths": {
+      "@/components/*": ["./app/[lang]/components/*"],
+      "@/sections/*": ["./app/[lang]/sections/*"],
+      "@/constants/*": ["./constants/*"],
       "@/*": ["./*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.config.js", "components/codeblock/extensions/focus.js", "next.config.js", "next.config.js", "next.config.mjs", "next.config.js",],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.config.js", "components/codeblock/extensions/focus.js", "next.config.mjs"],
   "exclude": ["node_modules"]
 }

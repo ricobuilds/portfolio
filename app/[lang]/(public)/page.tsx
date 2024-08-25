@@ -1,15 +1,18 @@
-import { Hero } from "@/app/[lang]/sections/hero";
-import { Blog } from "@/app/[lang]/sections/blog";
+import { Hero } from "@/sections/hero";
+import { Blog } from "@/sections/blog";
 
-import { StructuredData } from "@/components/structured-data";
+import { StructuredData } from "../components/structured-data";
 import { cn } from "@/lib/shared-utils";
 import dynamic from "next/dynamic";
 import { siteMetadata } from "@/lib/site.metadata";
 import type { Person, WithContext } from "schema-dts"
-import { LogoCloud } from "@/app/[lang]/sections/logo-cloud";
-import { Certifications as Certs } from "@/app/[lang]/sections/certifications";
-import { Bio } from "@/app/[lang]/sections/bio";
-import { Work } from "@/app/[lang]/sections/work";
+import { LogoCloud } from "@/sections/logo-cloud";
+import { Certifications as Certs } from "@/sections/certifications";
+import { Bio } from "@/sections/bio";
+import { Work } from "@/sections/work";
+import Link from "next/link";
+import { getDictionary } from "../dictionaries";
+import { Locale } from "@/constants/i18n.config";
 
 export const metadata = {
   description: siteMetadata.description
@@ -66,11 +69,12 @@ const homeSchema: WithContext<Person> = {
   ]
 }
 
-const DynamicNewsletter = dynamic(() => import("@/app/[lang]/sections/newsletter"), {
+const DynamicNewsletter = dynamic(() => import("@/sections/newsletter"), {
   loading: () => <p>Loading...</p>,
 })
 
-export default function Home() {
+export default async function Home({ params }: { params: { lang: Locale } }) {
+  const dictionary = await getDictionary(params.lang);
   return (
     <>
       {/* <StructuredData data={homeSchema} /> */}

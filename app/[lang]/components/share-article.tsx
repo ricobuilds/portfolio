@@ -3,7 +3,7 @@
 import { siteMetadata } from "@/lib/site.metadata";
 import Link from "next/link";
 import { useState } from "react";
-import { logos } from "../app/[lang]/sections/herooo
+import { logos } from "@/sections/hero"
 
 export const ShareArticle = ({ slug, title }: { slug: string, title: string }) => {
   const [copy, setCopy] = useState(false)

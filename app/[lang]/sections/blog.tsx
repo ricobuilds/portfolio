@@ -1,11 +1,12 @@
 import React from "react"
 import Link from "next/link"
-import { MDXArticle } from "../types/Article"
+import { MDXArticle } from "../../types/Article"
 import { cn } from "@/lib/shared-utils"
 import { Kanit } from "next/font/google"
 import { routes } from "@/lib/routes"
 import { getAllPosts } from "@/lib/mdx"
-import { BlogCard } from "@/components/blog-card"
+import { BlogCard } from "../components/blog-card"
+
 
 const kanit = Kanit({
   weight: "800",

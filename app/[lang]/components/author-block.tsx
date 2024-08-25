@@ -1,4 +1,4 @@
-import { logos } from "@/sections/heroo
+import { logos } from "@/sections/hero"
 import { authors } from "@/lib/author";
 import { routes } from "@/lib/routes";
 import Image from "next/image";
