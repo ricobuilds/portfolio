@@ -1,4 +1,4 @@
-import { logos } from "@/app/sections/hero";
+import { logos } from "@/sections/heroo
 import { authors } from "@/lib/author";
 import { routes } from "@/lib/routes";
 import Image from "next/image";

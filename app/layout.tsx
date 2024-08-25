@@ -1,5 +1,13 @@
+import "./globals.css"
+import { GeistSans } from "geist/font/sans"
+import React from 'react'
 import type { Metadata } from "next";
 import { siteMetadata } from "@/lib/site.metadata";
+import { cn } from "@/lib/shared-utils";
+import { Navbar } from "@/components/navbar";
+import { UmamiScript } from "@/components/umami-script";
+import { Footer } from "@/components/footer";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -43,14 +51,28 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default function Layout({
   children,
+  params
 }: Readonly<{
   children: React.ReactNode;
+  params: { lang: string }
 }>) {
   return (
-    <>
-      {children}
-    </>
+    <html lang={params.lang}>
+      <body suppressHydrationWarning className={cn(GeistSans.className, "min-h-screen flex flex-col")}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+          <Footer />
+        </ThemeProvider>
+        <UmamiScript />
+      </body>
+    </html>
   );
 }

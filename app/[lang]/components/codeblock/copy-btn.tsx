@@ -1,6 +1,6 @@
 "use client"
 
-import { logos } from "@/app/sections/hero"
+import { logos } from "@/sections/heroo
 import { cn } from "@/lib/shared-utils"
 import { useState } from "react"
 

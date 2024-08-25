@@ -1,15 +1,15 @@
-import { Hero } from "../sections/hero";
-import { Blog } from "../sections/blog";
+import { Hero } from "@/app/[lang]/sections/hero";
+import { Blog } from "@/app/[lang]/sections/blog";
 
-import { StructuredData } from "../../components/structured-data";
+import { StructuredData } from "@/components/structured-data";
 import { cn } from "@/lib/shared-utils";
 import dynamic from "next/dynamic";
 import { siteMetadata } from "@/lib/site.metadata";
 import type { Person, WithContext } from "schema-dts"
-import { LogoCloud } from "../sections/logo-cloud";
-import { Certifications as Certs } from "../sections/certifications";
-import { Bio } from "../sections/bio";
-import { Work } from "../sections/work";
+import { LogoCloud } from "@/app/[lang]/sections/logo-cloud";
+import { Certifications as Certs } from "@/app/[lang]/sections/certifications";
+import { Bio } from "@/app/[lang]/sections/bio";
+import { Work } from "@/app/[lang]/sections/work";
 
 export const metadata = {
   description: siteMetadata.description
@@ -66,7 +66,7 @@ const homeSchema: WithContext<Person> = {
   ]
 }
 
-const DynamicNewsletter = dynamic(() => import("../sections/newsletter"), {
+const DynamicNewsletter = dynamic(() => import("@/app/[lang]/sections/newsletter"), {
   loading: () => <p>Loading...</p>,
 })
 

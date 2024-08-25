@@ -23,6 +23,6 @@
       "@/*": ["./*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.config.js", "components/codeblock/extensions/focus.js",],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.config.js", "components/codeblock/extensions/focus.js", "next.config.js", "next.config.js", "next.config.mjs", "next.config.js",],
   "exclude": ["node_modules"]
 }

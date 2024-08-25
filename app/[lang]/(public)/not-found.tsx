@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function NotFound() {
+  // public
   return (
     <main className={cn(GeistSans.className, "flex flex-col h-screen flex-1 text-center")}>
       <div className="flex flex-col items-center m-auto">

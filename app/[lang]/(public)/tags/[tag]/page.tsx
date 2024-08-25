@@ -1,7 +1,7 @@
 import { cn, convertDate } from "@/lib/shared-utils"
 import Link from "next/link"
 import { baseWidth } from "@/lib/config"
-import { MDXArticle } from "@/app/types/Article"
+import { MDXArticle } from "@/app/[lang]/types/Article"
 import Image from "next/image"
 import { extractSlug, formatTag, getAllPosts } from "@/lib/mdx"
 import { generateMetadata as genMetadata } from "@/lib/seo"

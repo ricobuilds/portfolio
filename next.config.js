@@ -3,6 +3,10 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   transpilePackages: ['next-mdx-remote'],
+  i18n: {
+    locales: ['en', 'es', 'pt'],
+    defaultLocale: 'en'
+  },
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'pbs.twimg.com' }

@@ -1,4 +1,4 @@
-import { logos } from "@/app/sections/hero"
+import { logos } from "@/app/[lang]/sections/hero"
 import { baseWidth } from "@/lib/config"
 import { routes } from "@/lib/routes"
 import { generateMetadata } from "@/lib/seo"
