@@ -27,7 +27,7 @@ export const LogoCloud = () => {
         <Marquee speed={25} autoFill gradient className="flex gap-8 select-none">
           {
             skills.map((image, idx) => (
-              <Image key={idx} className={imgChildStyles} src={`/skills/${image}.webp`} alt={`${image}_logo`} width={300} height={300} />
+              <Image key={idx} className={imgChildStyles} src={`/images/skills/${image}.webp`} alt={`${image}_logo`} width={300} height={300} />
             ))
           }
         </Marquee>

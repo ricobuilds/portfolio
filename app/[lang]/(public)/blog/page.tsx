@@ -4,6 +4,7 @@ import { MDXArticle } from "@/app/types/Article"
 import { getAllPosts } from "@/lib/mdx"
 import { generateMetadata } from "@/lib/seo"
 import { BlogCard } from "@/components/blog-card"
+import { Locale } from "@/constants/i18n.config"
 
 export const metadata = generateMetadata({
   title: 'Blog',
@@ -11,7 +12,7 @@ export const metadata = generateMetadata({
   keywords: "disruptive technology, full stack developer, blog, tech insights"
 })
 
-export default async function Blog() {
+export default async function Blog({ params }: { params: { lang: Locale } }) {
 
   const posts: MDXArticle[] = getAllPosts()
 
@@ -29,7 +30,7 @@ export default async function Blog() {
                   {
                     posts.map((post) => (
                       <li key={post.slug}>
-                        <BlogCard post={post} />
+                        <BlogCard post={post} lang={params.lang} />
                       </li>
                     ))
                   }

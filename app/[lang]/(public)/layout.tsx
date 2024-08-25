@@ -8,7 +8,8 @@ import { Navbar } from "@/components/navbar";
 import { UmamiScript } from "@/components/umami-script";
 import { Footer } from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Locale } from "@/constants/i18n.config";
+import { Locale, i18n } from "@/constants/i18n.config";
+import { getDictionary } from "../dictionaries";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -52,13 +53,18 @@ export const metadata: Metadata = {
   },
 }
 
-export default function Layout({
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }));
+}
+
+export default async function Layout({
   children,
   params
 }: Readonly<{
   children: React.ReactNode;
   params: { lang: Locale }
 }>) {
+  const tl = await getDictionary(params.lang)
   return (
     <html lang={params.lang}>
       <body suppressHydrationWarning className={cn(GeistSans.className, "min-h-screen flex flex-col")}>
@@ -68,7 +74,7 @@ export default function Layout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
+          <Navbar tl={tl["navbar"]} />
           {children}
           <Footer />
         </ThemeProvider>

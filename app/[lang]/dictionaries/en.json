@@ -1,6 +1,15 @@
 {
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "blog": "Blog",
+    "work": "Work",
+    "login": "Log In",
+    "cta": "Join Shift Forward"
+  },
   "home": {
     "headline": "Fullstack & AI Agent Developer",
-    "subheadline": "A fullstack developer with 7+ years experience building disruptive technologies, focused on assembling multi-agent systems and sharing my personal journey."
+    "subheadline": "A fullstack developer with 7+ years experience building disruptive technologies, focused on assembling multi-agent systems and sharing my personal journey.",
+    "cta": "Explore my work"
   }
 }

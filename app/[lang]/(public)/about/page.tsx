@@ -1,4 +1,3 @@
-import { logos } from "@/app/[lang]/sections/hero"
 import { baseWidth } from "@/lib/config"
 import { routes } from "@/lib/routes"
 import { generateMetadata } from "@/lib/seo"
@@ -32,7 +31,7 @@ export default function About() {
 
             <div id="content" className="flex flex-col gap-8 max-w-[560px] mx-auto">
               <div className="flex flex-col items-center gap-4">
-                <Image src={'/headshot.jpeg'} alt="Enric Trillo" width={600} height={600} className="inline w-24 h-24 mx-auto transition-all duration-300 rounded-full ring-2 ring-slate-200/80 hover:ring-4" />
+                <Image src={'/images/headshot.jpeg'} alt="Enric Trillo" width={600} height={600} className="inline w-24 h-24 mx-auto transition-all duration-300 rounded-full ring-2 ring-slate-200/80 hover:ring-4" />
                 <h1 className="text-lg font-bold">About Enric Trillo</h1>
                 <p className="text-slate-600">Fullstack & AI Agents Developer</p>
                 <section id="intro" className="space-y-6">
@@ -50,7 +49,7 @@ export default function About() {
                   In 2014, at just 15, I started DJing–a craft that taught me the importance of rhythm, timing, and creativity. A year later, I dove into graphic design and coding at <Link target="_blank" className="font-bold underline text-amethyst-500" href="https://www.sfx.ac.uk/">St. Francis Xavier College</Link>, creating cover art for my mixes and writing my first line of Python code at 16. These early experiences laid the foundation for my journey in tech.
                 </p>
                 <div className="object-contain w-full overflow-hidden">
-                  <Image priority src="/graduation.jpg" width={600} height={600} alt="Enric Trillo, graduation photo" />
+                  <Image priority src="/images/graduation.jpg" width={600} height={600} alt="Enric Trillo, graduation photo" />
                 </div>
                 <p>
                   During my years at the <Link target="_blank" className="font-bold underline text-amethyst-500" href="https://www.northampton.ac.uk/">University of Northampton</Link> (2017-2020), I didn&apos;t just stick to one thing. I explored everything from journalism to UI/UX design, motion graphics, video editing, and even bartending. But it was in my third year that I discovered my true passion: Artificial Intelligence. This revelation led to an A* grade and the publication of a featured Medium article with The Startup, where I shared my process and insights on AI.

@@ -1,14 +1,3 @@
-import { cn } from "@/lib/shared-utils"
-import Link from "next/link"
-import Balancer from "react-wrap-balancer"
-import { Kanit } from "next/font/google"
-
-const heroFont = Kanit({
-  subsets: ['latin'],
-  weight: "800",
-  display: 'swap',
-})
-
 export const logos = {
   twitter: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g ><path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z"></path></g></svg>,
   github: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g ><path fillRule="evenodd" clipRule="evenodd" d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"></path></g></svg>,
@@ -20,66 +9,4 @@ export const logos = {
   mail: <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 50 50"><path d="M 14 4 C 8.4886661 4 4 8.4886661 4 14 L 4 36 C 4 41.511334 8.4886661 46 14 46 L 36 46 C 41.511334 46 46 41.511334 46 36 L 46 14 C 46 8.4886661 41.511334 4 36 4 L 14 4 z M 13 16 L 37 16 C 37.18 16 37.349766 16.020312 37.509766 16.070312 L 27.679688 25.890625 C 26.199688 27.370625 23.790547 27.370625 22.310547 25.890625 L 12.490234 16.070312 C 12.650234 16.020312 12.82 16 13 16 z M 11.070312 17.490234 L 18.589844 25 L 11.070312 32.509766 C 11.020312 32.349766 11 32.18 11 32 L 11 18 C 11 17.82 11.020312 17.650234 11.070312 17.490234 z M 38.929688 17.490234 C 38.979688 17.650234 39 17.82 39 18 L 39 32 C 39 32.18 38.979687 32.349766 38.929688 32.509766 L 31.400391 25 L 38.929688 17.490234 z M 20 26.410156 L 20.890625 27.310547 C 22.020625 28.440547 23.510234 29 24.990234 29 C 26.480234 29 27.959844 28.440547 29.089844 27.310547 L 29.990234 26.410156 L 37.509766 33.929688 C 37.349766 33.979688 37.18 34 37 34 L 13 34 C 12.82 34 12.650234 33.979687 12.490234 33.929688 L 20 26.410156 z"></path></svg>,
   check: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check"><path d="M20 6 9 17l-5-5" /></svg>,
   copy: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-clipboard"><rect width="8" height="4" x="8" y="2" rx="1" ry="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /></svg>
-}
-
-export const Hero = () => {
-  const profiles = [
-    {
-      label: "Twitter",
-      url: "https://x.com/ricobuilds",
-      logo: logos.twitter,
-      styles: "fill-lazure-500 group-hover:fill-lazure-600"
-    },
-    {
-      label: "LinkedIn",
-      url: "https://linkedin.com/in/enrictrillo",
-      logo: logos.linkedin,
-      styles: "fill-celuria-500 group-hover:fill-celuria-600"
-    },
-    {
-      label: "Youtube",
-      url: "https://youtube.com/@ricobuilds",
-      logo: logos.youtube,
-      styles: "fill-scarlet-500 group-hover:fill-scarlet-600"
-    },
-    {
-      label: "GitHub",
-      url: "https://github.com/ricobuilds",
-      logo: logos.github,
-      styles: "group-hover:opacity-70"
-    },
-  ]
-
-
-  return (
-    <section id="hero">
-      <div className="flex-1 w-full mx-auto space-y-8">
-        <div className="flex flex-col items-center gap-4">
-          {/* <Image src={'/headshot.jpeg'} alt="Enric Trillo" width={64} height={64} className="inline w-16 h-16 transition-all duration-300 rounded-full ring-2 ring-slate-200/80 hover:ring-4" /> */}
-          <div className="flex flex-col max-w-[969px] text-center">
-            {/* <p className="inline px-3 py-1 mx-auto text-lg italic border rounded-full text-obsidian-400 bg-obsidian-100 w-fit">– Hello, I&apos;m Enric</p> */}
-            <h1 className={cn(heroFont.className, "text-4xl md:text-[64px]")}><Balancer>Fullstack & AI Agent Developer</Balancer></h1>
-            <p className="mt-3 text-lg text-obsidian-500">
-              <Balancer>
-                A fullstack developer with 7+ years experience building disruptive technologies,
-                focused on assembling multi-agent systems and sharing my personal journey.
-              </Balancer>
-            </p>
-          </div>
-          <ul className="flex gap-6 mx-auto mt-6 w-fit">
-            {
-              profiles.map((i, idx) => (
-                <li key={idx} className="group">
-                  <Link href={i.url} target="_blank" className="flex gap-2 group"><span className={`${i.styles} duration-150`}>{i.logo}</span></Link>
-                </li>
-              ))
-            }
-          </ul>
-          <Link href="/#work" className="px-4 py-2 mt-8 capitalize border border-charkol hover:cursor-pointer hover:border-amethyst-400 hover:bg-amethyst-500 hover:text-white">
-            Explore my work
-          </Link>
-        </div>
-      </div>
-    </section>
-  )
 }

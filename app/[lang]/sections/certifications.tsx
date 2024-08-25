@@ -45,7 +45,7 @@ const CertificationCard = ({ company, title, image, url }: ICCard) => {
   <Link href={url ? url+"?ref=enrictrillo" : "#"} target={url?.includes("https://") ? "_blank" : ""}>
       <li className="flex flex-col col-span-1 text-center bg-white divide-y divide-gray-200 rounded-lg shadow-lg ring ring-opacity-5 ring-obsidian-300">
         <div className="flex flex-col flex-1 p-8">
-          <Image className="flex-shrink-0 w-12 h-12 mx-auto rounded-full" src={"/certs/" + image + ".jpeg"} alt={image + "_logo"} width={300} height={300} />
+          <Image className="flex-shrink-0 w-12 h-12 mx-auto rounded-full" src={"/images/certs/" + image + ".jpeg"} alt={image + "_logo"} width={300} height={300} />
           <h3 className="mt-6 text-sm font-medium text-gray-900">{company}</h3>
           <dl className="flex flex-col justify-between flex-grow mt-1">
             <dt className="sr-only">Certification</dt>

@@ -11,25 +11,30 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./sheet"
+import { getDictionary } from "@/app/[lang]/dictionaries"
+import LanguageSwitcher from "./language-switcher"
 
 
-
-const Navbar = () => {
+const Navbar = ({
+  tl,
+}: {
+  tl: Awaited<ReturnType<typeof getDictionary>>["navbar"];
+  }) => {
   const nav = [
     {
-      label: "Home",
+      label: tl['home'],
       route: routes.home
     },
     {
-      label: "About",
+      label: tl['about'],
       route: routes.about
     },
     {
-      label: "Blog",
+      label: tl['blog'],
       route: routes.blog
     },
     {
-      label: "Work",
+      label: tl['work'],
       route: routes.home + "/#work"
     },
   ]
@@ -37,7 +42,7 @@ const Navbar = () => {
     <header className="flex justify-center w-full px-6 border-b h-18">
       <nav className={cn(baseWidth, "flex justify-between w-full py-5 items-center")}>
         <div className="flex items-center gap-4">
-          <Image src={'/ricobuilds.png'} alt="Enric Trillo Cryptopunk" width={64} height={64} className="inline w-8 h-8 transition-all duration-300 rounded-full" />
+          <Image src={'/images/ricobuilds.png'} alt="Enric Trillo Cryptopunk" width={64} height={64} className="inline w-8 h-8 transition-all duration-300 rounded-full" />
         </div>
         <ul className="absolute flex-wrap hidden gap-1 text-sm -translate-x-1/2 md:flex left-1/2">
           {nav.map((i, idx) => (
@@ -51,6 +56,7 @@ const Navbar = () => {
           <Link href={routes.subscribe} className="hidden md:flex">
             <button className="flex items-center px-3 py-2 text-sm text-white rounded-full bg-amethyst-500">Join Shift Forward</button>
           </Link>
+          <LanguageSwitcher/>
         </div>
         <div className="flex md:hidden">
           <Sheet>

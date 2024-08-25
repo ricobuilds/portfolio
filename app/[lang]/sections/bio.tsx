@@ -41,7 +41,7 @@ export const Bio = () => {
 
         <div className="relative z-10 flex flex-col w-full h-full">
           <div className="h-fit w-fit">
-            <Image src={'/headshot.jpeg'} alt="Enric Trillo" width={64} height={64} className="z-20 inline w-16 h-16 transition-all duration-300 rounded-3xl ring-2 ring-slate-200/80 hover:ring-4" />
+            <Image src={'/images/headshot.jpeg'} alt="Enric Trillo" width={64} height={64} className="z-20 inline w-16 h-16 transition-all duration-300 rounded-3xl ring-2 ring-slate-200/80 hover:ring-4" />
             <div className="flex flex-col gap-4 mt-6">
               <h2 className={"font-bold text-xl"}>Hey, I&apos;m Enric👋</h2>
               <p>{card__TextOne}</p>

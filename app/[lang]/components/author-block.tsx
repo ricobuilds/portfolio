@@ -1,4 +1,4 @@
-import { logos } from "@/sections/hero"
+import { logos } from "@/constants/logos"
 import { authors } from "@/lib/author";
 import { routes } from "@/lib/routes";
 import Image from "next/image";
@@ -13,7 +13,7 @@ export function AuthorBlock({ title }: { title: string }) {
   const author = authors[title]
   return (
     <div id="author" className="flex flex-col items-start gap-4 my-10 text-sm sm:flex-row">
-      <Image id="author-image" src={'/headshot.jpeg'} width={600} height={600} className='w-16 h-16 rounded-full pointer-events-none select-none' alt={title} />
+      <Image id="author-image" src={'/images/headshot.jpeg'} width={600} height={600} className='w-16 h-16 rounded-full pointer-events-none select-none' alt={title} />
       <div className="">
         <div className="flex gap-2">
           <span id="author-name" className="font-bold uppercase">{author.title}</span>
