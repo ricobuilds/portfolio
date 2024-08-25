@@ -4,29 +4,19 @@
         <description><![CDATA[Top insights & developments in disruptive technologies to thrive in your profession and business in an AI-driven world.]]></description>
         <link>https://enrictrillo.com</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 17 Jul 2024 11:46:18 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 25 Aug 2024 19:49:10 GMT</lastBuildDate>
         <atom:link href="https://enrictrillo.com/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Wed, 17 Jul 2024 11:46:18 GMT</pubDate>
+        <pubDate>Sun, 25 Aug 2024 19:49:10 GMT</pubDate>
         <copyright><![CDATA[All rights reserved 2024,Enric Trillo]]></copyright>
         <language><![CDATA[en]]></language>
         <item>
-            <title><![CDATA[Hello 2025]]></title>
-            <description><![CDATA[Here is what I've been up to for the past 6 months]]></description>
-            <link>https://enrictrillo.com/blog/2025</link>
-            <guid isPermaLink="false">https://enrictrillo.com/blog/2025</guid>
+            <title><![CDATA[Welcome to RicoBuilds]]></title>
+            <description><![CDATA[I'm Rico, a fullstack developer sharing insights on disruptive technologies, what I'm building, and my skill stacking journey to thrive in our world with AI.]]></description>
+            <link>https://enrictrillo.com/blog/welcome-to-ricobuilds</link>
+            <guid isPermaLink="false">https://enrictrillo.com/blog/welcome-to-ricobuilds</guid>
             <category><![CDATA[Personal]]></category>
             <dc:creator><![CDATA[Enric Trillo]]></dc:creator>
-            <pubDate>Mon, 15 Jul 2024 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Hello 2024]]></title>
-            <description><![CDATA[Here is what I've been up to for the past 6 months]]></description>
-            <link>https://enrictrillo.com/blog/hello</link>
-            <guid isPermaLink="false">https://enrictrillo.com/blog/hello</guid>
-            <category><![CDATA[Generative AI]]></category>
-            <category><![CDATA[Python]]></category>
-            <dc:creator><![CDATA[Enric Trillo]]></dc:creator>
-            <pubDate>Sun, 14 Jul 2024 00:00:00 GMT</pubDate>
+            <pubDate>Mon, 22 Jul 2024 14:43:18 GMT</pubDate>
         </item>
     </channel>
 </rss>

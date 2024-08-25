@@ -8,6 +8,7 @@ import { generateMetadata as genMetadata } from "@/lib/seo"
 import data from "@/tag-data.json"
 import { notFound } from "next/navigation"
 import { BlogCard } from "@/components/blog-card"
+import { Locale } from "@/constants/i18n.config"
 
 export async function generateStaticParams() {
 
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: { params: { tag: string } }):
   return metadata
 }
 
-export default async function Tag({ params }: { params: { tag: string } }) {
+export default async function Tag({ params }: { params: { tag: string, lang: Locale} }) {
 
   const posts: MDXArticle[] = getAllPosts()
   const formattedTag = formatTag(params.tag)
@@ -49,7 +50,7 @@ export default async function Tag({ params }: { params: { tag: string } }) {
                   {
                     filtered.map((post) => (
                       <li key={post.slug}>
-                        <BlogCard post={post} />
+                        <BlogCard post={post} lang={params.lang} />
                       </li>
                     ))
                   }
