@@ -19,7 +19,7 @@ const Navbar = ({
   tl,
 }: {
   tl: Awaited<ReturnType<typeof getDictionary>>["navbar"];
-  }) => {
+}) => {
   const nav = [
     {
       label: tl['home'],
@@ -34,16 +34,21 @@ const Navbar = ({
       route: routes.blog
     },
     {
+      label: 'Resources',
+      route: routes.blog
+    },
+    {
       label: tl['work'],
       route: routes.home + "/#work"
     },
   ]
   return (
-    <header className="flex justify-center w-full px-6 border-b h-18">
-      <nav className={cn(baseWidth, "flex justify-between w-full py-5 items-center")}>
-        <div className="flex items-center gap-4">
+    <header className="flex flex-col justify-center w-full border-b h-18">
+      <div id="mainnav" className={cn("max-w-[1360px]", "flex justify-between w-full py-5 px-6 items-center mx-auto")}>
+        <div className="flex items-center gap-4 shrink-0">
           <Image src={'/images/ricobuilds.png'} alt="Enric Trillo Cryptopunk" width={64} height={64} className="inline w-8 h-8 transition-all duration-300 rounded-full" />
         </div>
+        {/* <div className="w-full mx-2 transition-colors duration-300 border-t border-amethyst-500 group-hover:border-green-400"></div> */}
         <ul className="absolute flex-wrap hidden gap-1 text-sm -translate-x-1/2 md:flex left-1/2">
           {nav.map((i, idx) => (
             <li key={idx}>
@@ -51,12 +56,13 @@ const Navbar = ({
             </li>
           ))}
         </ul>
-        <div className="hidden gap-2 md:flex">
+        {/* <div className="w-full mx-2 transition-colors duration-300 border-t border-amethyst-500 group-hover:border-green-400"></div> */}
+        <div className="hidden gap-2 md:flex shrink-0">
           <button className="flex items-center px-3 py-2 text-sm rounded-full hover:bg-obsidian-100">Log In</button>
           <Link href={routes.subscribe} className="hidden md:flex">
             <button className="flex items-center px-3 py-2 text-sm text-white rounded-full bg-amethyst-500">Join Shift Forward</button>
           </Link>
-          <LanguageSwitcher/>
+          {/* <LanguageSwitcher /> */}
         </div>
         <div className="flex md:hidden">
           <Sheet>
@@ -86,7 +92,16 @@ const Navbar = ({
             </SheetContent>
           </Sheet>
         </div>
-      </nav>
+      </div>
+      <div id="subnav" className={cn("w-full mx-auto", "h-10 px-6 bg-amethyst-500")}>
+        <div className="flex items-center h-10 gap-3 text-white">
+          <Link href="">HTML</Link>
+          <Link href="">TailwinCSS</Link>
+          <Link href="">NextJS</Link>
+          <Link href="">Python</Link>
+          <Link href="">PyTorch</Link>
+        </div>
+      </div>
     </header>
   )
 }
