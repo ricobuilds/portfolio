@@ -94,8 +94,8 @@ const Navbar = ({
         </div>
       </div>
       <div id="subnav" className={cn("w-full mx-auto", "h-10 px-6 bg-amethyst-500")}>
-        <div className="flex items-center justify-center h-10 gap-10 text-white">\
-        <p>Site in ongoing revamp.</p>
+        <div className="flex items-center justify-center h-10 gap-10 text-white">
+        <p>Site currently in ongoing revamp. Expect broken functionality.</p>
           {/* <Link href="">HTML5</Link>
           <Link href="">TailwindCSS</Link>
           <Link href="">NextJS</Link>
