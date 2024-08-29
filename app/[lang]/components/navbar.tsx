@@ -94,12 +94,13 @@ const Navbar = ({
         </div>
       </div>
       <div id="subnav" className={cn("w-full mx-auto", "h-10 px-6 bg-amethyst-500")}>
-        <div className="flex items-center h-10 gap-3 text-white">
-          <Link href="">HTML</Link>
-          <Link href="">TailwinCSS</Link>
+        <div className="flex items-center justify-center h-10 gap-10 text-white">
+          <Link href="">HTML5</Link>
+          <Link href="">TailwindCSS</Link>
           <Link href="">NextJS</Link>
           <Link href="">Python</Link>
           <Link href="">PyTorch</Link>
+          <Link href="">Langchain</Link>
         </div>
       </div>
     </header>
