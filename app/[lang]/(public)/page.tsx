@@ -180,6 +180,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
               </div>
             </section >
             {/* <Skills/> */}
+            <section id="faq" className="flex flex-col py-16"></section>
             <Work />
             <DynamicNewsletter />
           </div>
