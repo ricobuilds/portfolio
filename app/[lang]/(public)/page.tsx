@@ -165,7 +165,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
               <h2 className={cn(kanit.className, "flex items-center mx-auto text-2xl font-medium px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
                 Writing
               </h2>
-              <p className="text-center text-obsidian-600">Check out my latest takes and tutorials.</p>
+              <p className="text-center text-obsidian-600">Check out my latest takes and tutorials</p>
               <ul className="grid w-full gap-8 mt-10 md:grid-cols-6">
                 {slicedPostList.map((post, idx) => (
                   <li key={idx} className={`${idx < 2 ? 'md:col-span-3' : 'col-span-2'}`}>
