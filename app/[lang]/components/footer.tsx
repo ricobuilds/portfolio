@@ -234,9 +234,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex justify-between">
-          <p className="text-xs text-gray-500">&copy; {new Date().getFullYear()}. Owned by <span className="text-charkol">{name}</span>. All rights reserved.</p>
-          <p className="text-xs text-gray-500">UK Company: 14006690</p>
+        <div className="flex justify-between text-xs text-gray-500">
+          <p>&copy; {new Date().getFullYear()}. Owned by <span className="text-charkol">{name}</span>. All rights reserved.</p>
+          <p>UK Company No: 14006690</p>
         </div>
       </div>
     </footer>
