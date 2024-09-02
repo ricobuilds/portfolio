@@ -47,7 +47,7 @@ const Footer = () => {
             </div>
 
             <p className="max-w-xs mt-4 text-gray-500">
-              I&apos;m Enric Trillo, a fullstack developer building multi-agent systems, and sharing knowledge and what I learn online.
+              I&apos;m Enric Trillo, a fullstack developer sharing knowledge and what I learn online.
             </p>
 
             <ul className="flex gap-6 mt-8">
