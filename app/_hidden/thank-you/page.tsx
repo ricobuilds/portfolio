@@ -3,10 +3,16 @@ import { cn } from "@/lib/shared-utils";
 import { Kanit } from "next/font/google";
 import Balancer from "react-wrap-balancer";
 import Link from "next/link";
+import { generateMetadata } from "@/lib/seo";
 
 const heroFont = Kanit({
   weight: "800",
   subsets: ["latin"]
+})
+
+
+export const metadata = generateMetadata({
+  title: "Thank You!"
 })
 
 export default function JoinedNewsletter() {
