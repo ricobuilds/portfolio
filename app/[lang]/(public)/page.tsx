@@ -5,7 +5,6 @@ import { siteMetadata } from "@/lib/site.metadata";
 import type { Person, WithContext } from "schema-dts"
 import { LogoCloud } from "@/sections/logo-cloud";
 import { Certifications as Certs } from "@/sections/certifications";
-import { Bio } from "@/sections/bio";
 import { Work } from "@/sections/work";
 import Link from "next/link";
 import { getDictionary } from "../dictionaries";
@@ -18,6 +17,8 @@ import { getAllPosts } from "@/lib/mdx";
 import { BlogCard } from "@/components/blog-card";
 import { routes } from "@/lib/routes";
 import { BeehiivCustom } from "@/components/beehiiv-custom";
+import { EdgeIcon } from "@/constants/icons";
+import Image from "next/image";
 
 const kanit = Kanit({
   subsets: ['latin'],
@@ -119,6 +120,12 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
 
   const POSTS_MAX = 5
   const slicedPostList = posts.slice(0, POSTS_MAX)
+
+  const card__TextOne = "I was born & raised in Madrid, based in London since my early teens, and I'm from a small Hispanic nation in Central Africa most often forget – Equatorial Guinea."
+  const card__TextTwo = "I have 7+ years experience, currently focused on building with disruptive tech and actively assembling multi agent systems."
+  const card__TextThree = "I've put the reps in with the tools I use to solve problems – NextJS and React with Typescript, SQL and NoSQL, Python, and many more. I dedicate a good chunk daily to learning new skills."
+  const card__TextFour = "When I'm not coding, you can find me sharing insights online, exploring new ideas to push the boundaries of what's possible, or travelling since I'm heavy on learning languages and cultures."
+
   return (
     <>
       {/* <StructuredData data={homeSchema} /> */}
@@ -156,7 +163,40 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
             </section>
             <LogoCloud />
             {/* <Showcase/> */}
-            <Bio />
+            <section id="bio" className="left-0 flex flex-col px-4 py-16 mt-0 max-w-screen">
+              <div className="flex gap-16">
+                <div className="relative flex w-full ">
+                  <Image src="/images/graduation.jpg" className="w-64 h-64 " fill alt="Enric Trillo, graduation photo" />
+                </div>
+                <div
+                  className={cn(
+                    "p-4 bg-transparent border flex max-w-lg w-full mx-auto relative",
+                  )}
+                >
+                  <EdgeIcon className="absolute w-6 h-6 text-black -top-3 -left-3" />
+                  <EdgeIcon className="absolute w-6 h-6 text-black -bottom-3 -left-3" />
+                  <EdgeIcon className="absolute w-6 h-6 text-black -top-3 -right-3" />
+                  <EdgeIcon className="absolute w-6 h-6 text-black -bottom-3 -right-3" />
+
+                  <div className="relative z-10 flex flex-col w-full h-full">
+                    <div className="">
+                    </div>
+                    <div className="h-fit w-fit">
+                      <div className="flex flex-col gap-4 mt-6">
+                        <h2 className={"font-bold text-xl"}>Hey, I&apos;m Enric👋</h2>
+                        <p>{card__TextOne}</p>
+                        <p>{card__TextTwo}</p>
+                        <p>{card__TextThree}</p>
+                        <p>{card__TextFour}</p>
+                      </div>
+                      <Link href={routes.about}>
+                        <button className="px-4 py-2 mt-4 text-white bg-charkol">Read my story</button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
             <Certs />
             <section id="writing" className="flex flex-col py-16">
               <h2 className={cn(kanit.className, "flex items-center mx-auto text-2xl font-medium px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
@@ -177,8 +217,8 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
               </div>
             </section >
             {/* <Skills/> */}
-            <section id="faq" className="flex flex-col py-16"></section>
-            <section id="cta" className="flex flex-col py-16"></section>
+            {/* <section id="faq" className="flex flex-col py-16"></section> */}
+            {/* <section id="cta" className="flex flex-col py-16"></section> */}
             <Work />
             <section id="shift-forward" className="flex flex-col py-16">
               <h2 className={cn(kanit.className, "flex items-center  text-center text-2xl font-medium px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
