@@ -1,13 +1,13 @@
 import { generateMetadata } from "@/lib/seo"
 
 export const metadata = generateMetadata({
-  title: "Privacy Policy"
+  title: "DMCA Notice"
 })
 
-export default function Page() {
+export default function DMCA() {
   return (
     <div>
-      <h1>Hello from Privacy</h1>
+      <h1>Hello from DMCA</h1>
     </div>
   )
 }
