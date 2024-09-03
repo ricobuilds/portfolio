@@ -5,7 +5,8 @@
     "blog": "Blog",
     "work": "Work",
     "login": "Log In",
-    "cta": "Join Shift Forward"
+    "cta": "Join Shift Forward",
+    "warning": "Site currently in ongoing revamp. Expect broken functionality"
   },
   "home": {
     "hero": {
