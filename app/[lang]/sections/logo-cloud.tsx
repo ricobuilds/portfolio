@@ -1,9 +1,9 @@
 "use client"
+import AdvanceMarquee from "@/components/marquee";
 import Image from "next/image";
-import Marquee from "react-fast-marquee"
 
 export const LogoCloud = () => {
-  const imgChildStyles = `w-10 h-10 mx-6 grayscale`
+  const imgChildStyles = `w-8 h-8 mx-6 grayscale inline-block`
 
   const skills = [
     "nextjs",
@@ -24,13 +24,15 @@ export const LogoCloud = () => {
   return (
     <section id="skill-cloud" className="w-full max-w-xl mx-auto">
       <div className="flex w-full h-16 max-w-3xl gap-6">
-        <Marquee speed={25} autoFill gradient className="flex gap-8 select-none">
+        <AdvanceMarquee speed={25} autoFill className="flex gap-8 select-none">
           {
             skills.map((image, idx) => (
-              <Image key={idx} className={imgChildStyles} src={`/images/skills/${image}.webp`} alt={`${image}_logo`} width={300} height={300} />
+              <div className={imgChildStyles}>
+                <Image key={idx} src={`/images/skills/${image}.webp`} alt={`${image}_logo`} width={300} height={300} />
+              </div>
             ))
           }
-        </Marquee>
+        </AdvanceMarquee>
       </div>
 
     </section>
