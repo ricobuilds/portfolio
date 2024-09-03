@@ -263,7 +263,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                   <p>Contact me if you have any projects, feedback, request or a question for me.</p>
                 </div>
                 <div className="flex items-center ">
-                  <Link href="/contact">
+                  <Link href="#">
                     <Button className="flex items-center gap-2 text-black bg-white">
                       <Send className="w-4 h-4"/>
                       Let's Talk
