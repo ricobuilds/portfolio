@@ -5,7 +5,8 @@
     "blog": "Blog",
     "work": "Projetos",
     "login": "Entrar",
-    "cta": "Inscrever-se no Shift Forward"
+    "cta": "Inscrever-se no Shift Forward",
+    "warning": "A página da web está em renovação. É possível que não funcione corretamente"
   },
   "home": {
     "hero": {
