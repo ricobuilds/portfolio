@@ -27,6 +27,10 @@
       "cta": "Lee mi historia",
       "alt": "Retrato de Enric Trillo, de pie, con aire seguro, vestido con traje de graduación, y que irradia un aura amigable y alegre"
     },
+    "experience": {
+      "headline": "",
+      "subheadline": ""
+    },
     "newsletter": {
       "subheadline": "Recibe notificaciones cuando publique super contenido destacado sobre tecnologías disruptivas o lance un nuevo proyecto de Metasyde directamente en tu bandeja de email.",
       "placeholder": "Escribe tu e-mail",

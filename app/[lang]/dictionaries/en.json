@@ -27,6 +27,10 @@
       "cta": "Read my story",
       "alt": "Portrait of Enric Trillo, standing confidently with graduation attire, exuding a approachable and joyful aura."
     },
+    "experience": {
+      "headline": "",
+      "subheadline": ""
+    },
     "newsletter": {
       "subheadline": "Get notified when I push out top alpha on disruptive technologies, or launch a new Metasyde project right in your inbox.",
       "placeholder": "Enter your email",
