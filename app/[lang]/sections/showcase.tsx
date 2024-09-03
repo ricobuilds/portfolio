@@ -1,6 +1,6 @@
 "use client"
+import AdvanceMarquee from "@/components/marquee";
 import Image from "next/image";
-import Marquee from "react-fast-marquee"
 
 export const Showcase = () => {
   const imgChildStyles = `w-[385px] h-[385px] border border-md`
@@ -19,7 +19,7 @@ export const Showcase = () => {
   return (
     <section id="showcase" className="w-full mx-auto">
       <div className="flex w-full gap-6 mt-16">
-        <Marquee speed={12} autoFill gradient className="flex gap-8 select-none">
+        <AdvanceMarquee speed={12} autoFill className="flex gap-8 select-none">
           {
             certs.map((image , idx) => (
               <div id="hero__img-wrapper" className="mr-5">
@@ -27,7 +27,7 @@ export const Showcase = () => {
               </div>
             ))
           }
-        </Marquee>
+        </AdvanceMarquee>
       </div>
 
     </section>
