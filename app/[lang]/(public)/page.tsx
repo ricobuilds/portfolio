@@ -178,7 +178,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
             <section id="bio" className="left-0 flex flex-col px-4 py-16 mt-0 max-w-screen">
               <div className="flex flex-col items-center lg:flex-row gap-16 w-full max-w-[970px] mx-auto">
                 <div className="relative flex w-full max-w-lg aspect-auto">
-                  <Image src="/images/graduation.jpg" width={600} height={0} alt="Enric Trillo, graduation photo" />
+                  <Image src="/images/graduation.jpg" width={600} height={0} alt={tl['home']['bio'].alt} />
                 </div>
                 <div
                   className={cn(
