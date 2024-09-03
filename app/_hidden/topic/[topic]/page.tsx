@@ -1,4 +1,4 @@
-import { baseWidth } from "@/lib/config"
+import { baseWidth } from "@/constants"
 import { cn } from "@/lib/shared-utils"
 import { siteMetadata } from "@/lib/site.metadata"
 import { Metadata, Viewport } from "next"

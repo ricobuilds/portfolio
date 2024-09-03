@@ -1,6 +1,6 @@
 import { StructuredData } from "@/components/structured-data"
 import { Term } from "@/app/types/Term"
-import { baseWidth } from "@/lib/config"
+import { baseWidth } from "@/constants"
 import { sanityQuery } from "@/lib/sanity/utils"
 import { cn } from "@/lib/shared-utils"
 import { Metadata } from "next"

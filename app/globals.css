@@ -7,12 +7,11 @@
     scroll-behavior: smooth;
     @apply selection:bg-slate-200;
   }
+  
   * {
     @apply box-border;
   }
-  body {
-    @apply text-black bg-white;
-  }
+  
   .prose .anchor {
     @apply absolute invisible no-underline;
   

@@ -1,6 +1,6 @@
 import { cn, convertDate } from "@/lib/shared-utils"
 import Link from "next/link"
-import { baseWidth } from "@/lib/config"
+import { baseWidth } from "@/constants"
 import { MDXArticle } from "@/app/types/Article"
 import Image from "next/image"
 import { extractSlug, formatTag, getAllPosts } from "@/lib/mdx"

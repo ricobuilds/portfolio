@@ -8,8 +8,24 @@
     "cta": "Unirse a Shift Forward"
   },
   "home": {
-    "headline": "Desarollador de agentes de IA y Fullstack",
-    "subheadline": "Desarrollador fullstack con más de 7 años de experiencia en la creación de tecnologías disruptivas, enfocado en ensamblar sistemas multiagente y compartir mi recorrido personal.",
-    "cta": "Explora mi trabajo"
+    "hero": {
+      "headline": "Ingeniero Fullstack y de IA",
+      "subheadline": "Desarrollador fullstack con más de 7 años de experiencia en la creación de tecnologías disruptivas, enfocado en ensamblar sistemas multiagente y compartir mi recorrido personal.",
+      "cta": "Explora mi trabajo",
+      "marquee": [
+        "Bienvenido/a a mi nueva pagina!",
+        "Check out our latest products and offers"
+      ]
+    },
+    "bio": {
+      "greeting": "Hola, soy Enrique👋",
+      "cta": "Lee mi historia"
+    }
+  },
+  "footer": {
+    "blurb": "Soy Enric Trillo, un ingeniero fullstack compartiendo mis conocimientos y lo que aprendo online",
+    "ownedBy": "Propiedad de",
+    "copyright": "Todos los derechos reservados",
+    "company": "Número de Empresa  (Reino Unido)"
   }
 }

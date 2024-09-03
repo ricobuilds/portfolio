@@ -1,4 +1,4 @@
-import { baseWidth } from "@/lib/config"
+import { baseWidth } from "@/constants"
 import { routes } from "@/lib/routes"
 import { cn } from "@/lib/shared-utils"
 import Image from "next/image"
@@ -62,7 +62,7 @@ const Navbar = ({
           <Link href={routes.subscribe} className="hidden md:flex">
             <button className="flex items-center px-3 py-2 text-sm text-white rounded-full bg-amethyst-500">Join Shift Forward</button>
           </Link>
-          {/* <LanguageSwitcher /> */}
+          <LanguageSwitcher />
         </div>
         <div className="flex md:hidden">
           <Sheet>
@@ -93,7 +93,7 @@ const Navbar = ({
           </Sheet>
         </div>
       </div>
-      <div id="subnav" className={cn("w-full mx-auto", "h-10 px-6 bg-amethyst-500")}>
+      <div id="subnav" className={cn("w-full hidden mx-auto", "h-10 px-6 bg-amethyst-500")}>
         <div className="flex items-center justify-center h-10 gap-10 text-white">
         <p>Site currently in ongoing revamp. Expect broken functionality.</p>
           {/* <Link href="">HTML5</Link>

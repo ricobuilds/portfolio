@@ -8,8 +8,24 @@
     "cta": "Join Shift Forward"
   },
   "home": {
-    "headline": "Fullstack & AI Agent Developer",
-    "subheadline": "A fullstack developer with 7+ years experience building disruptive technologies, focused on assembling multi-agent systems and sharing my personal journey.",
-    "cta": "Explore my work"
+    "hero": {
+      "headline": "Fullstack & AI Agents Engineer",
+      "subheadline": "A fullstack developer with 7+ years experience building disruptive technologies, focused on assembling multi-agent systems and sharing my personal journey.",
+      "cta": "Explore my work",
+      "marquee": [
+        "Welcome to my new website!",
+        "Check out our latest products and offers"
+      ]
+    },
+    "bio": {
+      "greeting": "Hey, I'm Enric👋",
+      "cta": "Read my story"
+    }
+  },
+  "footer": {
+    "blurb": "I'm Enric Trillo, a fullstack engineer sharing knowledge and what I learn online",
+    "ownedBy": "Owned By",
+    "copyright": "All rights reserved",
+    "company": "UK Company No"
   }
 }

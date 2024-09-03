@@ -1,11 +1,16 @@
-import { baseWidth } from "@/lib/config"
+import { baseWidth } from "@/constants"
 import { routes } from "@/lib/routes"
 import { cn } from "@/lib/shared-utils"
 import Link from "next/link"
 import { logos } from "@/constants/logos"
 import Image from "next/image"
+import { getDictionary } from "../dictionaries"
 
-const Footer = () => {
+const Footer = ({
+  tl,
+}: {
+  tl: Awaited<ReturnType<typeof getDictionary>>["footer"];
+}) => {
 
   const name = "Metasyde Ltd"
 
@@ -47,7 +52,7 @@ const Footer = () => {
             </div>
 
             <p className="max-w-xs mt-4 text-gray-500">
-              I&apos;m Enric Trillo, a fullstack developer sharing knowledge and what I learn online.
+             {tl['blurb']}.
             </p>
 
             <ul className="flex gap-6 mt-8">
@@ -199,8 +204,8 @@ const Footer = () => {
         </div>
 
         <div className="flex justify-between text-xs text-gray-500">
-          <p>&copy; 1999–{new Date().getFullYear()}. Owned by <span className="text-charkol">{name}</span>. All rights reserved.</p>
-          <p>UK Company No: 14006690</p>
+          <p>&copy; 1999–{new Date().getFullYear()}. {tl['ownedBy']} <span className="text-charkol">{name}</span>. {tl['copyright']}.</p>
+          <p>{tl['company']}: 14006690</p>
         </div>
       </div>
     </footer>

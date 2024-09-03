@@ -1,6 +1,5 @@
 import { StructuredData } from "../components/structured-data";
 import { cn } from "@/lib/shared-utils";
-import dynamic from "next/dynamic";
 import { siteMetadata } from "@/lib/site.metadata";
 import type { Person, WithContext } from "schema-dts"
 import { LogoCloud } from "@/sections/logo-cloud";
@@ -19,6 +18,8 @@ import { routes } from "@/lib/routes";
 import { BeehiivCustom } from "@/components/beehiiv-custom";
 import { EdgeIcon } from "@/constants/icons";
 import Image from "next/image";
+import AdvancedMarquee from "@/components/marquee";
+import { baseWidth } from "@/constants/index";
 
 const kanit = Kanit({
   subsets: ['latin'],
@@ -129,20 +130,20 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
   return (
     <>
       {/* <StructuredData data={homeSchema} /> */}
-      <main className="flex-1 w-full px-6">
-        <div className={cn("max-w-[970px]", "mx-auto")}>
+      <main className="flex-1 w-full">
+        <div className={cn("", "mx-auto")}>
           <div className="flex flex-col gap-16 py-24 pb-10">
 
             <section id="hero">
-              <div className="flex-1 w-full mx-auto space-y-8">
+              <div className="flex-1 w-full max-w-[970px] mx-auto space-y-8">
                 <div className="flex flex-col items-center gap-4">
                   <div className="flex flex-col max-w-[969px] text-center">
                     <h1 className={cn(kanit.className, "text-4xl md:text-[64px]")}>
-                      <Balancer>{tl['home'].headline}</Balancer>
+                      <Balancer>{tl['home']['hero'].headline}</Balancer>
                     </h1>
                     <p className="mt-3 text-lg text-obsidian-500">
                       <Balancer>
-                        {tl['home'].subheadline}
+                        {tl['home']['hero'].subheadline}
                       </Balancer>
                     </p>
                   </div>
@@ -156,41 +157,57 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                     }
                   </ul>
                   <Link href="/#work" className="px-4 py-2 mt-8 capitalize border border-charkol hover:cursor-pointer hover:border-amethyst-400 hover:bg-amethyst-500 hover:text-white">
-                    {tl['home'].cta}
+                    {tl['home']['hero'].cta}
                   </Link>
                 </div>
               </div>
             </section>
             <LogoCloud />
             {/* <Showcase/> */}
+            <section id="marquee" className="relative">
+              <div className="h-16 translate-y-6 border-black skew-y-1 bg-amethyst-500 border-y-2"></div>
+              <div className="flex items-center h-16 text-white -translate-y-8 bg-black border-black -skew-y-1 border-y-4">
+                <AdvancedMarquee
+                  play={true}
+                  autoFill
+                  pauseOnHover={true}
+                  speed={50}
+                  separator={<span className="mx-4 text-xl">✦</span>}
+                >
+                  {tl['home']['hero'].marquee.map((i, idx) => (
+                    <span key={idx} className="mx-4">{i}</span>
+                  ))}
+                </AdvancedMarquee>
+              </div>
+            </section>
             <section id="bio" className="left-0 flex flex-col px-4 py-16 mt-0 max-w-screen">
-              <div className="flex gap-16">
-                <div className="relative flex w-full ">
-                  <Image src="/images/graduation.jpg" className="w-64 h-64 " fill alt="Enric Trillo, graduation photo" />
+              <div className="flex flex-col items-center lg:flex-row gap-16 w-full max-w-[970px] mx-auto">
+                <div className="relative flex w-full max-w-lg aspect-auto">
+                  <Image src="/images/graduation.jpg" width={600} height={0} alt="Enric Trillo, graduation photo" />
                 </div>
                 <div
                   className={cn(
                     "p-4 bg-transparent border flex max-w-lg w-full mx-auto relative",
                   )}
                 >
-                  <EdgeIcon className="absolute w-6 h-6 text-black -top-3 -left-3" />
-                  <EdgeIcon className="absolute w-6 h-6 text-black -bottom-3 -left-3" />
-                  <EdgeIcon className="absolute w-6 h-6 text-black -top-3 -right-3" />
-                  <EdgeIcon className="absolute w-6 h-6 text-black -bottom-3 -right-3" />
+                  <EdgeIcon className="absolute w-6 h-6 text-black -top-3 -left-3 dark:text-white" />
+                  <EdgeIcon className="absolute w-6 h-6 text-black -bottom-3 -left-3 dark:text-white" />
+                  <EdgeIcon className="absolute w-6 h-6 text-black -top-3 -right-3 dark:text-white" />
+                  <EdgeIcon className="absolute w-6 h-6 text-black -bottom-3 -right-3 dark:text-white" />
 
                   <div className="relative z-10 flex flex-col w-full h-full">
                     <div className="">
                     </div>
                     <div className="h-fit w-fit">
                       <div className="flex flex-col gap-4 mt-6">
-                        <h2 className={"font-bold text-xl"}>Hey, I&apos;m Enric👋</h2>
+                        <h2 className={"font-bold text-xl"}>{tl['home']['bio'].greeting}</h2>
                         <p>{card__TextOne}</p>
                         <p>{card__TextTwo}</p>
                         <p>{card__TextThree}</p>
                         <p>{card__TextFour}</p>
                       </div>
                       <Link href={routes.about}>
-                        <button className="px-4 py-2 mt-4 text-white bg-charkol">Read my story</button>
+                        <button className="px-4 py-2 mt-4 text-white bg-charkol">{tl['home']['bio'].cta}</button>
                       </Link>
                     </div>
                   </div>
@@ -198,28 +215,30 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
               </div>
             </section>
             <Certs />
-            <section id="writing" className="flex flex-col py-16">
-              <h2 className={cn(kanit.className, "flex items-center mx-auto text-2xl font-medium px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
-                Writing
-              </h2>
-              <p className="text-center text-obsidian-600">Check out my latest takes and tutorials</p>
-              <ul className="grid w-full gap-8 mt-10 md:grid-cols-6">
-                {slicedPostList.map((post, idx) => (
-                  <li key={idx} className={`${idx < 2 ? 'md:col-span-3' : 'col-span-2'}`}>
-                    <BlogCard post={post} lang={params.lang} />
-                  </li>
-                ))}
-              </ul>
-              <div className="flex mt-10">
-                <Link href={`${params.lang}/${routes.blog}`} className="flex mx-auto">
-                  <div className="flex items-center px-3 py-2 text-sm text-white rounded-full bg-charkol hover:bg-charkol/90">View All Posts</div>
-                </Link>
+            <section id="writing">
+              <div className={cn(baseWidth, "flex flex-col py-16 mx-auto")}>
+                <h2 className={cn(kanit.className, "flex items-center mx-auto text-2xl font-medium px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
+                  Writing
+                </h2>
+                <p className="text-center text-obsidian-600">Check out my latest takes and tutorials</p>
+                <ul className="grid w-full gap-8 mt-10 md:grid-cols-6">
+                  {slicedPostList.map((post, idx) => (
+                    <li key={idx} className={`${idx < 2 ? 'md:col-span-3' : 'col-span-2'}`}>
+                      <BlogCard post={post} lang={params.lang} />
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex mt-10">
+                  <Link href={`${params.lang}/${routes.blog}`} className="flex mx-auto">
+                    <div className="flex items-center px-3 py-2 text-sm text-white rounded-full bg-charkol hover:bg-charkol/90">View All Posts</div>
+                  </Link>
+                </div>
               </div>
             </section >
             {/* <Skills/> */}
             {/* <section id="faq" className="flex flex-col py-16"></section> */}
             {/* <section id="cta" className="flex flex-col py-16"></section> */}
-            <Work />
+            {/* <Work /> */}
             <section id="shift-forward" className="flex flex-col py-16">
               <h2 className={cn(kanit.className, "flex items-center  text-center text-2xl font-medium px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
                 Shift Forward Newsletter

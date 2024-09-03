@@ -1,5 +1,5 @@
 import { cn } from "@/lib/shared-utils"
-import { baseWidth } from "@/lib/config"
+import { baseWidth } from "@/constants/index"
 import { MDXArticle } from "@/app/types/Article"
 import { getAllPosts } from "@/lib/mdx"
 import { generateMetadata } from "@/lib/seo"

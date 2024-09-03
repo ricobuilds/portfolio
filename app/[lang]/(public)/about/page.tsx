@@ -1,4 +1,4 @@
-import { baseWidth } from "@/lib/config"
+import { baseWidth } from "@/constants/index"
 import { routes } from "@/lib/routes"
 import { generateMetadata } from "@/lib/seo"
 import { cn } from "@/lib/shared-utils"
