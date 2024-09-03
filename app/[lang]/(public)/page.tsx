@@ -20,6 +20,9 @@ import { EdgeIcon } from "@/constants/icons";
 import Image from "next/image";
 import AdvancedMarquee from "@/components/marquee";
 import { baseWidth } from "@/constants/index";
+import { clash } from "@/constants/fonts";
+import { Button } from "@/components/ui/button";
+import { Send } from "lucide-react";
 
 const kanit = Kanit({
   subsets: ['latin'],
@@ -232,7 +235,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
             </section >
             {/* <Skills/> */}
             {/* <section id="faq" className="flex flex-col py-16"></section> */}
-            {/* <section id="cta" className="flex flex-col py-16"></section> */}
+
             {/* <Work /> */}
             <section id="shift-forward" className="flex flex-col py-16">
               <h2 className={cn(kanit.className, "flex items-center  text-center text-2xl font-medium px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
@@ -249,6 +252,23 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                   <div className="pb-4">
                     <span id="lipline" className="text-xs text-slate-400">{tl['home']['newsletter'].note}</span>
                   </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="cta" className="flex flex-col px-6">
+              <div className="flex flex-col lg:flex-row gap-6 justify-between p-28 py-16 bg-amethyst-500 max-w-[1360px] mx-auto w-full">
+                <div className="flex flex-col text-white">
+                  <h2 className={cn(clash.className, "text-4xl font-semibold")}>Got a project? Get in touch</h2>
+                  <p>Contact me if you have any projects, feedback, request or a question for me.</p>
+                </div>
+                <div className="flex items-center ">
+                  <Link href="/contact">
+                    <Button className="flex items-center gap-2 text-black bg-white">
+                      <Send className="w-4 h-4"/>
+                      Let's Talk
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </section>
