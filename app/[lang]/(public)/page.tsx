@@ -130,56 +130,64 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
       {/* <StructuredData data={homeSchema} /> */}
       <main className="flex-1 w-full">
         <div className={cn("", "mx-auto")}>
-          <div className="flex flex-col gap-16 py-24 pb-10">
+          <div className="flex flex-col gap-16 pt-24">
 
             <section id="hero">
-              <div className="flex-1 w-full max-w-[970px] mx-auto space-y-8">
-                <div className="flex flex-col items-center gap-4">
-                  <div className="flex flex-col max-w-[969px] text-center">
-                    <h1 className={cn(kanit.className, "text-4xl md:text-[64px]")}>
-                      <Balancer>{tl['home']['hero'].headline}</Balancer>
-                    </h1>
-                    <p className="mt-3 text-lg text-obsidian-500">
-                      <Balancer>
+              <div className="w-full max-w-[970px] mx-auto space-y-8">
+                <div className="flex flex-col items-center justify-between gap-12 lg:flex-row">
+                  <div className="flex flex-col gap-6 max-w-[525px]">
+                    <div className="flex flex-col">
+                      <h1 className={cn(kanit.className, "text-4xl md:text-[64px]")}>
+                        {tl['home']['hero'].headline}
+                      </h1>
+                      <p className="mt-3 text-lg text-obsidian-500">
                         {tl['home']['hero'].subheadline}
-                      </Balancer>
-                    </p>
+                      </p>
+                    </div>
+                    <ul className="hidden gap-6 w-fit">
+                      {
+                        profiles.map((i, idx) => (
+                          <li key={idx} className="group">
+                            <Link href={i.url} target="_blank" className="flex gap-2 group"><span className={`${i.styles} duration-150`}>{i.logo}</span></Link>
+                          </li>
+                        ))
+                      }
+                    </ul>
+                    <Link href="/#work" className="w-fit">
+                      <button className="px-4 py-2 mt-0 capitalize border w-fit border-charkol hover:cursor-pointer hover:border-amethyst-400 hover:bg-amethyst-500 hover:text-white">
+                        {tl['home']['hero'].cta}
+                      </button>
+                    </Link>
                   </div>
-                  <ul className="flex gap-6 mx-auto mt-6 w-fit">
-                    {
-                      profiles.map((i, idx) => (
-                        <li key={idx} className="group">
-                          <Link href={i.url} target="_blank" className="flex gap-2 group"><span className={`${i.styles} duration-150`}>{i.logo}</span></Link>
-                        </li>
-                      ))
-                    }
-                  </ul>
-                  <Link href="/#work" className="px-4 py-2 mt-8 capitalize border border-charkol hover:cursor-pointer hover:border-amethyst-400 hover:bg-amethyst-500 hover:text-white">
-                    {tl['home']['hero'].cta}
-                  </Link>
+                  <Image src="/images/hero__image.png" width={800} height={800} alt="" className="w-[420px] h-[420px] from-white aspect-square to-amethyst-500" />
                 </div>
               </div>
+              <section id="marquee" className="relative">
+                <div className="h-16 border-black bg-amethyst-500 border-y-2"></div>
+                <div className="flex items-center h-16 text-white -translate-y-10 -skew-y-3 bg-black border-black border-y-4">
+                  <AdvancedMarquee
+                    play={true}
+                    autoFill
+                    pauseOnHover={true}
+                    speed={50}
+                    separator={<span className="mx-4 text-xl">✦</span>}
+                  >
+                    {tl['home']['hero'].marquee.map((i, idx) => (
+                      <span key={idx} className="mx-4">{i}</span>
+                    ))}
+                  </AdvancedMarquee>
+                </div>
+              </section>
             </section>
-            <LogoCloud />
+            {/* <LogoCloud /> */}
             {/* <Showcase/> */}
-            <section id="marquee" className="relative">
-              <div className="h-16 translate-y-6 border-black skew-y-1 bg-amethyst-500 border-y-2"></div>
-              <div className="flex items-center h-16 text-white -translate-y-8 bg-black border-black -skew-y-1 border-y-4">
-                <AdvancedMarquee
-                  play={true}
-                  autoFill
-                  pauseOnHover={true}
-                  speed={50}
-                  separator={<span className="mx-4 text-xl">✦</span>}
-                >
-                  {tl['home']['hero'].marquee.map((i, idx) => (
-                    <span key={idx} className="mx-4">{i}</span>
-                  ))}
-                </AdvancedMarquee>
-              </div>
-            </section>
+
             <section id="bio" className="left-0 flex flex-col px-4 py-16 mt-0 max-w-screen">
-              <div className="flex flex-col items-center lg:flex-row gap-16 w-full max-w-[970px] mx-auto">
+              <h2 className={cn(kanit.className, "flex items-center  text-center text-2xl font-medium px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
+                About Me
+              </h2>
+              <p className="text-center text-obsidian-500">Get to learn about the man behind the face.</p>
+              <div className="flex flex-col items-center lg:flex-row gap-16 w-full max-w-[970px] mx-auto mt-10">
                 <div className="relative flex w-full max-w-lg aspect-auto">
                   <Image src="/images/graduation.jpg" width={600} height={0} alt={tl['home']['bio'].alt} />
                 </div>
@@ -265,7 +273,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                 <div className="flex items-center ">
                   <Link href="#">
                     <Button className="flex items-center gap-2 text-black bg-white">
-                      <Send className="w-4 h-4"/>
+                      <Send className="w-4 h-4" />
                       Let's Talk
                     </Button>
                   </Link>
