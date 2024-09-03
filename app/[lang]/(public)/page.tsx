@@ -159,7 +159,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                       </button>
                     </Link>
                   </div>
-                  <Image src="/images/hero__image.png" width={800} height={800} alt="" className="w-[420px] h-[420px] from-white aspect-square to-amethyst-500" />
+                  <Image src="/images/hero__image.png" width={800} height={800} alt="" className="w-[420px] h-[420px] bg-gradient-to-b rounded-t-full from-amethyst-500 aspect-square to-amethyst-500" />
                 </div>
               </div>
               <section id="marquee" className="relative">
