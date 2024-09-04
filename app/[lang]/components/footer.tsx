@@ -5,6 +5,7 @@ import Link from "next/link"
 import { logos } from "@/constants/logos"
 import Image from "next/image"
 import { getDictionary } from "../dictionaries"
+import { clash } from "@/constants/fonts"
 
 const Footer = ({
   tl,
@@ -48,7 +49,7 @@ const Footer = ({
           <div>
             <div className="flex items-center gap-4 shrink-0">
               <Image src={'/images/ricobuilds.png'} alt="Enric Trillo Cryptopunk" width={64} height={64} className="inline w-8 h-8 transition-all duration-300 rounded-full" />
-              <span className="font-bold">Enric Trillo</span>
+              <span className={cn(clash.className, "font-semibold")}>Enric Trillo</span>
             </div>
 
             <p className="max-w-xs mt-4 text-gray-500">
