@@ -232,7 +232,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                 </div>
               </div>
             </section>
-            <section id="cta" className="px-6 bg-tingual-400 selection:bg-tingual-300">
+            <section id="cta" className="px-6 bg-jade-500 selection:bg-tingual-300">
               <div className="flex flex-col md:flex-row items-center justify-center self-stretch gap-4 lg:gap-12 mx-auto py-9 max-w-[1360px] w-full">
                 <div className="flex items-center shrink-0">
                   <Image src={'/images/ricobuilds.png'} alt="Enric Trillo Logo" width={64} height={64} className="inline w-10 h-10 transition-all duration-300 rounded-full" />
