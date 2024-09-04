@@ -19,10 +19,12 @@ import { BeehiivCustom } from "@/components/beehiiv-custom";
 import { EdgeIcon } from "@/constants/icons";
 import Image from "next/image";
 import AdvancedMarquee from "@/components/marquee";
+import MagicMarquee from "@/components/magicui/marquee";
 import { baseWidth } from "@/constants/index";
 import { clash } from "@/constants/fonts";
 import { Button } from "@/components/ui/button";
 import { Send } from "lucide-react";
+import { Fragment } from "react";
 
 const kanit = Kanit({
   subsets: ['latin'],
@@ -135,7 +137,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
             <section id="hero">
               <div className="w-full max-w-[970px] mx-auto space-y-8">
                 <div className="flex flex-col items-center justify-between gap-12 lg:flex-row">
-                  <div className="flex flex-col gap-6 max-w-[525px]">
+                  <div className="flex flex-col gap-6 px-6 sm:px-0 max-w-[525px]">
                     <div className="flex flex-col">
                       <h1 className={cn(kanit.className, "text-4xl md:text-[64px]")}>
                         {tl['home']['hero'].headline}
@@ -159,23 +161,22 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                       </button>
                     </Link>
                   </div>
-                  <Image src="/images/hero__image.png" width={800} height={800} alt="" className="w-[420px] h-[420px] bg-gradient-to-b rounded-t-full from-amethyst-500 aspect-square to-amethyst-500" />
+                  <Image src="/images/hero__image.png" width={800} height={800} alt="" className="w-[400px] h-[400px]" />
                 </div>
               </div>
               <section id="marquee" className="relative">
                 <div className="h-16 border-black bg-amethyst-500 border-y-2"></div>
                 <div className="flex items-center h-16 text-white -translate-y-10 -skew-y-3 bg-black border-black border-y-4">
-                  <AdvancedMarquee
-                    play={true}
-                    autoFill
+                  <MagicMarquee
                     pauseOnHover={true}
-                    speed={50}
-                    separator={<span className="mx-4 text-xl">✦</span>}
                   >
                     {tl['home']['hero'].marquee.map((i, idx) => (
-                      <span key={idx} className="mx-4">{i}</span>
+                      <div key={idx} className="flex items-center">
+                        <span className="">{i}</span>
+                        <span className="ml-4 text-xl">✦</span>
+                      </div>
                     ))}
-                  </AdvancedMarquee>
+                  </MagicMarquee>
                 </div>
               </section>
             </section>
@@ -221,8 +222,8 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
               </div>
             </section>
             <Certs />
-            <section id="writing">
-              <div className={cn(baseWidth, "flex flex-col py-16 mx-auto")}>
+            <section id="writing" className="bg-amethyst-200">
+              <div className={cn(baseWidth, "flex flex-col py-16 mx-auto px-6")}>
                 <h2 className={cn(kanit.className, "flex items-center mx-auto text-2xl font-medium px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
                   Writing
                 </h2>
@@ -245,26 +246,28 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
             {/* <section id="faq" className="flex flex-col py-16"></section> */}
 
             {/* <Work /> */}
-            <section id="shift-forward" className="flex flex-col py-16">
-              <h2 className={cn(kanit.className, "flex items-center  text-center text-2xl font-medium px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
-                Shift Forward Newsletter
-              </h2>
-              <div className="w-full max-w-3xl mx-auto">
-                <h3 className={cn("flex items-center mx-auto mb-3 text-lg font-medium text-center w-fit")}>
-                  <Balancer>{tl['home']['newsletter'].subheadline}</Balancer>
-                </h3>
-                <div className="flex max-w-lg mx-auto mt-4">
-                  <BeehiivCustom tl={tl['home']['newsletter']} />
-                </div>
-                <div className="w-full mt-3 text-center">
-                  <div className="pb-4">
-                    <span id="lipline" className="text-xs text-slate-400">{tl['home']['newsletter'].note}</span>
+            <section id="shift-forward">
+              <div className="flex flex-col px-6 py-16">
+                <h2 className={cn(kanit.className, "flex items-center  text-center text-2xl font-medium px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
+                  Shift Forward Newsletter
+                </h2>
+                <div className="w-full max-w-3xl mx-auto">
+                  <h3 className={cn("flex items-center mx-auto mb-3 text-lg font-medium text-center w-fit")}>
+                    <Balancer>{tl['home']['newsletter'].subheadline}</Balancer>
+                  </h3>
+                  <div className="flex max-w-lg mx-auto mt-4">
+                    <BeehiivCustom tl={tl['home']['newsletter']} />
+                  </div>
+                  <div className="w-full mt-3 text-center">
+                    <div className="pb-4">
+                      <span id="lipline" className="text-xs text-slate-400">{tl['home']['newsletter'].note}</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </section>
 
-            <section id="cta" className="flex flex-col px-6">
+            <section id="cta" className="flex flex-col px-6 mb-24">
               <div className="flex flex-col lg:flex-row gap-6 justify-between p-28 py-16 bg-amethyst-500 max-w-[1360px] mx-auto w-full">
                 <div className="flex flex-col text-white">
                   <h2 className={cn(clash.className, "text-4xl font-semibold")}>Have an interesting idea for me?</h2>

@@ -5,6 +5,8 @@ import { routes } from "@/lib/routes"
 import Link from "next/link"
 import { generateMetadata } from "@/lib/seo"
 import { BeehiivCustom } from "../../components/beehiiv-custom"
+import { Locale } from "@/constants/i18n.config"
+import { getDictionary } from "../../dictionaries"
 
 const heroFont = Kanit({
   subsets: ['latin'],
@@ -17,8 +19,10 @@ export const metadata = generateMetadata({
   description: "Get expert insights on the hottest in disruptive technologies, Metasyde products and behind-the-scenes. Subscribe now to thrive in an AI-driven world."
 })
 
-export default function Subscribe() {
+export default async function Subscribe({ params }: { params: { lang: Locale } }) {
   const name = "Metasyde Ltd"
+
+  const tl = await getDictionary(params.lang)
 
   return (
     <>
@@ -30,7 +34,7 @@ export default function Subscribe() {
               <div id="content">
                 <div className="flex justify-center mb-8 sm:justify-start">
                   <div className="relative w-24 h-24 overflow-hidden bg-white border rounded-full shadow-md">
-                    <Image priority src={"/headshot.jpeg"} className="absolute inset-0 object-cover w-full h-full" height={200} width={200} alt="headshot of Enric Trillo, Founder of Metasyde" />
+                    <Image priority src={"/images/headshot.jpeg"} className="absolute inset-0 object-cover w-full h-full" height={200} width={200} alt="headshot of Enric Trillo, Founder of Metasyde" />
                   </div>
                 </div>
                 <div className="w-full max-w-2xl mb-8">
@@ -39,7 +43,7 @@ export default function Subscribe() {
                 </div>
                 <div className="w-full mb-10">
                   <div className="w-full rounded-lg sm:max-w-md">
-                    <BeehiivCustom/>
+                    <BeehiivCustom tl={tl['home']['newsletter']} />
                   </div>
                 </div>
                 <div className="w-full">
@@ -50,7 +54,7 @@ export default function Subscribe() {
               </div>
               <div id="art" className="flex items-center">
                 <div className="relative hidden w-64 h-64 overflow-hidden shadow-lg pointer-events-none sm:block">
-                  <Image priority src={"/sf-logo.png"} fill className="inset-0 scale-x-100 border-2 rounded border-charkol" alt="Shift Forward Newsletter" />
+                  <Image priority src={"/images/sf-logo.png"} fill className="inset-0 scale-x-100 border-2 rounded border-charkol" alt="Shift Forward Newsletter" />
                 </div>
               </div>
             </div>

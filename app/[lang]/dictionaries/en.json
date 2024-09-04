@@ -38,6 +38,10 @@
       "note": "P.S.: I send emails every week, never spam or sell your data."
     }
   },
+  "subscribe": {
+    "subheadline": "Keep up with actionable top disruptive tech insights to thrive in a future world driven by AI － relaunching soon",
+    "cta": "Back to homepage"
+  },
   "footer": {
     "blurb": "I'm Enric Trillo, a fullstack engineer sharing knowledge and what I learn online",
     "ownedBy": "Owned By",

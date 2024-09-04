@@ -173,9 +173,13 @@ const config = {
         },
       },
       keyframes: {
-        "marquee": {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-100%)' },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(calc(-100% - var(--gap)))" },
+        },
+        "marquee-vertical": {
+          from: { transform: "translateY(0)" },
+          to: { transform: "translateY(calc(-100% - var(--gap)))" },
         },
         // // Dropdown menu
         // "scale-in": {
@@ -272,7 +276,8 @@ const config = {
         // },
       },
       animation: {
-          "marquee": 'marquee 25s linear infinite',
+        marquee: "marquee var(--duration) linear infinite",
+        "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
           // // Dropdown menu
           // "scale-in": "scale-in 0.2s ease-in-out",
           // "slide-down": "slide-down 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
