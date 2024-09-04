@@ -127,6 +127,13 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
   const POSTS_MAX = 5
   const slicedPostList = posts.slice(0, POSTS_MAX)
 
+  const faq = [
+    {
+      question: "What is disruptive technology?",
+      answer: <p>Disruptive tech is </p>
+    }
+  ]
+
   return (
     <>
       {/* <StructuredData data={homeSchema} /> */}
@@ -184,7 +191,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
             {/* <Showcase/> */}
 
             <section id="bio" className="left-0 flex flex-col px-4 py-16 mt-0 max-w-screen">
-              <h2 className={cn(kanit.className, "flex items-center  text-center text-2xl font-medium px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
+              <h2 className={cn(kanit.className, "flex items-center  text-center text-4xl font-medium px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
                 About Me
               </h2>
               <p className="text-center text-obsidian-500">Get to learn about the man behind the face.</p>
@@ -224,7 +231,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
             <Certs />
             <section id="writing" className="bg-amethyst-200">
               <div className={cn(baseWidth, "flex flex-col py-16 mx-auto px-6")}>
-                <h2 className={cn(kanit.className, "flex items-center mx-auto text-2xl font-medium px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
+                <h2 className={cn(kanit.className, "flex items-center mx-auto text-4xl font-medium px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
                   Writing
                 </h2>
                 <p className="text-center text-obsidian-600">Check out my latest takes and tutorials</p>
@@ -243,12 +250,24 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
               </div>
             </section >
             {/* <Skills/> */}
-            {/* <section id="faq" className="flex flex-col py-16"></section> */}
+            <section id="faq">
+              <div className="flex flex-col px-6 py-16 max-w-[980px] w-full mx-auto">
+                <h2 className={cn(kanit.className, "flex items-center  text-center text-4xl font-medium px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
+                  Frequently Asked Questions
+                </h2>
+                {faq.map((q, idx) => (
+                  <Fragment key={idx}>
+                    <h3>{q.question}</h3>
+                    {q.answer}
+                  </Fragment>
+                ))}
+              </div>
+            </section>
 
             {/* <Work /> */}
             <section id="shift-forward">
               <div className="flex flex-col px-6 py-16">
-                <h2 className={cn(kanit.className, "flex items-center  text-center text-2xl font-medium px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
+                <h2 className={cn(kanit.className, "flex items-center  text-center text-4xl font-medium px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
                   Shift Forward Newsletter
                 </h2>
                 <div className="w-full max-w-3xl mx-auto">
