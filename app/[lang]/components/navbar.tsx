@@ -43,7 +43,7 @@ const Navbar = ({
     },
   ]
   return (
-    <header className="flex flex-col justify-center w-full border-b h-18">
+    <header className="fixed z-50 flex flex-col justify-center w-full bg-white border-b h-18">
       <div id="mainnav" className={cn("max-w-[1360px]", "flex justify-between w-full py-5 px-6 items-center mx-auto")}>
         <div className="flex items-center gap-4 shrink-0">
           <Image src={'/images/ricobuilds.png'} alt="Enric Trillo Cryptopunk" width={64} height={64} className="inline w-8 h-8 transition-all duration-300 rounded-full" />

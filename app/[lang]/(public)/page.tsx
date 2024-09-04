@@ -142,8 +142,8 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
     <>
       {/* <StructuredData data={homeSchema} /> */}
       <main className="flex-1 w-full">
-        <div className={cn("", "mx-auto")}>
-          <div className="flex flex-col gap-16 pt-24">
+        <div className={cn("mt-40", "mx-auto")}>
+          <div className="flex flex-col gap-16">
 
             <section id="hero">
               <div className="w-full max-w-[970px] mx-auto space-y-8">
@@ -175,7 +175,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                   <Image src="/images/hero__image.png" width={800} height={800} alt="" className="w-[400px] h-[400px]" />
                 </div>
               </div>
-              <section id="marquee" className="relative">
+              <section id="marquee" className="relative -z-10">
                 <div className="h-16 border-black bg-amethyst-500 border-y-2"></div>
                 <div className="flex items-center h-16 text-white -translate-y-10 -skew-y-3 bg-black border-black border-y-4">
                   <MagicMarquee
