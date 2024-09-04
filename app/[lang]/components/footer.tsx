@@ -205,7 +205,7 @@ const Footer = ({
           </div>
         </div>
 
-        <div id="bottom-footer" className="flex justify-between text-xs text-gray-500">
+        <div id="bottom-footer" className="flex flex-col justify-between text-xs text-gray-500 lg:flex-row">
           <p id="copyright">&copy; 1999–{new Date().getFullYear()}. {tl['ownedBy']} <span className="text-charkol">{name}</span>. {tl['copyright']}.</p>
           <p>{tl['company']}: 14006690</p>
         </div>
