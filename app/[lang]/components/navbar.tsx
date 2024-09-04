@@ -38,8 +38,8 @@ const Navbar = ({
       route: routes.blog
     },
     {
-      label: tl['work'],
-      route: routes.home + "/#work"
+      label: 'Contact',
+      route: routes.home + "/contact"
     },
   ]
   return (
@@ -57,8 +57,8 @@ const Navbar = ({
           ))}
         </ul>
         {/* <div className="w-full mx-2 transition-colors duration-300 border-t border-amethyst-500 group-hover:border-green-400"></div> */}
-        <div className="hidden gap-2 md:flex shrink-0">
-          <button className="flex items-center px-3 py-2 text-sm rounded-full hover:bg-obsidian-100">Log In</button>
+        <div className="items-center hidden gap-2 md:flex shrink-0">
+          <button className="flex items-center px-3 py-2 text-sm border rounded-full border-obsidian-300 hover:bg-obsidian-100">Log In</button>
           <Link href={routes.subscribe} className="hidden md:flex">
             <button className="flex items-center px-3 py-2 text-sm text-white rounded-full bg-amethyst-500">Join Shift Forward</button>
           </Link>
