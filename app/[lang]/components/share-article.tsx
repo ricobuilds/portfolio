@@ -52,22 +52,22 @@ export const ShareArticleRow = ({ slug, title }: { slug: string, title: string }
         </Link>
         <Link className="p-1 rounded-md bg-slate-200 hover:bg-amethyst-400" title={"Share on LinkedIn"} href={`https://www.linkedin.com/shareArticle/?url=${siteMetadata.siteUrl}/blog/${slug}&mini=true&title=${"Read " + title}`}>
           <span>
-            {logos.linkedin}
+            {logos.linkedin(4)}
           </span>
         </Link>
         <Link className="p-1 rounded-md bg-slate-200 hover:bg-amethyst-400" title={"Share via Email"} href={`mailto:?subject=${title}&body=Hey!%0ACheck%20out%20this%20article%20on%20${title}%20from%20${siteMetadata.title + "'s"}%20Blog:%0A${siteMetadata.siteUrl}/blog/${slug}`}>
           <span>
-            {logos.mail}
+            {logos.mail(4)}
           </span>
         </Link>
         <Link className="p-1 rounded-md bg-slate-200 hover:bg-amethyst-400" title={"Share on Facebook"} href={`https://www.facebook.com/sharer/sharer.php?u=${siteMetadata.siteUrl}/blog/${slug}`}>
           <span>
-            {logos.facebook}
+            {logos.facebook(4)}
           </span>
         </Link>
         <Link className="p-1 rounded-md bg-slate-200 hover:bg-amethyst-400" title={"Share via Whatsapp"} href={`https://api.whatsapp.com/send?text=${siteMetadata.siteUrl}/blog/${slug}&resubmit=true&title=${title}`}>
           <span>
-            {logos.whatsapp}
+            {logos.whatsapp(4)}
           </span>
         </Link>
         {/* <div title="Copy link" onClick={() => handleCopy(`${siteMetadata.siteUrl}/blog/${slug}`)}>
