@@ -20,9 +20,11 @@ import MagicMarquee from "@/components/magicui/marquee";
 import { baseWidth } from "@/constants/index";
 import { clash } from "@/constants/fonts";
 import { Button } from "@/components/ui/button";
-import { Bot, Braces, Code2, Coffee, Layers, Send, Zap } from "lucide-react";
+import { Bot, Braces, Code2, Coffee, ExternalLink, Layers, Send, Zap } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Skills } from "@/sections/skills";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 interface ICCard {
   company: string
@@ -144,6 +146,36 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
       title: "Build LLM Apps with LangChain.js",
       date: "",
       url: "",
+    },
+  ]
+
+  const certifications = [
+    {
+      provider: 'Google',
+      logo: '/placeholder.svg?height=40&width=40',
+      course: 'Fundamentals of Digital Marketing',
+      date: 'September 2023',
+      skills: ['SEO', 'PPC', 'Social Media Marketing'],
+      description: 'Comprehensive overview of digital marketing strategies and tools.',
+      link: 'https://example.com/certification1'
+    },
+    {
+      provider: 'Semrush',
+      logo: '/placeholder.svg?height=40&width=40',
+      course: 'Keyword Research with Semrush',
+      date: 'August 2023',
+      skills: ['Keyword Research', 'SEO', 'Content Strategy'],
+      description: 'In-depth training on effective keyword research techniques.',
+      link: 'https://example.com/certification2'
+    },
+    {
+      provider: 'DeepLearning.ai',
+      logo: '/placeholder.svg?height=40&width=40',
+      course: 'Build LLM Apps with LangChain.js',
+      date: 'July 2023',
+      skills: ['LLM', 'JavaScript', 'AI Applications'],
+      description: 'Hands-on course on building AI-powered applications using LangChain.js.',
+      link: 'https://example.com/certification3'
     },
   ]
 
@@ -290,19 +322,53 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                 </button>
               </div>
             </section>
-            <section id="certifications" className="flex flex-col items-center py-16">
-              <h2 className={cn(clash.className, "flex items-center text-4xl font-bold px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
-                Experience
-              </h2>
-              <p className="text-obsidian-500">I&apos;m certified by top technology companies</p>
-              <div className="mt-10">
-                <ul role="list" className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
-                  {
-                    certs.map(({ company, title, image, date, url }, idx) => (
-                      <CertificationCard key={idx} company={company} title={title} image={image} url={url} date={date} />
-                    ))
-                  }
-                </ul>
+            <section id="certifications">
+              <div className="flex flex-col items-center px-6 py-16">
+                <h2 className={cn(clash.className, "flex items-center text-4xl font-bold px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
+                  Experience
+                </h2>
+                <p className="text-obsidian-500">I&apos;m certified by top technology companies</p>
+                <div className="mt-10">
+                  <ul role="list" className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+                    {
+                      certifications.map((cert, idx) => (
+                        <Card key={idx} className="flex flex-col">
+                          <CardHeader>
+                            <div className="flex items-center space-x-4">
+                              <img src={cert.logo} alt={`${cert.provider} logo`} className="w-10 h-10" />
+                              <div>
+                                <CardTitle>{cert.provider}</CardTitle>
+                                <CardDescription>{cert.course}</CardDescription>
+                              </div>
+                            </div>
+                          </CardHeader>
+                          <CardContent className="flex-grow">
+                            <p className="mb-2 text-sm text-muted-foreground">Completed: {cert.date}</p>
+                            <p className="mb-4 text-sm">{cert.description}</p>
+                            <div className="flex flex-wrap gap-2">
+                              {cert.skills.map((skill, i) => (
+                                <Badge key={i} variant="secondary">{skill}</Badge>
+                              ))}
+                            </div>
+                          </CardContent>
+                          <CardFooter>
+                            <Button variant="outline" className="w-full" asChild>
+                              <a href={cert.link} target="_blank" rel="noopener noreferrer">
+                                View Certificate
+                                <ExternalLink className="w-4 h-4 ml-2" />
+                              </a>
+                            </Button>
+                          </CardFooter>
+                        </Card>
+                      ))
+                    }
+                    {
+                      certs.map(({ company, title, image, date, url }, idx) => (
+                        <CertificationCard key={idx} company={company} title={title} image={image} url={url} date={date} />
+                      ))
+                    }
+                  </ul>
+                </div>
               </div>
             </section>
             <section id="writing" className="bg-amethyst-200">
