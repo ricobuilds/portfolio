@@ -16,7 +16,7 @@ import { routes } from "@/lib/routes";
 import { BeehiivCustom } from "@/components/beehiiv-custom";
 import { EdgeIcon } from "@/constants/icons";
 import Image from "next/image";
-import MagicMarquee from "@/components/magicui/marquee";
+import Marquee from "@/components/magicui/marquee";
 import { baseWidth } from "@/constants/index";
 import { clash } from "@/constants/fonts";
 import { Button } from "@/components/ui/button";
@@ -254,8 +254,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
               <section id="marquee" className="relative -z-10">
                 <div className="h-16 border-black bg-amethyst-500 border-y-2"></div>
                 <div className="flex items-center h-16 text-white -translate-y-10 -skew-y-3 bg-black border-black border-y-4">
-                  <MagicMarquee
-                    pauseOnHover={true}
+                  <Marquee
                   >
                     {tl['home']['hero'].marquee.map((i, idx) => (
                       <div key={idx} className="flex items-center">
@@ -263,7 +262,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                         <span className="ml-4 text-xl">✦</span>
                       </div>
                     ))}
-                  </MagicMarquee>
+                  </Marquee>
                 </div>
               </section>
             </section>
@@ -281,7 +280,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                 </div>
                 <div
                   className={cn(
-                    "p-4 bg-transparent border flex max-w-lg w-full mx-auto relative",
+                    "p-4 bg-transparent border dark:border-obsidian-800 flex max-w-lg w-full mx-auto relative",
                   )}
                 >
                   <EdgeIcon className="absolute w-6 h-6 text-black -top-3 -left-3 dark:text-white" />
