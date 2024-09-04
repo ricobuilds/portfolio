@@ -24,11 +24,11 @@ export const CopyButton = ({ node }: { node: any }) => {
       )}>
       {!copy ? (
         <div className="relative flex items-baseline">
-          {logos.copy}
+          {logos.copy(4)}
         </div>
       ) : (
         <div className="relative flex items-baseline text-jade-500">
-          {logos.check}
+          {logos.check(4)}
         </div>
       )}
     </button>
