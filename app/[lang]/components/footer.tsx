@@ -53,10 +53,11 @@ const Footer = ({
             </div>
 
             <p className="max-w-xs mt-4 text-gray-500">
-             {tl['blurb']}.
+              {tl['blurb']}.
             </p>
 
-            <ul id="socials" className="flex gap-6 mt-8">
+            <p className="mt-8 font-bold">Connect with me.</p>
+            <ul id="socials" className="flex gap-6 mt-4">
               <li>
                 <Link
                   href={routes.twitter}
@@ -92,7 +93,7 @@ const Footer = ({
                 >
                   <span className="sr-only">YouTube</span>
 
-                 {logos.youtube}
+                  {logos.youtube}
                 </a>
               </li>
 
