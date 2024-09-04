@@ -147,184 +147,185 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
 
             <section id="hero">
               <div className="w-full max-w-[970px] mx-auto space-y-8">
-                <div className="flex flex-col items-center justify-between gap-12 lg:flex-row">
-                  <div className="flex flex-col gap-6 px-6 sm:px-0 max-w-[525px]">
-                    <div className="flex flex-col">
-                      <h1 className={cn(clash.className, "text-4xl font-bold md:text-[56px]")}>
-                        {tl['home']['hero'].headline}
-                      </h1>
-                      <p className="mt-3 text-lg text-obsidian-500">
-                        {tl['home']['hero'].subheadline}.
-                      </p>
-                    </div>
-                    <ul className="hidden gap-6 w-fit">
-                      {
-                        profiles.map((i, idx) => (
-                          <li key={idx} className="group">
-                            <Link href={i.url} target="_blank" className="flex gap-2 group"><span className={`${i.styles} duration-150`}>{i.logo(4)}</span></Link>
-                          </li>
-                        ))
-                      }
-                    </ul>
-                    <Link href="/#work" className="w-fit">
-                      <button className="px-4 py-2 mt-0 capitalize border w-fit border-charkol hover:cursor-pointer hover:border-amethyst-400 hover:bg-amethyst-500 hover:text-white">
-                        {tl['home']['hero'].cta}
-                      </button>
-                    </Link>
+              <div className="absolute -z-10 bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
+              <div className="flex flex-col items-center justify-between gap-12 lg:flex-row">
+                <div className="flex flex-col gap-6 px-6 sm:px-0 max-w-[525px]">
+                  <div className="flex flex-col">
+                    <h1 className={cn(clash.className, "text-4xl font-bold md:text-[56px]")}>
+                      {tl['home']['hero'].headline}
+                    </h1>
+                    <p className="mt-3 text-lg text-obsidian-500">
+                      {tl['home']['hero'].subheadline}.
+                    </p>
                   </div>
-                  <Image src="/images/hero__image.png" width={800} height={800} alt="" className="w-[400px] h-[400px]" />
-                </div>
-              </div>
-              <section id="marquee" className="relative -z-10">
-                <div className="h-16 border-black bg-amethyst-500 border-y-2"></div>
-                <div className="flex items-center h-16 text-white -translate-y-10 -skew-y-3 bg-black border-black border-y-4">
-                  <MagicMarquee
-                    pauseOnHover={true}
-                  >
-                    {tl['home']['hero'].marquee.map((i, idx) => (
-                      <div key={idx} className="flex items-center">
-                        <span>{i}</span>
-                        <span className="ml-4 text-xl">✦</span>
-                      </div>
-                    ))}
-                  </MagicMarquee>
-                </div>
-              </section>
-            </section>
-            {/* <LogoCloud /> */}
-            {/* <Showcase/> */}
-
-            <section id="bio" className="left-0 flex flex-col px-4 py-16 mt-0 max-w-screen">
-              <h2 className={cn(clash.className, "flex items-center font-bold text-center text-4xl px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
-                About Me
-              </h2>
-              <p className="text-center text-obsidian-500">Get to learn about the man behind the face.</p>
-              <div className="flex flex-col items-center lg:flex-row gap-16 w-full max-w-[970px] mx-auto mt-10">
-                <div className="relative flex w-full max-w-lg aspect-auto">
-                  <Image src="/images/graduation.jpg" width={600} height={0} alt={tl['home']['bio'].alt} />
-                </div>
-                <div
-                  className={cn(
-                    "p-4 bg-transparent border flex max-w-lg w-full mx-auto relative",
-                  )}
-                >
-                  <EdgeIcon className="absolute w-6 h-6 text-black -top-3 -left-3 dark:text-white" />
-                  <EdgeIcon className="absolute w-6 h-6 text-black -bottom-3 -left-3 dark:text-white" />
-                  <EdgeIcon className="absolute w-6 h-6 text-black -top-3 -right-3 dark:text-white" />
-                  <EdgeIcon className="absolute w-6 h-6 text-black -bottom-3 -right-3 dark:text-white" />
-
-                  <div className="relative z-10 flex flex-col w-full h-full">
-                    <div className="">
-                    </div>
-                    <div className="h-fit w-fit">
-                      <div className="flex flex-col gap-4 mt-6">
-                        <h2 className={"font-bold text-xl"}>{tl['home']['bio'].greeting}</h2>
-                        <p>{tl['home']['bio'].intro}.</p>
-                        <p>{tl['home']['bio'].background}.</p>
-                        <p>{tl['home']['bio'].context}.</p>
-                        <p>{tl['home']['bio'].beyondTech}.</p>
-                      </div>
-                      <Link href={routes.about}>
-                        <button className="px-4 py-2 mt-4 text-white bg-charkol">{tl['home']['bio'].cta}</button>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-            <section id="cta" className="px-6 bg-jade-500 selection:bg-tingual-300">
-              <div className="flex flex-col md:flex-row items-center justify-center self-stretch gap-4 lg:gap-12 mx-auto py-9 max-w-[1360px] w-full">
-                <div className="flex items-center shrink-0">
-                  <Image src={'/images/ricobuilds.png'} alt="Enric Trillo Logo" width={64} height={64} className="inline w-10 h-10 transition-all duration-300 rounded-full" />
-                </div>
-                <h2 className={cn(clash.className, "font-bold text-2xl lg:text-6xl w-fit")}>
-                  Stack skills to thrive in a world with AI
-                </h2>
-                <button className="flex items-center gap-2 px-4 py-2 border-2 border-black shrink-0 hover:bg-black hover:text-white">
-                  <span>Start Learning</span>
-                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path></svg>
-                </button>
-              </div>
-            </section>
-            <Certs />
-            <section id="writing" className="bg-amethyst-200">
-              <div className={cn(baseWidth, "flex flex-col py-16 mx-auto px-6")}>
-                <h2 className={cn(clash.className, "flex items-center mx-auto text-4xl font-bold px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
-                  Writing
-                </h2>
-                <p className="text-center text-obsidian-600">Check out my latest takes and tutorials</p>
-                <ul className="grid w-full gap-8 mt-10 md:grid-cols-6">
-                  {slicedPostList.map((post, idx) => (
-                    <li key={idx} className={`${idx < 2 ? 'md:col-span-3' : 'col-span-2'}`}>
-                      <BlogCard post={post} lang={params.lang} />
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex mt-10">
-                  <Link href={`${params.lang}/${routes.blog}`} className="flex mx-auto">
-                    <div className="flex items-center px-3 py-2 text-sm text-white rounded-full bg-charkol hover:bg-charkol/90">View All Posts</div>
+                  <ul className="hidden gap-6 w-fit">
+                    {
+                      profiles.map((i, idx) => (
+                        <li key={idx} className="group">
+                          <Link href={i.url} target="_blank" className="flex gap-2 group"><span className={`${i.styles} duration-150`}>{i.logo(4)}</span></Link>
+                        </li>
+                      ))
+                    }
+                  </ul>
+                  <Link href="/#work" className="w-fit">
+                    <button className="px-4 py-2 mt-0 capitalize border w-fit border-charkol hover:cursor-pointer hover:border-amethyst-400 hover:bg-amethyst-500 hover:text-white">
+                      {tl['home']['hero'].cta}
+                    </button>
                   </Link>
                 </div>
+                <Image src="/images/hero__image.png" width={800} height={800} alt="" className="w-[400px] h-[400px]" />
               </div>
-            </section >
-            {/* <Skills/> */}
-            <section id="faq">
-              <div className="flex flex-col px-6 py-16 max-w-[980px] w-full mx-auto">
-                <h2 className={cn(clash.className, "flex items-center  text-center text-4xl font-bold px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
-                  Frequently Asked Questions
-                </h2>
-                {faq.map((q, idx) => {
-                  return (
-                    <Fragment key={idx}>
-                      <h3>{q.question}</h3>
-                      {q.answer}
-                    </Fragment>
-                  );
-                })}
-              </div>
-            </section>
-
-            {/* <Work /> */}
-            <section id="shift-forward">
-              <div className="flex flex-col px-6 py-16">
-                <h2 className={cn(clash.className, "flex items-center  text-center text-4xl font-bold px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
-                  Shift Forward Newsletter
-                </h2>
-                <div className="w-full max-w-3xl mx-auto">
-                  <h3 className={cn("flex items-center mx-auto mb-3 text-lg font-medium text-center w-fit")}>
-                    <Balancer>{tl['home']['newsletter'].subheadline}</Balancer>
-                  </h3>
-                  <div className="flex max-w-lg mx-auto mt-4">
-                    <BeehiivCustom tl={tl['home']['newsletter']} />
-                  </div>
-                  <div className="w-full mt-3 text-center">
-                    <div className="pb-4">
-                      <span id="lipline" className="text-xs text-slate-400">{tl['home']['newsletter'].note}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section id="cta" className="flex flex-col px-6 mb-24">
-              <div className="flex flex-col lg:flex-row gap-6 justify-between p-28 py-16 bg-amethyst-500 max-w-[1360px] mx-auto w-full">
-                <div className="flex flex-col text-white">
-                  <h2 className={cn(clash.className, "text-4xl font-semibold")}>Have an interesting idea for me?</h2>
-                  <p>Get in touch if you have a project idea, feedback, or want me to guest write on your publication.</p>
-                </div>
-                <div className="flex items-center ">
-                  <Link href="#">
-                    <Button className="flex items-center gap-2 text-black bg-white">
-                      <Send className="w-4 h-4" />
-                      Let's Talk
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </section>
           </div>
-        </div>
-      </main>
+          <section id="marquee" className="relative -z-10">
+            <div className="h-16 border-black bg-amethyst-500 border-y-2"></div>
+            <div className="flex items-center h-16 text-white -translate-y-10 -skew-y-3 bg-black border-black border-y-4">
+              <MagicMarquee
+                pauseOnHover={true}
+              >
+                {tl['home']['hero'].marquee.map((i, idx) => (
+                  <div key={idx} className="flex items-center">
+                    <span>{i}</span>
+                    <span className="ml-4 text-xl">✦</span>
+                  </div>
+                ))}
+              </MagicMarquee>
+            </div>
+          </section>
+        </section>
+        {/* <LogoCloud /> */}
+        {/* <Showcase/> */}
+
+        <section id="bio" className="left-0 flex flex-col px-4 py-16 mt-0 max-w-screen">
+          <h2 className={cn(clash.className, "flex items-center font-bold text-center text-4xl px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
+            About Me
+          </h2>
+          <p className="text-center text-obsidian-500">Get to learn about the man behind the face.</p>
+          <div className="flex flex-col items-center lg:flex-row gap-16 w-full max-w-[970px] mx-auto mt-10">
+            <div className="relative flex w-full max-w-lg aspect-auto">
+              <Image src="/images/graduation.jpg" width={600} height={0} alt={tl['home']['bio'].alt} />
+            </div>
+            <div
+              className={cn(
+                "p-4 bg-transparent border flex max-w-lg w-full mx-auto relative",
+              )}
+            >
+              <EdgeIcon className="absolute w-6 h-6 text-black -top-3 -left-3 dark:text-white" />
+              <EdgeIcon className="absolute w-6 h-6 text-black -bottom-3 -left-3 dark:text-white" />
+              <EdgeIcon className="absolute w-6 h-6 text-black -top-3 -right-3 dark:text-white" />
+              <EdgeIcon className="absolute w-6 h-6 text-black -bottom-3 -right-3 dark:text-white" />
+
+              <div className="relative z-10 flex flex-col w-full h-full">
+                <div className="">
+                </div>
+                <div className="h-fit w-fit">
+                  <div className="flex flex-col gap-4 mt-6">
+                    <h2 className={"font-bold text-xl"}>{tl['home']['bio'].greeting}</h2>
+                    <p>{tl['home']['bio'].intro}.</p>
+                    <p>{tl['home']['bio'].background}.</p>
+                    <p>{tl['home']['bio'].context}.</p>
+                    <p>{tl['home']['bio'].beyondTech}.</p>
+                  </div>
+                  <Link href={routes.about}>
+                    <button className="px-4 py-2 mt-4 text-white bg-charkol">{tl['home']['bio'].cta}</button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="cta" className="px-6 bg-jade-500 selection:bg-tingual-300">
+          <div className="flex flex-col md:flex-row items-center justify-center self-stretch gap-4 lg:gap-12 mx-auto py-9 max-w-[1360px] w-full">
+            <div className="flex items-center shrink-0">
+              <Image src={'/images/ricobuilds.png'} alt="Enric Trillo Logo" width={64} height={64} className="inline w-10 h-10 transition-all duration-300 rounded-full" />
+            </div>
+            <h2 className={cn(clash.className, "font-bold text-2xl lg:text-6xl w-fit")}>
+              Stack skills to thrive in a world with AI
+            </h2>
+            <button className="flex items-center gap-2 px-4 py-2 border-2 border-black shrink-0 hover:bg-black hover:text-white">
+              <span>Start Learning</span>
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path></svg>
+            </button>
+          </div>
+        </section>
+        <Certs />
+        <section id="writing" className="bg-amethyst-200">
+          <div className={cn(baseWidth, "flex flex-col py-16 mx-auto px-6")}>
+            <h2 className={cn(clash.className, "flex items-center mx-auto text-4xl font-bold px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
+              Writing
+            </h2>
+            <p className="text-center text-obsidian-600">Check out my latest takes and tutorials</p>
+            <ul className="grid w-full gap-8 mt-10 md:grid-cols-6">
+              {slicedPostList.map((post, idx) => (
+                <li key={idx} className={`${idx < 2 ? 'md:col-span-3' : 'col-span-2'}`}>
+                  <BlogCard post={post} lang={params.lang} />
+                </li>
+              ))}
+            </ul>
+            <div className="flex mt-10">
+              <Link href={`${params.lang}/${routes.blog}`} className="flex mx-auto">
+                <div className="flex items-center px-3 py-2 text-sm text-white rounded-full bg-charkol hover:bg-charkol/90">View All Posts</div>
+              </Link>
+            </div>
+          </div>
+        </section >
+        {/* <Skills/> */}
+        <section id="faq">
+          <div className="flex flex-col px-6 py-16 max-w-[980px] w-full mx-auto">
+            <h2 className={cn(clash.className, "flex items-center  text-center text-4xl font-bold px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
+              Frequently Asked Questions
+            </h2>
+            {faq.map((q, idx) => {
+              return (
+                <Fragment key={idx}>
+                  <h3>{q.question}</h3>
+                  {q.answer}
+                </Fragment>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* <Work /> */}
+        <section id="shift-forward">
+          <div className="flex flex-col px-6 py-16">
+            <h2 className={cn(clash.className, "flex items-center  text-center text-4xl font-bold px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
+              Shift Forward Newsletter
+            </h2>
+            <div className="w-full max-w-3xl mx-auto">
+              <h3 className={cn("flex items-center mx-auto mb-3 text-lg font-medium text-center w-fit")}>
+                <Balancer>{tl['home']['newsletter'].subheadline}</Balancer>
+              </h3>
+              <div className="flex max-w-lg mx-auto mt-4">
+                <BeehiivCustom tl={tl['home']['newsletter']} />
+              </div>
+              <div className="w-full mt-3 text-center">
+                <div className="pb-4">
+                  <span id="lipline" className="text-xs text-slate-400">{tl['home']['newsletter'].note}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="cta" className="flex flex-col px-6 mb-24">
+          <div className="flex flex-col lg:flex-row gap-6 justify-between p-28 py-16 bg-amethyst-500 max-w-[1360px] mx-auto w-full">
+            <div className="flex flex-col text-white">
+              <h2 className={cn(clash.className, "text-4xl font-semibold")}>Have an interesting idea for me?</h2>
+              <p>Get in touch if you have a project idea, feedback, or want me to guest write on your publication.</p>
+            </div>
+            <div className="flex items-center ">
+              <Link href="#">
+                <Button className="flex items-center gap-2 text-black bg-white">
+                  <Send className="w-4 h-4" />
+                  Let's Talk
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div >
+      </main >
     </>
   );
 }
