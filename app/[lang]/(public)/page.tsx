@@ -147,7 +147,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
 
             <section id="hero">
               <div className="w-full max-w-[970px] mx-auto space-y-8">
-              <div className="absolute -z-10 bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
+              <div className="absolute opacity-40 -z-10 bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
               <div className="flex flex-col items-center justify-between gap-12 lg:flex-row">
                 <div className="flex flex-col gap-6 px-6 sm:px-0 max-w-[525px]">
                   <div className="flex flex-col">
