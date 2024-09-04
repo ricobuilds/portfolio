@@ -142,7 +142,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
     <>
       {/* <StructuredData data={homeSchema} /> */}
       <main className="flex-1 w-full">
-        <div className={cn("mt-40", "mx-auto")}>
+        <div className={cn("mt-20", "mx-auto")}>
           <div className="flex flex-col gap-16">
 
             <section id="hero">
@@ -161,7 +161,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                       {
                         profiles.map((i, idx) => (
                           <li key={idx} className="group">
-                            <Link href={i.url} target="_blank" className="flex gap-2 group"><span className={`${i.styles} duration-150`}>{i.logo}</span></Link>
+                            <Link href={i.url} target="_blank" className="flex gap-2 group"><span className={`${i.styles} duration-150`}>{i.logo(4)}</span></Link>
                           </li>
                         ))
                       }
