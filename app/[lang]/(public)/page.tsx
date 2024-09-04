@@ -91,33 +91,6 @@ const homeSchema: WithContext<Person> = {
 export default async function Home({ params }: { params: { lang: Locale } }) {
   const tl = await getDictionary(params.lang);
 
-  const profiles = [
-    {
-      label: "Twitter",
-      url: "https://x.com/ricobuilds",
-      logo: logos.twitter,
-      styles: "fill-lazure-500 group-hover:fill-lazure-600"
-    },
-    {
-      label: "LinkedIn",
-      url: "https://linkedin.com/in/enrictrillo",
-      logo: logos.linkedin,
-      styles: "fill-celuria-500 group-hover:fill-celuria-600"
-    },
-    {
-      label: "Youtube",
-      url: "https://youtube.com/@ricobuilds",
-      logo: logos.youtube,
-      styles: "fill-scarlet-500 group-hover:fill-scarlet-600"
-    },
-    {
-      label: "GitHub",
-      url: "https://github.com/ricobuilds",
-      logo: logos.github,
-      styles: "group-hover:opacity-70"
-    },
-  ]
-
   const posts: MDXArticle[] = getAllPosts()
 
   // @ts-ignore
@@ -164,6 +137,11 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
       answer: "I'm open to the following opportunities...",
       icon: <Coffee className="w-5 h-5 mr-2" />,
     },
+    {
+      question: "So, you're from Guinea Bissau/Guinea/Papua New Guinea?",
+      answer: "I've gotten this question many times 😆. I'm from Equatorial Guinea, a tiny hispanic nation in the Gulf of Guinea that's often forgotten, and usually confused with the other Guineas. We speak Pichi (among other languages like Fa d'Ambô and Bube), which is similar (given our small differences) to Sierra Leone's Krio! Trivia: Annobon can fit 92.5x in London.",
+      icon: <Coffee className="w-5 h-5 mr-2" />,
+    },
   ]
 
   return (
@@ -186,15 +164,6 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                         {tl['home']['hero'].subheadline}.
                       </p>
                     </div>
-                    <ul className="hidden gap-6 w-fit">
-                      {
-                        profiles.map((i, idx) => (
-                          <li key={idx} className="group">
-                            <Link href={i.url} target="_blank" className="flex gap-2 group"><span className={`${i.styles} duration-150`}>{i.logo(4)}</span></Link>
-                          </li>
-                        ))
-                      }
-                    </ul>
                     <Link href="/#work" className="w-fit">
                       <button className="px-4 py-2 mt-0 capitalize border w-fit border-charkol hover:cursor-pointer hover:border-amethyst-400 hover:bg-amethyst-500 hover:text-white">
                         {tl['home']['hero'].cta}
@@ -307,7 +276,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                     <Accordion key={idx} type="single" collapsible className="w-full max-w-3xl mx-auto">
                       <AccordionItem value={`item-${idx}`}>
                         <AccordionTrigger className="flex items-center gap-4 justify-normal">
-                          {faq.icon}
+                          <span>{faq.icon}</span>
                           <h3 className="text-xl">{faq.question}</h3>
                         </AccordionTrigger>
                         <AccordionContent className="text-gray-600 dark:text-gray-300">
