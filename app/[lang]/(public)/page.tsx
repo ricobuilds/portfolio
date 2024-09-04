@@ -146,11 +146,11 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                 <div className="flex flex-col items-center justify-between gap-12 lg:flex-row">
                   <div className="flex flex-col gap-6 px-6 sm:px-0 max-w-[525px]">
                     <div className="flex flex-col">
-                      <h1 className={cn(kanit.className, "text-4xl md:text-[64px]")}>
+                      <h1 className={cn(clash.className, "text-4xl font-bold md:text-[56px]")}>
                         {tl['home']['hero'].headline}
                       </h1>
                       <p className="mt-3 text-lg text-obsidian-500">
-                        {tl['home']['hero'].subheadline}
+                        {tl['home']['hero'].subheadline}.
                       </p>
                     </div>
                     <ul className="hidden gap-6 w-fit">
@@ -191,7 +191,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
             {/* <Showcase/> */}
 
             <section id="bio" className="left-0 flex flex-col px-4 py-16 mt-0 max-w-screen">
-              <h2 className={cn(kanit.className, "flex items-center  text-center text-4xl font-medium px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
+              <h2 className={cn(clash.className, "flex items-center font-bold text-center text-4xl px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
                 About Me
               </h2>
               <p className="text-center text-obsidian-500">Get to learn about the man behind the face.</p>
@@ -255,12 +255,14 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                 <h2 className={cn(kanit.className, "flex items-center  text-center text-4xl font-medium px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
                   Frequently Asked Questions
                 </h2>
-                {faq.map((q, idx) => (
-                  <Fragment key={idx}>
-                    <h3>{q.question}</h3>
-                    {q.answer}
-                  </Fragment>
-                ))}
+                {faq.map((q, idx) => {
+                  return (
+                    <Fragment key={idx}>
+                      <h3>{q.question}</h3>
+                      {q.answer}
+                    </Fragment>
+                  );
+                })}
               </div>
             </section>
 
