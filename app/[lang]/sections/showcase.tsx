@@ -1,5 +1,5 @@
 "use client"
-import AdvanceMarquee from "@/components/marquee";
+import Marquee from "@/components/magicui/marquee";
 import Image from "next/image";
 
 export const Showcase = () => {
@@ -19,7 +19,7 @@ export const Showcase = () => {
   return (
     <section id="showcase" className="w-full mx-auto">
       <div className="flex w-full gap-6 mt-16">
-        <AdvanceMarquee speed={12} autoFill className="flex gap-8 select-none">
+        <Marquee speed={12} autoFill className="flex gap-8 select-none">
           {
             certs.map((image , idx) => (
               <div id="hero__img-wrapper" className="mr-5">
@@ -27,7 +27,7 @@ export const Showcase = () => {
               </div>
             ))
           }
-        </AdvanceMarquee>
+        </Marquee>
       </div>
 
     </section>
