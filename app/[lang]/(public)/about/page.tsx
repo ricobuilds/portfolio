@@ -8,6 +8,8 @@ import Link from "next/link"
 import { AtSign } from "lucide-react"
 import { createSubscriber } from "@/lib/actions"
 import { BeehiivCustom } from "../../components/beehiiv-custom"
+import { Locale } from "@/constants/i18n.config"
+import { getDictionary } from "../../dictionaries"
 
 export const metadata = generateMetadata({
   title: 'About',
@@ -20,7 +22,8 @@ const kanit = Kanit({
   subsets: ["latin"]
 })
 
-export default function About() {
+export default async function About({ params }: { params: { lang: Locale } }) {
+  const tl = await getDictionary(params.lang)
   return (
     <>
       {/* <StructuredData data={aboutSchema} />
@@ -150,7 +153,7 @@ export default function About() {
                 <p>I created Shift Forward to share what I learn about emerging tech, what I'm building, and spark a new generation of Shifters who thrive in hard times.</p>
                 <p className="mb-6">Join <strong>Shift Forward</strong> for weekly actionable insights on disruptive tech like Web3 and Robotics, and updates of what we're building at Metasyde.</p>
                 <div className="flex items-center gap-2">
-                  <BeehiivCustom />
+                  <BeehiivCustom tl={tl['home']['newsletter']} />
                 </div>
               </section>
             </div>
