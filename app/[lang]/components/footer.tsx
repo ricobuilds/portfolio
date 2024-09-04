@@ -56,7 +56,7 @@ const Footer = ({
               {tl['blurb']}.
             </p>
 
-            <p className="mt-8 font-bold">Connect with me.</p>
+            <p className="mt-8 font-bold">{tl['connect']}.</p>
             <ul id="socials" className="flex gap-6 mt-4">
               <li>
                 <Link
