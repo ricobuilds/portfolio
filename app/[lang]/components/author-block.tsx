@@ -22,7 +22,7 @@ export function AuthorBlock({ title }: { title: string }) {
               𝕏
             </Link>
             <Link href={routes.linkedin} target="_blank" rel="noopener noreferrer nofollow" className="flex hover:bg-amethyst-500 fill-white items-center justify-center w-5 h-5 p-0.5 rounded-sm bg-slate-400">
-              {logos.linkedin}
+              {logos.linkedin(5)}
             </Link>
           </div>
         </div>
