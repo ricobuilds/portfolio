@@ -235,7 +235,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
             <Certs />
             <section id="writing" className="bg-amethyst-200">
               <div className={cn(baseWidth, "flex flex-col py-16 mx-auto px-6")}>
-                <h2 className={cn(kanit.className, "flex items-center mx-auto text-4xl font-medium px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
+                <h2 className={cn(clash.className, "flex items-center mx-auto text-4xl font-bold px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
                   Writing
                 </h2>
                 <p className="text-center text-obsidian-600">Check out my latest takes and tutorials</p>
