@@ -127,10 +127,14 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
   const POSTS_MAX = 5
   const slicedPostList = posts.slice(0, POSTS_MAX)
 
-  const faq = [
+  const faq: { question: string, answer: JSX.Element }[] = [
     {
       question: "What is disruptive technology?",
       answer: <p>Disruptive tech is </p>
+    },
+    {
+      question: "What opportunities are you open to?",
+      answer: <p>I'm open to the following opportunities...</p>
     }
   ]
 
@@ -179,7 +183,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                   >
                     {tl['home']['hero'].marquee.map((i, idx) => (
                       <div key={idx} className="flex items-center">
-                        <span className="">{i}</span>
+                        <span>{i}</span>
                         <span className="ml-4 text-xl">✦</span>
                       </div>
                     ))}
