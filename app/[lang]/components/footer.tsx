@@ -45,8 +45,8 @@ const Footer = ({
   return (
     <footer className="bg-white">
       <div className="max-w-[1360px] border-t px-6 py-16 mx-auto space-y-8 lg:space-y-16">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-          <div>
+        <div id="top-footer" className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          <div id="brand">
             <div className="flex items-center gap-4 shrink-0">
               <Image src={'/images/ricobuilds.png'} alt="Enric Trillo Cryptopunk" width={64} height={64} className="inline w-8 h-8 transition-all duration-300 rounded-full" />
               <span className={cn(clash.className, "font-semibold")}>Enric Trillo</span>
@@ -56,7 +56,7 @@ const Footer = ({
              {tl['blurb']}.
             </p>
 
-            <ul className="flex gap-6 mt-8">
+            <ul id="socials" className="flex gap-6 mt-8">
               <li>
                 <Link
                   href={routes.twitter}
@@ -117,7 +117,7 @@ const Footer = ({
             </ul>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
+          <div id="site-map" className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
             <div>
               <p className="font-medium text-gray-900">Services</p>
 
@@ -204,8 +204,8 @@ const Footer = ({
           </div>
         </div>
 
-        <div className="flex justify-between text-xs text-gray-500">
-          <p>&copy; 1999–{new Date().getFullYear()}. {tl['ownedBy']} <span className="text-charkol">{name}</span>. {tl['copyright']}.</p>
+        <div id="bottom-footer" className="flex justify-between text-xs text-gray-500">
+          <p id="copyright">&copy; 1999–{new Date().getFullYear()}. {tl['ownedBy']} <span className="text-charkol">{name}</span>. {tl['copyright']}.</p>
           <p>{tl['company']}: 14006690</p>
         </div>
       </div>
