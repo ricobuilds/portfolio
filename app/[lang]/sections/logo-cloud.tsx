@@ -1,5 +1,5 @@
 "use client"
-import AdvanceMarquee from "@/components/marquee";
+import Marquee from "@/components/magicui/marquee";
 import Image from "next/image";
 
 export const LogoCloud = () => {
@@ -24,7 +24,7 @@ export const LogoCloud = () => {
   return (
     <section id="skill-cloud" className="w-full max-w-xl mx-auto">
       <div className="flex w-full h-16 max-w-3xl gap-6">
-        <AdvanceMarquee speed={25} autoFill className="flex gap-8 select-none">
+        <Marquee speed={25} autoFill className="flex gap-8 select-none">
           {
             skills.map((image, idx) => (
               <div className={imgChildStyles}>
@@ -32,7 +32,7 @@ export const LogoCloud = () => {
               </div>
             ))
           }
-        </AdvanceMarquee>
+        </Marquee>
       </div>
 
     </section>
