@@ -256,7 +256,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
             {/* <Skills/> */}
             <section id="faq">
               <div className="flex flex-col px-6 py-16 max-w-[980px] w-full mx-auto">
-                <h2 className={cn(kanit.className, "flex items-center  text-center text-4xl font-medium px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
+                <h2 className={cn(clash.className, "flex items-center  text-center text-4xl font-bold px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
                   Frequently Asked Questions
                 </h2>
                 {faq.map((q, idx) => {
