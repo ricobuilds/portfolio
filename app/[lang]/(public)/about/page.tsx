@@ -142,6 +142,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                   </li>
                 </ul>
               </section>
+              <section id="faqs" className="space-y-6"></section>
               <section id="cta" className="space-y-6">
                 <h2 className={cn(clash.className, "font-semibold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Shift Forward</h2>
                 <p>I created Shift Forward to share what I learn about emerging tech, what I'm building, and spark a new generation of Shifters who thrive in hard times.</p>
