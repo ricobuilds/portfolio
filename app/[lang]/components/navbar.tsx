@@ -1,4 +1,3 @@
-import { baseWidth } from "@/constants"
 import { routes } from "@/lib/routes"
 import { cn } from "@/lib/shared-utils"
 import Image from "next/image"
@@ -13,6 +12,8 @@ import {
 } from "./sheet"
 import { getDictionary } from "@/app/[lang]/dictionaries"
 import LanguageSwitcher from "./language-switcher"
+import { navigationMenuTriggerStyle, NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuContent, NavigationMenuTrigger, NavigationMenuLink, } from "@/components/ui/navigation-menu"
+
 
 
 const Navbar = ({
@@ -50,11 +51,21 @@ const Navbar = ({
         </div>
         {/* <div className="w-full mx-2 transition-colors duration-300 border-t border-amethyst-500 group-hover:border-green-400"></div> */}
         <ul className="absolute flex-wrap hidden gap-1 text-sm -translate-x-1/2 md:flex left-1/2">
-          {nav.map((i, idx) => (
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <NavigationMenuLink>Link</NavigationMenuLink>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+          {/* {nav.map((i, idx) => (
             <li key={idx}>
               <Link className="flex items-center h-8 px-3 rounded-md hover:bg-slate-100" href={i.route}>{i.label}</Link>
             </li>
-          ))}
+          ))} */}
         </ul>
         {/* <div className="w-full mx-2 transition-colors duration-300 border-t border-amethyst-500 group-hover:border-green-400"></div> */}
         <div className="items-center hidden gap-2 md:flex shrink-0">
