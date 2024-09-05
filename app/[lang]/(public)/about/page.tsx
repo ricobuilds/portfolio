@@ -90,7 +90,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                 <p>McKinsey reported in 2020 that they estimate close 400 million people globally to be displaced by emerging technologies by 2030.</p>
                 <p>The landscape is shifting fast, and my mission is to help people and businesses navigate this transformation. Whether through learning resources or software products, my goal is to assist others to thrive in the age of AI.</p>
               </section>
-              <section id="what-i-do" className="space-y-6">
+              <section id="what-i-do" className="hidden space-y-6">
                 <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>What I Do</h2>
                 <p>I run the <i>Shift Forward Newsletter</i>. This is where I share weekly actionable insights to help others thrive in this AI-driven world. My online presence spans across various platforms, including:</p>
                 <ul className="mb-0 ml-4">
