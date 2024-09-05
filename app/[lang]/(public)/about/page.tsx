@@ -74,7 +74,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
               <section id="story" className="space-y-6">
                 <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Story</h2>
                 <p>
-                  In 2014, at just 15, I started DJing–a craft that taught me the importance of rhythm, timing, and creativity. A year later, I dove into graphic design and coding at <Link target="_blank" className="font-bold underline text-amethyst-500" href="https://www.sfx.ac.uk/">St. Francis Xavier College</Link>, creating cover art for my mixes and writing my first line of Python code at 16. These early experiences laid the foundation for my journey in tech.
+                  In 2015, I finished my GCSEs and went to <Link target="_blank" className="font-bold underline text-amethyst-500" href="https://www.sfx.ac.uk/">St. Francis Xavier College</Link>, where I began my tech journey by experimenting with graphic design and coding with Python, setting the foundation for my future in fullstack and AI development.
                 </p>
                 <div className="object-contain w-full overflow-hidden">
                   <Image src="/images/graduation.jpg" className="w-full" width={600} height={600} alt="Enric Trillo, graduation photo" />
