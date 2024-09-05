@@ -17,6 +17,8 @@ export const metadata = generateMetadata({
 
 export default async function About({ params }: { params: { lang: Locale } }) {
   const tl = await getDictionary(params.lang)
+
+  const faqs = []
   return (
     <>
       {/* <StructuredData data={aboutSchema} />
