@@ -185,7 +185,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                     </Accordion>
                   );
                 })}
-                <p className="pt-8">Interested in my technical expertise and approach to disruptive tech? Explore my techical FAQs here.</p>
+                <p className="pt-8">Interested in my technical expertise and approach to disruptive tech? Explore my technical FAQs <Link className="underline text-amethyst-500" href="/#faq">here</Link>.</p>
               </section>
               <section id="cta" className="space-y-6">
                 <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Shift Forward</h2>
