@@ -21,7 +21,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
 
   const faqs = [
     {
-      question: "",
+      question: "When did you start your journey?",
       answer: ""
     },
     {
