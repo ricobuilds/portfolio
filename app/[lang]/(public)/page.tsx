@@ -276,7 +276,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                 </button>
               </div>
             </section>
-            <section id="certifications">
+            <section id="experience">
               <div className="flex flex-col items-center px-6 py-16">
                 <h2 className={cn(clash.className, "flex items-center text-4xl font-bold px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
                   Experience
