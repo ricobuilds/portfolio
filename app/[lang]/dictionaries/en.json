@@ -38,6 +38,13 @@
       "note": "P.S.: I send emails every week, never spam or sell your data."
     }
   },
+  "about": {
+    "mission": {
+      "headline": "Mission",
+      "problem": "",
+      "solution": ""
+    }
+  },
   "subscribe": {
     "subheadline": "Keep up with actionable top disruptive tech insights to thrive in a future world driven by AI － relaunching soon",
     "cta": "Back to homepage"
