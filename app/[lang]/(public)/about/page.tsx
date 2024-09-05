@@ -159,9 +159,9 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                 <p>As the world of AI and disruptive tech continues to evolve, I’m committed to lifelong learning, constantly experimenting with emerging tools and concepts. My vision is to be at the forefront of this shift, assembling teams of AI agents and building products that push the boundaries of what’s possible in tech.</p>
               </section>
               <section id="collaborations" className="space-y-6">
-                <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Collaborations</h2>
+                <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Collaboration & Contact</h2>
                 <p>
-                  I&apos;m open to collaborations and new opportunities – if you have (or are aware of) opportunities for me including consulting, guest writing, tutoring, interviews and even SaaS ideas, feel free to reach out.
+                  I&apos;m open to collaborations and new opportunities – if you have (or are aware of) opportunities for me including consulting, guest writing, tutoring, interviews, ventures, joint collaboration for content (or other), and even SaaS ideas, feel free to reach out.
                 </p>
                 <ul className="mb-6 ml-4">
                   <li className="before:content-['→'] before:mr-2">
