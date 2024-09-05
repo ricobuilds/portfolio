@@ -34,8 +34,8 @@ export default async function About({ params }: { params: { lang: Locale } }) {
       answer: "I've gotten this question many times 😆. I'm from Equatorial Guinea, a tiny hispanic nation in the Gulf of Guinea that's often forgotten, and usually confused with the other Guineas. We speak Pichi (among other languages like Fa d'Ambô and Bube), which is similar (given our small differences) to Sierra Leone's Krio! Trivia: Annobon can fit 92.5x in London.",
     },
     {
-      question: "",
-      answer: ""
+      question: "What projects are you working on right now?",
+      answer: "I'm working on upgrading the visual identity of my website so I can make room for the coming changes (keep a close eye!). I'm also working on K.A.I.S.E.R – my dream team of AI agents that handle the heavy lifting of my workflows so I get to work on what I do best, like learning new skills and my applying them."
     },
     {
       question: "",
