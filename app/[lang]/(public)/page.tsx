@@ -215,11 +215,6 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
       answer: "I'm open to the following opportunities...",
       icon: <Coffee className="w-5 h-5 mr-2" />,
     },
-    {
-      question: "So, you're from Guinea Bissau/Guinea/Papua New Guinea?",
-      answer: "I've gotten this question many times 😆. I'm from Equatorial Guinea, a tiny hispanic nation in the Gulf of Guinea that's often forgotten, and usually confused with the other Guineas. We speak Pichi (among other languages like Fa d'Ambô and Bube), which is similar (given our small differences) to Sierra Leone's Krio! Trivia: Annobon can fit 92.5x in London.",
-      icon: <Coffee className="w-5 h-5 mr-2" />,
-    },
   ]
 
   return (

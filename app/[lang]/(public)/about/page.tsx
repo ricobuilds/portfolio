@@ -9,6 +9,7 @@ import { Locale } from "@/constants/i18n.config"
 import { getDictionary } from "../../dictionaries"
 import { clash } from "@/constants/fonts"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { Coffee } from "lucide-react"
 
 export const metadata = generateMetadata({
   title: 'About',
@@ -29,8 +30,8 @@ export default async function About({ params }: { params: { lang: Locale } }) {
       answer: "Despite my young age, I've been a DJ, Graphic Designer, UI/UX Designer, Motion Designer, Journalist, Library Assistant, Web Developer, Videographer and Video Editor, Hybrid SDR/BDR at European Gateway (a startup by a former Gartner executive), Fullstack Web3 Developer, and now I focus on building with disruptive technologies."
     },
     {
-      question: "",
-      answer: ""
+      question: "So, you're from Guinea Bissau/Guinea/Papua New Guinea?",
+      answer: "I've gotten this question many times 😆. I'm from Equatorial Guinea, a tiny hispanic nation in the Gulf of Guinea that's often forgotten, and usually confused with the other Guineas. We speak Pichi (among other languages like Fa d'Ambô and Bube), which is similar (given our small differences) to Sierra Leone's Krio! Trivia: Annobon can fit 92.5x in London.",
     },
     {
       question: "",
@@ -49,9 +50,9 @@ export default async function About({ params }: { params: { lang: Locale } }) {
         <div className={cn(baseWidth, "w-full mx-auto")}>
           <div className="relative flex flex-col items-center gap-6 pt-20">
 
-            <div id="content" className="flex flex-col gap-8 max-w-[560px] mx-auto">
+            <div id="content" className="flex flex-col gap-8 max-w-[580px] mx-auto">
               <div className="flex flex-col items-center gap-4">
-                <Image src={'/images/headshot.jpeg'} alt="Enric Trillo" width={600} height={600} className="inline w-24 h-24 mx-auto transition-all duration-300 rounded-full ring-2 ring-slate-200/80 hover:ring-4" />
+                <Image priority src={'/images/headshot.jpeg'} alt="Enric Trillo" width={600} height={600} className="inline w-24 h-24 mx-auto transition-all duration-300 rounded-full ring-2 ring-slate-200/80 hover:ring-4" />
                 <h1 className="text-lg font-bold">About Enric Trillo</h1>
                 <p className="text-slate-600">Fullstack & AI Agents Developer</p>
                 <section id="intro" className="space-y-6">
@@ -60,7 +61,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                     Hey! I&apos;m Enric J Trillo Nchana, a fullstack developer with a passion AI and multi-agent systems. As a previous digital developer and hybrid tech sales rep, I now focus on disruptive technologies and multi agent systems.
                   </p>
                   <p>
-                    I was born and raised in southern Madrid 🇪🇸, I&apos;ve been living in London 🇬🇧 since my early teens, and I&apos;m from a small hispanic nation in Central Africa few can mark on the map – Equatorial Guinea 🇬🇶.
+                   Born & raised in Madrid 🇪🇸, moved to London 🇬🇧 in my early teens, and from a tiny hispanic nation in Central Africa most often forget – Equatorial Guinea 🇬🇶.
                   </p>
                 </section>
               </div>
@@ -70,7 +71,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                   In 2014, at just 15, I started DJing–a craft that taught me the importance of rhythm, timing, and creativity. A year later, I dove into graphic design and coding at <Link target="_blank" className="font-bold underline text-amethyst-500" href="https://www.sfx.ac.uk/">St. Francis Xavier College</Link>, creating cover art for my mixes and writing my first line of Python code at 16. These early experiences laid the foundation for my journey in tech.
                 </p>
                 <div className="object-contain w-full overflow-hidden">
-                  <Image priority src="/images/graduation.jpg" width={600} height={600} alt="Enric Trillo, graduation photo" />
+                  <Image src="/images/graduation.jpg" className="w-full" width={600} height={600} alt="Enric Trillo, graduation photo" />
                 </div>
                 <p>
                   During my years at the <Link target="_blank" className="font-bold underline text-amethyst-500" href="https://www.northampton.ac.uk/">University of Northampton</Link> (2017-2020), I didn&apos;t just stick to one thing. I explored everything from journalism to UI/UX design, motion graphics, video editing, and even bartending. But it was in my third year that I discovered my true passion: Artificial Intelligence. This revelation led to an A* grade and the publication of a featured Medium article with The Startup, where I shared my process and insights on AI.
@@ -169,13 +170,13 @@ export default async function About({ params }: { params: { lang: Locale } }) {
               </section>
               <section id="faqs" className="space-y-6">
                 <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Frequently Asked Questions</h2>
-                {faqs.map((faq: any, idx: number) => {
+                {faqs.filter(faq => faq.question.length > 0).map((faq: any, idx: number) => {
                   return (
                     <Accordion key={idx} type="single" collapsible className="w-full max-w-3xl mx-auto">
                       <AccordionItem value={`item-${idx}`}>
                         <AccordionTrigger className="flex items-center gap-4 justify-normal">
                           <span>{faq.icon}</span>
-                          <h3 className="text-xl">{faq.question}</h3>
+                          <h3 className="text-lg">{faq.question}</h3>
                         </AccordionTrigger>
                         <AccordionContent className="text-gray-600 dark:text-gray-300">
                           {faq.answer}
