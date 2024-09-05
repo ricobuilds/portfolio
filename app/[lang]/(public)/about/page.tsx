@@ -8,6 +8,7 @@ import { BeehiivCustom } from "../../components/beehiiv-custom"
 import { Locale } from "@/constants/i18n.config"
 import { getDictionary } from "../../dictionaries"
 import { clash } from "@/constants/fonts"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 
 export const metadata = generateMetadata({
   title: 'About',
@@ -18,7 +19,7 @@ export const metadata = generateMetadata({
 export default async function About({ params }: { params: { lang: Locale } }) {
   const tl = await getDictionary(params.lang)
 
-  const faqs = []
+  const faqs: any = []
   return (
     <>
       {/* <StructuredData data={aboutSchema} />
@@ -147,7 +148,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
               </section>
               <section id="faqs" className="space-y-6">
                 <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Frequently Asked Questions</h2>
-                {faqs.map((faq, idx) => {
+                {faqs.map((faq: any, idx: number) => {
                   return (
                     <Accordion key={idx} type="single" collapsible className="w-full max-w-3xl mx-auto">
                       <AccordionItem value={`item-${idx}`}>
