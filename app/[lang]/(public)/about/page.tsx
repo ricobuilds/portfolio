@@ -43,7 +43,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                 </section>
               </div>
               <section id="story" className="space-y-6">
-                <h2 className={cn(clash.className, "font-semibold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Story</h2>
+                <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Story</h2>
                 <p>
                   In 2014, at just 15, I started DJing–a craft that taught me the importance of rhythm, timing, and creativity. A year later, I dove into graphic design and coding at <Link target="_blank" className="font-bold underline text-amethyst-500" href="https://www.sfx.ac.uk/">St. Francis Xavier College</Link>, creating cover art for my mixes and writing my first line of Python code at 16. These early experiences laid the foundation for my journey in tech.
                 </p>
@@ -57,11 +57,11 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                 <p>Instead of letting that define me, I flipped the script. I hopped on mastering hot, in-demand skills, which led me to secure a £5000/mo Fullstack Web3 Developer contract role at the age of 23. That opportunity was the catalyst for what will become <Link className="font-bold underline text-amethyst-500" href="https://metasyde.com?ref=enrictrillo">Metasyde</Link>, my company dedicated to building profitable and innovative solutions with disruptive technologies.</p>
               </section>
               <section id="mission" className="space-y-6">
-                <h2 className={cn(clash.className, "font-semibold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Mission</h2>
+                <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Mission</h2>
                 <p>Today, I&apos;m on a mission to build disruptive tech and assemble AI multi-agent systems that can transform industries. I&apos;m continuously learning new skills across tech disciplines to stay ahead in this rapidly evolving landscape.</p>
               </section>
               <section id="what-i-do" className="space-y-6">
-                <h2 className={cn(clash.className, "font-semibold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>What I Do</h2>
+                <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>What I Do</h2>
                 <p>I run the <i>Shift Forward Newsletter</i>. This is where I share weekly actionable insights to help others thrive in this AI-driven world. My online presence spans across various platforms, including:</p>
                 <ul className="mb-0 ml-4">
                   <li className="before:content-['→'] before:mr-2">
@@ -79,7 +79,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                 </ul>
               </section>
               <section id="certification">
-                <h2 className={cn(clash.className, "font-semibold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Awards & Recognition</h2>
+                <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Awards & Recognition</h2>
                 <ul className="mb-0 ml-8 list-disc">
                   <li>
                     <strong>Featured in Medium&apos;s The Startup</strong>: For <Link className="underline text-amethyst-500" href="https://medium.com/swlh/an-image-classifier-with-keras-2f0e9b868a36">my article on AI</Link> and my academic journey.
@@ -104,13 +104,13 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                 </ul>
               </section>
               <section id="testimonials">
-                <h2 className={cn(clash.className, "font-semibold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Testimonials</h2>
+                <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Testimonials</h2>
                 <div className="grid grid-cols-1 gap-3">
                   <blockquote className="relative max-w-2xl p-6 mx-auto bg-white border rounded-lg">
                     <div title="Testimonial" className="mb-4 italic text-gray-600">
                       "Your app is bomb! Thank you as it helps tremendously with my workflow..."
                     </div>
-                    <div title="Testimonial Author" className="font-semibold text-gray-800">
+                    <div title="Testimonial Author" className="font-bold text-gray-800">
                       – Jordan (YouTube comment)
                     </div>
                   </blockquote>
@@ -118,14 +118,14 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                     <div title="Testimonial" className="mb-4 italic text-gray-600">
                       "Very cool, a medicine to my paranoia that chatgpt will one day have an absurd paywall and all of my conversations would get lost"
                     </div>
-                    <div title="Testimonial Author" className="font-semibold text-gray-800">
+                    <div title="Testimonial Author" className="font-bold text-gray-800">
                       – Amitay Gilboa (Product Hunt comment)
                     </div>
                   </blockquote>
                 </div>
               </section>
               <section id="collaborations" className="space-y-6">
-                <h2 className={cn(clash.className, "font-semibold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Collaborations</h2>
+                <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Collaborations</h2>
                 <p>
                   I&apos;m open to collaborations and new opportunities. Whether you&apos;re interested in working on a project together, need some insights on multi AI agent systems, or just want to chat about disruptive tech, feel free to reach out.
                 </p>
@@ -146,7 +146,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
               </section>
               <section id="faqs" className="space-y-6"></section>
               <section id="cta" className="space-y-6">
-                <h2 className={cn(clash.className, "font-semibold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Shift Forward</h2>
+                <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Shift Forward</h2>
                 <p>I created Shift Forward to share what I learn about emerging tech, what I'm building, and spark a new generation of Shifters who thrive in hard times.</p>
                 <p className="mb-6">Join <strong>Shift Forward</strong> for weekly actionable insights on disruptive tech like Web3 and Robotics, and updates of what we're building at Metasyde.</p>
                 <div className="flex items-center gap-2">
