@@ -67,7 +67,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
               </div>
               <section id="summary" className="space-y-6">
                 <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Professional Summary</h2>
-                <p>I&apos;m the founder of Metasyde, where we build scalable solutions leveraging disruptive technologies like AI and Web3.</p>
+                <p>I&apos;m the founder of Metasyde LTD., where we build scalable solutions leveraging disruptive technologies like AI and Web3.</p>
                 <p>Currently developing Kaiser, my personal multi-agent system designed to 100x my productivity and workflows through automation and delegation.</p>
                 <p>My goal is to create software and educational resources that empower individuals and businesses to adapt and thrive in this world driven by AI.</p>
               </section>
@@ -154,10 +154,14 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                   </blockquote>
                 </div>
               </section>
+              <section id="upskilling" className="space-y-6">
+                <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Skill Stacking & Future Vision</h2>
+                <p>As the world of AI and disruptive tech continues to evolve, I’m committed to lifelong learning, constantly experimenting with emerging tools and concepts. My vision is to be at the forefront of this shift, assembling teams of AI agents and building products that push the boundaries of what’s possible in tech.</p>
+              </section>
               <section id="collaborations" className="space-y-6">
                 <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Collaborations</h2>
                 <p>
-                  I&apos;m open to collaborations and new opportunities. Whether you&apos;re interested in working on a project together, need some insights on multi AI agent systems, or just want to chat about disruptive tech, feel free to reach out.
+                  I&apos;m open to collaborations and new opportunities – if you have (or are aware of) opportunities for me including consulting, guest writing, tutoring, interviews and even SaaS ideas, feel free to reach out.
                 </p>
                 <ul className="mb-6 ml-4">
                   <li className="before:content-['→'] before:mr-2">
