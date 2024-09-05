@@ -22,7 +22,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
   const faqs = [
     {
       question: "When did you start your journey?",
-      answer: ""
+      answer: "My journey started in 2014 as DJ, being 15 then. A year after, I finished my GCSEs and went to SFX Sixth Form College for a BTEC in IT – where I learned Photoshop and picked up Python. Since then, I've produced results no matter the discipline – from DJing to graphic design, plus many others. Now, I'm a dev focused on disruptive tech."
     },
     {
       question: "",
