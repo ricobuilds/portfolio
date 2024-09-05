@@ -87,8 +87,8 @@ export default async function About({ params }: { params: { lang: Locale } }) {
               </section>
               <section id="mission" className="space-y-6">
                 <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Mission</h2>
-                <p>The landscape has changed, and it's still changing. For instance, McKinsey reported they estimate 400 million people globally to be displaced by emerging technologies by 2030. While this may sound scary, I believe the technological disruption will bring about a fresh set of opportunities.</p>
-                <p>So, I'm set on building online learning resources, like courses and tutorials, to help people thrive in a world with AI. To add more, I look to develop software solutions that can be of help to the businesses of tomorrow.</p>
+                <p>McKinsey reported in 2020 that they estimate close 400 million people globally to be displaced by emerging technologies by 2030.</p>
+                <p>The landscape is shifting fast, and my mission is to help people and businesses navigate this transformation. Whether through learning resources or software products, my goal is to assist others to thrive in the age of AI.</p>
               </section>
               <section id="what-i-do" className="space-y-6">
                 <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>What I Do</h2>
