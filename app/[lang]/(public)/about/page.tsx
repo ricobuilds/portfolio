@@ -135,6 +135,13 @@ export default async function About({ params }: { params: { lang: Locale } }) {
               </section>
               <section id="leadership">
                 <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Thought Leadership</h2>
+                <p>I'm active on these platforms sharing knowledge and what I learn:</p>
+                <ul className="ml-8 space-y-3 list-disc mb-b">
+                  <li>Blog – my blog features deep dives, practical guides, and case studies on disruptive tech, designed for both beginners and advanced devs.</li>
+                  <li>Shift Forward – my weekly newsletter where I explore actionable strategies to leverage AI, multi-agent systems, and disruptive tech, curated for developers and tech futurists aiming to thrive in the AI-driven era.</li>
+                  <li>Social Media – On Twitter/X, I break down the latest trends in disruptive technologies, while LinkedIn serves as my platform for professional insights and industry commentary.</li>
+                  <li>YouTube – On YouTube, I post technical videos around disruptive technologies and programming, behind-the-scenes updates and more.</li>
+                </ul>
 
               </section>
               <section id="testimonials">
