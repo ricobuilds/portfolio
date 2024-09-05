@@ -61,10 +61,16 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                     Hey! I&apos;m Enric J Trillo Nchana, a Fullstack & AI Developer with expertise in disruptive technologies, multi-agent systems and innovative web solutions.
                   </p>
                   <p>
-                   Born & raised in Madrid 🇪🇸, moved to London 🇬🇧 in my early teens, and from a tiny hispanic nation in Central Africa most often forget – Equatorial Guinea 🇬🇶.
+                    Born & raised in Madrid 🇪🇸, moved to London 🇬🇧 in my early teens, and from a tiny hispanic nation in Central Africa most often forget – Equatorial Guinea 🇬🇶.
                   </p>
                 </section>
               </div>
+              <section id="summary" className="space-y-6">
+                <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Professional Summary</h2>
+                <p>I&apos;m the founder of Metasyde, where we build scalable solutions leveraging disruptive technologies like AI and Web3.</p>
+                <p>Currently developing Kaiser, my personal multi-agent system designed to 100x my productivity and workflows through automation and delegation.</p>
+                <p>My goal is to create software and educational resources that empower individuals and businesses to adapt and thrive in this world driven by AI.</p>
+              </section>
               <section id="story" className="space-y-6">
                 <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Story</h2>
                 <p>
