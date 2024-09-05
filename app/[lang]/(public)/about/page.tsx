@@ -25,8 +25,8 @@ export default async function About({ params }: { params: { lang: Locale } }) {
       answer: "My journey started in 2014 as DJ, being 15 then. A year after, I finished my GCSEs and went to SFX Sixth Form College for a BTEC in IT – where I learned Photoshop and picked up Python. Since then, I've produced results no matter the discipline – from DJing to graphic design, plus many others. Now, I'm a dev focused on disruptive tech."
     },
     {
-      question: "",
-      answer: ""
+      question: "What other roles have you been in?",
+      answer: "Despite my young age, I've been a DJ, Graphic Designer, UI/UX Designer, Motion Designer, Journalist, Library Assistant, Web Developer, Videographer and Video Editor, Hybrid SDR/BDR at European Gateway (a startup by a former Gartner executive), Fullstack Web3 Developer, and now I focus on building with disruptive technologies."
     },
     {
       question: "",
