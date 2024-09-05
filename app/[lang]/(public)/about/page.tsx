@@ -133,6 +133,10 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                   </li>
                 </ul>
               </section>
+              <section id="leadership">
+                <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Thought Leadership</h2>
+
+              </section>
               <section id="testimonials">
                 <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Testimonials</h2>
                 <div className="grid grid-cols-1 gap-3">
@@ -168,7 +172,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                     <strong>Email:</strong> <Link href={routes.email} className="underline text-amethyst-500 underline-offset-2">hola@enrictrillo.com</Link>
                   </li>
                   <li className="before:content-['→'] before:mr-2">
-                    <strong>Twitter:</strong> <Link href={routes.twitter} className="underline text-amethyst-500 underline-offset-2">@ricobuilds</Link>
+                    <strong>Twitter/X:</strong> <Link href={routes.twitter} className="underline text-amethyst-500 underline-offset-2">@ricobuilds</Link>
                   </li>
                   <li className="before:content-['→'] before:mr-2">
                     <strong>LinkedIn:</strong> <Link href={routes.linkedin} className="underline text-amethyst-500 underline-offset-2">linkedin.com/in/enrictrillo</Link>
