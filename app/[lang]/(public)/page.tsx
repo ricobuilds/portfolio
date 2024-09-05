@@ -7,7 +7,6 @@ import { Work } from "@/sections/work";
 import Link from "next/link";
 import { getDictionary } from "../dictionaries";
 import { Locale } from "@/constants/i18n.config";
-import { Kanit } from "next/font/google";
 import Balancer from "react-wrap-balancer";
 import { MDXArticle } from "@/app/types/Article";
 import { getAllPosts } from "@/lib/mdx";
@@ -20,25 +19,24 @@ import Marquee from "@/components/magicui/marquee";
 import { baseWidth } from "@/constants/index";
 import { clash } from "@/constants/fonts";
 import { Button } from "@/components/ui/button";
-import { Bot, Braces, Code2, Coffee, ExternalLink, Layers, Send, Zap } from "lucide-react";
+import { Award, BookOpen, Bot, Braces, Code2, Coffee, ExternalLink, Layers, Send, Zap } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Skills } from "@/sections/skills";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-interface ICCard {
-  company: string
-  title: string
-  image: string
-  date: string
-  url?: string
-}
+type ExpType = "course" | "certification"
 
-const kanit = Kanit({
-  subsets: ['latin'],
-  weight: "800",
-  display: 'swap',
-})
+interface Experience {
+  type: ExpType;
+  provider: string;
+  logo: string;
+  title: string;
+  date: string;
+  skills: string[];
+  description: string;
+  link: string;
+}
 
 export const metadata = {
   description: siteMetadata.description
@@ -95,23 +93,6 @@ const homeSchema: WithContext<Person> = {
   ]
 }
 
-const CertificationCard = ({ company, title, image, url }: ICCard) => {
-  return (
-    <Link href={url ? url + "?ref=enrictrillo" : "#"} target={url?.includes("https://") ? "_blank" : ""}>
-      <li className="flex flex-col col-span-1 text-center bg-white divide-y divide-gray-200 rounded-lg shadow-lg ring ring-opacity-5 ring-obsidian-300">
-        <div className="flex flex-col flex-1 p-8">
-          <Image className="flex-shrink-0 w-12 h-12 mx-auto rounded-full" src={"/images/certs/" + image + ".jpeg"} alt={image + "_logo"} width={300} height={300} />
-          <h3 className="mt-6 text-sm font-medium text-gray-900">{company}</h3>
-          <dl className="flex flex-col justify-between flex-grow mt-1">
-            <dt className="sr-only">Certification</dt>
-            <dd className="text-sm text-gray-500">{title}</dd>
-          </dl>
-        </div>
-      </li>
-    </Link>
-  )
-}
-
 export default async function Home({ params }: { params: { lang: Locale } }) {
   const tl = await getDictionary(params.lang);
 
@@ -125,57 +106,36 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
   const POSTS_MAX = 5
   const slicedPostList = posts.slice(0, POSTS_MAX)
 
-  const certs: ICCard[] = [
+  const experiences: Experience[] = [
     {
-      company: "Google",
-      title: "Fundamentals of Digital Marketing",
-      image: "google",
-      date: "February 2022",
-      url: "https://skillshop.exceedlms.com/student/collection/654330-digital-marketing?sid=0339c211-017a-43b7-9485-6c24e997a4aa&sid_i=1"
-    },
-    {
-      company: "Semrush",
-      title: "Keyword Research with Semrush",
-      image: "semrush",
-      date: "",
-      url: ""
-    },
-    {
-      image: "deeplearningai",
-      company: "DeepLearning.ai",
-      title: "Build LLM Apps with LangChain.js",
-      date: "",
-      url: "",
-    },
-  ]
-
-  const certifications = [
-    {
+      type: 'certification',
       provider: 'Google',
-      logo: '/placeholder.svg?height=40&width=40',
-      course: 'Fundamentals of Digital Marketing',
-      date: 'September 2023',
+      logo: 'google',
+      title: 'Fundamentals of Digital Marketing',
+      date: 'February 2020',
       skills: ['SEO', 'PPC', 'Social Media Marketing'],
       description: 'Comprehensive overview of digital marketing strategies and tools.',
-      link: 'https://example.com/certification1'
+      link: 'https://media.licdn.com/dms/image/D4E2DAQGu2vrAPnYtbA/profile-treasury-document-images_1920/1/1716743622434?e=1726704000&v=beta&t=CP2L2NzOxII4S0CMTJBSbrisujMWclsv9U8-SGMRETg'
     },
     {
+      type: 'certification',
       provider: 'Semrush',
-      logo: '/placeholder.svg?height=40&width=40',
-      course: 'Keyword Research with Semrush',
-      date: 'August 2023',
+      logo: 'semrush',
+      title: 'Keyword Research with Semrush',
+      date: 'October 2023',
       skills: ['Keyword Research', 'SEO', 'Content Strategy'],
       description: 'In-depth training on effective keyword research techniques.',
-      link: 'https://example.com/certification2'
+      link: 'https://media.licdn.com/dms/image/D4E2DAQG5qDBH-NBWHw/profile-treasury-document-images_1920/1/1725539600707?e=1726704000&v=beta&t=-b2DlbP_JvjGlTCCzKDYrd9SgIChZ1lhYyrAGIUR_JU'
     },
     {
+      type: 'course',
       provider: 'DeepLearning.ai',
-      logo: '/placeholder.svg?height=40&width=40',
-      course: 'Build LLM Apps with LangChain.js',
+      logo: 'deeplearningai',
+      title: 'Build LLM Apps with LangChain.js',
       date: 'July 2023',
       skills: ['LLM', 'JavaScript', 'AI Applications'],
       description: 'Hands-on course on building AI-powered applications using LangChain.js.',
-      link: 'https://example.com/certification3'
+      link: '#'
     },
   ]
 
@@ -322,43 +282,51 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                   Experience
                 </h2>
                 <p className="text-obsidian-500">I&apos;m certified by top technology companies</p>
-                <div className="mt-10">
+                <div className="mt-10 w-full max-w-[1360px]">
                   <ul role="list" className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
                     {
-                      certifications.map((cert, idx) => (
+                      experiences.map((exp, idx) => (
                         <Card key={idx} className="flex flex-col">
                           <CardHeader>
                             <div className="flex items-center space-x-4">
-                              <img src={cert.logo} alt={`${cert.provider} logo`} className="w-10 h-10" />
+                              <Image src={"/images/certs/" + exp.logo + ".jpeg"} alt={`${exp.provider} logo`} width={300} height={300} className="w-10 h-10" />
                               <div>
-                                <CardTitle>{cert.provider}</CardTitle>
-                                <CardDescription>{cert.course}</CardDescription>
+                                <CardTitle>{exp.provider}</CardTitle>
+                                <CardDescription>{exp.title}</CardDescription>
                               </div>
                             </div>
                           </CardHeader>
                           <CardContent className="flex-grow">
-                            <p className="mb-2 text-sm text-muted-foreground">Completed: {cert.date}</p>
-                            <p className="mb-4 text-sm">{cert.description}</p>
+                            <div className="flex items-center mb-2">
+                              {exp.type === 'certification' ? (
+                                <Badge variant="default" className="mr-2 bg-jade-500">
+                                  <Award className="w-3 h-3 mr-1" />
+                                  Certification
+                                </Badge>
+                              ) : (
+                                <Badge variant="secondary" className="mr-2 bg-jade-500">
+                                  <BookOpen className="w-3 h-3 mr-1" />
+                                  Course
+                                </Badge>
+                              )}
+                              <span className="text-sm text-muted-foreground">Completed: {exp.date}</span>
+                            </div>
+                            <p className="mb-4 text-sm">{exp.description}</p>
                             <div className="flex flex-wrap gap-2">
-                              {cert.skills.map((skill, i) => (
-                                <Badge key={i} variant="secondary">{skill}</Badge>
+                              {exp.skills.map((skill, i) => (
+                                <Badge key={i} variant="outline">{skill}</Badge>
                               ))}
                             </div>
                           </CardContent>
                           <CardFooter>
-                            <Button variant="outline" className="w-full" asChild>
-                              <a href={cert.link} target="_blank" rel="noopener noreferrer">
-                                View Certificate
+                            <Button variant="outline" className="w-full border-tingual-500" asChild>
+                              <Link href={!exp.link.includes('licdn') && exp.link.includes('https') ? exp.link + "?ref=enrictrillo" : exp.link} target="_blank" rel="noopener noreferrer">
+                                {exp.type === 'certification' ? 'View Certificate' : 'View Course'}
                                 <ExternalLink className="w-4 h-4 ml-2" />
-                              </a>
+                              </Link>
                             </Button>
                           </CardFooter>
                         </Card>
-                      ))
-                    }
-                    {
-                      certs.map(({ company, title, image, date, url }, idx) => (
-                        <CertificationCard key={idx} company={company} title={title} image={image} url={url} date={date} />
                       ))
                     }
                   </ul>
