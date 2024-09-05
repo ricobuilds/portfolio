@@ -122,8 +122,8 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                   </blockquote>
                 </div>
               </section>
-              <section id="opportunities" className="space-y-6">
-                <h2 className={cn(clash.className, "font-semibold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Opportunities</h2>
+              <section id="collaborations" className="space-y-6">
+                <h2 className={cn(clash.className, "font-semibold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Collaborations</h2>
                 <p>
                   I&apos;m open to collaborations and new opportunities. Whether you&apos;re interested in working on a project together, need some insights on multi AI agent systems, or just want to chat about disruptive tech, feel free to reach out.
                 </p>
