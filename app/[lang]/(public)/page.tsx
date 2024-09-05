@@ -354,7 +354,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
               </div>
             </section >
             {/* <Skills/> */}
-            <section id="faq">
+            <section id="faqs">
               <div className="flex flex-col px-6 py-16 max-w-[980px] w-full mx-auto">
                 <h2 className={cn(clash.className, "flex items-center  text-center text-4xl font-bold px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
                   Frequently Asked Questions
@@ -374,6 +374,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                     </Accordion>
                   );
                 })}
+                <p className="pt-8 text-center">Curious to learn more about my journey, values, and vision? Check out my personal FAQs <Link className="underline text-amethyst-500" href="/about#faqs">here</Link>.</p>
               </div>
             </section>
 
