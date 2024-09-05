@@ -58,7 +58,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                 <section id="intro" className="space-y-6">
                   <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Intro</h2>
                   <p>
-                    Hey! I&apos;m Enric J Trillo Nchana, a fullstack developer with a passion AI and multi-agent systems. As a previous digital developer and hybrid tech sales rep, I now focus on disruptive technologies and multi agent systems.
+                    Hey! I&apos;m Enric J Trillo Nchana, a Fullstack & AI Developer with expertise in disruptive technologies, multi-agent systems and innovative web solutions.
                   </p>
                   <p>
                    Born & raised in Madrid 🇪🇸, moved to London 🇬🇧 in my early teens, and from a tiny hispanic nation in Central Africa most often forget – Equatorial Guinea 🇬🇶.
