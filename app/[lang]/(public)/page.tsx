@@ -175,11 +175,6 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
       answer: "I use Agile methodologies for project management, with a preference for Scrum. For collaboration, I'm proficient with Git for version control, Jira for task tracking, and Slack for team communication. I believe in clear, frequent communication and documentation to ensure project success.",
       icon: <Coffee className="w-5 h-5 mr-2" />,
     },
-    {
-      question: "What opportunities are you open to?",
-      answer: "I'm open to the following opportunities...",
-      icon: <Coffee className="w-5 h-5 mr-2" />,
-    },
   ]
 
   return (
