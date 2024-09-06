@@ -82,11 +82,25 @@ const Navbar = ({
                     </NavigationMenuItem>
                   ) : (
                     <NavigationMenuItem key={idx}>
-                      <Link href="/docs" legacyBehavior passHref>
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                          {item.label}
-                        </NavigationMenuLink>
-                      </Link>
+                        <NavigationMenuTrigger>{item.label}</NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                          {Array(6).fill({
+                            title: "Coming Soon",
+                            href: "#",
+                            description:
+                              "Keep an eye out and come back later. Big things coming soon.",
+                          }).map((component) => (
+                            <NavigationSubItem
+                              key={component.title}
+                              title={component.title}
+                              href={component.href}
+                            >
+                              {component.description}
+                            </NavigationSubItem>
+                          ))}
+                        </ul>
+                      </NavigationMenuContent>
                     </NavigationMenuItem>
                   )
                 })
@@ -112,27 +126,7 @@ const Navbar = ({
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                    {Array(6).fill({
-                      title: "Coming Soon",
-                      href: "#",
-                      description:
-                        "Keep an eye out and come back later. Big things coming soon.",
-                    }).map((component) => (
-                      <NavigationSubItem
-                        key={component.title}
-                        title={component.title}
-                        href={component.href}
-                      >
-                        {component.description}
-                      </NavigationSubItem>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
+
               <NavigationMenuItem>
                 <Link href="/docs" legacyBehavior passHref>
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
