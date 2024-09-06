@@ -8,7 +8,9 @@
       "label": "About",
       "type": "single"
     },
-    "blog": "Blog",
+    "blog": {
+      "label": "Blog"
+    },
     "resources": "Resources",
     "login": "Log In",
     "cta": "Join Shift Forward",
