@@ -141,6 +141,11 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
 
   const faqs = [
     {
+      question: "What exactly is a multi-agent system?",
+      answer: "Multi-agent systems involve multiple AI systems working together to solve complex tasks autonomously. My current personal project, Kaiser, focuses on building a team of agents that automate my workflows and 100x my productivity.",
+      icon: <Bot className="w-5 h-5 mr-2" />,
+    },
+    {
       question: "What are disruptive technologies?",
       answer: "Disruptive technology is an umbrella term that refers to innovative solutions that bring massive change in how individuals, businesses and existing industries work. The technologies this term covers includes Artificial Intelligence, Robotics, Blockchain, Extended Reality and Internet of Things.",
       icon: <Code2 className="w-5 h-5 mr-2" />,
