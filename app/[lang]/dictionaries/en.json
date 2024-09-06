@@ -13,7 +13,8 @@
       "type": "single"
     },
     "resources": {
-      "label": "Resources"
+      "label": "Resources",
+      "type": "multi"
     },
     "login": "Log In",
     "cta": "Join Shift Forward",
