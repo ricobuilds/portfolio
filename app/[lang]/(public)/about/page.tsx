@@ -23,7 +23,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
     {
       category: "Fullstack Development",
       skills: "React, Next.js, Node.js, etc.",
-      experience: "Developed frontend and fullstack web apps for 7+ years."
+      experience: "Developed frontend and fullstack web apps for 7+ years. Built GPT2Markdown to 1118+ users at one point."
     },
     {
       category: "AI/Deep Learning",
@@ -37,8 +37,13 @@ export default async function About({ params }: { params: { lang: Locale } }) {
     },
     {
       category: "Web3/Blockchain",
-      skills: "Ethereum, Solidity",
+      skills: "Polygon, Solidity",
       experience: "Worked as a Fullstack Web3 Developer (Contract) on Polygon GameFi at CWJ Capital."
+    },
+    {
+      category: "Content Creation",
+      skills: "Ideation, News Curation, Branding etc.",
+      experience: "Executing my multi-platform content strategy to build my online presence."
     }
   ]
 
