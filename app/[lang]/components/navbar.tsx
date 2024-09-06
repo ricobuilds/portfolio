@@ -84,7 +84,7 @@ const Navbar = ({
                     <NavigationMenuItem key={idx}>
                       <Link href="/docs" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                          Home
+                          {item.label}
                         </NavigationMenuLink>
                       </Link>
                     </NavigationMenuItem>
