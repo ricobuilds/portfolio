@@ -167,7 +167,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
     },
     {
       question: "How do you stay updated with the latest tech trends?",
-      answer: "I'm committed to continuous learning. I regularly attend tech conferences, participate in online courses, contribute to open-source projects, and experiment with new technologies in personal projects to stay at the forefront of the industry.",
+      answer: "I'm committed to continuous learning. I regularly attend virtual tech conferences, participate in online courses, and experiment with new technologies in personal projects to stay at the forefront of the industry. I also have my team of minions–cough, AI Agents–scout the web for relevant trends and developments in my topics of interest.",
       icon: <Zap className="w-5 h-5 mr-2" />,
     },
   ]
