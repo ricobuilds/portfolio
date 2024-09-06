@@ -12,7 +12,9 @@
       "label": "Blog",
       "type": "single"
     },
-    "resources": "Resources",
+    "resources": {
+      "label": "Resources"
+    },
     "login": "Log In",
     "cta": "Join Shift Forward",
     "warning": "Site currently in ongoing revamp. Expect broken functionality"
