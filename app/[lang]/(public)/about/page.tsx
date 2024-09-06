@@ -185,7 +185,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                     <strong>Partnerships for building AI-powered tools</strong> for businesses or SaaS projects.
                   </li>
                   <li>
-                    <strong>YouTube:</strong> <Link href={routes.youtube} className="underline text-amethyst-500 underline-offset-2">Enric Trillo @ricobuilds</Link>
+                    <strong>Joint-ventures in emerging tech</strong> (Web3, AR/VR, robotics, etc.)
                   </li>
                 </ul>
               </section>
