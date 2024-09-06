@@ -19,7 +19,7 @@ import Marquee from "@/components/magicui/marquee";
 import { baseWidth } from "@/constants/index";
 import { clash } from "@/constants/fonts";
 import { Button } from "@/components/ui/button";
-import { Award, BookOpen, Bot, Braces, Code2, Coffee, Cpu, ExternalLink, Layers, Send, Zap } from "lucide-react";
+import { Award, BookOpen, Bot, Braces, Code2, Coffee, Cpu, ExternalLink, Layers, Lightbulb, Send, Wrench, Zap } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Skills } from "@/sections/skills";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -153,12 +153,12 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
     {
       question: "Why is MAS important for individuals/businesses?",
       answer: "Multi-agent systems are important to individuals and businesses alike because they help us delegate the repetitive grunt in our processes, while we the humans, focus on applying our creativity that makes us fulfilled with work.",
-      icon: <Code2 className="w-5 h-5 mr-2" />,
+      icon: <Lightbulb className="w-5 h-5 mr-2" />,
     },
     {
       question: "What tools and technologies do you work with?",
       answer: "I'm proficient in modern full-stack technologies (React, Node.js, and NextJS), AI tools (LangChain, Pytorch, CrewAI) and software tools like MongoDB, PostgreSQL, TailwindCSS, Framer Motion and others.",
-      icon: <Code2 className="w-5 h-5 mr-2" />,
+      icon: <Wrench className="w-5 h-5 mr-2" />,
     },
     {
       question: "How do you approach full-stack projects?",
