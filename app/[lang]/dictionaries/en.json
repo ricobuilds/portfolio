@@ -5,7 +5,8 @@
       "type": "single"
     },
     "about": {
-      "label": "About"
+      "label": "About",
+      "type": "single"
     },
     "blog": "Blog",
     "resources": "Resources",
