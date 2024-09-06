@@ -2,7 +2,7 @@
   "navbar": {
     "menu": [
       {
-        "label": "Inicio",
+        "label": "Início",
         "type": "single",
         "link": "/"
       },
@@ -27,7 +27,6 @@
         "link": "/contact"
       }
     ],
-    "home": "Início",
     "about": "Sobre mim",
     "blog": "Blog",
     "work": "Projetos",
