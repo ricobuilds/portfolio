@@ -6,6 +6,8 @@ import { logos } from "@/constants/logos"
 import Image from "next/image"
 import { getDictionary } from "../dictionaries"
 import { clash } from "@/constants/fonts"
+import { Button } from "./ui/button"
+import BackToTop from "./back-to-top"
 
 const Footer = ({
   tl,
@@ -118,7 +120,7 @@ const Footer = ({
             </ul>
           </div>
 
-          <div id="site-map" className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
+          <div id="site-map" className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-5">
             <div>
               <p className="font-medium text-gray-900">Services</p>
 
@@ -202,6 +204,9 @@ const Footer = ({
                 </li>
               </ul>
             </div>
+
+              <BackToTop />
+            
           </div>
         </div>
 
