@@ -241,6 +241,14 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                   </li>
                 </ul>
               </section>
+              <section id="cta" className="space-y-6">
+                <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Shift Forward</h2>
+                <p>I created Shift Forward to share what I learn about emerging tech, what I'm building, and spark a new generation of Shifters who thrive in hard times.</p>
+                <p className="mb-6">Join <strong>Shift Forward</strong> for weekly actionable insights on disruptive tech like Web3 and Robotics, and updates of what we're building at Metasyde.</p>
+                <div className="flex items-center gap-2">
+                  <BeehiivCustom tl={tl['home']['newsletter']} />
+                </div>
+              </section>
               <section id="faqs" className="space-y-6">
                 <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Frequently Asked Questions</h2>
                 {faqs.filter(faq => faq.question.length > 0).map((faq: any, idx: number) => {
@@ -259,14 +267,6 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                   );
                 })}
                 <p className="pt-8">Interested in my technical expertise and approach to disruptive tech? Explore my technical FAQs <Link className="underline text-amethyst-500" href="/#faqs">here</Link>.</p>
-              </section>
-              <section id="cta" className="space-y-6">
-                <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Shift Forward</h2>
-                <p>I created Shift Forward to share what I learn about emerging tech, what I'm building, and spark a new generation of Shifters who thrive in hard times.</p>
-                <p className="mb-6">Join <strong>Shift Forward</strong> for weekly actionable insights on disruptive tech like Web3 and Robotics, and updates of what we're building at Metasyde.</p>
-                <div className="flex items-center gap-2">
-                  <BeehiivCustom tl={tl['home']['newsletter']} />
-                </div>
               </section>
             </div>
           </div>
