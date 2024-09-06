@@ -141,18 +141,18 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
 
   const faqs = [
     {
-      question: "What exactly is a multi-agent system?",
-      answer: "Multi-agent systems involve multiple AI systems working together to solve complex tasks autonomously. My current personal project, Kaiser, focuses on building a team of agents that automate my workflows and 100x my productivity.",
-      icon: <Bot className="w-5 h-5 mr-2" />,
-    },
-    {
       question: "What are disruptive technologies?",
       answer: "Disruptive technology is an umbrella term that refers to innovative solutions that bring massive change in how individuals, businesses and existing industries work. The technologies this term covers includes Artificial Intelligence, Robotics, Blockchain, Extended Reality and Internet of Things.",
       icon: <Code2 className="w-5 h-5 mr-2" />,
     },
     {
+      question: "What exactly is a multi-agent system?",
+      answer: "Multi-agent systems involve multiple AI systems working together to solve complex tasks autonomously. My current personal project, Kaiser, focuses on building a team of agents that automate my workflows and 100x my productivity.",
+      icon: <Bot className="w-5 h-5 mr-2" />,
+    },
+    {
       question: "Why is MAS important for individuals/businesses?",
-      answer: "Disruptive technology is an umbrella term that refers to innovative solutions that bring massive change in how individuals, businesses and existing industries work. The technologies this term covers includes Artificial Intelligence, Robotics, Blockchain, Extended Reality and Internet of Things.",
+      answer: "Multi-agent systems are important to individuals and businesses alike because they help us delegate the repetitive grunt in our processes, while we the humans, focus on applying our creativity that makes us fulfilled with work.",
       icon: <Code2 className="w-5 h-5 mr-2" />,
     },
     {
@@ -162,7 +162,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
     },
     {
       question: "How do you approach full-stack projects?",
-      answer: "I approach full-stack projects with a holistic view, considering both front-end user experience and back-end efficiency. I typically use React for the front-end, Node.js or Django for the back-end, and ensure seamless integration between all layers of the application.",
+      answer: "Whether it's a web app or AI system, I tackle all my projects with a systems-first approach, considering both front-end and back-end components (and beyond) to build seamless solutions that scale.",
       icon: <Layers className="w-5 h-5 mr-2" />,
     },
     {
