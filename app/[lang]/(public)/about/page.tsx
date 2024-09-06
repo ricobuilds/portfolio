@@ -1,5 +1,4 @@
 import { baseWidth } from "@/constants/index"
-import { routes } from "@/lib/routes"
 import { generateMetadata } from "@/lib/seo"
 import { cn } from "@/lib/shared-utils"
 import Image from "next/image"
@@ -9,7 +8,6 @@ import { Locale } from "@/constants/i18n.config"
 import { getDictionary } from "../../dictionaries"
 import { clash } from "@/constants/fonts"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Coffee } from "lucide-react"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
 export const metadata = generateMetadata({
@@ -28,14 +26,19 @@ export default async function About({ params }: { params: { lang: Locale } }) {
       experience: "Developed scalable web apps for X years."
     },
     {
-      category: "AI/Multi-Agent Systems",
-      skills: "LangChain, OpenAI, TensorFlow",
+      category: "AI/Deep Learning",
+      skills: "Python, Keras, Pytorch, etc.",
+      experience: "Took the AI module at University of Northampton, my work got featured on The Startup publication on Medium."
+    },
+    {
+      category: "Multi-Agent Systems",
+      skills: "LangChain, OpenAI, Ollama, CrewAI etc.",
       experience: "Currently building Kaiser multi-agent system."
     },
     {
-      category: "Web3 Technologies",
-      skills: "Ethereum, Solidity, IPFS",
-      experience: "Led fullstack Web3 projects for 2+ years."
+      category: "Web3/Blockchain",
+      skills: "Ethereum, Solidity",
+      experience: "Worked as a Fullstack Web3 Developer (Contract) on Polygon GameFi at CWJ Capital."
     }
   ]
 
