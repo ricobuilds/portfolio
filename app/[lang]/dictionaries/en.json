@@ -2,7 +2,8 @@
   "navbar": {
     "home": {
       "label": "Home",
-      "type": "single"
+      "type": "single",
+      "link": "/"
     },
     "about": {
       "label": "About",
