@@ -43,7 +43,7 @@ const Footer = ({
   ]
 
   return (
-    <footer className="bg-obsidian-100">
+    <footer className="mt-24 bg-obsidian-100">
       <div className="max-w-[1360px] px-6 py-16 mx-auto space-y-8 lg:space-y-16">
         <div id="top-footer" className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div id="brand">
