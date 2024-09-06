@@ -7,7 +7,7 @@
         "link": "/"
       },
       {
-        "label": "Sobre Mi",
+        "label": "Sobre Mim",
         "type": "single",
         "link": "/about"
       },
@@ -27,7 +27,6 @@
         "link": "/contact"
       }
     ],
-    "about": "Sobre mim",
     "blog": "Blog",
     "work": "Projetos",
     "login": "Entrar",
