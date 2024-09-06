@@ -21,28 +21,6 @@ const Navbar = ({
 }: {
   tl: Awaited<ReturnType<typeof getDictionary>>["navbar"];
 }) => {
-  const nav = [
-    {
-      label: tl['home'],
-      route: routes.home
-    },
-    {
-      label: tl['about'],
-      route: routes.about
-    },
-    {
-      label: tl['blog'],
-      route: routes.blog
-    },
-    {
-      label: 'Resources',
-      route: routes.blog
-    },
-    {
-      label: 'Contact',
-      route: routes.home + "/contact"
-    },
-  ]
 
   const components: { title: string; href: string; description: string }[] = [
     {
@@ -92,6 +70,27 @@ const Navbar = ({
         <ul className="absolute flex-wrap hidden gap-1 text-sm -translate-x-1/2 md:flex left-1/2">
           <NavigationMenu>
             <NavigationMenuList>
+              {
+                tl['menu'].map((item, idx) => {
+                  return item.type === "single" ? (
+                    <NavigationMenuItem key={idx}>
+                      <Link href="/docs" legacyBehavior passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                          Home
+                        </NavigationMenuLink>
+                      </Link>
+                    </NavigationMenuItem>
+                  ) : (
+                    <NavigationMenuItem key={idx}>
+                      <Link href="/docs" legacyBehavior passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                          Home
+                        </NavigationMenuLink>
+                      </Link>
+                    </NavigationMenuItem>
+                  )
+                })
+              }
               <NavigationMenuItem>
                 <Link href="/docs" legacyBehavior passHref>
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -171,11 +170,11 @@ const Navbar = ({
               </SheetHeader>
               <p className="mt-8 mb-3 font-bold">Navigation</p>
               <div className="flex flex-col gap-2">
-                {nav.map((i, idx) => (
+                {/* {nav.map((i, idx) => (
                   <Link href={i.route} key={idx}>
                     <div className="cursor-pointer before:content-['→'] before:mr-2">{i.label}</div>
                   </Link>
-                ))}
+                ))} */}
               </div>
               <div className="mt-3">
                 <Link href={routes.subscribe}>
