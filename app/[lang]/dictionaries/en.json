@@ -22,7 +22,9 @@
         "menu": {}
       },
       {
-        "label": "Contact"
+        "label": "Contact",
+        "type": "single",
+        "link": "/contact"
       }
     ],
     "login": "Log In",
