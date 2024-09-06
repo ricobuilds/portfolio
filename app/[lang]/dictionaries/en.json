@@ -14,7 +14,8 @@
     },
     "resources": {
       "label": "Resources",
-      "type": "multi"
+      "type": "multi",
+      "menu": {}
     },
     "login": "Log In",
     "cta": "Join Shift Forward",
