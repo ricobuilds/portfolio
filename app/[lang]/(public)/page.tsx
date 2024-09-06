@@ -19,7 +19,7 @@ import Marquee from "@/components/magicui/marquee";
 import { baseWidth } from "@/constants/index";
 import { clash } from "@/constants/fonts";
 import { Button } from "@/components/ui/button";
-import { Award, BookOpen, Bot, Braces, Code2, Coffee, ExternalLink, Layers, Send, Zap } from "lucide-react";
+import { Award, BookOpen, Bot, Braces, Code2, Coffee, Cpu, ExternalLink, Layers, Send, Zap } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Skills } from "@/sections/skills";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -143,7 +143,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
     {
       question: "What are disruptive technologies?",
       answer: "Disruptive technology is an umbrella term that refers to innovative solutions that bring massive change in how individuals, businesses and existing industries work. The technologies this term covers includes Artificial Intelligence, Robotics, Blockchain, Extended Reality and Internet of Things.",
-      icon: <Code2 className="w-5 h-5 mr-2" />,
+      icon: <Cpu className="w-5 h-5 mr-2" />,
     },
     {
       question: "What exactly is a multi-agent system?",
