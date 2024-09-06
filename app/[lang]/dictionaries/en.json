@@ -1,25 +1,27 @@
 {
   "navbar": {
-    "home": {
-      "label": "Home",
-      "type": "single",
-      "link": "/"
-    },
-    "about": {
-      "label": "About",
-      "type": "single",
-      "link": "/about"
-    },
-    "blog": {
-      "label": "Blog",
-      "type": "single",
-      "link": "/blog"
-    },
-    "resources": {
-      "label": "Resources",
-      "type": "multi",
-      "menu": {}
-    },
+    "menu": [
+      {
+        "label": "Home",
+        "type": "single",
+        "link": "/"
+      },
+      {
+        "label": "About",
+        "type": "single",
+        "link": "/about"
+      },
+      {
+        "label": "Blog",
+        "type": "single",
+        "link": "/blog"
+      },
+      {
+        "label": "Resources",
+        "type": "multi",
+        "menu": {}
+      }
+    ],
     "login": "Log In",
     "cta": "Join Shift Forward",
     "warning": "Site currently in ongoing revamp. Expect broken functionality"
