@@ -1,5 +1,32 @@
 {
   "navbar": {
+    "menu": [
+      {
+        "label": "Inicio",
+        "type": "single",
+        "link": "/"
+      },
+      {
+        "label": "Sobre Mi",
+        "type": "single",
+        "link": "/about"
+      },
+      {
+        "label": "Blog",
+        "type": "single",
+        "link": "/blog"
+      },
+      {
+        "label": "Recursos",
+        "type": "multi",
+        "menu": {}
+      },
+      {
+        "label": "Contacto",
+        "type": "single",
+        "link": "/contact"
+      }
+    ],
     "home": "Início",
     "about": "Sobre mim",
     "blog": "Blog",
