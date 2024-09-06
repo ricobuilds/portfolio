@@ -39,7 +39,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
     },
     {
       question: "Where do you see yourself in 5 years?",
-      answer: ""
+      answer: "Building industry-leading AI products, a thriving global community having launched my own educational resources, and a successful business around disruptive tech, like AI  and multi-agent systems, that enables me to live my dreams and work my philanthropic ideas."
     },
   ]
   return (
