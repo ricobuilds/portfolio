@@ -161,11 +161,6 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
       icon: <Code2 className="w-5 h-5 mr-2" />,
     },
     {
-      question: "Can you explain your experience with AI agents?",
-      answer: "I have extensive experience developing AI agents using reinforcement learning techniques. This includes creating chatbots, recommendation systems, and autonomous decision-making agents for various applications.",
-      icon: <Bot className="w-5 h-5 mr-2" />,
-    },
-    {
       question: "How do you approach full-stack projects?",
       answer: "I approach full-stack projects with a holistic view, considering both front-end user experience and back-end efficiency. I typically use React for the front-end, Node.js or Django for the back-end, and ensure seamless integration between all layers of the application.",
       icon: <Layers className="w-5 h-5 mr-2" />,
