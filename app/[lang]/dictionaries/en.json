@@ -9,7 +9,8 @@
       "type": "single"
     },
     "blog": {
-      "label": "Blog"
+      "label": "Blog",
+      "type": "single"
     },
     "resources": "Resources",
     "login": "Log In",
