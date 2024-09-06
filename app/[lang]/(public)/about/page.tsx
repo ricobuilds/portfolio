@@ -23,7 +23,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
     {
       category: "Fullstack Development",
       skills: "React, Next.js, Node.js, etc.",
-      experience: "Developed scalable web apps for X years."
+      experience: "Developed frontend and fullstack web apps for 7+ years."
     },
     {
       category: "AI/Deep Learning",
@@ -33,7 +33,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
     {
       category: "Multi-Agent Systems",
       skills: "LangChain, OpenAI, Ollama, CrewAI etc.",
-      experience: "Currently building Kaiser multi-agent system."
+      experience: "Currently building my Kaiser multi-agent system."
     },
     {
       category: "Web3/Blockchain",
