@@ -13,6 +13,7 @@ export default function BackToTop() {
 
   return (
     <Button
+      className='border border-black hover:bg-tingual-500'
       size="icon"
       onClick={scrollToTop}
       aria-label="Back to top"
