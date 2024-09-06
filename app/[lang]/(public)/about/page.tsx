@@ -182,7 +182,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                     <strong>Collaborating on tech-based content</strong> (guest writing, podcast appearances, panel discussions)
                   </li>
                   <li>
-                    <strong>LinkedIn:</strong> <Link href={routes.linkedin} className="underline text-amethyst-500 underline-offset-2">linkedin.com/in/enrictrillo</Link>
+                    <strong>Partnerships for building AI-powered tools</strong> for businesses or SaaS projects.
                   </li>
                   <li>
                     <strong>YouTube:</strong> <Link href={routes.youtube} className="underline text-amethyst-500 underline-offset-2">Enric Trillo @ricobuilds</Link>
