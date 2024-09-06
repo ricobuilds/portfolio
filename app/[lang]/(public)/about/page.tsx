@@ -174,17 +174,17 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                 <p>
                   I&apos;m open to collaborations and new opportunities. Feel free to reach out if you have (or are aware of) opportunities for me including:
                 </p>
-                <ul className="mb-6 ml-4">
-                  <li className="before:content-['→'] before:mr-2">
+                <ul className="mb-6 ml-8 list-disc">
+                  <li>
                     <strong>Consulting on AI/Agent Systems </strong>for product development or workflows.
                   </li>
-                  <li className="before:content-['→'] before:mr-2">
-                    <strong>Twitter/X:</strong> <Link href={routes.twitter} className="underline text-amethyst-500 underline-offset-2">@ricobuilds</Link>
+                  <li>
+                    <strong>Collaborating on tech-based content</strong> (guest writing, podcast appearances, panel discussions)
                   </li>
-                  <li className="before:content-['→'] before:mr-2">
+                  <li>
                     <strong>LinkedIn:</strong> <Link href={routes.linkedin} className="underline text-amethyst-500 underline-offset-2">linkedin.com/in/enrictrillo</Link>
                   </li>
-                  <li className="before:content-['→'] before:mr-2">
+                  <li>
                     <strong>YouTube:</strong> <Link href={routes.youtube} className="underline text-amethyst-500 underline-offset-2">Enric Trillo @ricobuilds</Link>
                   </li>
                 </ul>
