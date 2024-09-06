@@ -38,7 +38,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
       answer: "I'm working on upgrading the visual identity of my website so I can make room for the coming changes (keep a close eye!). I'm also working on K.A.I.S.E.R – my dream team of AI agents that handle the heavy lifting of my workflows so I get to work on what I do best, like learning new skills and my applying them."
     },
     {
-      question: "",
+      question: "Where do you see yourself in 5 years?",
       answer: ""
     },
   ]
