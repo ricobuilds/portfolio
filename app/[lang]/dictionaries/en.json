@@ -4,7 +4,9 @@
       "label": "Home",
       "type": "single"
     },
-    "about": "About",
+    "about": {
+      "label": "About"
+    },
     "blog": "Blog",
     "resources": "Resources",
     "login": "Log In",
