@@ -1,7 +1,8 @@
 {
   "navbar": {
     "home": {
-      "label": "Home"
+      "label": "Home",
+      "type": "single"
     },
     "about": "About",
     "blog": "Blog",
