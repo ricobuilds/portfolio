@@ -170,11 +170,6 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
       answer: "I'm committed to continuous learning. I regularly attend tech conferences, participate in online courses, contribute to open-source projects, and experiment with new technologies in personal projects to stay at the forefront of the industry.",
       icon: <Zap className="w-5 h-5 mr-2" />,
     },
-    {
-      question: "What's your approach to project management and collaboration?",
-      answer: "I use Agile methodologies for project management, with a preference for Scrum. For collaboration, I'm proficient with Git for version control, Jira for task tracking, and Slack for team communication. I believe in clear, frequent communication and documentation to ensure project success.",
-      icon: <Coffee className="w-5 h-5 mr-2" />,
-    },
   ]
 
   return (
