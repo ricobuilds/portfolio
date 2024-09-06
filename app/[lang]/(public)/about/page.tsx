@@ -31,7 +31,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
     },
     {
       question: "So, you're from Guinea Bissau/Guinea/Papua New Guinea?",
-      answer: "I've gotten this question many times 😆. I'm from Equatorial Guinea, a tiny hispanic nation in the Gulf of Guinea that's often forgotten, and usually confused with the other Guineas. We speak Pichi (among other languages like Fa d'Ambô and Bube), which is similar (given our small differences) to Sierra Leone's Krio! Trivia: Annobon can fit 92.5x in London.",
+      answer: "Actually, I'm from Equatorial Guinea, a tiny hispanic nation in the Gulf of Guinea that's often forgotten, and usually confused with the other Guineas. We speak Pichi (among other languages like Fa d'Ambô and Bube), which is almost identical (given our small differences) to Sierra Leone's Krio! Did you know that Annobon can fit 92.5x in London?",
     },
     {
       question: "What projects are you working on right now?",
