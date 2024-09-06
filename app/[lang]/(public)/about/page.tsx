@@ -172,11 +172,11 @@ export default async function About({ params }: { params: { lang: Locale } }) {
               <section id="collaborations" className="space-y-6">
                 <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Collaboration & Contact</h2>
                 <p>
-                  I&apos;m open to collaborations and new opportunities – if you have (or are aware of) opportunities for me including consulting, guest writing, tutoring, interviews, ventures, joint collaboration for content (or other), and even SaaS ideas, feel free to reach out.
+                  I&apos;m open to collaborations and new opportunities. Feel free to reach out if you have (or are aware of) opportunities for me including:
                 </p>
                 <ul className="mb-6 ml-4">
                   <li className="before:content-['→'] before:mr-2">
-                    <strong>Email:</strong> <Link href={routes.email} className="underline text-amethyst-500 underline-offset-2">hola@enrictrillo.com</Link>
+                    <strong>Consulting on AI/Agent Systems </strong>for product development or workflows.
                   </li>
                   <li className="before:content-['→'] before:mr-2">
                     <strong>Twitter/X:</strong> <Link href={routes.twitter} className="underline text-amethyst-500 underline-offset-2">@ricobuilds</Link>
