@@ -157,14 +157,14 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                 </Table>
 
               </section>
-              <section id="certification">
+              <section id="recognition">
                 <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Awards & Recognition</h2>
                 <ul className="mb-0 ml-8 list-disc">
                   <li>
-                    <strong>Featured in Medium&apos;s The Startup</strong>: For <Link className="underline text-amethyst-500" href="https://medium.com/swlh/an-image-classifier-with-keras-2f0e9b868a36">my article on AI</Link> and my academic journey.
+                    <strong>The Startup</strong>: Got featured by The Startup publication on Medium for <Link className="underline text-amethyst-500" href="https://medium.com/swlh/an-image-classifier-with-keras-2f0e9b868a36">documenting my work on AI</Link> and my academic journey.
                   </li>
                   <li>
-                    <strong>University of Northampton</strong>: Achieved an A* grade in AI during my final year.
+                    <strong>University of Northampton</strong>: Achieved an A* grade in AI during my final year, and a Second Upper Class (2:1) overall.
                   </li>
                   <li>
                     <strong>Certifications:</strong>
