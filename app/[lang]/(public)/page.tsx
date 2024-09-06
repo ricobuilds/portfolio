@@ -395,7 +395,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
               </div>
             </section>
 
-            <section id="cta" className="flex flex-col px-6 mb-24">
+            <section id="cta" className="flex flex-col px-6">
               <div className="flex flex-col lg:flex-row gap-6 justify-between p-28 py-16 bg-amethyst-500 max-w-[1360px] mx-auto w-full">
                 <div className="flex flex-col text-white">
                   <h2 className={cn(clash.className, "text-4xl font-semibold")}>Have an interesting idea for me?</h2>
