@@ -156,7 +156,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
       icon: <Code2 className="w-5 h-5 mr-2" />,
     },
     {
-      question: "What technologies do you specialize in?",
+      question: "What tools and technologies do you work with?",
       answer: "I specialize in full-stack web development using React, Node.js, and Python. For AI and machine learning projects, I work with TensorFlow, PyTorch, and various NLP libraries.",
       icon: <Code2 className="w-5 h-5 mr-2" />,
     },
