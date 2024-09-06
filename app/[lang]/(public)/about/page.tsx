@@ -10,6 +10,7 @@ import { getDictionary } from "../../dictionaries"
 import { clash } from "@/constants/fonts"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Coffee } from "lucide-react"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
 export const metadata = generateMetadata({
   title: 'About',
@@ -19,6 +20,24 @@ export const metadata = generateMetadata({
 
 export default async function About({ params }: { params: { lang: Locale } }) {
   const tl = await getDictionary(params.lang)
+
+  const skills = [
+    {
+      category: "Fullstack Development",
+      skills: "React, Next.js, Node.js, etc.",
+      experience: "Developed scalable web apps for X years."
+    },
+    {
+      category: "AI/Multi-Agent Systems",
+      skills: "LangChain, OpenAI, TensorFlow",
+      experience: "Currently building Kaiser multi-agent system."
+    },
+    {
+      category: "Web3 Technologies",
+      skills: "Ethereum, Solidity, IPFS",
+      experience: "Led fullstack Web3 projects for 2+ years."
+    }
+  ]
 
   const faqs = [
     {
@@ -107,6 +126,28 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                     <strong>Blog</strong>: Deep dives into tech topics like AR/VR, AI and multi agent systems, blockchain, gaming, haptics, the metaverse, robotics, and more.
                   </li>
                 </ul>
+              </section>
+              <section id="expertise">
+                <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Expertise</h2>
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Category</TableHead>
+                      <TableHead>Skills</TableHead>
+                      <TableHead>Experience</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {skills.map((skill, index) => (
+                      <TableRow key={index}>
+                        <TableCell className="font-medium">{skill.category}</TableCell>
+                        <TableCell>{skill.skills}</TableCell>
+                        <TableCell>{skill.experience}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+
               </section>
               <section id="certification">
                 <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Awards & Recognition</h2>
