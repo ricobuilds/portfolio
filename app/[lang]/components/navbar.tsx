@@ -74,7 +74,7 @@ const Navbar = ({
                 tl['menu'].map((item, idx) => {
                   return item.type === "single" ? (
                     <NavigationMenuItem key={idx}>
-                      <Link href="/docs" legacyBehavior passHref>
+                      <Link href={item.link as string} legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                           {item.label}
                         </NavigationMenuLink>
