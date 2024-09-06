@@ -27,7 +27,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
     },
     {
       question: "What other roles have you been in?",
-      answer: "Despite my young age, I've been a DJ, Graphic Designer, UI/UX Designer, Motion Designer, Journalist, Library Assistant, Web Developer, Videographer and Video Editor, Hybrid SDR/BDR at European Gateway (a startup by a former Gartner executive), Fullstack Web3 Developer, and now I focus on building with disruptive technologies."
+      answer: "I've worked across DJing, graphic design, UI/UX design, motion design, journalism, library assisting, web development, videography and editing, bartending, tech sales at European Gateway (a startup by a former Gartner executive), and fullstack Web3 development – these experiences have given me an unique creative perspective."
     },
     {
       question: "So, you're from Guinea Bissau/Guinea/Papua New Guinea?",
