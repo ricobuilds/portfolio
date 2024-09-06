@@ -1,7 +1,11 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+const colors = require("tailwindcss/colors");
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
+
 const config = {
   content: [
-    // "./sections/**/*.{js,ts,jsx,tsx,mdx}",
-    // "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
@@ -290,40 +294,52 @@ const config = {
           "accordion-down": "accordion-down 0.2s ease-out",
           "accordion-up": "accordion-up 0.2s ease-out",
         },
-          // // Dropdown menu
-          // "scale-in": "scale-in 0.2s ease-in-out",
-          // "slide-down": "slide-down 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
-          // "slide-up": "slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
-          // // Tooltip
-          // "slide-up-fade": "slide-up-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-          // "slide-right-fade":
-          //   "slide-right-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-          // "slide-down-fade": "slide-down-fade 1s cubic-bezier(0.16, 1, 0.3, 1)",
-          // "slide-left-fade": "slide-left-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-          // // Navigation menu
-          // "enter-from-right": "enter-from-right 0.25s ease",
-          // "enter-from-left": "enter-from-left 0.25s ease",
-          // "exit-to-right": "exit-to-right 0.25s ease",
-          // "exit-to-left": "exit-to-left 0.25s ease",
-          // "scale-in-content": "scale-in-content 0.2s ease",
-          // "scale-out-content": "scale-out-content 0.2s ease",
-          // "fade-in": "fade-in 0.2s ease",
-          // "fade-out": "fade-out 0.2s ease",
-          // // Toast
-          // 'hide': 'hide 100ms ease-in',
-          // 'slideIn': 'slideIn 150ms cubic-bezier(0.16, 1, 0.3, 1)',
-          // 'swipeOut': 'swipeOut 100ms ease-out',
-          // // Hover Card
-          // 'slideUpAndFade': 'slideUpAndFade 500ms cubic-bezier(0.16, 0, 0.13, 1)',
-          // 'slideDownAndFade': 'slideDownAndFade 500ms cubic-bezier(0.16, 0, 0.13, 1)',
-          // 'slideRightAndFade': 'slideRightAndFade 500ms cubic-bezier(0.16, 0, 0.13, 1)',
-          // 'slideLeftAndFade': 'slideLeftAndFade 500ms cubic-bezier(0.16, 0, 0.13, 1)',
-        },
+        // // Dropdown menu
+        // "scale-in": "scale-in 0.2s ease-in-out",
+        // "slide-down": "slide-down 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+        // "slide-up": "slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+        // // Tooltip
+        // "slide-up-fade": "slide-up-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+        // "slide-right-fade":
+        //   "slide-right-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+        // "slide-down-fade": "slide-down-fade 1s cubic-bezier(0.16, 1, 0.3, 1)",
+        // "slide-left-fade": "slide-left-fade 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+        // // Navigation menu
+        // "enter-from-right": "enter-from-right 0.25s ease",
+        // "enter-from-left": "enter-from-left 0.25s ease",
+        // "exit-to-right": "exit-to-right 0.25s ease",
+        // "exit-to-left": "exit-to-left 0.25s ease",
+        // "scale-in-content": "scale-in-content 0.2s ease",
+        // "scale-out-content": "scale-out-content 0.2s ease",
+        // "fade-in": "fade-in 0.2s ease",
+        // "fade-out": "fade-out 0.2s ease",
+        // // Toast
+        // 'hide': 'hide 100ms ease-in',
+        // 'slideIn': 'slideIn 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+        // 'swipeOut': 'swipeOut 100ms ease-out',
+        // // Hover Card
+        // 'slideUpAndFade': 'slideUpAndFade 500ms cubic-bezier(0.16, 0, 0.13, 1)',
+        // 'slideDownAndFade': 'slideDownAndFade 500ms cubic-bezier(0.16, 0, 0.13, 1)',
+        // 'slideRightAndFade': 'slideRightAndFade 500ms cubic-bezier(0.16, 0, 0.13, 1)',
+        // 'slideLeftAndFade': 'slideLeftAndFade 500ms cubic-bezier(0.16, 0, 0.13, 1)',
       },
     },
+  },
   plugins: [
     require("tailwindcss-animate"),
     require('@tailwindcss/typography'),
+    addVariablesForColors,
   ],
-  };
-  export default config;
+};
+export default config;
+
+function addVariablesForColors({ addBase, theme }) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+}
