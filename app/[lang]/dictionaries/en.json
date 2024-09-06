@@ -20,6 +20,9 @@
         "label": "Resources",
         "type": "multi",
         "menu": {}
+      },
+      {
+        "label": "Contact"
       }
     ],
     "login": "Log In",
