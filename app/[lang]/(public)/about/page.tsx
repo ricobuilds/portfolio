@@ -172,7 +172,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
               <section id="collaborations" className="space-y-6">
                 <h2 className={cn(clash.className, "font-bold text-lg uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Collaboration & Contact</h2>
                 <p>
-                  I&apos;m open to collaborations and new opportunities. Feel free to reach out if you have (or are aware of) opportunities for me including:
+                  I&apos;m open to collaborations and new opportunities. Feel free to reach out if you have (or are aware of) opportunities for me, including:
                 </p>
                 <ul className="mb-6 ml-8 list-disc">
                   <li>
@@ -186,6 +186,9 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                   </li>
                   <li>
                     <strong>Joint-ventures in emerging tech</strong> (Web3, AR/VR, robotics, etc.)
+                  </li>
+                  <li>
+                    <strong>Contract opportunities </strong> where I can use my frontend, fullstack and AI skills to develop solutions.
                   </li>
                 </ul>
               </section>
