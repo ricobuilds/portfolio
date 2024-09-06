@@ -1,6 +1,8 @@
 {
   "navbar": {
-    "home": "Home",
+    "home": {
+      "label": "Home"
+    },
     "about": "About",
     "blog": "Blog",
     "resources": "Resources",
