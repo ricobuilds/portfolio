@@ -12,7 +12,8 @@
     },
     "blog": {
       "label": "Blog",
-      "type": "single"
+      "type": "single",
+      "link": "/blog"
     },
     "resources": {
       "label": "Resources",
