@@ -151,7 +151,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
       icon: <Code2 className="w-5 h-5 mr-2" />,
     },
     {
-      question: "Why is disruptive technology important for individuals/businesses?",
+      question: "Why is MAS important for individuals/businesses?",
       answer: "Disruptive technology is an umbrella term that refers to innovative solutions that bring massive change in how individuals, businesses and existing industries work. The technologies this term covers includes Artificial Intelligence, Robotics, Blockchain, Extended Reality and Internet of Things.",
       icon: <Code2 className="w-5 h-5 mr-2" />,
     },
@@ -164,11 +164,6 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
       question: "How do you approach full-stack projects?",
       answer: "I approach full-stack projects with a holistic view, considering both front-end user experience and back-end efficiency. I typically use React for the front-end, Node.js or Django for the back-end, and ensure seamless integration between all layers of the application.",
       icon: <Layers className="w-5 h-5 mr-2" />,
-    },
-    {
-      question: "What's your experience with cloud platforms?",
-      answer: "I'm well-versed in deploying and managing applications on major cloud platforms like AWS, Google Cloud, and Azure. I have experience with serverless architectures, containerization using Docker, and orchestration with Kubernetes.",
-      icon: <Braces className="w-5 h-5 mr-2" />,
     },
     {
       question: "How do you stay updated with the latest tech trends?",
