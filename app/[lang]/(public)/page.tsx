@@ -228,7 +228,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
       <main className="flex-1 w-full">
         <div className={cn("mx-auto")}>
           <div className="flex flex-col">
-            <section id="hero" className="pt-20 bg-amethyst-300 bg-opacity-40">
+            <section id="hero" className="pt-20 bg-amethyst-200 bg-opacity-40">
               <div className="w-full max-w-[970px] mx-auto">
                 <div className="absolute inset-0 -z-10"></div>
                 <div className="absolute opacity-40 -z-10 bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
