@@ -399,8 +399,8 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
               </div>
             </section >
             {/* <Skills/> */}
-            <section id="faqs">
-              <div className="flex flex-col px-6 py-16 max-w-[980px] w-full mx-auto border-t-2 border-black">
+            <section id="faqs" className="border-t-2 border-black">
+              <div className="flex flex-col px-6 py-16 max-w-[980px] w-full mx-auto">
                 <h2 className={cn(clash.className, "flex items-center  text-center text-4xl font-bold px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
                   Frequently Asked Questions
                 </h2>
