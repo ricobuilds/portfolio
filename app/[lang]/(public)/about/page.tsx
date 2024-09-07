@@ -57,7 +57,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
       answer: "I've worked across DJing, graphic design, UI/UX design, motion design, journalism, library assisting, web development, videography and editing, bartending, tech sales at European Gateway (a startup by a former Gartner executive), and fullstack Web3 development – these experiences have given me an unique creative perspective."
     },
     {
-      question: "So, you're from Guinea Bissau/Guinea/Papua New Guinea?",
+      question: "So, you're from Guinea Bissau/Papua New Guinea etc?",
       answer: "Actually, I'm from Equatorial Guinea, a tiny hispanic nation in the Gulf of Guinea that's often forgotten, and usually confused with the other Guineas. We speak Pichi (among other languages like Fa d'Ambô and Bube), which is almost identical (given our small differences) to Sierra Leone's Krio! Did you know that Annobon can fit 92.5x in London?",
     },
     {
@@ -251,13 +251,13 @@ export default async function About({ params }: { params: { lang: Locale } }) {
               </section>
               <section id="faqs" className="space-y-6">
                 <h2 className={cn(clash.className, "font-bold text-2xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Frequently Asked Questions</h2>
-                {faqs.filter(faq => faq.question.length > 0).map((faq: any, idx: number) => {
+                {faqs.map((faq, idx) => {
                   return (
                     <Accordion key={idx} type="single" collapsible className="w-full max-w-3xl mx-auto">
                       <AccordionItem value={`item-${idx}`}>
                         <AccordionTrigger className="flex items-center gap-4 justify-normal">
-                          <span>{faq.icon}</span>
-                          <h3 className="text-lg">{faq.question}</h3>
+                          {/* <span>{faq.icon}</span> */}
+                          <h3 className="text-xl">{faq.question}</h3>
                         </AccordionTrigger>
                         <AccordionContent className="text-gray-600 dark:text-gray-300">
                           {faq.answer}
