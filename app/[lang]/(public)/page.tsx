@@ -227,7 +227,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
       {/* <StructuredData data={homeSchema} /> */}
       <main className="flex-1 w-full">
         <div className={cn("mt-20", "mx-auto")}>
-          <div className="flex flex-col gap-16">
+          <div className="flex flex-col">
 
             <section id="hero">
               <div className="w-full max-w-[970px] mx-auto space-y-8">
@@ -400,7 +400,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
             </section >
             {/* <Skills/> */}
             <section id="faqs">
-              <div className="flex flex-col px-6 py-16 max-w-[980px] w-full mx-auto">
+              <div className="flex flex-col px-6 py-16 max-w-[980px] w-full mx-auto border-t-2 border-black">
                 <h2 className={cn(clash.className, "flex items-center  text-center text-4xl font-bold px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
                   Frequently Asked Questions
                 </h2>
