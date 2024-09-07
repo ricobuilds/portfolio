@@ -252,7 +252,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                 </div>
               </div>
             </section>
-            <section id="marquee" className="sticky top-0 z-10">
+            <section id="marquee" className="z-10">
               <div className="h-16 border-black bg-amethyst-500 border-y-2"></div>
               <div className="flex items-center h-16 text-white -translate-y-10 -skew-y-3 bg-black border-black border-y-2">
                 <Marquee
