@@ -226,11 +226,11 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
     <>
       {/* <StructuredData data={homeSchema} /> */}
       <main className="flex-1 w-full">
-        <div className={cn("mt-20", "mx-auto")}>
+        <div className={cn("mx-auto")}>
           <div className="flex flex-col">
-
-            <section id="hero">
-              <div className="w-full max-w-[970px] mx-auto space-y-8">
+            <section id="hero" className="pt-20 bg-amethyst-300 bg-opacity-40">
+              <div className="w-full max-w-[970px] mx-auto">
+                <div className="absolute inset-0 -z-10"></div>
                 <div className="absolute opacity-40 -z-10 bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
                 <div className="flex flex-col items-center justify-between gap-12 lg:flex-row">
                   <div className="flex flex-col gap-6 px-6 sm:px-0 max-w-[525px]">
@@ -251,24 +251,24 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                   <Image src="/images/hero__image.png" width={800} height={800} alt="" className="w-[400px] h-[400px]" />
                 </div>
               </div>
-              <section id="marquee" className="relative -z-10">
-                <div className="h-16 border-black bg-amethyst-500 border-y-2"></div>
-                <div className="flex items-center h-16 text-white -translate-y-10 -skew-y-3 bg-black border-black border-y-2">
-                  <Marquee
-                  >
-                    {tl['home']['hero'].marquee.map((i, idx) => (
-                      <div key={idx} className="flex items-center">
-                        <span>{i}</span>
-                        <span className="ml-4 text-xl">✦</span>
-                      </div>
-                    ))}
-                  </Marquee>
-                </div>
-              </section>
+            </section>
+            <section id="marquee" className="sticky top-0 z-10">
+              <div className="h-16 border-black bg-amethyst-500 border-y-2"></div>
+              <div className="flex items-center h-16 text-white -translate-y-10 -skew-y-3 bg-black border-black border-y-2">
+                <Marquee
+                >
+                  {tl['home']['hero'].marquee.map((i, idx) => (
+                    <div key={idx} className="flex items-center">
+                      <span>{i}</span>
+                      <span className="ml-4 text-xl">✦</span>
+                    </div>
+                  ))}
+                </Marquee>
+              </div>
             </section>
             {/* <LogoCloud /> */}
             {/* <Showcase/> */}
-            <StickyScroll content={content} />
+            {/* <StickyScroll content={content} /> */}
             <section id="bio" className="left-0 flex flex-col px-4 py-16 mt-0 max-w-screen">
               <h2 className={cn(clash.className, "flex items-center font-bold text-center text-4xl px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
                 About Me
