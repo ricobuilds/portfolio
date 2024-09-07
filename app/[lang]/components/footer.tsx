@@ -152,8 +152,10 @@ const Footer = ({
                   </li>
                 </ul>
               </div>
+              <div className="flex justify-end w-full">
                 <BackToTop />
-        
+              </div>
+
             </div>
           </div>
           <div id="bottom-footer" className="flex flex-col justify-between text-xs text-gray-500 lg:flex-row">
