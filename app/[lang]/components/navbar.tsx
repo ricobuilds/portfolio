@@ -13,6 +13,7 @@ import {
 import { getDictionary } from "@/app/[lang]/dictionaries"
 import LanguageSwitcher from "./language-switcher"
 import { navigationMenuTriggerStyle, NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuContent, NavigationMenuTrigger, NavigationMenuLink, NavigationSubItem, } from "@/components/ui/navigation-menu"
+import { clash } from "@/constants/fonts"
 
 
 
@@ -65,6 +66,7 @@ const Navbar = ({
       <div id="mainnav" className={cn("max-w-[1360px]", "flex w-full py-5 px-6 items-center mx-auto")}>
         <div className="flex items-center gap-4 shrink-0">
           <Image src={'/images/ricobuilds.png'} alt="Enric Trillo Cryptopunk" width={64} height={64} className="inline w-8 h-8 transition-all duration-300 rounded-full" />
+          <span className={cn(clash.className, "font-semibold")}>Enric Trillo</span>
         </div>
         {/* <div className="w-full mx-2 transition-colors duration-300 border-t border-amethyst-500 group-hover:border-green-400"></div> */}
         <div id="right-section" className="flex justify-end flex-1 gap-20">
