@@ -64,7 +64,7 @@ const Navbar = ({
   return (
     <header className="sticky top-0 z-50 flex flex-col justify-center w-full bg-white border-b-2 border-black h-18">
       <div id="mainnav" className={cn("max-w-[1360px]", "flex w-full py-5 px-6 items-center mx-auto")}>
-        <div className="flex items-center gap-4 shrink-0">
+        <div className="flex items-center gap-4 select-none shrink-0">
           <Image src={'/images/ricobuilds.png'} alt="Enric Trillo Cryptopunk" width={64} height={64} className="inline w-8 h-8 transition-all duration-300 rounded-full" />
           <span className={cn(clash.className, "font-semibold")}>Enric Trillo</span>
         </div>
