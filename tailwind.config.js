@@ -193,6 +193,17 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+
+        orbit: {
+          "0%": {
+            transform:
+              "rotate(0deg) translateY(calc(var(--radius) * 1px)) rotate(0deg)",
+          },
+          "100%": {
+            transform:
+              "rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg)",
+          },
+        },
         // // Dropdown menu
         // "scale-in": {
         //   "0%": { opacity: 0, transform: "scale(0)" },
@@ -290,10 +301,11 @@ const config = {
       animation: {
         marquee: "marquee var(--duration) linear infinite",
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
-        animation: {
-          "accordion-down": "accordion-down 0.2s ease-out",
-          "accordion-up": "accordion-up 0.2s ease-out",
-        },
+
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+
+        orbit: "orbit calc(var(--duration)*1s) linear infinite",
         // // Dropdown menu
         // "scale-in": "scale-in 0.2s ease-in-out",
         // "slide-down": "slide-down 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
