@@ -1,16 +1,8 @@
 'use client'
 import { useRouter, usePathname } from 'next/navigation'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import { useState, useEffect } from "react";
 import { i18n, Locale, i18nSwitcher as languages } from '@/constants/i18n.config';
-import Image from 'next/image';
-import { Button } from './ui/button';
 
 const LanguageSwitcher = () => {
   const router = useRouter()

@@ -86,7 +86,7 @@ const Footer = ({
                 </li>
               </ul>
             </div>
-            <div id="site-map" className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-5">
+            <div id="site-map" className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-6">
               <div>
                 <p className="font-medium text-gray-900">Services</p>
                 <ul className="mt-6 space-y-4 text-sm">
@@ -137,6 +137,23 @@ const Footer = ({
               </div>
               <div>
                 <p className="font-medium text-gray-900">Legal</p>
+                <ul className="mt-6 space-y-4 text-sm">
+                  <li>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Accessibility </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Returns Policy </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Refund Policy </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Hiring Statistics </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-gray-900">Language</p>
                 <ul className="mt-6 space-y-4 text-sm">
                   <li>
                     <a href="#" className="text-gray-700 transition hover:opacity-75"> Accessibility </a>
