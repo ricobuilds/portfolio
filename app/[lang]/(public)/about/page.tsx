@@ -77,8 +77,8 @@ export default async function About({ params }: { params: { lang: Locale } }) {
         <div className={cn(baseWidth, "w-full mx-auto")}>
           <div className="relative flex flex-col items-center gap-6 pt-20">
 
-            <div id="content" className="flex flex-col gap-8 max-w-[580px] mx-auto">
-              <div className="flex flex-col items-center gap-4">
+            <div id="content" className="flex flex-col gap-8 max-w-[580px] overflow-hidden mx-auto">
+              <div className="flex flex-col items-center w-full gap-4">
                 <Image priority src={'/images/headshot.jpeg'} alt="Enric Trillo" width={600} height={600} className="inline w-24 h-24 mx-auto transition-all duration-300 rounded-full ring-2 ring-slate-200/80 hover:ring-4" />
                 <h1 className="text-lg font-bold">About Enric Trillo</h1>
                 <p className="text-slate-600">Fullstack & AI Agents Developer</p>
@@ -135,27 +135,42 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                   </li>
                 </ul>
               </section>
-              <section id="expertise">
+              <section id="expertise" className="space-y-6">
                 <h2 className={cn(clash.className, "font-bold text-2xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Expertise</h2>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Category</TableHead>
-                      <TableHead>Skills</TableHead>
-                      <TableHead>Experience</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {skills.map((skill, index) => (
-                      <TableRow key={index}>
-                        <TableCell className="font-medium">{skill.category}</TableCell>
-                        <TableCell>{skill.skills}</TableCell>
-                        <TableCell>{skill.experience}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-
+                <div className="container mx-auto">
+                  <div className="border rounded-lg overflow-clip">
+                    <Table className="z-0 min-w-full divide-y divide-gray-200">
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead className="w-[200px]">Category</TableHead>
+                          <TableHead className="w-[200px]">Skills</TableHead>
+                          <TableHead>Experience</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {skills.map((skill, index) => (
+                          <TableRow key={index}>
+                            <TableCell className="font-medium">{skill.category}</TableCell>
+                            <TableCell>{skill.skills}</TableCell>
+                            <TableCell>{skill.experience}</TableCell>
+                          </TableRow>
+                        ))}
+                        {/* {skills.map((skill, index) => (
+                          <TableRow key={index}>
+                            <TableCell className="font-medium">{skill.category}</TableCell>
+                            <TableCell>
+                              <span className="font-medium">Skills: </span>
+                              {skill.skills}
+                              <br/>
+                              <span className="inline-block mt-2 font-medium">Experience: </span>
+                              {skill.experience}
+                            </TableCell>
+                          </TableRow>
+                        ))} */}
+                      </TableBody>
+                    </Table>
+                  </div>
+                </div>
               </section>
               <section id="recognition">
                 <h2 className={cn(clash.className, "font-bold text-2xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Awards & Recognition</h2>
@@ -270,8 +285,8 @@ export default async function About({ params }: { params: { lang: Locale } }) {
               </section>
             </div>
           </div>
-        </div>
-      </main>
+        </div >
+      </main >
     </>
   )
 }
