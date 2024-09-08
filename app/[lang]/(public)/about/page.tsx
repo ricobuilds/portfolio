@@ -260,7 +260,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                       <AccordionItem value={`item-${idx}`}>
                         <AccordionTrigger className="flex items-center gap-4 justify-normal">
                           {/* <span>{faq.icon}</span> */}
-                          <h3 className="text-xl">{faq.question}</h3>
+                          <h4 className="text-xl">{faq.question}</h4>
                         </AccordionTrigger>
                         <AccordionContent className="text-gray-600 dark:text-gray-300">
                           {faq.answer}
