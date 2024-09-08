@@ -133,7 +133,7 @@ const Navbar = ({
               <SheetHeader>
                 <SheetTitle>Enric Trillo</SheetTitle>
                 <SheetDescription className="text-obsidian-500">
-                  Fullstack dev writing and building around disruptive tech.
+                  Learn the skills to thrive in the age of AI
                 </SheetDescription>
               </SheetHeader>
               <p className="mt-8 mb-3 font-bold">Navigation</p>
