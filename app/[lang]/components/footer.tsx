@@ -159,9 +159,9 @@ const Footer = ({
                 <p className="font-medium text-gray-900">Language</p>
                 <ul className="mt-6 space-y-4 text-sm">
                   {
-                    languages.map((l) => (
+                    languages.map((l, idx) => (
 
-                      <li>
+                      <li key={idx}>
                         <a href={`/${l.code}`} className={cn(lang === l.code ? "font-bold" : null, "text-gray-700 transition hover:opacity-75")}> {l.name} </a>
                       </li>
                     ))
