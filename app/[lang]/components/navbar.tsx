@@ -138,11 +138,12 @@ const Navbar = ({
               </SheetHeader>
               <p className="mt-8 mb-3 font-bold">Navigation</p>
               <div className="flex flex-col gap-2">
-                {/* {nav.map((i, idx) => (
-                  <Link href={i.route} key={idx}>
-                    <div className="cursor-pointer before:content-['→'] before:mr-2">{i.label}</div>
-                  </Link>
-                ))} */}
+                {
+                  tl['menu'].filter(i => i.type === "single").map((i, idx) => (
+                    <Link href={i.link as string} key={idx}>
+                      <div className="cursor-pointer before:content-['→'] before:mr-2">{i.label}</div>
+                    </Link>
+                  ))}
               </div>
               <div className="mt-3">
                 <Link href={routes.subscribe}>
