@@ -186,7 +186,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                 </ul>
               </section>
               <section id="leadership">
-                <h2 className={cn(clash.className, "font-bold text-2xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Thought Leadership</h2>
+                <h3 className={cn(clash.className, "font-bold text-2xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Thought Leadership</h3>
                 <p>I'm active on these platforms sharing knowledge and what I learn:</p>
                 <ul className="ml-8 space-y-3 list-disc mb-b">
                   <li>Blog – my blog features deep dives, practical guides, and case studies on disruptive tech, designed for both beginners and advanced devs.</li>
