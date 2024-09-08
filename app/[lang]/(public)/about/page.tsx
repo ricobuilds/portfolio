@@ -57,7 +57,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
       answer: "I've worked across DJing, graphic design, UI/UX design, motion design, journalism, library assisting, web development, videography and editing, bartending, tech sales at European Gateway (a startup by a former Gartner executive), and fullstack Web3 development – these experiences have given me an unique creative perspective."
     },
     {
-      question: "So, you're from Guinea Bissau/Papua New Guinea etc?",
+      question: "So, you're from Guinea Bissau/Guinea etc?",
       answer: "Actually, I'm from Equatorial Guinea, a tiny hispanic nation in the Gulf of Guinea that's often forgotten, and usually confused with the other Guineas. We speak Pichi (among other languages like Fa d'Ambô and Bube), which is almost identical (given our small differences) to Sierra Leone's Krio! Did you know that Annobon can fit 92.5x in London?",
     },
     {
