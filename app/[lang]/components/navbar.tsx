@@ -131,7 +131,7 @@ const Navbar = ({
             </SheetTrigger>
             <SheetContent className="bg-white">
               <SheetHeader>
-                <SheetTitle>Enric Trillo － Disruptive Technology</SheetTitle>
+                <SheetTitle>Enric Trillo</SheetTitle>
                 <SheetDescription className="text-obsidian-500">
                   Fullstack dev writing and building around disruptive tech.
                 </SheetDescription>
