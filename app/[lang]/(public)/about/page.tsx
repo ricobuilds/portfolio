@@ -155,18 +155,6 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                             <TableCell>{skill.experience}</TableCell>
                           </TableRow>
                         ))}
-                        {/* {skills.map((skill, index) => (
-                          <TableRow key={index}>
-                            <TableCell className="font-medium">{skill.category}</TableCell>
-                            <TableCell>
-                              <span className="font-medium">Skills: </span>
-                              {skill.skills}
-                              <br/>
-                              <span className="inline-block mt-2 font-medium">Experience: </span>
-                              {skill.experience}
-                            </TableCell>
-                          </TableRow>
-                        ))} */}
                       </TableBody>
                     </Table>
                   </div>
