@@ -39,7 +39,7 @@ export default async function Subscribe({ params }: { params: { lang: Locale } }
                 </div>
                 <div className="w-full max-w-2xl mb-8">
                   <h1 className={cn(heroFont.className, "text-6xl font-semibold text-center sm:text-left")}>Shift Forward Newsletter</h1>
-                  <p className="text-2xl text-center sm:text-left">Keep up with actionable top disruptive tech insights to thrive in a future world driven by AI － relaunching soon.</p>
+                  <p className="text-2xl text-center sm:text-left">Actionable insights on disruptive tech you need to thrive in the age of AI － relaunching soon.</p>
                 </div>
                 <div className="w-full mb-10">
                   <div className="w-full rounded-lg sm:max-w-md">
