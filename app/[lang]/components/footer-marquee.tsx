@@ -5,11 +5,11 @@ import { clash } from "@/constants/fonts"
 
 export const FooterMarquee = () => {
   return (
-    <div className="py-4 sm:py-9">
-      <Marquee>
+    <div className="py-4 sm:py-9 bg-gradient-to-r from-tingual-500 to-amethyst-500">
+      <Marquee repeat={4}>
         <div className="flex items-center">
-          <span className={cn(clash.className, "text-xl font-bold uppercase")}>Shift Forward in the age of AI</span>
-          <span className="ml-4 text-xl">✦</span>
+          <span className={cn(clash.className, "text-3xl lg:text-5xl font-bold uppercase")}>Thrive in the age of AI</span>
+          <span className="ml-4 text-xl text-citrine-500">✦</span>
         </div>
       </Marquee>
     </div>

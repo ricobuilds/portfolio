@@ -10,6 +10,7 @@ import { Footer } from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Locale, i18n } from "@/constants/i18n.config";
 import { getDictionary } from "../dictionaries";
+import { FooterMarquee } from "@/components/footer-marquee";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -77,6 +78,7 @@ export default async function Layout({
           <Navbar tl={tl["navbar"]} />
           {children}
           <Footer tl={tl["footer"]} lang={params.lang} />
+          <FooterMarquee />
         </ThemeProvider>
         <UmamiScript />
       </body>
