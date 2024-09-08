@@ -76,7 +76,7 @@ export default async function Layout({
         >
           <Navbar tl={tl["navbar"]} />
           {children}
-          <Footer tl={tl["footer"]} />
+          <Footer tl={tl["footer"]} lang={params.lang} />
         </ThemeProvider>
         <UmamiScript />
       </body>

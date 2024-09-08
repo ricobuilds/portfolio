@@ -6,11 +6,14 @@ import Image from "next/image"
 import { getDictionary } from "../dictionaries"
 import { clash } from "@/constants/fonts"
 import BackToTop from "./back-to-top"
+import { i18nSwitcher as languages } from "@/constants/i18n.config"
 
 const Footer = ({
   tl,
+  lang
 }: {
-  tl: Awaited<ReturnType<typeof getDictionary>>["footer"];
+    tl: Awaited<ReturnType<typeof getDictionary>>["footer"],
+    lang: string
 }) => {
 
   const name = "Metasyde Ltd"
@@ -155,18 +158,14 @@ const Footer = ({
               <div>
                 <p className="font-medium text-gray-900">Language</p>
                 <ul className="mt-6 space-y-4 text-sm">
-                  <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Accessibility </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Returns Policy </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Refund Policy </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Hiring Statistics </a>
-                  </li>
+                  {
+                    languages.map((l) => (
+
+                      <li>
+                        <a href={`/${l.code}`} className={cn(lang === l.code ? "font-bold" : null, "text-gray-700 transition hover:opacity-75")}> {l.name} </a>
+                      </li>
+                    ))
+                  }
                 </ul>
               </div>
               <div className="flex justify-end w-full">
