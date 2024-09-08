@@ -197,7 +197,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
 
               </section>
               <section id="testimonials">
-                <h2 className={cn(clash.className, "font-bold text-2xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Testimonials</h2>
+                <h3 className={cn(clash.className, "font-bold text-2xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Testimonials</h3>
                 <div className="grid grid-cols-1 gap-3">
                   <blockquote className="relative max-w-2xl p-6 mx-auto bg-white border rounded-lg">
                     <div title="Testimonial" className="mb-4 italic text-gray-600">
