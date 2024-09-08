@@ -77,7 +77,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
         <div className={cn(baseWidth, "w-full mx-auto")}>
           <div className="relative flex flex-col items-center gap-6 pt-20">
 
-            <div id="content" className="flex flex-col gap-8 max-w-[580px] overflow-hidden mx-auto">
+            <div id="content" className="flex relative flex-col gap-8 max-w-[580px] overflow-hidden mx-auto">
               <div className="flex flex-col items-center w-full gap-4">
                 <Image priority src={'/images/headshot.jpeg'} alt="Enric Trillo" width={600} height={600} className="inline w-24 h-24 mx-auto transition-all duration-300 rounded-full ring-2 ring-slate-200/80 hover:ring-4" />
                 <h1 className="text-lg font-bold">About Enric Trillo</h1>
@@ -137,14 +137,14 @@ export default async function About({ params }: { params: { lang: Locale } }) {
               </section>
               <section id="expertise" className="space-y-6">
                 <h2 className={cn(clash.className, "font-bold text-2xl uppercase w-fit px-4 py-1 mb-3 bg-amethyst-500 text-white")}>Expertise</h2>
-                <div className="container mx-auto">
-                  <div className="border rounded-lg overflow-clip">
-                    <Table className="z-0 min-w-full divide-y divide-gray-200">
+                <div className="w-full overflow-x-auto ">
+                  <div className="min-w-full overflow-hidden border rounded-lg">
+                    <Table className="w-full table-auto">
                       <TableHeader>
                         <TableRow>
-                          <TableHead className="w-[200px]">Category</TableHead>
-                          <TableHead className="w-[200px]">Skills</TableHead>
-                          <TableHead>Experience</TableHead>
+                          <TableHead className="w-1/4 sm:w-[200px]">Category</TableHead>
+                          <TableHead className="w-1/4 sm:w-[200px]">Skills</TableHead>
+                          <TableHead className="w-1/2 sm:w-auto">Experience</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
