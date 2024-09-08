@@ -168,7 +168,7 @@ const Footer = ({
                   }
                 </ul>
               </div>
-              <div className="flex justify-end w-full">
+              <div className="flex w-full sm:justify-end">
                 <BackToTop />
               </div>
 
