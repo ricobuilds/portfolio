@@ -359,9 +359,9 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                   Writing
                 </h2>
                 <p className="text-center text-obsidian-600">Check out my latest takes and tutorials</p>
-                <ul className="grid w-full gap-8 mt-10 md:grid-cols-6">
-                  {Array(5).fill(slicedPostList[0]).map((post, idx) => (
-                    <li key={idx} className={`${idx < 2 ? 'md:col-span-3' : 'col-span-2'}`}>
+                <ul className="grid w-full gap-8 mt-10 md:grid-cols-8">
+                  {Array(9).fill(slicedPostList[0]).slice(0, 6).map((post, idx) => (
+                    <li key={idx} className={`${idx < 2 ? 'md:col-span-4' : 'col-span-2'}`}>
                       <BlogCard post={post} lang={params.lang} />
                     </li>
                   ))}
@@ -379,7 +379,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                 <h2 className={cn(clash.className, "flex items-center  text-center text-4xl font-bold px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
                   Frequently Asked Questions
                 </h2>
-                <p className="text-center text-obsidian-600">Check out my latest takes and tutorials</p>
+                <p className="text-center text-obsidian-600">Learn more about my technical side</p>
                 <div className="mt-10">
                   {faqs.map((faq, idx) => {
                     return (
