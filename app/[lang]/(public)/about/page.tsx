@@ -363,7 +363,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                 </div>
               </section>
               <section id="faqs" className="space-y-6">
-                <h3 className={cn(clash.className, "font-bold text-2xl uppercase w-full lg:w-fit px-4 py-1 text-center lg:text-left mb-3 bg-amethyst-500 text-white")}>Frequently Asked Questions</h3>
+                <h3 className={cn(clash.className, "font-bold text-2xl uppercase w-full lg:w-fit px-4 py-1 shadow-[8px_8px_0_0_#000] text-center lg:text-left mb-3 bg-amethyst-500 text-white")}>Frequently Asked Questions</h3>
                 {faqs.map((faq, idx) => {
                   return (
                     <Accordion key={idx} type="single" collapsible className="w-full max-w-3xl mx-auto">
