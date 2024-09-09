@@ -275,7 +275,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                     <h3 className={cn(clash.className, "font-bold text-2xl lg:text-5xl")}>
                       Tutorials
                     </h3>
-                    <p></p>
+                    <p className="mb-10 text-xl font-medium lg:text-3xl">Master new skills with hands-on guides.</p>
                     <p></p>
                     <button></button>
                   </div>
