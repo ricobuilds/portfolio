@@ -154,7 +154,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                 <p>My goal is to create software and educational resources that empower individuals and businesses to adapt and thrive in this world driven by AI.</p>
               </section>
               <section id="story" className="space-y-6">
-                <h3 className={cn(clash.className, "font-bold text-2xl uppercase w-full lg:w-fit px-4 py-1 text-center lg:text-left mb-3 bg-amethyst-500 text-white")}>Story</h3>
+                <h3 className={cn(clash.className, "font-bold text-2xl uppercase w-full lg:w-fit px-4 py-1 shadow-[8px_8px_0_0_#000] text-center lg:text-left mb-3 bg-amethyst-500 text-white")}>Story</h3>
                 <p>
                   In 2015, I finished my GCSEs and went to <Link target="_blank" className="font-bold underline text-amethyst-500" href="https://www.sfx.ac.uk/">St. Francis Xavier College</Link>, where I began my tech journey by experimenting with graphic design and coding with Python, setting the foundation for my future in fullstack and AI development.
                 </p>
