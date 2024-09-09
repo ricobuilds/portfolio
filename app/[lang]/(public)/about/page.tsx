@@ -296,7 +296,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                 </ul>
               </section>
               <section id="leadership">
-                <h3 className={cn(clash.className, "font-bold text-2xl uppercase w-full lg:w-fit px-4 py-1 text-center lg:text-left mb-3 bg-amethyst-500 text-white")}>Thought Leadership</h3>
+                <h3 className={cn(clash.className, "font-bold text-2xl uppercase w-full lg:w-fit shadow-[8px_8px_0_0_#000] px-4 py-1 text-center lg:text-left mb-3 bg-amethyst-500 text-white")}>Thought Leadership</h3>
                 <p>I'm active on these platforms sharing knowledge and what I learn:</p>
                 <ul className="ml-8 space-y-3 list-disc mb-b">
                   <li>Blog – my blog features deep dives, practical guides, and case studies on disruptive tech, designed for both beginners and advanced devs.</li>
