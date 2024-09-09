@@ -379,21 +379,24 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                 <h2 className={cn(clash.className, "flex items-center  text-center text-4xl font-bold px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
                   Frequently Asked Questions
                 </h2>
-                {faqs.map((faq, idx) => {
-                  return (
-                    <Accordion key={idx} type="single" collapsible className="w-full max-w-3xl mx-auto">
-                      <AccordionItem value={`item-${idx}`} className="mb-4 border-2 border-black ">
-                        <AccordionTrigger className="flex items-center gap-4 justify-normal hover:bg-slate-100">
-                          <span className="ml-4">{faq.icon}</span>
-                          <h3 className="text-xl">{faq.question}</h3>
-                        </AccordionTrigger>
-                        <AccordionContent className="p-4 border-t-2 border-black bg-purpalite-100">
-                          {faq.answer}
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                  );
-                })}
+                <p className="text-center text-obsidian-600">Check out my latest takes and tutorials</p>
+                <div className="mt-10">
+                  {faqs.map((faq, idx) => {
+                    return (
+                      <Accordion key={idx} type="single" collapsible className="w-full max-w-3xl mx-auto">
+                        <AccordionItem value={`item-${idx}`} className="mb-4 border-2 border-black ">
+                          <AccordionTrigger className="flex items-center gap-4 justify-normal hover:bg-slate-100">
+                            <span className="ml-4">{faq.icon}</span>
+                            <h3 className="text-xl">{faq.question}</h3>
+                          </AccordionTrigger>
+                          <AccordionContent className="p-4 border-t-2 border-black bg-purpalite-100">
+                            {faq.answer}
+                          </AccordionContent>
+                        </AccordionItem>
+                      </Accordion>
+                    );
+                  })}
+                </div>
                 <p className="pt-8 text-center">Curious to learn more about my journey, values, and vision? Check out my personal FAQs <Link className="underline text-amethyst-500" href="/about#faqs">here</Link>.</p>
               </div>
             </section>
