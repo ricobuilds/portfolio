@@ -10,6 +10,56 @@ import { getDictionary } from "../../dictionaries"
 import { clash } from "@/constants/fonts"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button"
+import { Award, BookOpen, ExternalLink } from "lucide-react"
+
+type ExpType = "course" | "certification"
+
+interface Experience {
+  type: ExpType;
+  provider: string;
+  logo: string;
+  title: string;
+  date: string;
+  skills: string[];
+  description: string;
+  link: string;
+}
+
+const experiences: Experience[] = [
+  {
+    type: 'certification',
+    provider: 'Google',
+    logo: 'google',
+    title: 'Fundamentals of Digital Marketing',
+    date: 'February 2020',
+    skills: ['SEO', 'PPC', 'Social Media Marketing'],
+    description: 'Comprehensive overview of digital marketing strategies and tools.',
+    link: 'https://media.licdn.com/dms/image/D4E2DAQGu2vrAPnYtbA/profile-treasury-document-images_1920/1/1716743622434?e=1726704000&v=beta&t=CP2L2NzOxII4S0CMTJBSbrisujMWclsv9U8-SGMRETg'
+  },
+  {
+    type: 'certification',
+    provider: 'Semrush',
+    logo: 'semrush',
+    title: 'Keyword Research with Semrush',
+    date: 'October 2023',
+    skills: ['Keyword Research', 'SEO', 'Content Strategy'],
+    description: 'In-depth training on effective keyword research techniques.',
+    link: 'https://media.licdn.com/dms/image/D4E2DAQG5qDBH-NBWHw/profile-treasury-document-images_1920/1/1725539600707?e=1726704000&v=beta&t=-b2DlbP_JvjGlTCCzKDYrd9SgIChZ1lhYyrAGIUR_JU'
+  },
+  {
+    type: 'course',
+    provider: 'DeepLearning.ai',
+    logo: 'deeplearningai',
+    title: 'Build LLM Apps with LangChain.js',
+    date: 'July 2023',
+    skills: ['LLM', 'JavaScript', 'AI Applications'],
+    description: 'Hands-on course on building AI-powered applications using LangChain.js.',
+    link: '#'
+  },
+]
 
 export const metadata = generateMetadata({
   title: 'About',
@@ -160,6 +210,60 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                   </div>
                 </div>
               </section>
+              <section id="experience">
+                <div className="flex flex-col px-6 py-16">
+                  <h3 className={cn(clash.className, "font-bold text-2xl uppercase w-full lg:w-fit px-4 py-1 text-center lg:text-left mb-3 bg-amethyst-500 text-white")}>Experience</h3>
+                  <div className="mt-10 w-full max-w-[1360px]">
+                    <ul role="list" className="grid w-full grid-cols-1 gap-6">
+                      {
+                        experiences.map((exp, idx) => (
+                          <Card key={idx} className="flex flex-col transition border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,0)] shadow-[#6583E0]">
+                            <CardHeader>
+                              <div className="flex items-center space-x-4">
+                                <Image src={"/images/certs/" + exp.logo + ".jpeg"} alt={`${exp.provider} logo`} width={300} height={300} className="w-10 h-10" />
+                                <div>
+                                  <CardTitle>{exp.provider}</CardTitle>
+                                  <CardDescription>{exp.title}</CardDescription>
+                                </div>
+                              </div>
+                            </CardHeader>
+                            <CardContent className="flex-grow">
+                              <div className="flex items-center mb-2">
+                                {exp.type === 'certification' ? (
+                                  <Badge variant="default" className="mr-2 bg-jade-500">
+                                    <Award className="w-3 h-3 mr-1" />
+                                    Certification
+                                  </Badge>
+                                ) : (
+                                  <Badge variant="secondary" className="mr-2 bg-jade-500">
+                                    <BookOpen className="w-3 h-3 mr-1" />
+                                    Course
+                                  </Badge>
+                                )}
+                                <span className="text-sm text-muted-foreground">Completed: {exp.date}</span>
+                              </div>
+                              <p className="mb-4 text-sm">{exp.description}</p>
+                              <div className="flex flex-wrap gap-2">
+                                {exp.skills.map((skill, i) => (
+                                  <Badge key={i} variant="outline">{skill}</Badge>
+                                ))}
+                              </div>
+                            </CardContent>
+                            <CardFooter>
+                              <Button variant="outline" className="w-full border-tingual-500" asChild>
+                                <Link href={!exp.link.includes('licdn') && exp.link.includes('https') ? exp.link + "?ref=enrictrillo" : exp.link} target="_blank" rel="noopener noreferrer">
+                                  {exp.type === 'certification' ? 'View Certificate' : 'View Course'}
+                                  <ExternalLink className="w-4 h-4 ml-2" />
+                                </Link>
+                              </Button>
+                            </CardFooter>
+                          </Card>
+                        ))
+                      }
+                    </ul>
+                  </div>
+                </div>
+              </section>
               <section id="recognition">
                 <h3 className={cn(clash.className, "font-bold text-2xl uppercase w-full lg:w-fit px-4 py-1 text-center lg:text-left mb-3 bg-amethyst-500 text-white")}>Awards & Recognition</h3>
                 <ul className="mb-0 ml-8 list-disc">
@@ -273,7 +377,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
               </section>
             </div>
           </div>
-          <Spacer className="h-24"/>
+          <Spacer className="h-24" />
         </div>
       </main>
     </>

@@ -19,25 +19,10 @@ import Marquee from "@/components/magicui/marquee";
 import { baseWidth } from "@/constants/index";
 import { clash } from "@/constants/fonts";
 import { Button } from "@/components/ui/button";
-import { Award, BookOpen, Bot, Braces, Code2, Coffee, Cpu, ExternalLink, Layers, Lightbulb, Send, Wrench, Zap } from "lucide-react";
+import { Bot, Cpu, Layers, Lightbulb, Send, Wrench, Zap } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Skills } from "@/sections/skills";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { StickyScroll } from "@/components/aceternity/scroll-reveal";
-
-type ExpType = "course" | "certification"
-
-interface Experience {
-  type: ExpType;
-  provider: string;
-  logo: string;
-  title: string;
-  date: string;
-  skills: string[];
-  description: string;
-  link: string;
-}
 
 export const metadata = {
   description: siteMetadata.description
@@ -106,39 +91,6 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
 
   const POSTS_MAX = 5
   const slicedPostList = posts.slice(0, POSTS_MAX)
-
-  const experiences: Experience[] = [
-    {
-      type: 'certification',
-      provider: 'Google',
-      logo: 'google',
-      title: 'Fundamentals of Digital Marketing',
-      date: 'February 2020',
-      skills: ['SEO', 'PPC', 'Social Media Marketing'],
-      description: 'Comprehensive overview of digital marketing strategies and tools.',
-      link: 'https://media.licdn.com/dms/image/D4E2DAQGu2vrAPnYtbA/profile-treasury-document-images_1920/1/1716743622434?e=1726704000&v=beta&t=CP2L2NzOxII4S0CMTJBSbrisujMWclsv9U8-SGMRETg'
-    },
-    {
-      type: 'certification',
-      provider: 'Semrush',
-      logo: 'semrush',
-      title: 'Keyword Research with Semrush',
-      date: 'October 2023',
-      skills: ['Keyword Research', 'SEO', 'Content Strategy'],
-      description: 'In-depth training on effective keyword research techniques.',
-      link: 'https://media.licdn.com/dms/image/D4E2DAQG5qDBH-NBWHw/profile-treasury-document-images_1920/1/1725539600707?e=1726704000&v=beta&t=-b2DlbP_JvjGlTCCzKDYrd9SgIChZ1lhYyrAGIUR_JU'
-    },
-    {
-      type: 'course',
-      provider: 'DeepLearning.ai',
-      logo: 'deeplearningai',
-      title: 'Build LLM Apps with LangChain.js',
-      date: 'July 2023',
-      skills: ['LLM', 'JavaScript', 'AI Applications'],
-      description: 'Hands-on course on building AI-powered applications using LangChain.js.',
-      link: '#'
-    },
-  ]
 
   const faqs = [
     {
@@ -363,63 +315,6 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                   <span>Start Learning</span>
                   <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path></svg>
                 </button>
-              </div>
-            </section>
-            <section id="experience" className="hidden border-t-2 border-black">
-              <div className="flex flex-col items-center px-6 py-16">
-                <h2 className={cn(clash.className, "flex items-center text-4xl font-bold px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
-                  Experience
-                </h2>
-                <p className="text-obsidian-500">I&apos;m certified by top technology companies</p>
-                <div className="mt-10 w-full max-w-[1360px]">
-                  <ul role="list" className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
-                    {
-                      experiences.map((exp, idx) => (
-                        <Card key={idx} className="flex flex-col transition border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,0)] shadow-[#6583E0]">
-                          <CardHeader>
-                            <div className="flex items-center space-x-4">
-                              <Image src={"/images/certs/" + exp.logo + ".jpeg"} alt={`${exp.provider} logo`} width={300} height={300} className="w-10 h-10" />
-                              <div>
-                                <CardTitle>{exp.provider}</CardTitle>
-                                <CardDescription>{exp.title}</CardDescription>
-                              </div>
-                            </div>
-                          </CardHeader>
-                          <CardContent className="flex-grow">
-                            <div className="flex items-center mb-2">
-                              {exp.type === 'certification' ? (
-                                <Badge variant="default" className="mr-2 bg-jade-500">
-                                  <Award className="w-3 h-3 mr-1" />
-                                  Certification
-                                </Badge>
-                              ) : (
-                                <Badge variant="secondary" className="mr-2 bg-jade-500">
-                                  <BookOpen className="w-3 h-3 mr-1" />
-                                  Course
-                                </Badge>
-                              )}
-                              <span className="text-sm text-muted-foreground">Completed: {exp.date}</span>
-                            </div>
-                            <p className="mb-4 text-sm">{exp.description}</p>
-                            <div className="flex flex-wrap gap-2">
-                              {exp.skills.map((skill, i) => (
-                                <Badge key={i} variant="outline">{skill}</Badge>
-                              ))}
-                            </div>
-                          </CardContent>
-                          <CardFooter>
-                            <Button variant="outline" className="w-full border-tingual-500" asChild>
-                              <Link href={!exp.link.includes('licdn') && exp.link.includes('https') ? exp.link + "?ref=enrictrillo" : exp.link} target="_blank" rel="noopener noreferrer">
-                                {exp.type === 'certification' ? 'View Certificate' : 'View Course'}
-                                <ExternalLink className="w-4 h-4 ml-2" />
-                              </Link>
-                            </Button>
-                          </CardFooter>
-                        </Card>
-                      ))
-                    }
-                  </ul>
-                </div>
               </div>
             </section>
             <section id="writing" className="border-t-2 border-black">
