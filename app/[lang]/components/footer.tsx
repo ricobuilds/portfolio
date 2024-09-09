@@ -19,7 +19,7 @@ const Footer = ({
   const name = "Metasyde Ltd"
 
   return (
-    <footer className="mt-24 bg-obsidian-100">
+    <footer className=" bg-obsidian-100">
       <div className="border-t-2 border-black">
         <div className="max-w-[1360px] px-6 py-16 mx-auto space-y-8 lg:space-y-16">
           <div id="top-footer" className="grid grid-cols-1 gap-8 lg:grid-cols-3">

@@ -489,8 +489,8 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
               </div>
             </section>
 
-            <section id="cta" className="px-6">
-              <div className="flex flex-col lg:flex-row gap-6 justify-between px-6 py-16 bg-gradient-to-r from-amethyst-500 to-celuria-600 max-w-[1360px] m-auto w-full">
+            <section id="cta" className="px-6 bg-gradient-to-r from-amethyst-500 to-celuria-600">
+              <div className="flex flex-col lg:flex-row gap-6 justify-between py-16 max-w-[1360px] px-6 m-auto w-full">
                 <div className="flex flex-col text-white">
                   <h2 className={cn(clash.className, "text-4xl font-semibold")}>Let's build the future together</h2>
                   <p>Get in touch if you have a project idea, feedback, or want me to discuss an opportunity.</p>
