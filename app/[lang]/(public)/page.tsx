@@ -375,7 +375,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                           <span className="ml-4">{faq.icon}</span>
                           <h3 className="text-xl">{faq.question}</h3>
                         </AccordionTrigger>
-                        <AccordionContent className="text-gray-600 border-t-2 border-black dark:text-gray-300 bg-amethyst-100">
+                        <AccordionContent className="p-4 text-gray-600 border-t-2 border-black dark:text-gray-300 bg-amethyst-100">
                           {faq.answer}
                         </AccordionContent>
                       </AccordionItem>
