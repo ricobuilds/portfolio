@@ -13,7 +13,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button"
-import { Award, BookOpen, CalendarClock, Drama, ExternalLink } from "lucide-react"
+import { Award, BookOpen, CalendarClock, Drama, ExternalLink, Globe } from "lucide-react"
 
 type ExpType = "course" | "certification"
 
@@ -110,6 +110,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
       answer: "I've worked across DJing, graphic design, UI/UX design, motion design, journalism, library assisting, web development, videography and editing, bartending, tech sales at European Gateway (a startup by a former Gartner executive), and fullstack Web3 development – these experiences have given me an unique creative perspective."
     },
     {
+      icon: <Globe className="w-5 h-5 mr-2" />,
       question: "So, you're from Guinea Bissau/Guinea etc?",
       answer: "Actually, I'm from Equatorial Guinea, a tiny hispanic nation in the Gulf of Guinea that's often forgotten, and usually confused with the other Guineas. We speak Pichi (among other languages like Fa d'Ambô and Bube), which is almost identical (given our small differences) to Sierra Leone's Krio! Did you know that Annobon can fit 92.5x in London?",
     },
