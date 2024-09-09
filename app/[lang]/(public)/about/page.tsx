@@ -217,7 +217,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
               </section>
               <section id="experience">
                 <div className="flex flex-col py-16">
-                  <h3 className={cn(clash.className, "font-bold text-2xl uppercase w-full lg:w-fit px-4 py-1 text-center lg:text-left mb-3 bg-amethyst-500 text-white")}>Experience</h3>
+                  <h3 className={cn(clash.className, "font-bold text-2xl uppercase w-full shadow-[8px_8px_0_0_#000] lg:w-fit px-4 py-1 text-center lg:text-left mb-3 bg-amethyst-500 text-white")}>Experience</h3>
                   <p>This is a list of courses and certifications I've completed, that are relevant to the skills I apply in personal/professional projects, and topics I discuss online.</p>
                   <div className="mt-10 w-full max-w-[1360px]">
                     <ul role="list" className="grid w-full grid-cols-1 gap-6">
