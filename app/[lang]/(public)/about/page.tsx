@@ -127,7 +127,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
       <main className="w-full px-6">
         <div className={cn(baseWidth, "w-full mx-auto")}>
           <div className="relative flex flex-col items-center gap-6 pt-20">
-            <div id="content" className="flex relative flex-col gap-8 max-w-[580px] overflow-hidden mx-auto">
+            <div id="content" className="flex relative flex-col gap-8 max-w-[580px] mx-auto">
               <div className="flex flex-col items-center w-full gap-4">
                 <Image priority src={'/images/headshot.jpeg'} alt="Enric Trillo" width={600} height={600} className="inline w-24 h-24 mx-auto transition-all duration-300 rounded-full ring-2 ring-slate-200/80 hover:ring-4" />
                 <h1 className="text-lg font-bold">About Enric Trillo</h1>
@@ -211,7 +211,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                 </div>
               </section>
               <section id="experience">
-                <div className="flex flex-col px-6 py-16">
+                <div className="flex flex-col py-16">
                   <h3 className={cn(clash.className, "font-bold text-2xl uppercase w-full lg:w-fit px-4 py-1 text-center lg:text-left mb-3 bg-amethyst-500 text-white")}>Experience</h3>
                   <div className="mt-10 w-full max-w-[1360px]">
                     <ul role="list" className="grid w-full grid-cols-1 gap-6">
