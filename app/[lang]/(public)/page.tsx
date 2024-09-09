@@ -363,7 +363,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
             </section>
 
             {/* <Work /> */}
-            <section id="shift-forward" className="border-t-2 border-black">
+            <section id="shift-forward" className="border-t-2 border-black bg-charkol">
               <div className="flex flex-col px-6 py-16">
                 <h2 className={cn(clash.className, "flex items-center  text-center text-4xl font-bold px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
                   Shift Forward Newsletter
