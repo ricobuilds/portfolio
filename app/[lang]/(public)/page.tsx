@@ -271,6 +271,12 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
             {/* <LogoCloud /> */}
             {/* <Showcase/> */}
             {/* <StickyScroll content={content} /> */}
+            <section id="social-proof" className="hidden">
+              <div className="px-6 py-8">
+                <p className={cn(clash.className, "font-bold uppercase mx-auto text-center text-2xl lg:text-3xl")}>What People Say</p>
+                <p>what others have said here</p>
+              </div>
+            </section>
             <section id="bio" className="left-0 flex flex-col px-4 py-16 mt-0 max-w-screen">
               <h2 className={cn(clash.className, "flex items-center font-bold text-center text-4xl px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
                 About Me
@@ -307,11 +313,6 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                     </div>
                   </div>
                 </div>
-              </div>
-            </section>
-            <section id="social-proof" className="">
-              <div className="border-t-2 border-black">
-                <h3 className={cn(clash.className, "font-bold text-2xl lg:text-5xl")}>What People Say</h3>
               </div>
             </section>
             <section id="tutorials" className="bg-citrine-200">
