@@ -19,7 +19,7 @@ import Marquee from "@/components/magicui/marquee";
 import { baseWidth } from "@/constants/index";
 import { clash } from "@/constants/fonts";
 import { Button } from "@/components/ui/button";
-import { Bot, Cpu, Layers, Lightbulb, Send, Wrench, Zap } from "lucide-react";
+import { Bot, CheckCircle, Cpu, Layers, Lightbulb, Send, Wrench, Zap } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Skills } from "@/sections/skills";
 import { StickyScroll } from "@/components/aceternity/scroll-reveal";
@@ -387,7 +387,51 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
             </section>
 
             {/* <Work /> */}
-            <section id="shift-forward" className="border-t-2 border-black bg-charkol">
+            <section id="shift-forward" className="w-full py-12 border-t-2 border-black bg-scarlet-200 md:py-24 lg:py-32">
+              <div className="container px-4 mx-auto md:px-6">
+                <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-12">
+                  <div className="space-y-4 bg-white p-6 border-4 border-black shadow-[8px_8px_0_0_#000] transform -rotate-1">
+                    <h2 className="font-mono text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">STAY UPDATED</h2>
+                    <p className="font-sans text-gray-800 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                      Join our wild newsletter and get the hottest updates! Here's what you'll score:
+                    </p>
+                    <ul className="space-y-2">
+                      {["Exclusive content", "Early access to new features", "Special offers and discounts", "Industry insights and trends"].map((benefit) => (
+                        <li key={benefit} className="flex items-center space-x-2 font-bold">
+                          <CheckCircle className="w-6 h-6 text-green-600" />
+                          <span>{benefit.toUpperCase()}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="flex flex-col space-y-4 bg-pink-400 p-6 border-4 border-black shadow-[8px_8px_0_0_#000] transform rotate-1">
+                    <div className="space-y-2">
+                      <h3 className="font-mono text-2xl font-bold">SUBSCRIBE NOW!</h3>
+                      <p className="font-sans text-gray-800">
+                        Get the latest updates and news delivered straight to your inbox. No spam, we promise!
+                      </p>
+                    </div>
+                    <form className="space-y-4">
+                      <input
+                        type="email"
+                        placeholder="YOUR EMAIL HERE"
+                        className="w-full p-3 font-mono text-lg placeholder-gray-500 border-4 border-black focus:outline-none focus:ring-4 focus:ring-blue-500"
+                      />
+                      <button
+                        type="submit"
+                        className="w-full uppercase p-3 bg-blue-500 text-white font-bold text-lg border-4 border-black shadow-[4px_4px_0_0_#000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-200"
+                      >
+                        Subscribe
+                      </button>
+                    </form>
+                    <p className="font-sans text-xs text-gray-800">
+                      By subscribing, you agree to our totally rad Terms of Service and Privacy Policy.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section id="shift-forward" className="relative hidden overflow-hidden border-t-2 border-black bg-amethyst-200">
               <div className="flex flex-col px-6 py-16">
                 <h2 className={cn(clash.className, "flex items-center  text-center text-4xl font-bold px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
                   Shift Forward Newsletter
