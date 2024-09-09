@@ -218,7 +218,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                     <ul role="list" className="grid w-full grid-cols-1 gap-6">
                       {
                         experiences.map((exp, idx) => (
-                          <Card key={idx} className="flex flex-col transition border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,0)] shadow-[#6583E0]">
+                          <Card key={idx} className="flex flex-col transition border-2 border-black hover:shadow-[8px_8px_0px_rgba(0,0,0,0)] hover:shadow-[#6583E0]">
                             <CardHeader>
                               <div className="flex items-center space-x-4">
                                 <Image src={"/images/certs/" + exp.logo + ".jpeg"} alt={`${exp.provider} logo`} width={300} height={300} className="w-10 h-10" />
