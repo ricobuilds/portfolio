@@ -233,7 +233,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
               <h2 className={cn(clash.className, "flex items-center font-bold text-center text-4xl px-4 py-1 mb-3 mx-auto text-white uppercase w-fit bg-amethyst-500")}>
                 About Me
               </h2>
-              <p className="text-center text-obsidian-500">Get to learn about the man behind the face.</p>
+              <p className="text-center text-obsidian-500">Get to learn about the man behind the face</p>
               <div className="flex flex-col items-center lg:flex-row gap-16 w-full max-w-[970px] mx-auto mt-10">
                 <div className="relative flex w-full max-w-lg aspect-auto">
                   <Image src="/images/graduation.jpg" width={600} height={0} alt={tl['home']['bio'].alt} />
@@ -440,7 +440,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                       </button>
                     </form>
                     <p className="font-sans text-xs text-gray-800">
-                      By subscribing, you agree to our totally rad Terms of Service and Privacy Policy.
+                      By subscribing, you agree to our totally rad <span className="font-semibold underline underline-offset-2">Terms of Service</span> and <span className="font-semibold underline underline-offset-2">Privacy Policy</span>.
                     </p>
                   </div>
                 </div>
