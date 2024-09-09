@@ -365,7 +365,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                 </button>
               </div>
             </section>
-            <section id="experience" className="hidden border-t-2 border-black">
+            <section id="experience" className="border-t-2 border-black">
               <div className="flex flex-col items-center px-6 py-16">
                 <h2 className={cn(clash.className, "flex items-center text-4xl font-bold px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
                   Experience
@@ -375,7 +375,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                   <ul role="list" className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
                     {
                       experiences.map((exp, idx) => (
-                        <Card key={idx} className="flex flex-col">
+                        <Card key={idx} className="flex flex-col transition border-2 border-black shadow-[8px_8px_0px_rgba(0,0,0,0)] shadow-[#6583E0]">
                           <CardHeader>
                             <div className="flex items-center space-x-4">
                               <Image src={"/images/certs/" + exp.logo + ".jpeg"} alt={`${exp.provider} logo`} width={300} height={300} className="w-10 h-10" />
