@@ -271,7 +271,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                 </div>
               </section>
               <section id="recognition">
-                <h3 className={cn(clash.className, "font-bold text-2xl uppercase w-full lg:w-fit px-4 py-1 text-center lg:text-left mb-3 bg-amethyst-500 text-white")}>Awards & Recognition</h3>
+                <h3 className={cn(clash.className, "font-bold text-2xl uppercase w-full lg:w-fit shadow-[8px_8px_0_0_#000] px-4 py-1 text-center lg:text-left mb-3 bg-amethyst-500 text-white")}>Awards & Recognition</h3>
                 <ul className="mb-0 ml-8 list-disc">
                   <li>
                     <strong>The Startup</strong>: Got featured by The Startup publication on Medium for <Link className="underline text-amethyst-500" href="https://medium.com/swlh/an-image-classifier-with-keras-2f0e9b868a36">documenting my work on AI</Link> and my academic journey.
