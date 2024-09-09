@@ -168,7 +168,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                 <p>Instead of letting that define me, I flipped the script. I hopped on mastering hot, in-demand skills, which led me to secure a £5000/mo Fullstack Web3 Developer contract role at the age of 23. That opportunity was the catalyst for what will become <Link className="font-bold underline text-amethyst-500" href="https://metasyde.com?ref=enrictrillo">Metasyde</Link>, my company dedicated to building profitable and innovative solutions with disruptive technologies.</p>
               </section>
               <section id="mission" className="space-y-6">
-                <h3 className={cn(clash.className, "font-bold text-2xl uppercase w-full lg:w-fit px-4 py-1 text-center lg:text-left mb-3 bg-amethyst-500 text-white")}>Mission</h3>
+                <h3 className={cn(clash.className, "font-bold text-2xl uppercase w-full lg:w-fit px-4 py-1 shadow-[8px_8px_0_0_#000] text-center lg:text-left mb-3 bg-amethyst-500 text-white")}>Mission</h3>
                 <p>In 2017, McKinsey <Link target="_blank" className="font-bold underline text-amethyst-500" href="https://www.mckinsey.com/featured-insights/future-of-work/jobs-lost-jobs-gained-what-the-future-of-work-will-mean-for-jobs-skills-and-wages">reported</Link> they estimat something between 400-800 million people globally to be displaced by emerging technologies by 2030.</p>
                 <p>The landscape is shifting fast, and my mission is to help people and businesses navigate this transformation. Whether through learning resources or software products, my goal is to assist others to thrive in the age of AI.</p>
               </section>
