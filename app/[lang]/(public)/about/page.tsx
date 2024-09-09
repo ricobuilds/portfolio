@@ -332,7 +332,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                 <p>As the world of AI and disruptive tech continues to evolve, I’m committed to lifelong learning, constantly experimenting with emerging tools and concepts. My vision is to be at the forefront of this shift, assembling teams of AI agents and building products that push the boundaries of what’s possible in tech.</p>
               </section>
               <section id="collaborations" className="space-y-6">
-                <h3 className={cn(clash.className, "font-bold text-2xl uppercase w-full lg:w-fit px-4 py-1 text-center lg:text-left mb-3 bg-amethyst-500 text-white")}>Collaboration & Contact</h3>
+                <h3 className={cn(clash.className, "font-bold text-2xl uppercase w-full lg:w-fit px-4 py-1 shadow-[8px_8px_0_0_#000] text-center lg:text-left mb-3 bg-amethyst-500 text-white")}>Collaboration & Contact</h3>
                 <p>
                   I&apos;m open to collaborations and new opportunities. Feel free to reach out if you have (or are aware of) opportunities for me, including:
                 </p>
