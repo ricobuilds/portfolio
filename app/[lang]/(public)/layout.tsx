@@ -69,17 +69,10 @@ export default async function Layout({
   return (
     <html lang={params.lang}>
       <body suppressHydrationWarning className={cn(GeistSans.className, "min-h-screen flex flex-col")}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar tl={tl["navbar"]} />
-          {children}
-          <Footer tl={tl["footer"]} lang={params.lang} />
-          <FooterMarquee />
-        </ThemeProvider>
+        <Navbar tl={tl["navbar"]} />
+        {children}
+        <Footer tl={tl["footer"]} lang={params.lang} />
+        <FooterMarquee />
         <UmamiScript />
       </body>
     </html>
