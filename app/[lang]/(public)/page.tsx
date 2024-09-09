@@ -309,7 +309,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                 </div>
               </div>
             </section>
-            <section id="social-proof" className="bg-citrine-200">
+            <section id="social-proof" className="">
               <div className="border-t-2 border-black">
                 <h3 className={cn(clash.className, "font-bold text-2xl lg:text-5xl")}>What People Say</h3>
               </div>
