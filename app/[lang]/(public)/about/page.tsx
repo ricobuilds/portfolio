@@ -13,7 +13,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button"
-import { Award, BookOpen, CalendarClock, ExternalLink } from "lucide-react"
+import { Award, BookOpen, CalendarClock, Drama, ExternalLink } from "lucide-react"
 
 type ExpType = "course" | "certification"
 
@@ -105,6 +105,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
       answer: "My journey started in 2014 as DJ, being 15 then. A year after, I finished my GCSEs and went to SFX Sixth Form College for a BTEC in IT – where I learned Photoshop and picked up Python. Since then, I've produced results no matter the discipline – from DJing to graphic design, plus many others. Now, I'm a dev focused on disruptive tech."
     },
     {
+      icon: <Drama className="w-5 h-5 mr-2" />,
       question: "What other roles have you been in?",
       answer: "I've worked across DJing, graphic design, UI/UX design, motion design, journalism, library assisting, web development, videography and editing, bartending, tech sales at European Gateway (a startup by a former Gartner executive), and fullstack Web3 development – these experiences have given me an unique creative perspective."
     },
