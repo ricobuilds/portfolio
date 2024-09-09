@@ -362,12 +362,12 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                 {faqs.map((faq, idx) => {
                   return (
                     <Accordion key={idx} type="single" collapsible className="w-full max-w-3xl mx-auto">
-                      <AccordionItem value={`item-${idx}`}>
-                        <AccordionTrigger className="flex items-center gap-4 justify-normal">
-                          {/* <span>{faq.icon}</span> */}
-                          <h4 className="text-xl">{faq.question}</h4>
+                      <AccordionItem value={`item-${idx}`} className="mb-4 border-2 border-black ">
+                        <AccordionTrigger className="flex items-center gap-4 justify-normal hover:bg-slate-100">
+                          <span className="ml-4">{faq.icon}</span>
+                          <h3 className="text-xl">{faq.question}</h3>
                         </AccordionTrigger>
-                        <AccordionContent className="text-gray-600 dark:text-gray-300">
+                        <AccordionContent className="p-4 border-t-2 border-black bg-purpalite-100">
                           {faq.answer}
                         </AccordionContent>
                       </AccordionItem>
