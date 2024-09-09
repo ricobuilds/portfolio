@@ -326,7 +326,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                     <h3 className={cn(clash.className, "font-bold text-2xl lg:text-5xl")}>
                       Free Tools
                     </h3>
-                    <p></p>
+                    <p className="mb-10 text-xl font-medium lg:text-3xl">Boost productivity with free resources.</p>
                     <p></p>
                     <button className="flex items-center gap-2 px-4 py-2 text-white transition bg-black border-2 border-black shrink-0 hover:bg-amethyst-500">
                       <span>Use Tools Now</span>
