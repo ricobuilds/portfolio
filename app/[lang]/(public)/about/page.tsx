@@ -13,7 +13,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button"
-import { Award, BookOpen, Bot, CalendarClock, Drama, ExternalLink, Globe } from "lucide-react"
+import { Award, BookOpen, Bot, CalendarClock, Drama, ExternalLink, Eye, Globe } from "lucide-react"
 
 type ExpType = "course" | "certification"
 
@@ -120,6 +120,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
       answer: "I'm working on upgrading the visual identity of my website so I can make room for the coming changes (keep a close eye!). I'm also working on K.A.I.S.E.R – my dream team of AI agents that handle the heavy lifting of my workflows so I get to work on what I do best, like learning new skills and my applying them."
     },
     {
+      icon: <Eye className="w-5 h-5 mr-2" />,
       question: "Where do you see yourself in 5 years?",
       answer: "Building industry-leading AI products, a thriving global community having launched my own educational resources, and a successful business around disruptive tech, like AI  and multi-agent systems, that enables me to live my dreams and work my philanthropic ideas."
     },
