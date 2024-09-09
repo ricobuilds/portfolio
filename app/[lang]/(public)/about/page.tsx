@@ -191,7 +191,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                 </ul>
               </section>
               <section id="expertise" className="space-y-6">
-                <h3 className={cn(clash.className, "font-bold text-2xl uppercase w-full lg:w-fit px-4 py-1 text-center lg:text-left mb-3 bg-amethyst-500 text-white")}>Expertise</h3>
+                <h3 className={cn(clash.className, "font-bold text-2xl uppercase w-full lg:w-fit px-4 py-1 shadow-[8px_8px_0_0_#000] text-center lg:text-left mb-3 bg-amethyst-500 text-white")}>Expertise</h3>
                 <div className="w-full overflow-x-auto ">
                   <div className="min-w-full overflow-hidden border rounded-lg">
                     <Table className="w-full table-auto">
