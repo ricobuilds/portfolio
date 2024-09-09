@@ -354,13 +354,13 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
               </div>
             </section>
             <section id="writing" className="border-t-2 border-black">
-              <div className={cn(baseWidth, "flex flex-col py-16 mx-auto px-6")}>
+              <div className={cn("max-w-[1360px]", "flex flex-col py-16 mx-auto px-6")}>
                 <h2 className={cn(clash.className, "flex items-center mx-auto text-4xl font-bold px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
                   Writing
                 </h2>
                 <p className="text-center text-obsidian-600">Check out my latest takes and tutorials</p>
                 <ul className="grid w-full gap-8 mt-10 md:grid-cols-6">
-                  {slicedPostList.map((post, idx) => (
+                  {Array(5).fill(slicedPostList[0]).map((post, idx) => (
                     <li key={idx} className={`${idx < 2 ? 'md:col-span-3' : 'col-span-2'}`}>
                       <BlogCard post={post} lang={params.lang} />
                     </li>
