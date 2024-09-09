@@ -8,11 +8,11 @@ import { Locale } from "@/constants/i18n.config"
 
 export const BlogCard = ({ post, lang }: { post: MDXArticle, lang: Locale }) => {
   return (
-    <article className="flex flex-col w-full gap-3 border-2 border-black outline-none group">
-      <Link href={`/${lang}/blog/${post.slug}`} className="w-full overflow-hidden duration-300 ring-0 rounded-2xl">
-        <Image src={`/images/blog/${post.slug}.png`} height={1200} width={630} alt={post.title} loading="lazy" className="object-cover w-full rounded-2xl" />
+    <article className="flex flex-col w-full gap-3 overflow-hidden border-2 border-black outline-none rounded-2xl group">
+      <Link href={`/${lang}/blog/${post.slug}`} className="w-full overflow-hidden duration-300 ring-0">
+        <Image src={`/images/blog/${post.slug}.png`} height={1200} width={630} alt={post.title} loading="lazy" className="object-cover w-full" />
       </Link>
-      <div className="flex flex-col gap-2 px-2">
+      <div className="flex flex-col gap-2 px-2 mb-3">
         <div className="flex gap-2">
           {post.tags && post.tags.map((t, idx) => (
             <Link key={idx} href={`/${lang}/tags/${formatTag(t)}`} className="text-[10px] w-fit uppercase underline text-amethyst-500">
