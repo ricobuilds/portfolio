@@ -3,7 +3,8 @@ import { generateMetadata } from "@/lib/seo"
 import { cn } from "@/lib/shared-utils"
 import Image from "next/image"
 import Link from "next/link"
-import { BeehiivCustom } from "../../components/beehiiv-custom"
+import { BeehiivCustom } from "@/components/beehiiv-custom"
+import { Spacer } from "@/components/spacer"
 import { Locale } from "@/constants/i18n.config"
 import { getDictionary } from "../../dictionaries"
 import { clash } from "@/constants/fonts"
@@ -76,7 +77,6 @@ export default async function About({ params }: { params: { lang: Locale } }) {
       <main className="w-full px-6">
         <div className={cn(baseWidth, "w-full mx-auto")}>
           <div className="relative flex flex-col items-center gap-6 pt-20">
-
             <div id="content" className="flex relative flex-col gap-8 max-w-[580px] overflow-hidden mx-auto">
               <div className="flex flex-col items-center w-full gap-4">
                 <Image priority src={'/images/headshot.jpeg'} alt="Enric Trillo" width={600} height={600} className="inline w-24 h-24 mx-auto transition-all duration-300 rounded-full ring-2 ring-slate-200/80 hover:ring-4" />
@@ -273,8 +273,9 @@ export default async function About({ params }: { params: { lang: Locale } }) {
               </section>
             </div>
           </div>
-        </div >
-      </main >
+          <Spacer className="h-24"/>
+        </div>
+      </main>
     </>
   )
 }
