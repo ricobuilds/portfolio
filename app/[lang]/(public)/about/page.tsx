@@ -138,7 +138,7 @@ export default async function About({ params }: { params: { lang: Locale } }) {
                 <h1 className="text-lg font-bold">About Enric Trillo</h1>
                 <p className="text-slate-600">Fullstack & AI Agents Developer</p>
                 <section id="intro" className="space-y-6">
-                  <h2 className={cn(clash.className, "font-bold text-2xl uppercase w-full lg:w-fit px-4 py-1 text-center lg:text-left mb-3 bg-amethyst-500 text-white")}>Intro</h2>
+                  <h2 className={cn(clash.className, "font-bold text-2xl uppercase w-full lg:w-fit px-4 py-1 text-center lg:text-left mb-3 shadow-[8px_8px_0_0_#000] bg-amethyst-500 text-white")}>Intro</h2>
                   <p>
                     Hey! I&apos;m Enric J Trillo Nchana, a Fullstack & AI Developer with expertise in disruptive technologies, multi-agent systems and innovative web solutions.
                   </p>
