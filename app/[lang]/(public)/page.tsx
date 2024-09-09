@@ -388,7 +388,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
 
             {/* <Work /> */}
             <section id="shift-forward" className="w-full py-12 border-t-2 border-black bg-scarlet-200 md:py-24 lg:py-32">
-              <div className="container px-4 mx-auto md:px-6">
+              <div className="container px-6 mx-auto">
                 <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-12">
                   <div className="space-y-4 bg-white p-6 border-4 border-black shadow-[8px_8px_0_0_#000] transform -rotate-1">
                     <h2 className="font-mono text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">STAY UPDATED</h2>
