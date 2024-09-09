@@ -330,21 +330,21 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                 </div>
               </div>
             </section>
-            <section id="tutorials" className="bg-sunstone-200">
+            <section id="courses" className="bg-sunstone-200">
               <div className="px-6 py-8 border-t-2 border-black sm:py-24 sm:px-12 lg:max-w-none">
                 <h2 className={cn(clash.className, "font-bold text-2xl lg:text-4xl")}>
                   Courses
                 </h2>
               </div>
             </section>
-            <section id="tutorials" className="bg-amethyst-200">
+            <section id="glossary" className="bg-rosian-200">
               <div className="px-6 py-8 border-t-2 border-black sm:py-24 sm:px-12 lg:max-w-none">
                 <h2 className={cn(clash.className, "font-bold text-2xl lg:text-4xl")}>
                   Glossary
                 </h2>
               </div>
             </section>
-            <section id="tutorials" className="bg-celuria-200">
+            <section id="tools" className="bg-celuria-200">
               <div className="px-6 py-8 border-t-2 border-black sm:py-24 sm:px-12 lg:max-w-none">
                 <h2 className={cn(clash.className, "font-bold text-2xl lg:text-4xl")}>
                   Free Tools
