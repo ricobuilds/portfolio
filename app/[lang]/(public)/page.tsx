@@ -314,9 +314,17 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
             </section>
             <section id="tools" className="bg-celuria-200">
               <div className="px-6 py-8 border-t-2 border-black sm:py-24 sm:px-12 lg:max-w-none">
-                <h2 className={cn(clash.className, "font-bold text-2xl lg:text-4xl")}>
-                  Free Tools
-                </h2>
+                <div className="grid gap-8 mx-auto max-w-screen-2xl lg:grid-cols-2 lg:gap-20">
+                  <Image src="" alt="" />
+                  <div className="px-0 m-auto sm:px-12 md:px-16 lg:px-0">
+                    <h3 className={cn(clash.className, "font-bold text-2xl lg:text-5xl")}>
+                      Free Tools
+                    </h3>
+                    <p></p>
+                    <p></p>
+                    <button></button>
+                  </div>
+                </div>
               </div>
             </section>
             <section id="cta" className="px-6 border-t-2 border-black bg-jade-200 selection:bg-tingual-300">
