@@ -271,11 +271,11 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
               <div className="px-6 py-8 border-t-2 border-black sm:py-24 sm:px-12 lg:max-w-none">
                 <div className="grid gap-8 mx-auto max-w-screen-2xl lg:grid-cols-2 lg:gap-20">
                   <Image src="" alt="" />
-                  <div className="px-0 m-auto sm:px-12 md:px-16 lg:px-0">
+                  <div className="max-w-lg px-0 m-auto sm:px-12 md:px-16 lg:px-0">
                     <h3 className={cn(clash.className, "font-bold text-2xl lg:text-5xl")}>
                       Tutorials
                     </h3>
-                    <p className="mb-10 text-xl font-medium lg:text-3xl">Master new skills with hands-on guides.</p>
+                    <p className="mb-10 text-xl font-medium lg:text-3xl">Master new skills with hands-on interactive guides.</p>
                     <p></p>
                     <button className="flex items-center gap-2 px-4 py-2 text-white transition bg-black border-2 border-black shrink-0 hover:bg-amethyst-500">
                       <span>Start Learning Today</span>
@@ -289,7 +289,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
               <div className="px-6 py-8 border-t-2 border-black sm:py-24 sm:px-12 lg:max-w-none">
                 <div className="grid gap-8 mx-auto max-w-screen-2xl lg:grid-cols-2 lg:gap-20">
                   <Image src="" alt="" />
-                  <div className="px-0 m-auto sm:px-12 md:px-16 lg:px-0">
+                  <div className="max-w-lg px-0 m-auto sm:px-12 md:px-16 lg:px-0">
                     <h3 className={cn(clash.className, "font-bold text-2xl lg:text-5xl")}>
                       Courses
                     </h3>
@@ -325,7 +325,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
               <div className="px-6 py-8 border-t-2 border-black sm:py-24 sm:px-12 lg:max-w-none">
                 <div className="grid gap-8 mx-auto max-w-screen-2xl lg:grid-cols-2 lg:gap-20">
                   <Image src="" alt="" />
-                  <div className="px-0 m-auto sm:px-12 md:px-16 lg:px-0">
+                  <div className="max-w-lg px-0 m-auto sm:px-12 md:px-16 lg:px-0">
                     <h3 className={cn(clash.className, "font-bold text-2xl lg:text-5xl")}>
                       Free Tools
                     </h3>
