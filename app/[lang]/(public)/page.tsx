@@ -196,7 +196,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                     </div>
                     <Link href="/#work" className="w-fit">
                       <button
-                        className="px-4 py-2 text-sm border-2 capitalize w-fit bg-rosian-500 text-white border-black shadow-[4px_4px_0_0_#000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-200"
+                        className="px-4 py-2 text-sm border-2 capitalize w-fit bg-tingual-500 text-white border-black shadow-[4px_4px_0_0_#000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-200"
                       >
                         {tl['home']['hero'].cta}
                       </button>
