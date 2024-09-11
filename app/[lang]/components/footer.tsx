@@ -137,7 +137,7 @@ const Footer = ({
                 <p className="font-medium text-gray-900">Legal</p>
                 <ul className="mt-6 space-y-4 text-sm">
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Terms of Services </a>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Terms </a>
                   </li>
                   <li>
                     <a href="#" className="text-gray-700 transition hover:opacity-75"> Privacy Policy </a>
