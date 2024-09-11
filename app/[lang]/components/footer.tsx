@@ -125,16 +125,25 @@ const Footer = ({
                 </ul>
               </div>
               <div>
-                <p className="font-medium text-gray-900">Legal</p>
+                <p className="font-medium text-gray-900">Resources</p>
                 <ul className="mt-6 space-y-4 text-sm">
                   <li>
                     <a href="#" className="text-gray-700 transition hover:opacity-75"> Free Tools </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> FAQs </a>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Courses </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Live Chat </a>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Tutorials </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Glossary </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Salaries </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Cheatsheets </a>
                   </li>
                 </ul>
               </div>
