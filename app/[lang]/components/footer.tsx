@@ -157,6 +157,9 @@ const Footer = ({
                     <a href="#" className="text-gray-700 transition hover:opacity-75"> Privacy Policy </a>
                   </li>
                   <li>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Editorial Guidelines </a>
+                  </li>
+                  <li>
                     <a href="#" className="text-gray-700 transition hover:opacity-75"> Refund Policy </a>
                   </li>
                   <li>
