@@ -442,7 +442,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                       </button>
                     </form>
                     <p className="font-sans text-xs text-gray-800">
-                      By subscribing, you agree to our totally rad <span className="font-semibold underline underline-offset-2">Terms of Service</span> and <span className="font-semibold underline underline-offset-2">Privacy Policy</span>.
+                      By subscribing, you agree to our totally lit <span className="font-semibold underline underline-offset-2">Terms of Service</span> and <span className="font-semibold underline underline-offset-2">Privacy Policy</span>.
                     </p>
                   </div>
                 </div>
