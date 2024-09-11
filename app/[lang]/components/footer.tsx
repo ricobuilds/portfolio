@@ -171,9 +171,6 @@ const Footer = ({
                   <li>
                     <a href="#" className="text-gray-700 transition hover:opacity-75"> Refund Policy </a>
                   </li>
-                  <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Hiring Statistics </a>
-                  </li>
                 </ul>
               </div>
               <div>
