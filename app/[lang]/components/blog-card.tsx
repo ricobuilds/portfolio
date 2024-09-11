@@ -8,7 +8,7 @@ import { Locale } from "@/constants/i18n.config"
 
 export const BlogCard = ({ post, lang }: { post: MDXArticle, lang: Locale }) => {
   return (
-    <article className="flex flex-col w-full gap-3 overflow-hidden transition border-2 border-black outline-none rounded-2xl group shadow-[8px_8px_0px_rgba(0,0,0,0)] shadow-[#6583E0]">
+    <article className="flex flex-col w-full gap-3 overflow-hidden transition bg-white border-2 border-black outline-none rounded-2xl group shadow-[8px_8px_0px_rgba(0,0,0,0)] shadow-[#6583E0]">
       <Link href={`/${lang}/blog/${post.slug}`} className="w-full overflow-hidden duration-300 ring-0">
         <Image src={`/images/blog/${post.slug}.png`} height={1200} width={630} alt={post.title} loading="lazy" className="object-cover w-full" />
       </Link>
