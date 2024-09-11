@@ -140,7 +140,7 @@ const Footer = ({
                     <a href="#" className="text-gray-700 transition hover:opacity-75"> Terms </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Privacy Policy </a>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Privacy </a>
                   </li>
                   <li>
                     <a href="#" className="text-gray-700 transition hover:opacity-75"> DMCA </a>
