@@ -148,6 +148,9 @@ const Footer = ({
                   <li>
                     <a href="#" className="text-gray-700 transition hover:opacity-75"> Disclaimer </a>
                   </li>
+                  <li>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Beehiiv Privacy Policy </a>
+                  </li>
                 </ul>
               </div>
               <div>
