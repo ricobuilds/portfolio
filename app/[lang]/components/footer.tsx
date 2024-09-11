@@ -89,7 +89,7 @@ const Footer = ({
                 </li>
               </ul>
             </div>
-            <div id="site-map" className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-6">
+            <div id="site-map" className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-5">
               <div>
                 <p className="font-medium text-gray-900">About Us</p>
                 <ul className="mt-6 space-y-4 text-sm">
