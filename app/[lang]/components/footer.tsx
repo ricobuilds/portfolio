@@ -12,8 +12,8 @@ const Footer = ({
   tl,
   lang
 }: {
-    tl: Awaited<ReturnType<typeof getDictionary>>["footer"],
-    lang: string
+  tl: Awaited<ReturnType<typeof getDictionary>>["footer"],
+  lang: string
 }) => {
 
   const name = "Metasyde Ltd"
@@ -105,6 +105,9 @@ const Footer = ({
                   <li>
                     <a href="#" className="text-gray-700 transition hover:opacity-75"> Testimonials </a>
                   </li>
+                  <li>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Editorial Guidelines </a>
+                  </li>
                 </ul>
               </div>
               <div>
@@ -138,9 +141,6 @@ const Footer = ({
                   </li>
                   <li>
                     <a href="#" className="text-gray-700 transition hover:opacity-75"> Privacy Policy </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Editorial Guidelines </a>
                   </li>
                   <li>
                     <a href="#" className="text-gray-700 transition hover:opacity-75"> DMCA </a>
