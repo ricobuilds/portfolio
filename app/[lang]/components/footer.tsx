@@ -97,6 +97,9 @@ const Footer = ({
                     <a href="#" className="text-gray-700 transition hover:opacity-75"> About</a>
                   </li>
                   <li>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Blog </a>
+                  </li>
+                  <li>
                     <a href="#" className="text-gray-700 transition hover:opacity-75"> Contact </a>
                   </li>
                   <li>
@@ -141,9 +144,6 @@ const Footer = ({
                   </li>
                   <li>
                     <a href="#" className="text-gray-700 transition hover:opacity-75"> Privacy </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> DMCA </a>
                   </li>
                   <li>
                     <a href="#" className="text-gray-700 transition hover:opacity-75"> Become an Affiliate </a>
