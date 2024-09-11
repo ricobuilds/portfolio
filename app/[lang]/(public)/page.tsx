@@ -355,7 +355,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                 </button>
               </div>
             </section>
-            <section id="writing" className="border-t-2 border-black">
+            <section id="writing" className="border-t-2 border-black bg-bayoux-200">
               <div className={cn("max-w-[1360px]", "flex flex-col py-16 mx-auto px-6")}>
                 <h2 className={cn(clash.className, "flex items-center mx-auto text-4xl font-bold px-4 py-1 mb-3 text-white uppercase w-fit bg-amethyst-500")}>
                   Writing
