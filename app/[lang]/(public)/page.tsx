@@ -413,7 +413,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                       Join our twice a week newsletter (Tue, Fri) and here's what you'll score:
                     </p>
                     <ul className="space-y-2">
-                      {["Exclusive content", "Early access to new features", "Special offers and discounts", "Industry insights and trends"].map((benefit) => (
+                      {["Exclusive BTS content", "Early access to new courses", "Special offers and discounts", "Industry insights and trends"].map((benefit) => (
                         <li key={benefit} className="flex items-center space-x-2 font-bold">
                           <CheckCircle className="w-6 h-6 text-green-600" />
                           <span>{benefit.toUpperCase()}</span>
