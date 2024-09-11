@@ -103,7 +103,7 @@ const Footer = ({
                     <a href="#" className="text-gray-700 transition hover:opacity-75"> Stats </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> SEO Optimisation </a>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Testimonials </a>
                   </li>
                 </ul>
               </div>
