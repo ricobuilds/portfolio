@@ -425,7 +425,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                     <div className="space-y-2">
                       <h3 className="font-mono text-2xl font-bold">SUBSCRIBE NOW!</h3>
                       <p className="font-sans text-gray-800">
-                        Get the latest updates and news delivered straight to your inbox. No spam, we promise!
+                        Get the latest updates and developments delivered straight to your inbox. No spam, we promise!
                       </p>
                     </div>
                     <form className="space-y-4">
