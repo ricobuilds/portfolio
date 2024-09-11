@@ -119,7 +119,12 @@ const Navbar = ({
           <div className="items-center hidden gap-2 lg:flex shrink-0">
             <button className="flex items-center px-3 py-2 text-sm border-2 border-black hover:bg-black hover:text-white">Log In</button>
             <Link href={routes.subscribe} className="hidden md:flex">
-              <button className="flex items-center px-3 py-2 text-sm text-white border-2 border-transparent hover:border-black bg-amethyst-500">Join Shift Forward</button>
+              <button
+                className="w-full uppercase px-3 py-2 text-sm bg-blue-500 text-white font-bold border-2 border-black shadow-[4px_4px_0_0_#000] hover:shadow-none transition-all duration-200"
+              >
+                Join Shift Forward
+              </button>
+              {/* <button className="flex items-center px-3 py-2 text-sm text-white border-2 border-transparent hover:border-black bg-amethyst-500">Join Shift Forward</button> */}
             </Link>
             <LanguageSwitcher />
           </div>
