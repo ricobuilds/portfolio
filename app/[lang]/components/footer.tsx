@@ -97,7 +97,7 @@ const Footer = ({
                     <a href="#" className="text-gray-700 transition hover:opacity-75"> About</a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Company Review </a>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Contact </a>
                   </li>
                   <li>
                     <a href="#" className="text-gray-700 transition hover:opacity-75"> Accounts Review </a>
