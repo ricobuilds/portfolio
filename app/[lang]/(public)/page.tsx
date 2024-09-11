@@ -407,10 +407,10 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
             <section id="shift-forward" className="w-full py-12 border-t-2 border-black bg-scarlet-200 md:py-24 lg:py-32">
               <div className="container px-6 mx-auto">
                 <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-12">
-                  <div className="space-y-4 bg-white p-6 border-4 border-black shadow-[8px_8px_0_0_#000] transform -rotate-1">
-                    <h2 className="font-mono text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">STAY UPDATED</h2>
+                  <div id="benefits" className="space-y-4 bg-white p-6 border-4 border-black shadow-[8px_8px_0_0_#000] transform -rotate-1">
+                    <h2 className="font-mono text-3xl font-bold tracking-tighter uppercase sm:text-4xl md:text-5xl">Shift Forward</h2>
                     <p className="font-sans text-gray-800 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                      Join our wild newsletter and get the hottest updates! Here's what you'll score:
+                      Join our twice a week newsletter (Tue, Fri) and here's what you'll score:
                     </p>
                     <ul className="space-y-2">
                       {["Exclusive content", "Early access to new features", "Special offers and discounts", "Industry insights and trends"].map((benefit) => (
@@ -421,7 +421,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                       ))}
                     </ul>
                   </div>
-                  <div className="flex flex-col space-y-4 bg-pink-400 p-6 border-4 border-black shadow-[8px_8px_0_0_#000] transform rotate-1">
+                  <div id="cta" className="flex flex-col space-y-4 bg-pink-400 p-6 border-4 border-black shadow-[8px_8px_0_0_#000] transform rotate-1">
                     <div className="space-y-2">
                       <h3 className="font-mono text-2xl font-bold">SUBSCRIBE NOW!</h3>
                       <p className="font-sans text-gray-800">
