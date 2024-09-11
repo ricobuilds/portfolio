@@ -122,7 +122,6 @@ const Navbar = ({
             >
               Log In
             </button>
-            {/* <button className="flex items-center px-3 py-2 text-sm border-2 border-black hover:bg-black hover:text-white">Log In</button> */}
             <Link href={routes.subscribe} className="hidden md:flex">
               <button
                 className="px-3 py-2 text-sm bg-amethyst-500 text-white border-2 border-black shadow-[4px_4px_0_0_#000] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all duration-200"
