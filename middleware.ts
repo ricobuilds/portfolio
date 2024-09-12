@@ -1,12 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { match } from '@formatjs/intl-localematcher'
+import { match as matchLocale } from '@formatjs/intl-localematcher'
 import Negotiator from 'negotiator'
 import { i18n } from './constants/i18n.config'
 
-let headers = { 'accept-language': 'en-GB,en;q=0.5' }
-let languages = new Negotiator({ headers }).languages()
 let locales = i18n.locales
 let defaultLocale = i18n.defaultLocale
+
+function getLocale(request: NextRequest): string {
+  const negotiatorHeaders: Record<string, string> = {}
+  request.headers.forEach((value, key) => (negotiatorHeaders[key] = value))
+
+  const languages = new Negotiator({ headers: negotiatorHeaders }).languages()
+  return matchLocale(languages, locales, defaultLocale)
+}
 
 export function middleware(request: NextRequest) {
   // Check if there is any supported locale in the pathname
@@ -32,6 +38,7 @@ export function middleware(request: NextRequest) {
   )
 
   if (pathnameIsMissingLocale) {
+    const locale = getLocale(request)
     return NextResponse.rewrite(
       new URL(
         `/${defaultLocale}${pathname}${request.nextUrl.search}`,
