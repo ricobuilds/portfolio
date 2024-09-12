@@ -3,7 +3,7 @@ import { cn } from "@/lib/shared-utils"
 import Link from "next/link"
 import { logos } from "@/constants/logos"
 import Image from "next/image"
-import { getDictionary } from "../dictionaries"
+import { getTranslations } from "../dictionaries"
 import { clash } from "@/constants/fonts"
 import BackToTop from "./back-to-top"
 import { i18nSwitcher as languages } from "@/constants/i18n.config"
@@ -12,7 +12,7 @@ const Footer = ({
   tl,
   lang
 }: {
-  tl: Awaited<ReturnType<typeof getDictionary>>["footer"],
+  tl: Awaited<ReturnType<typeof getTranslations>>["footer"],
   lang: string
 }) => {
 

@@ -5,7 +5,7 @@ import type { Person, WithContext } from "schema-dts"
 import { LogoCloud } from "@/sections/logo-cloud";
 import { Work } from "@/sections/work";
 import Link from "next/link";
-import { getDictionary } from "../dictionaries";
+import { getTranslations } from "../dictionaries";
 import { Locale } from "@/constants/i18n.config";
 import Balancer from "react-wrap-balancer";
 import { MDXArticle } from "@/app/types/Article";
@@ -80,7 +80,7 @@ const homeSchema: WithContext<Person> = {
 }
 
 export default async function Home({ params }: { params: { lang: Locale } }) {
-  const tl = await getDictionary(params.lang);
+  const tl = await getTranslations(params.lang);
 
   const posts: MDXArticle[] = getAllPosts()
 

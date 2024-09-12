@@ -6,7 +6,7 @@ import Link from "next/link"
 import { BeehiivCustom } from "@/components/beehiiv-custom"
 import { Spacer } from "@/components/spacer"
 import { Locale } from "@/constants/i18n.config"
-import { getDictionary } from "../../dictionaries"
+import { getTranslations } from "../../dictionaries"
 import { clash } from "@/constants/fonts"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
@@ -68,7 +68,7 @@ export const metadata = generateMetadata({
 })
 
 export default async function About({ params }: { params: { lang: Locale } }) {
-  const tl = await getDictionary(params.lang)
+  const tl = await getTranslations(params.lang)
 
   const skills = [
     {

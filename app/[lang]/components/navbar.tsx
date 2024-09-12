@@ -10,7 +10,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./sheet"
-import { getDictionary } from "@/app/[lang]/dictionaries"
+import { getTranslations } from "@/app/[lang]/dictionaries"
 import LanguageSwitcher from "./language-switcher"
 import { navigationMenuTriggerStyle, NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuContent, NavigationMenuTrigger, NavigationMenuLink, NavigationSubItem, } from "@/components/ui/navigation-menu"
 import { clash } from "@/constants/fonts"
@@ -20,7 +20,7 @@ import { clash } from "@/constants/fonts"
 const Navbar = ({
   tl,
 }: {
-  tl: Awaited<ReturnType<typeof getDictionary>>["navbar"];
+  tl: Awaited<ReturnType<typeof getTranslations>>["navbar"];
 }) => {
 
   const components: { title: string; href: string; description: string }[] = [

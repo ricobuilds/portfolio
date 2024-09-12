@@ -6,7 +6,7 @@ import Link from "next/link"
 import { generateMetadata } from "@/lib/seo"
 import { BeehiivCustom } from "../../components/beehiiv-custom"
 import { Locale } from "@/constants/i18n.config"
-import { getDictionary } from "../../dictionaries"
+import { getTranslations } from "../../dictionaries"
 
 const heroFont = Kanit({
   subsets: ['latin'],
@@ -22,7 +22,7 @@ export const metadata = generateMetadata({
 export default async function Subscribe({ params }: { params: { lang: Locale } }) {
   const name = "Metasyde Ltd"
 
-  const tl = await getDictionary(params.lang)
+  const tl = await getTranslations(params.lang)
 
   return (
     <>

@@ -9,7 +9,7 @@ import { UmamiScript } from "@/components/umami-script";
 import { Footer } from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Locale, i18n } from "@/constants/i18n.config";
-import { getDictionary } from "../dictionaries";
+import { getTranslations } from "../dictionaries";
 import { FooterMarquee } from "@/components/footer-marquee";
 
 export const metadata: Metadata = {
@@ -65,7 +65,7 @@ export default async function Layout({
   children: React.ReactNode;
   params: { lang: Locale }
 }>) {
-  const tl = await getDictionary(params.lang)
+  const tl = await getTranslations(params.lang)
   return (
     <html lang={params.lang}>
       <body suppressHydrationWarning className={cn(GeistSans.className, "min-h-screen flex flex-col")}>

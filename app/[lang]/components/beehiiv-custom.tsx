@@ -2,12 +2,12 @@
 import { createSubscriber } from "@/lib/actions"
 import { AtSign } from "lucide-react"
 import { useFormState } from "react-dom"
-import { getDictionary } from "../dictionaries"
+import { getTranslations } from "../dictionaries"
 
 export const BeehiivCustom = ({
   tl,
 }: {
-  tl: Awaited<ReturnType<typeof getDictionary>>["home"]['newsletter'];
+  tl: Awaited<ReturnType<typeof getTranslations>>["home"]['newsletter'];
 }) => {
 
   const initialState = { message: "", errors: "" }
