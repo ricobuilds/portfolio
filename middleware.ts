@@ -41,7 +41,7 @@ export function middleware(request: NextRequest) {
     const locale = getLocale(request)
     return NextResponse.rewrite(
       new URL(
-        `/${defaultLocale}${pathname}${request.nextUrl.search}`,
+        `/${locale}${pathname}${request.nextUrl.search}`,
         request.nextUrl.href
       )
     )
