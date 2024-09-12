@@ -19,7 +19,7 @@ const LanguageSwitcher = () => {
     switch (locale) {
       case 'en': return languages.find((l) => l.code === locale)?.name
       case 'es': return languages.find((l) => l.code === locale)?.name
-      case 'pt': return languages.find((l) => l.code === locale)?.name
+      case 'pt-BR': return languages.find((l) => l.code === locale)?.name
       default: return languages[0]?.name
     }
   }
