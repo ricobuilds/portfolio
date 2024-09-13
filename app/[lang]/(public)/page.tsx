@@ -471,14 +471,14 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
             <section id="pitch" className="px-6 border-t-2 border-black bg-gradient-to-r from-amethyst-500 to-celuria-600">
               <div className="flex flex-col lg:flex-row gap-6 justify-between py-16 max-w-[1360px] px-6 m-auto w-full">
                 <div className="flex flex-col text-white">
-                  <h2 className={cn(clash.className, "text-4xl font-semibold")}>Let's build the future together</h2>
-                  <p>Get in touch if you have a project idea, feedback, or want me to discuss an opportunity.</p>
+                  <h2 className={cn(clash.className, "text-4xl font-semibold")}>{tl['home']['pitch'].headline}</h2>
+                  <p>{tl['home']['pitch'].subheadline}.</p>
                 </div>
                 <div className="flex items-center ">
                   <Link href="#">
                     <Button className="flex items-center gap-2 rounded-none text-black bg-white border-2 border-black shadow-[4px_4px_0_0_#000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-200">
                       <Send className="w-4 h-4" />
-                      Let's Talk
+                      {tl['home']['pitch'].cta}
                     </Button>
                   </Link>
                 </div>
