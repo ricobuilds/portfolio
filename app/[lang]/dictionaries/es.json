@@ -59,6 +59,8 @@
       "placeholder": "Escribe tu e-mail",
       "cta": "Unirme",
       "note": "P.D.: Envío correos a su email cada semana, nunca hago spam ni vendo sus datos."
+    },
+    "pitch": {
     }
   },
   "footer": {
