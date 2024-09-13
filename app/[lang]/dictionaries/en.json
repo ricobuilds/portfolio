@@ -59,6 +59,11 @@
       "placeholder": "Enter your email",
       "cta": "Subscribe",
       "note": "P.S.: I send emails every week, never spam or sell your data."
+    },
+    "pitch": {
+      "headline": "Let's build the future together",
+      "subheadline": "Get in touch if you have a project idea, feedback, or want me to discuss an opportunity",
+      "cta": "Let's talk"
     }
   },
   "about": {
@@ -71,11 +76,6 @@
   "subscribe": {
     "subheadline": "Keep up with actionable top disruptive tech insights to thrive in a future world driven by AI － relaunching soon",
     "cta": "Back to homepage"
-  },
-  "pitch": {
-    "headline": "Let's build the future together",
-    "subheadline": "Get in touch if you have a project idea, feedback, or want me to discuss an opportunity",
-    "cta": "Let's talk"
   },
   "footer": {
     "blurb": "I'm Enric Trillo, a fullstack engineer sharing knowledge and what I learn online",
