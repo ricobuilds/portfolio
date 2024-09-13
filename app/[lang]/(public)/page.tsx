@@ -476,7 +476,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                 </div>
                 <div className="flex items-center ">
                   <Link href="#">
-                    <Button className="flex items-center gap-2 text-black bg-white">
+                    <Button className="flex items-center gap-2 text-black bg-white border-4 border-black shadow-[4px_4px_0_0_#000]">
                       <Send className="w-4 h-4" />
                       Let's Talk
                     </Button>
