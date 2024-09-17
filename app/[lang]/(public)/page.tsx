@@ -245,10 +245,10 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                     "p-4 bg-transparent border dark:border-obsidian-800 flex max-w-lg w-full mx-auto relative",
                   )}
                 >
-                  <EdgeIcon className="absolute w-6 h-6 text-black -top-3 -left-3 dark:text-white" />
-                  <EdgeIcon className="absolute w-6 h-6 text-black -bottom-3 -left-3 dark:text-white" />
-                  <EdgeIcon className="absolute w-6 h-6 text-black -top-3 -right-3 dark:text-white" />
-                  <EdgeIcon className="absolute w-6 h-6 text-black -bottom-3 -right-3 dark:text-white" />
+                  <EdgeIcon className="absolute w-6 h-6 text-black -top-3 -left-3" />
+                  <EdgeIcon className="absolute w-6 h-6 text-black -bottom-3 -left-3" />
+                  <EdgeIcon className="absolute w-6 h-6 text-black -top-3 -right-3" />
+                  <EdgeIcon className="absolute w-6 h-6 text-black -bottom-3 -right-3" />
 
                   <div className="relative z-10 flex flex-col w-full h-full">
                     <div className="">
