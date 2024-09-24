@@ -6,6 +6,7 @@ import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuIte
 import { Check, ChevronDown, Globe } from "lucide-react"
 import { Button } from "./ui/button"
 import { i18n, Locale, i18nSwitcher as languages } from '@/constants/i18n.config';
+import { cn } from '@/lib/shared-utils';
 
 interface Language {
   code: string
@@ -19,9 +20,9 @@ export default function LanguageSwitcher() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="w-[60px] justify-center">
+        <Button variant="outline" className="justify-center w-fit">
           <div className="flex items-center uppercase">
-           <Globe className="w-5 h-5 overflow-hidden rounded-full"/>
+           <Globe className="w-5 h-5 overflow-hidden rounded-full mr-1.5"/>
             {currentLanguage.code}
           </div>
         </Button>
@@ -30,6 +31,7 @@ export default function LanguageSwitcher() {
         {languages.map((language) => (
           <DropdownMenuItem
             key={language.code}
+            className={cn(currentLanguage.code) === language.code ? "bg-amethyst-500 text-white focus:text-black" : ''}
             onSelect={() => setCurrentLanguage(language)}
           >
             <div className="flex items-center justify-between w-full">
