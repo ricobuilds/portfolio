@@ -67,16 +67,27 @@ const homeSchema: WithContext<Person> = {
     "foundingDate": "2022-03-28",
   },
   "alumniOf": {
-    "@type": "CollegeOrUniversity",
+    "@type": "EducationalOrganization",
     "name": "University of Northampton",
     "url": "https://www.northampton.ac.uk/"
   },
   "sameAs": [
     "https://x.com/ricobuilds",
+    "https://twitter.com/ricobuilds",
     "https://linkedin.com/in/enrictrillo",
     "https://youtube.com/@ricobuilds",
-    "https://github.com/ricobuilds"
-  ]
+    "https://github.com/ricobuilds",
+  ],
+  "knowsAbout": [
+    "Disruptive Technologies",
+    "Multi-Agent Systems",
+    "AI Development",
+    "Fullstack Development"
+  ],
+  "brand": {
+    "@type": "Brand",
+    "name": "ricobuilds"
+  }
 }
 
 export default async function Home({ params }: { params: { lang: Locale } }) {
@@ -176,7 +187,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
 
   return (
     <>
-      {/* <StructuredData data={homeSchema} /> */}
+      <StructuredData data={homeSchema} />
       <main className="flex-1 w-full">
         <div className={cn("mx-auto")}>
           <div className="flex flex-col">
