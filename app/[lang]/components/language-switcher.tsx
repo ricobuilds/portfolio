@@ -19,15 +19,14 @@ export default function LanguageSwitcher() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="w-[80px] justify-between">
+        <Button variant="outline" className="w-[60px] justify-center">
           <div className="flex items-center uppercase">
-           <Globe className="w-5 h-5 mr-2 overflow-hidden rounded-full"/>
+           <Globe className="w-5 h-5 overflow-hidden rounded-full"/>
             {currentLanguage.code}
           </div>
-          <ChevronDown className="w-4 h-4 ml-2 text-muted-foreground" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-[200px] bg-white">
+      <DropdownMenuContent align='end' className="w-[200px] bg-white">
         {languages.map((language) => (
           <DropdownMenuItem
             key={language.code}
