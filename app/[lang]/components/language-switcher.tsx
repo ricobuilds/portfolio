@@ -20,7 +20,7 @@ export default function LanguageSwitcher() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="justify-center w-fit">
+        <Button variant="outline" className="justify-center w-[72px]">
           <div className="flex items-center uppercase">
            <Globe className="w-5 h-5 overflow-hidden rounded-full mr-1.5"/>
             {currentLanguage.code}
