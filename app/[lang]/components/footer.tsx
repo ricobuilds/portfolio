@@ -1,3 +1,5 @@
+"use client"
+
 import { routes } from "@/lib/routes"
 import { cn } from "@/lib/shared-utils"
 import Link from "next/link"
@@ -6,7 +8,8 @@ import Image from "next/image"
 import { getTranslations } from "../dictionaries"
 import { clash } from "@/constants/fonts"
 import BackToTop from "./back-to-top"
-import { i18nSwitcher as languages } from "@/constants/i18n.config"
+import { useRouter, usePathname } from 'next/navigation'
+import { i18n, Locale, i18nSwitcher as languages } from '@/constants/i18n.config';
 
 const Footer = ({
   tl,
@@ -17,6 +20,25 @@ const Footer = ({
 }) => {
 
   const name = "Metasyde Ltd"
+
+  const router = useRouter()
+  const pathname = usePathname()
+
+  const handleLanguageChange = (newLocale: string) => {
+    const currentLocale = pathname.split('/')[1] as Locale
+    
+    if (i18n.locales.includes(currentLocale)) {
+      // If the current path already includes a locale, replace it
+      const newPath = pathname.replace(`/${currentLocale}`, `/${newLocale}`)
+      router.push(newPath)
+    } else {
+      // If the current path doesn't include a locale, add the new locale
+      router.push(`/${newLocale}${pathname}`)
+    }
+    
+    // @ts-ignore
+    setCurrentLanguage(getLanguageName(newLocale))
+  }
 
   return (
     <footer className=" bg-obsidian-100">
@@ -160,7 +182,7 @@ const Footer = ({
                     languages.map((l, idx) => (
 
                       <li key={idx}>
-                        <a href={`/${l.code}`} className={cn(lang === l.code ? "font-bold" : null, "text-gray-700 transition hover:opacity-75")}> {l.name} </a>
+                        <button onClick={() => handleLanguageChange(l.code)} className={cn(lang === l.code ? "font-bold" : null, "text-gray-700 transition hover:opacity-75")}> {l.name} </button>
                       </li>
                     ))
                   }
