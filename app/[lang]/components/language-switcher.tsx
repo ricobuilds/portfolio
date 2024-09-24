@@ -15,7 +15,40 @@ interface Language {
 }
 
 export default function LanguageSwitcher() {
+  const router = useRouter()
+  const pathname = usePathname()
   const [currentLanguage, setCurrentLanguage] = useState<Language>(languages[0])
+
+    useEffect(() => {
+    const currentLocale = pathname.split('/')[1]
+    // @ts-ignore
+    setCurrentLanguage(getLanguageName(currentLocale))
+  }, [pathname])
+  
+    const getLanguageName = (locale: string) => {
+    switch (locale) {
+    case 'en': return languages.find((l) => l.code === locale)
+    case 'es': return languages.find((l) => l.code === locale)
+    case 'pt': return languages.find((l) => l.code === locale)
+      default: return languages.find((l) => l.code === 'en')
+    }
+    }
+  
+    const handleLanguageChange = (newLocale: string) => {
+    const currentLocale = pathname.split('/')[1] as Locale
+    
+    if (i18n.locales.includes(currentLocale)) {
+      // If the current path already includes a locale, replace it
+      const newPath = pathname.replace(`/${currentLocale}`, `/${newLocale}`)
+      router.push(newPath)
+    } else {
+      // If the current path doesn't include a locale, add the new locale
+      router.push(`/${newLocale}${pathname}`)
+    }
+    
+    // @ts-ignore
+    setCurrentLanguage(getLanguageName(newLocale))
+  }
 
   return (
     <DropdownMenu>
@@ -32,7 +65,7 @@ export default function LanguageSwitcher() {
           <DropdownMenuItem
             key={language.code}
             className={cn(currentLanguage.code) === language.code ? "bg-amethyst-500 text-white focus:text-black" : ''}
-            onSelect={() => setCurrentLanguage(language)}
+            onSelect={() => handleLanguageChange(language.code)}
           >
             <div className="flex items-center justify-between w-full">
               <div className="flex items-center uppercase">
