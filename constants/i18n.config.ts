@@ -25,6 +25,6 @@ export const i18nSwitcher: Language[] = [
   {
     code: i18n.locales[2],
     name: "Português (BR)",
-    flag: `/images/flags/flag-${i18n.locales[2]}.png`
+    flag: `/images/flags/flag-pt-BR.png`
   },
 ]
