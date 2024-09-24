@@ -31,8 +31,9 @@ export const metadata = {
 const homeSchema: WithContext<Person> = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": siteMetadata.title,
-  "description": "Enric J. 'Rico' Trillo Nchana is a fullstack developer from Croydon, London and founder of Metasyde. He continues to contributing to the future of Web3 Gaming.",
+  "name": "Enric Jeremy Trillo Nchana",
+  "image": "https://enrictrillo.com/graduation.jpg",
+  "description": "Enric J. 'Rico' Trillo Nchana is a Fullstack and AI agents developer from Croydon, London building Metasydea company focused on disruptive tech, and Kaiser, an internal team of AI multi-agents for personal brand and business efforts.",
   "url": siteMetadata.siteUrl,
   "birthDate": "February 13, 1999",
   "jobTitle": "Fullstack Developer",
@@ -59,17 +60,22 @@ const homeSchema: WithContext<Person> = {
       "name": "Portuguese"
     },
   ],
-  "affiliation": {
-    "@type": "Organization",
-    "name": "Metasyde",
-    "description": "Metasyde Ltd. is a technology company operated from London, UK. It is the AI studio driving the future of gaming with modern technologies.",
-    "url": "https://metasyde.com",
-    "foundingDate": "2022-03-28",
-  },
   "alumniOf": {
     "@type": "EducationalOrganization",
     "name": "University of Northampton",
     "url": "https://www.northampton.ac.uk/"
+  },
+  // @ts-ignore
+  "founder": {
+    "@type": "Organization",
+    "name": "Metasyde"
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Metasyde",
+    "url": "https://metasyde.com",
+    "foundingDate": "2022-03-28",
+    "description": "A media & technology company operated remote from London, UK, focused on building disruptive tech and AI multi-agent systems"
   },
   "sameAs": [
     "https://x.com/ricobuilds",
@@ -77,16 +83,27 @@ const homeSchema: WithContext<Person> = {
     "https://linkedin.com/in/enrictrillo",
     "https://youtube.com/@ricobuilds",
     "https://github.com/ricobuilds",
+    "https://find-and-update.company-information.service.gov.uk/company/14006690"
   ],
   "knowsAbout": [
     "Disruptive Technologies",
     "Multi-Agent Systems",
     "AI Development",
-    "Fullstack Development"
+    "Fullstack Development",
+    "NextJS",
+    "React",
+    "TypeScript",
+    "Python"
   ],
+  // @ts-ignore
+  "skill": ["NextJS", "React", "TypeScript", "SQL", "NoSQL", "Python", "CrewAI", "TailwindCSS", "System Design", "API"],
   "brand": {
     "@type": "Brand",
     "name": "ricobuilds"
+  },
+  "potentialAction": {
+    "@type": "SubscribeAction",
+    "target": "https://enrictrillo.com/subscribe"
   }
 }
 
