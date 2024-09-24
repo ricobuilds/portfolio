@@ -26,7 +26,7 @@ export default function LanguageSwitcher() {
           </div>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align='end' className="w-[200px] bg-white">
+      <DropdownMenuContent align='end' sideOffset={6} className="w-[200px] bg-white">
         {languages.map((language) => (
           <DropdownMenuItem
             key={language.code}
