@@ -53,18 +53,18 @@ export default function LanguageSwitcher() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="hover:bg-rosian-100 outline-none ring-transparent ring-offset-0 ring-offset-transparent justify-center w-[72px] border-2 rounded-none border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        <Button variant="outline" className="hover:bg-tingual-200 outline-none ring-transparent ring-offset-0 ring-offset-transparent justify-center w-[72px] border-2 rounded-none border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
           <div className="flex items-center uppercase">
            <Globe className="w-5 h-5 overflow-hidden rounded-full mr-1.5"/>
             {currentLanguage.code}
           </div>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align='end' sideOffset={6} className="w-[200px] bg-white">
+      <DropdownMenuContent align='end' sideOffset={6} className="w-[200px] bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
         {languages.map((language) => (
           <DropdownMenuItem
             key={language.code}
-            className={cn(currentLanguage.code) === language.code ? "bg-amethyst-500 text-white focus:text-black" : ''}
+            className={cn(currentLanguage.code) === language.code ? "bg-tingual-500 text-white focus:text-black" : ''}
             onSelect={() => handleLanguageChange(language.code)}
           >
             <div className="flex items-center justify-between w-full">
