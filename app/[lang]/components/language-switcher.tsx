@@ -53,7 +53,7 @@ export default function LanguageSwitcher() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="justify-center w-[72px] border-2 rounded-none border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        <Button variant="outline" className="hover:bg-rosian-100 outline-none ring-transparent ring-offset-0 ring-offset-transparent justify-center w-[72px] border-2 rounded-none border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
           <div className="flex items-center uppercase">
            <Globe className="w-5 h-5 overflow-hidden rounded-full mr-1.5"/>
             {currentLanguage.code}
