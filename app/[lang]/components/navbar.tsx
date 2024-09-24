@@ -15,8 +15,6 @@ import LanguageSwitcher from "./language-switcher"
 import { navigationMenuTriggerStyle, NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuContent, NavigationMenuTrigger, NavigationMenuLink, NavigationSubItem, } from "@/components/ui/navigation-menu"
 import { clash } from "@/constants/fonts"
 
-
-
 const Navbar = ({
   tl,
 }: {
@@ -130,6 +128,7 @@ const Navbar = ({
               </button>
             </Link>
             <LanguageSwitcher />
+
           </div>
         </div>
         <div className="flex lg:hidden">
