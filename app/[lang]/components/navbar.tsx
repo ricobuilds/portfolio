@@ -115,6 +115,7 @@ const Navbar = ({
           ))} */}
           </ul>
           <div className="items-center hidden gap-2 lg:flex shrink-0">
+            <LanguageSwitcher />
             <button
               className="px-3 py-2 text-sm border-2 border-black shadow-[4px_4px_0_0_#000] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-200"
             >
@@ -127,7 +128,6 @@ const Navbar = ({
                 Join Shift Forward
               </button>
             </Link>
-            <LanguageSwitcher />
 
           </div>
         </div>
