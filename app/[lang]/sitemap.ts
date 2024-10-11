@@ -13,7 +13,8 @@ const listOfRoutes = [
   routes.about,
   routes.blog,
   routes.subscribe,
-  routes.rss
+  routes.rss,
+  routes.home+"sitemap.xml"
 ]
 
 const posts = getAllPosts()
