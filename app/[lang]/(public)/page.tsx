@@ -79,6 +79,7 @@ const homeSchema: WithContext<Person> = {
     "https://linkedin.com/in/enrictrillo",
     "https://youtube.com/@ricobuilds",
     "https://github.com/ricobuilds",
+    "https://medium.com/@enrictrillo",
     "https://find-and-update.company-information.service.gov.uk/company/14006690"
   ],
   "knowsAbout": [
