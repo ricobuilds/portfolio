@@ -32,6 +32,7 @@ const homeSchema: WithContext<Person> = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Enric Jeremy Trillo Nchana",
+  "alternateName": "Rico",
   "image": "https://enrictrillo.com/graduation.jpg",
   "description": "Enric J. 'Rico' Trillo Nchana is a Fullstack and AI agents developer from Croydon, London building Metasydea company focused on disruptive tech, and Kaiser, an internal team of AI multi-agents for personal brand and business efforts.",
   "url": siteMetadata.siteUrl,
