@@ -390,7 +390,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
                 </h2>
                 <p className="text-center text-obsidian-600">Check out my latest takes and tutorials</p>
                 <ul className="grid w-full gap-8 mt-10 md:grid-cols-8">
-                  {Array(9).fill(slicedPostList[0]).slice(0, 6).map((post, idx) => (
+                  {posts.map((post, idx) => (
                     <li key={idx} className={`${idx < 2 ? 'md:col-span-4' : 'col-span-2'}`}>
                       <BlogCard post={post} lang={params.lang} />
                     </li>
