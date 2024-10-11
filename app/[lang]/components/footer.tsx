@@ -90,7 +90,7 @@ const Footer = ({
                   >
                     <span className="sr-only">YouTube</span>
                     {logos.youtube(8)}
-                  </a>
+                </a>
                 </li>
                 <li className="transition border-2 border-gray-700 group hover:bg-gray-700">
                   <Link
@@ -119,19 +119,19 @@ const Footer = ({
                     <a href="#" className="text-gray-700 transition hover:opacity-75"> About</a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Blog </a>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Blog</a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Contact </a>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Contact</a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Stats </a>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Stats</a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Testimonials </a>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Testimonials</a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Editorial Guidelines </a>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Editorial Guidelines</a>
                   </li>
                 </ul>
               </div>
@@ -139,22 +139,22 @@ const Footer = ({
                 <p className="font-medium text-gray-900">Resources</p>
                 <ul className="mt-6 space-y-4 text-sm">
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Free Tools </a>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Free Tools</a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Courses </a>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Courses</a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Tutorials </a>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Tutorials</a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Glossary </a>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Glossary</a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Salaries </a>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Salaries</a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Cheatsheets </a>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Cheatsheets</a>
                   </li>
                 </ul>
               </div>
@@ -162,16 +162,16 @@ const Footer = ({
                 <p className="font-medium text-gray-900">Legal</p>
                 <ul className="mt-6 space-y-4 text-sm">
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Terms </a>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Terms</a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Privacy </a>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Privacy</a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Disclaimer </a>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Disclaimer</a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Beehiiv Privacy Policy </a>
+                    <a href="#" className="text-gray-700 transition hover:opacity-75"> Beehiiv Privacy Policy</a>
                   </li>
                 </ul>
               </div>
