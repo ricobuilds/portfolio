@@ -66,11 +66,6 @@ const homeSchema: WithContext<Person> = {
     "name": "University of Northampton",
     "url": "https://www.northampton.ac.uk/"
   },
-  // @ts-ignore
-  "founder": {
-    "@type": "Organization",
-    "name": "Metasyde"
-  },
   "worksFor": {
     "@type": "Organization",
     "name": "Metasyde",
@@ -94,7 +89,8 @@ const homeSchema: WithContext<Person> = {
     "NextJS",
     "React",
     "TypeScript",
-    "Python"
+    "Python",
+    "System Design"
   ],
   // @ts-ignore
   "skill": ["NextJS", "React", "TypeScript", "SQL", "NoSQL", "Python", "CrewAI", "TailwindCSS", "System Design", "API"],
