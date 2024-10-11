@@ -85,7 +85,7 @@ const homeSchema: WithContext<Person> = {
   "knowsAbout": [
     "Disruptive Technologies",
     "Multi-Agent Systems",
-    "AI Development",
+    "AI",
     "Fullstack Development",
     "NextJS",
     "React",
