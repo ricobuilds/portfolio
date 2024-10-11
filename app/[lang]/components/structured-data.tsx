@@ -7,7 +7,7 @@ function StructuredData(data: DataProps) {
     <script
       key="structured-data"
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data.data) }}
     />
   )
 }
