@@ -92,8 +92,6 @@ const homeSchema: WithContext<Person> = {
     "Python",
     "System Design"
   ],
-  // @ts-ignore
-  "skill": ["NextJS", "React", "TypeScript", "SQL", "NoSQL", "Python", "CrewAI", "TailwindCSS", "System Design", "API"],
   "brand": {
     "@type": "Brand",
     "name": "ricobuilds"
