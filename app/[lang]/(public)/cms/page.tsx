@@ -60,7 +60,7 @@ export default async function BlogAdminPanel() {
             </div>
           </CardContent>
         </Card>
-        {allBuckets.map(async (bucket)=> {
+        {allBuckets.map(async (bucket) => {
           const filesQty = await listContent(bucket, postSchema)
           return (
             <Card>
@@ -100,6 +100,11 @@ export default async function BlogAdminPanel() {
               {mockPosts.filter(post => post.status === "Published").length}
             </div>
           </CardContent>
+        </Card>
+        <Card className="flex items-center justify-center h-full text-white bg-black">
+          <div className="text-xl font-bold">
+            New Bucket +
+          </div>
         </Card>
       </div>
 

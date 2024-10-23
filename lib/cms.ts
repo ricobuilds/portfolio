@@ -1,4 +1,4 @@
-import fs from 'fs';
+import {promises as fs} from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { z } from 'zod'
@@ -19,14 +19,35 @@ const root = process.cwd();
 // Bucket operations
 export async function createBucket(name: string): Promise<Bucket> {
   const bucketPath = path.join(root, 'content', name);
-  fs.mkdirSync(bucketPath);
+  await fs.mkdir(bucketPath, { recursive: true });
   return { name, path: bucketPath };
 }
 
 export async function listBuckets(): Promise<Bucket[]> {
   const contentDir = path.join(root, 'content');
-  const buckets = fs.readdirSync(contentDir);
+  const buckets = await fs.readdir(contentDir);
   return buckets.map(name => ({ name, path: path.join(contentDir, name) }));
+}
+
+export async function getAllPosts<T extends z.ZodType>(
+  bucket: Bucket,
+  schema: T
+): Promise<Content<T>[]> {
+  const files = await fs.readdir(bucket.path);
+  const contentPromises = files
+    .filter(file => file.endsWith('.mdx'))
+    .map(async file => {
+      const slug = extractSlug(file);
+      return readContent(bucket, slug, schema);
+    });
+  
+  const allPosts = await Promise.all(contentPromises);
+
+  return allPosts.sort((a, b) => {
+    const dateA = new Date(a.frontmatter.date).getTime();
+    const dateB = new Date(b.frontmatter.date).getTime();
+    return dateB - dateA;
+  });
 }
 
 // Content operations
@@ -40,7 +61,7 @@ export async function createContent<T extends z.ZodType>(
   const validatedFrontmatter = schema.parse(frontmatter);
   const fileContent = matter.stringify(content, validatedFrontmatter);
   const filePath = path.join(bucket.path, `${slug}.mdx`);
-  await fs.writeFileSync(filePath, fileContent);
+  await fs.writeFile(filePath, fileContent);
   return { slug, content, frontmatter: validatedFrontmatter };
 }
 
@@ -50,7 +71,7 @@ export async function readContent<T extends z.ZodType>(
   schema: T
 ): Promise<Content<T>> {
   const filePath = path.join(bucket.path, `${slug}.mdx`);
-  const fileContent = await fs.readFileSync(filePath, 'utf-8');
+  const fileContent = await fs.readFile(filePath, 'utf-8');
   const { content, data } = matter(fileContent);
   const validatedFrontmatter = schema.parse(data);
   return { slug, content, frontmatter: validatedFrontmatter };
@@ -68,30 +89,30 @@ export async function updateContent<T extends z.ZodType>(
   const validatedFrontmatter = schema.parse(updatedFrontmatter);
   const fileContent = matter.stringify(content, validatedFrontmatter);
   const filePath = path.join(bucket.path, `${slug}.mdx`);
-  await fs.writeFileSync(filePath, fileContent);
+  await fs.writeFile(filePath, fileContent);
   return { slug, content, frontmatter: validatedFrontmatter };
 }
 
 export async function deleteContent(bucket: Bucket, slug: string): Promise<void> {
   const filePath = path.join(bucket.path, `${slug}.mdx`);
-  await fs.unlinkSync(filePath);
+  await fs.unlink(filePath);
 }
 
 export async function listContent<T extends z.ZodType>(
   bucket: Bucket,
   schema: T
 ): Promise<Content<T>[]> {
-  const files = fs.readdirSync(path.join(root, 'content', bucket.name))
+  const files = await fs.readdir(path.join(root, 'content', bucket.name))
   if (files.length < 0) {
     return []
   }
-  const contentPromises = files
+  const conten = files
     .filter((file) => path.extname(file) === '.mdx')
     .map(async file => {
       const slug = path.basename(file, '.mdx');
       return readContent(bucket, slug, schema);
     });
-  return Promise.all(contentPromises);
+  return Promise.all(conten);
 }
 
 // utility functions
