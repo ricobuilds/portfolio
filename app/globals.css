@@ -45,6 +45,6 @@
   }
 
   table {
-    @apply block w-full;
+    @apply  w-full;
   }
 }
