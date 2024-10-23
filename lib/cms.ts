@@ -6,3 +6,9 @@ export type Bucket = {
   name: string
   path: string
 }
+
+export type Content<T> = {
+  slug: string
+  content: string
+  frontmatter: T
+}
