@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/components/*": ["./app/[lang]/components/*"],
+      "@/sections/*": ["./app/[lang]/sections/*"],
+      "@/constants/*": ["./constants/*"],
+      "@/*": ["./*"],
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.config.js", "components/codeblock/extensions/focus.js", "next.config.mjs", "app/[lang]/(cms)/cms/bucke-schema-dialog.tsz"],
+  "exclude": ["node_modules"]
+}

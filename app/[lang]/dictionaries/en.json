@@ -1,0 +1,87 @@
+{
+  "navbar": {
+    "menu": [
+      {
+        "label": "Home",
+        "type": "single",
+        "link": "/"
+      },
+      {
+        "label": "About",
+        "type": "single",
+        "link": "/about"
+      },
+      {
+        "label": "Blog",
+        "type": "single",
+        "link": "/blog"
+      },
+      {
+        "label": "Resources",
+        "type": "multi",
+        "menu": {}
+      },
+      {
+        "label": "Contact",
+        "type": "single",
+        "link": "/contact"
+      }
+    ],
+    "login": "Log In",
+    "cta": "Join Shift Forward",
+    "warning": "Site currently in ongoing revamp. Expect broken functionality"
+  },
+  "home": {
+    "hero": {
+      "headline": "Fullstack & AI Agents Engineer",
+      "subheadline": "A fullstack developer with 7+ years experience building disruptive technologies, focused on assembling multi-agent systems and sharing my personal journey",
+      "cta": "Explore my work",
+      "marquee": [
+        "Welcome to my new website!",
+        "This is a work in progress"
+      ]
+    },
+    "bio": {
+      "greeting": "Hey, I'm Enric👋",
+      "intro": "I was born & raised in Madrid, based in London since my early teens, and I'm from a small Hispanic nation in Central Africa most often forget – Equatorial Guinea",
+      "background": "I have 7+ years experience, now focused on building with disruptive tech and actively assembling multi agent systems",
+      "context": "I've put the reps in with the tools I use to solve problems – NextJS and React with Typescript, SQL and NoSQL, Python, and many more. I dedicate a good chunk daily to learning new skills",
+      "beyondTech": "When I'm not programming, you can find me sharing insights online, exploring new ideas to push the boundaries of what's possible, or travelling since I'm heavy on learning languages and cultures",
+      "cta": "Read my story",
+      "alt": "Portrait of Enric Trillo, standing confidently with graduation attire, exuding a approachable and joyful aura."
+    },
+    "experience": {
+      "headline": "Experience",
+      "subheadline": "I'm certified by top technology companies"
+    },
+    "newsletter": {
+      "subheadline": "Get notified when I push out top alpha on disruptive technologies, or launch a new Metasyde project right in your inbox.",
+      "placeholder": "Enter your email",
+      "cta": "Subscribe",
+      "note": "P.S.: I send emails every week, never spam or sell your data."
+    },
+    "pitch": {
+      "headline": "Let's build the future together",
+      "subheadline": "Get in touch if you have a project idea, feedback, or want me to discuss an opportunity",
+      "cta": "Let's talk"
+    }
+  },
+  "about": {
+    "mission": {
+      "headline": "Mission",
+      "problem": "",
+      "solution": ""
+    }
+  },
+  "subscribe": {
+    "subheadline": "Keep up with actionable top disruptive tech insights to thrive in a future world driven by AI － relaunching soon",
+    "cta": "Back to homepage"
+  },
+  "footer": {
+    "blurb": "I'm Enric Trillo, a fullstack engineer sharing knowledge and what I learn online",
+    "ownedBy": "Owned By",
+    "copyright": "All rights reserved",
+    "company": "UK Company No",
+    "connect": "Connect with me"
+  }
+}

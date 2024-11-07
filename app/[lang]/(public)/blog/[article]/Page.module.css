@@ -1,0 +1,78 @@
+.bloggo {
+  @apply container flex flex-col my-8;
+}
+.bloggo h1,
+.bloggo h2,
+.bloggo h3,
+.bloggo h4,
+.bloggo h5,
+.bloggo h6 {
+  @apply mt-3 mb-2 font-medium;
+}
+.bloggo h2 {
+  @apply text-3xl font-bold;
+}
+.bloggo h3 {
+  @apply text-2xl font-semibold;
+}
+.bloggo h4 {
+  @apply text-xl font-semibold;
+}
+.bloggo h5 {
+  @apply text-lg font-normal;
+}
+.bloggo p {
+  @apply mb-6 font-normal;
+}
+.bloggo blockquote {
+  @apply px-3 pt-4 pb-px my-6 bg-gray-100 border-l-8 border-gray-300;
+}
+.bloggo ol,
+.bloggo ul {
+  @apply pl-8 mb-4;
+}
+.bloggo ol {
+  @apply list-decimal;
+}
+.bloggo ul {
+  @apply list-disc;
+}
+.bloggo ol ol,
+.bloggo ol ul,
+.bloggo ul ol,
+.bloggo ul ul {
+  @apply mb-0;
+}
+.bloggo ul ul,
+.bloggo ol ul {
+  list-style-type: circle;
+}
+.bloggo pre {
+  @apply p-4 mb-6 overflow-auto rounded-md bg-obsidian-200/50;
+  /* for consistency with Prismjs theme */
+}
+.bloggo code {
+  @apply p-1 font-mono text-sm font-medium rounded bg-amethyst-400 bg-opacity-20 text-amethyst-500;
+}
+.bloggo code:before,
+.bloggo code:after {
+  @apply text-xs;
+  /* content: "`"; */
+}
+.bloggo pre code {
+  @apply p-0 font-normal bg-transparent;
+}
+.bloggo pre code::before,
+.bloggo pre code:after {
+  content: none;
+}
+.bloggo hr {
+  @apply my-4;
+}
+.bloggo a {
+  @apply text-amethyst-500;
+}
+.bloggo img {
+  max-width: 100%;
+  vertical-align: middle;
+}

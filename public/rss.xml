@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[Enric Trillo]]></title>
+        <description><![CDATA[Top insights & developments in disruptive technologies to thrive in your profession and business in an AI-driven world.]]></description>
+        <link>https://enrictrillo.com</link>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Wed, 04 Sep 2024 17:57:13 GMT</lastBuildDate>
+        <atom:link href="https://enrictrillo.com/rss.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Wed, 04 Sep 2024 17:57:13 GMT</pubDate>
+        <copyright><![CDATA[All rights reserved 2024,Enric Trillo]]></copyright>
+        <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Welcome to RicoBuilds]]></title>
+            <description><![CDATA[I'm Rico, a fullstack developer sharing insights on disruptive technologies, what I'm building, and my skill stacking journey to thrive in our world with AI.]]></description>
+            <link>https://enrictrillo.com/blog/welcome-to-ricobuilds</link>
+            <guid isPermaLink="false">https://enrictrillo.com/blog/welcome-to-ricobuilds</guid>
+            <category><![CDATA[Personal]]></category>
+            <dc:creator><![CDATA[Enric Trillo]]></dc:creator>
+            <pubDate>Mon, 22 Jul 2024 14:43:18 GMT</pubDate>
+        </item>
+    </channel>
+</rss>

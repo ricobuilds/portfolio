@@ -1,0 +1,76 @@
+{
+  "navbar": {
+    "menu": [
+      {
+        "label": "Início",
+        "type": "single",
+        "link": "/"
+      },
+      {
+        "label": "Sobre Mim",
+        "type": "single",
+        "link": "/about"
+      },
+      {
+        "label": "Blog",
+        "type": "single",
+        "link": "/blog"
+      },
+      {
+        "label": "Recursos",
+        "type": "multi",
+        "menu": {}
+      },
+      {
+        "label": "Contato",
+        "type": "single",
+        "link": "/contact"
+      }
+    ],
+    "login": "Entrar",
+    "cta": "Inscrever-se no Shift Forward",
+    "warning": "O site está em renovação. É possível que não funcione corretamente"
+  },
+  "home": {
+    "hero": {
+      "headline": "Engenheiro Fullstack e de IA",
+      "subheadline": "Desenvolvedor fullstack com mais de 7 anos de experiência criando tecnologias disruptivas, focado em montar sistemas multiagentes e compartilhar minha jornada pessoal",
+      "cta": "Explore meu trabalho",
+      "marquee": [
+        "Bem-vindo/a a meu nova site!",
+        "Check out our latest products and offers"
+      ]
+    },
+    "bio": {
+      "greeting": "Oi, sou Enrique👋",
+      "intro": "Nasci e fui criado em Madri, morei em Londres desde a adolescência e sou de uma pequena nação hispânica na África Central que a maioria de pessoas não conhece: Guiné Equatorial",
+      "background": "Tenho mais de 7 anos de experiência, agora focado em desenvolver com tecnologia disruptiva e montar sistemas multiagentes",
+      "context": "Eu me esforcei com as ferramentas que uso para resolver problemas – NextJS e React com Typescript, SQL e NoSQL, Python e muitos mais. Dedico uma boa parte diariamente para aprender novas habilidades",
+      "beyondTech": "Quando não estou programando, você pode me encontrar compartilhando insights online, explorando novas ideias para ultrapassar os limites do que é possível ou viajando, já que gosto de aprender idiomas e culturas",
+      "cta": "Leia minha história",
+      "alt": "Retrato de Enric Trillo, em pé, confiante, com traje de formatura, exalando uma aura amigável e alegre."
+    },
+    "experience": {
+      "headline": "Experiência",
+      "subheadline": "Estou certificado pelas melhores empresas de tecnologia"
+    },
+    "newsletter": {
+      "subheadline": "Receba notificações quando eu publicar super conteúdo sobre tecnologias disruptivas ou lançar um novo projeto Metasyde diretamente na sua caixa de email.",
+      "placeholder": "Digite seu e-mail",
+      "cta": "Juntar",
+      "note": "P.S.: Envio e-mails toda semana, nunca envio spam nem vendo seus dados."
+    },
+    "pitch": {
+      "headline": "Vamos construir o futuro juntos",
+      "subheadline": "Entre em contato se você tiver uma ideia de projeto, feedback ou quiser conversar sobre uma oportunidade",
+      "cta": "Falemos"
+    }
+  },
+  "footer": {
+    "blurb": "Sou Enric Trillo, um engenheiro fullstack que compartilha conhecimento e o que aprendo online",
+    "ownedBy": "Propriedade de",
+    "copyright": "Todos os direitos reservados",
+    "company": "Número da empresa (Reino Unido)",
+    "connect": "Conecte-se comigo"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "blog",
+  "fields": [
+    {
+      "name": "id",
+      "label": "ID",
+      "type": "id",
+      "required": true
+    },
+    {
+      "name": "title",
+      "label": "Title",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "slug",
+      "label": "Slug",
+      "type": "slug",
+      "required": true
+    },
+    {
+      "name": "created",
+      "label": "Created",
+      "type": "date",
+      "required": true
+    },
+    {
+      "name": "updated",
+      "label": "Updated",
+      "type": "date",
+      "required": true
+    }
+  ]
+}
