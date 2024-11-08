@@ -24,9 +24,9 @@ export function EditorPanel() {
     <Sheet open={openNewDocPanel} onOpenChange={setOpenNewDocPanel}>
       <SheetContent className="w-full bg-white p-[30px] flex flex-col gap-4">
         <SheetHeader>
-          <SheetTitle>{selectedArticle ? 'Edit Article' : 'New Article'}</SheetTitle>
+          <SheetTitle>{selectedArticle ? 'Edit Document' : 'New Document'}</SheetTitle>
           <SheetDescription>
-            Make changes to the article here. Click save when you're done.
+            {selectedArticle ? "Make changes to the document here." : "Enter the details for the new document."} Click save when you're done.
           </SheetDescription>
         </SheetHeader>
         <div>
@@ -51,11 +51,11 @@ export function EditorPanel() {
         </div>
         <div className="">
           <Label htmlFor="title">Title</Label>
-          <Input id="title" className="px-2.5 py-[1px] bg-slate-100" placeholder="What's New" />
+          <Input id="title" className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300" placeholder="What's New" />
         </div>
         <div className="">
           <Label htmlFor="slug">Slug</Label>
-          <Input id="slug" className="px-2.5 py-[1px] bg-slate-100" placeholder="whats-new" />
+          <Input id="slug" className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300" placeholder="whats-new" />
           <p className="flex items-center gap-2 mt-2 text-xs text-obsidian-400">
             <span><Globe className="w-4 h-4" /></span>
             enrictrillo.com/blog/whats-new
@@ -68,6 +68,7 @@ export function EditorPanel() {
             id="date"
             name="date"
             type="date"
+            className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300"
             value={date}
             onChange={(e: any) => setDate(e.target.value)}
           />
