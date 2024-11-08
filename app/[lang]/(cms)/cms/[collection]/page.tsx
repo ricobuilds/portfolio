@@ -4,6 +4,9 @@ import { SettingsDialog } from "../components/popups/settings-dialog";
 import { RiCloseCircleFill, RiMarkdownFill } from "@remixicon/react";
 import { ModoxTable } from "../components/table";
 import { Schema, SDK } from "@/lib/sdk";
+import { Fragment } from "react";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default async function CollectionView({ params }: { params: { collection: string } }) {
 
@@ -25,10 +28,30 @@ export default async function CollectionView({ params }: { params: { collection:
             </div>
           </div>
         ) : schema?.fields.length > 0 && documents.length > 0 ? (
-          <ModoxTable
-            schema={schema}
-            data={documents}
-          />
+          <Fragment>
+            <ModoxTable
+              schema={schema}
+              data={documents}
+            />
+            <div className="border-t py-1.5 flex gap-4 items-center justify-end">
+              <button
+                className="border-obsidian-300 border flex gap-2 hover:bg-slate-100 duration-300 rounded-md items-center px-2 py-0.5"
+              // onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+              // disabled={currentPage === 1}
+              >
+                <ChevronLeft className="h-4 w-4" />
+                Previous
+              </button>
+              <button
+                className="border-obsidian-300 border flex gap-2 hover:bg-slate-100 duration-300 rounded-md items-center px-2 py-0.5"
+              // onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+              // disabled={currentPage === totalPages}
+              >
+                Next
+                <ChevronRight className="h-4 w-4" />
+              </button>
+            </div>
+          </Fragment>
         ) : (
           <SplashScreen />
         )}

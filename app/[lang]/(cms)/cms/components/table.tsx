@@ -185,7 +185,7 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
                 </TableRow>
             </TableHeader>
             <TableBody className="overflow-scroll text-sm">
-                {sortedDocuments.slice(0, 20).map((document: MDXDocument, docIdx) => {
+                {sortedDocuments.slice(0, 18).map((document: MDXDocument, docIdx) => {
                     return (
                         <TableRow
                             key={docIdx}
