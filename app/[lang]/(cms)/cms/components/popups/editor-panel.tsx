@@ -73,6 +73,9 @@ export function EditorPanel() {
             onChange={(e: any) => setDate(e.target.value)}
           />
         </div>
+        <div className="space-y-2">
+          <Label htmlFor="date">Content</Label>
+          </div>
       </SheetContent>
     </Sheet>
   )
