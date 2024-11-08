@@ -1,24 +1,37 @@
 "use client"
 
 import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Sheet, SheetContent } from "@/components/ui/sheet";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import { cn } from "@/lib/shared-utils";
 import { useUIStore } from "@/stores/ui-store";
 import { RiCloseCircleFill, RiMore2Fill } from "@remixicon/react";
-import { Globe } from "lucide-react";
+import { format } from "date-fns";
+import { CalendarIcon, Globe } from "lucide-react";
+import { useState } from "react";
 
 export function EditorPanel() {
   const {
     openNewDocPanel,
     setOpenNewDocPanel
   } = useUIStore()
+  const [selectedArticle, _] = useState()
+  const [date, setDate] = useState( )
   return (
     <Sheet open={openNewDocPanel} onOpenChange={setOpenNewDocPanel}>
       <SheetContent className="w-full bg-white p-[30px] flex flex-col gap-4">
+        <SheetHeader>
+          <SheetTitle>{selectedArticle ? 'Edit Article' : 'New Article'}</SheetTitle>
+          <SheetDescription>
+            Make changes to the article here. Click save when you're done.
+          </SheetDescription>
+        </SheetHeader>
         <div>
           <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className="flex items-center justify-between h-14">
+            <div className="hidden items-center justify-between h-14">
               <div className="flex items-center gap-2">
                 <Button variant="ghost" size="icon">
                   <RiCloseCircleFill className="w-5 h-5" />
@@ -47,6 +60,17 @@ export function EditorPanel() {
             <span><Globe className="w-4 h-4" /></span>
             enrictrillo.com/blog/whats-new
           </p>
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="date">Date</Label>
+          <Input
+            id="date"
+            name="date"
+            type="date"
+            value={date}
+            onChange={(e: any) => setDate(e.target.value)}
+          />
         </div>
       </SheetContent>
     </Sheet>
