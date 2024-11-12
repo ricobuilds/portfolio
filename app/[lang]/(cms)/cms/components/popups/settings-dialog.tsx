@@ -1,6 +1,6 @@
 "use client"
 import { Input } from "@/components/ui/input"
-import { RiAddBoxFill } from "@remixicon/react"
+import { RiAddBoxFill, RiAddBoxLine, RiAddLine } from "@remixicon/react"
 import { Card, CardTitle } from "@/components/ui/card"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { useUIStore } from "@/stores/ui-store"
@@ -36,15 +36,16 @@ export function SettingsDialog() {
       <DialogContent className="sm:max-w-[640px] h-full max-h-[444px] p-0 outline-none flex flex-col gap-0">
         <div className="flex flex-row text-xs items-center justify-between h-14 p-4 border-b">
           <p className="font-medium">{capitalise(collection as string)} Schema</p>
-          <div className="flex gap-2">
-            Add Custom Fields
-            <RiAddBoxFill className="w-4 h-4" />
-          </div>
+          <button
+            className="flex gap-2 border rounded-md py-1.5 px-2 hover:bg-slate-100">
+            <RiAddLine className="w-4 h-4" />
+            Add Custom Field
+          </button>
         </div>
         <div className="flex-1 flex-col">
           <div className="flex w-full h-full border-b divide-x-[1px]">
             <div className="max-w-[40%] w-full p-4 flex flex-col">
-              
+
             </div>
             <div className="max-w-[60%] w-full px-4 pt-6 pb-3">
               props
