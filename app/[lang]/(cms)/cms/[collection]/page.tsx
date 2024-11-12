@@ -57,7 +57,9 @@ export default async function CollectionView({ params }: { params: { collection:
         )}
       </div>
       {/* popups */}
-      <SettingsDialog />
+      <SettingsDialog 
+      schema={schema}
+      />
       <EditorPanel />
     </div>
   )

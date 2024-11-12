@@ -1,17 +1,20 @@
 "use client"
 import { Input } from "@/components/ui/input"
-import { RiAddBoxFill, RiAddBoxLine, RiAddLine } from "@remixicon/react"
-import { Card, CardTitle } from "@/components/ui/card"
+import { RiAddLine, RiArrowRightUpLine, RiCalendarLine, RiHashtag, RiKeyLine, RiLink, RiLoader2Line, RiMarkdownLine, RiText, RiToggleLine } from "@remixicon/react"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { useUIStore } from "@/stores/ui-store"
 import { useState } from "react"
 import { useParams, useRouter } from "next/navigation"
 import { handleDeleteBucket } from "../../actions"
 import { capitalise } from "@/lib/shared-utils"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { FieldType, Schema } from "@/lib/sdk"
 
-export function SettingsDialog() {
+export function SettingsDialog({ schema }: { schema: Schema }) {
+  console.log("schema: ", schema)
   const [bucket, setBucket] = useState("")
   const [error, setError] = useState(false)
+  const [draggedIndex, setDraggedIndex] = useState(0)
   const {
     openSettings,
     setOpenSettings,
@@ -31,21 +34,103 @@ export function SettingsDialog() {
     router.push("/cms")
   }
 
+  const typetoIconMap: { [key in FieldType]: JSX.Element } = {
+    id: <RiKeyLine className="w-4 h-4" />,
+    text: <RiText className="w-4 h-4" />,
+    "rich-text": <RiMarkdownLine className="w-4 h-4" />,
+    number: <RiHashtag className="w-4 h-4" />,
+    date: <RiCalendarLine className="w-4 h-4" />,
+    boolean: <RiToggleLine className="w-4 h-4" />,
+    status: <RiLoader2Line className="w-4 h-4" />,
+    relation: <RiArrowRightUpLine className="w-4 h-4" />,
+    image: <RiArrowRightUpLine className="w-4 h-4" />,
+    list: <RiArrowRightUpLine className="w-4 h-4" />,
+    url: <RiArrowRightUpLine className="w-4 h-4" />,
+    slug: <RiLink className="w-4 h-4" />,
+  };
+
+  const addField = () => {
+    // const newField: SchemaField = {
+    //   id: Date.now().toString(),
+    //   type,
+    //   name: `New ${type}`,
+    //   required: false,
+    //   isTextArea: false,
+    //   localization: false,
+    //   icon,
+    // }
+    // setFields([...fields, newField])
+    // setSelectedField(newField)
+    console.log("new field created!")
+  }
+
   return (
     <Dialog open={openSettings} onOpenChange={setOpenSettings}>
       <DialogContent className="sm:max-w-[640px] h-full max-h-[444px] p-0 outline-none flex flex-col gap-0">
         <div className="flex flex-row text-xs items-center justify-between h-14 p-4 border-b">
           <p className="font-medium">{capitalise(collection as string)} Schema</p>
-          <button
-            className="flex gap-2 border rounded-md py-1.5 px-2 hover:bg-slate-100">
-            <RiAddLine className="w-4 h-4" />
-            Add Custom Field
-          </button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                className="flex gap-2 border rounded-md py-1.5 px-2 hover:bg-slate-100">
+                <RiAddLine className="w-4 h-4" />
+                Add Custom Field
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="flex-col flex gap-2">
+              {schema.fields.map((field, idx) => (
+                <DropdownMenuItem
+                  key={field.type}
+                  onClick={() => addField()}
+                  className={`flex items-center gap-3 p-3 bg-white rounded-lg border ${draggedIndex === idx
+                    ? "border-amethyst-500 shadow-md"
+                    : "border-amethyst-100 hover:border-amethyst-500"
+                    } transition-all group cursor-move`}
+                >
+                  <div className="flex items-center">
+                    <span className="mr-2">{typetoIconMap[field.type]}</span>
+                    <span className="ml-2 capitalize text-black">{field.label}</span>
+                  </div>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu >
         </div>
-        <div className="flex-1 flex-col">
+        <div className="flex-1 flex-col overflow-scroll">
           <div className="flex w-full h-full border-b divide-x-[1px]">
-            <div className="max-w-[40%] w-full p-4 flex flex-col">
-
+            <div className="max-w-[40%] w-full p-4 overflow-scroll border border-scarlet-500">
+              <ul className="flex flex-col gap-2 overflow-hidden">
+                {schema.fields.map((field, idx) => (
+                  <li
+                    key={field.type}
+                    onClick={() => addField()}
+                    className={`flex items-center gap-3 p-2 bg-white rounded-lg border ${draggedIndex === idx
+                      ? "border-amethyst-500 shadow-md"
+                      : "border-amethyst-100 hover:border-amethyst-500"
+                      } transition-all group cursor-move`}
+                  >
+                    <div className="flex items-center">
+                      <span className="mr-2 bg-amethyst-500 text-white p-1 rounded-md">{typetoIconMap[field.type]}</span>
+                      <span className="ml-2 capitalize text-black">{field.label}</span>
+                    </div>
+                  </li>
+                ))}
+                {schema.fields.map((field, idx) => (
+                  <li
+                    key={field.type}
+                    onClick={() => addField()}
+                    className={`flex items-center gap-3 p-2 bg-white rounded-lg border ${draggedIndex === idx
+                      ? "border-amethyst-500 shadow-md"
+                      : "border-amethyst-100 hover:border-amethyst-500"
+                      } transition-all group cursor-move`}
+                  >
+                    <div className="flex items-center">
+                      <span className="mr-2">{typetoIconMap[field.type]}</span>
+                      <span className="ml-2 capitalize text-black">{field.label}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
             <div className="max-w-[60%] w-full px-4 pt-6 pb-3">
               props
