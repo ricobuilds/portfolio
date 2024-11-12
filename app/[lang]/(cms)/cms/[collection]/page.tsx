@@ -33,7 +33,7 @@ export default async function CollectionView({ params }: { params: { collection:
               schema={schema}
               data={documents}
             />
-            <div className="border-t py-1.5 flex gap-4 items-center justify-end">
+            <div className="border-t py-1.5 flex text-sm gap-4 items-center justify-end">
               <button
                 className="border-obsidian-300 border flex gap-2 hover:bg-slate-100 duration-300 rounded-md items-center px-2 py-0.5"
               // onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
