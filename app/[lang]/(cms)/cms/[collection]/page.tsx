@@ -61,7 +61,9 @@ export default async function CollectionView({ params }: { params: { collection:
       <SettingsDialog
         schema={schema}
       />
-      <EditorPanel />
+      <EditorPanel
+      schema={schema}
+      />
     </div>
   )
 }

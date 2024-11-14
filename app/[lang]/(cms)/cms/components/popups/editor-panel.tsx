@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import { Schema } from "@/lib/sdk";
 import { cn } from "@/lib/shared-utils";
 import { useUIStore } from "@/stores/ui-store";
 import { RiCloseCircleFill, RiMore2Fill } from "@remixicon/react";
@@ -13,7 +14,7 @@ import { format } from "date-fns";
 import { CalendarIcon, Globe } from "lucide-react";
 import { useState } from "react";
 
-export function EditorPanel() {
+export function EditorPanel({ schema }: { schema: Schema }) {
   const {
     openNewDocPanel,
     setOpenNewDocPanel
