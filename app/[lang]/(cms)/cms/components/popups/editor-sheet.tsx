@@ -16,13 +16,13 @@ import { useState } from "react";
 
 export function EditorSheet({ schema }: { schema: Schema }) {
   const {
-    openNewDocPanel,
-    setOpenNewDocPanel
+    isEditorSheetOpen,
+    toggleEditorSheet
   } = useUIStore()
-  const [selectedArticle, _] = useState('s')
+  const [selectedArticle, _] = useState()
   const [date, setDate] = useState()
   return (
-    <Sheet open={openNewDocPanel} onOpenChange={setOpenNewDocPanel}>
+    <Sheet open={isEditorSheetOpen} onOpenChange={toggleEditorSheet}>
       <SheetContent className="w-full bg-white p-[30px] flex flex-col gap-4">
         <SheetHeader>
           <SheetTitle>{selectedArticle ? 'Edit Document' : 'New Document'}</SheetTitle>

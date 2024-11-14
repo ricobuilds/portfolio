@@ -1,4 +1,5 @@
 import { allSlugs } from "@/lib/mdx"
+import { BaseDocument, MDXDocument } from "@/lib/sdk"
 import { RemixiconComponentType, RiArrowRightUpLine, RiCalendarLine, RiHashtag, RiKeyLine, RiLoader2Line, RiMarkdownLine, RiText, RiTimeLine, RiToggleLine } from "@remixicon/react"
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
@@ -43,10 +44,13 @@ interface UIStore {
   fields: { name: FieldType, icon: any }[]
   currentSchema: string
   selectedPosts: string[]
+  currentRecord: BaseDocument | null
+  setCurrentRecord: (doc: BaseDocument) => void
+  resetCurrentRecord: () => void
   sortColumn: string
   sortDirection: SortDirection
   visibleColumns: Record<string, string[]>
-  openNewDocPanel: boolean
+  isEditorSheetOpen: boolean
   openNewBucketPanel: boolean
   openSettings: boolean
   viewMode: UIMode
@@ -59,7 +63,7 @@ interface UIStore {
   toggleColumn: (collectionName: string, column: string, allColumns: string[]) => void
   setVisibleColumns: (collectionName: string, columns: string[]) => void
   getVisibleColumns: (collectionName: string, allColumns: string[]) => string[]
-  setOpenNewDocPanel: () => void
+  toggleEditorSheet: () => void
   setOpenNewBucketPanel: () => void
   setOpenSettings: () => void
   setViewMode: (viewMode: UIMode) => void
@@ -104,7 +108,8 @@ export const useUIStore = create<UIStore>((set, get) => ({
   visibleColumns: {},
   currentSchema: '',
   selectedPosts: [],
-  openNewDocPanel: false,
+  currentRecord: null,
+  isEditorSheetOpen: false,
   openNewBucketPanel: false,
   openSettings: false,
   viewMode: 'view',
@@ -134,6 +139,16 @@ export const useUIStore = create<UIStore>((set, get) => ({
           : [...state.selectedPosts, slug]
       }
     })
+  },
+  setCurrentRecord: (doc: BaseDocument) => {
+    set(({
+      currentRecord: doc
+    }))
+  },
+  resetCurrentRecord: () => {
+    set(({
+      currentRecord: null
+    }))
   },
   setBucket: (newBucket) => {
     set(({
@@ -176,10 +191,10 @@ export const useUIStore = create<UIStore>((set, get) => ({
     }
     return allColumns.filter(col => state.visibleColumns[collectionName].includes(col))
   },
-  setOpenNewDocPanel() {
-    const { openNewDocPanel } = get()
+  toggleEditorSheet() {
+    const { isEditorSheetOpen } = get()
     set({
-      openNewDocPanel: !openNewDocPanel
+      isEditorSheetOpen: !isEditorSheetOpen
     })
   },
   setOpenNewBucketPanel() {

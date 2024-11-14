@@ -1,5 +1,5 @@
 import { ActionBar } from "../components/action-bar";
-import { EditorSheet } from "../components/popups/editor-panel";
+import { EditorSheet } from "../components/popups/editor-sheet";
 import { SettingsDialog } from "../components/popups/settings-dialog";
 import { RiCloseCircleFill, RiFolder5Fill, RiMarkdownFill } from "@remixicon/react";
 import { ModoxTable } from "../components/table";

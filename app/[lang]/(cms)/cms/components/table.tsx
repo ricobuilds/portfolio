@@ -20,7 +20,7 @@ import { ReactElement, useEffect, useMemo, useState } from "react";
 import { capitalise, cn, sleep } from "@/lib/shared-utils";
 import { RemixiconComponentType, RiCloseCircleFill, RiArrowRightUpLine, RiCalendarLine, RiHashtag, RiKeyLine, RiLoader2Line, RiMarkdownFill, RiMarkdownLine, RiText, RiToggleLine, RiLink } from "@remixicon/react";
 import { useParams } from "next/navigation";
-import { Schema, SchemaField, FieldType, MDXDocument } from "@/lib/sdk";
+import { Schema, SchemaField, FieldType, MDXDocument, BaseDocument } from "@/lib/sdk";
 import { format } from "date-fns";
 import { Checkbox } from "@/components/ui/checkbox";
 
@@ -46,15 +46,15 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
         setSortColumn,
         setSortDirection,
         setSelectedPosts,
-        setOpenNewDocPanel
+        toggleEditorSheet
     } = useUIStore()
 
-    const handleRecordInteraction = (slug: string) => {
+    const handleRecordInteraction = (doc: BaseDocument) => {
         if (viewMode === "select") {
-            setSelectedPosts(slug)
+            setSelectedPosts(doc['slug'])
         }
         if (viewMode === "view") {
-            setOpenNewDocPanel()
+            toggleEditorSheet()
         }
     }
 
@@ -189,6 +189,7 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
                     return (
                         <TableRow
                             key={docIdx}
+                            onClick={() => handleRecordInteraction(document as BaseDocument)}
                             className={
                                 cn(
                                     'text-gray-400 h-8 hover:text-black [&_td]:border-r hover:bg-slate-100 cursor-pointer',
