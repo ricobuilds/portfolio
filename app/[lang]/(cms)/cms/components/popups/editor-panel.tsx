@@ -18,8 +18,8 @@ export function EditorPanel() {
     openNewDocPanel,
     setOpenNewDocPanel
   } = useUIStore()
-  const [selectedArticle, _] = useState()
-  const [date, setDate] = useState( )
+  const [selectedArticle, _] = useState('s')
+  const [date, setDate] = useState()
   return (
     <Sheet open={openNewDocPanel} onOpenChange={setOpenNewDocPanel}>
       <SheetContent className="w-full bg-white p-[30px] flex flex-col gap-4">
@@ -49,6 +49,16 @@ export function EditorPanel() {
             </div>
           </header>
         </div>
+        {/* {schema.fields.map((field) => (
+          <div key={field.name}>
+            <Label htmlFor={field.name}>{field.label}</Label>
+            <Input
+              id={field.name}
+              value={formData[field.name] || ''}
+              onChange={(e) => handleInputChange(field.name, e.target.value)}
+            />
+          </div>
+        ))} */}
         <div className="">
           <Label htmlFor="title">Title</Label>
           <Input id="title" className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300" placeholder="What's New" />
@@ -75,7 +85,7 @@ export function EditorPanel() {
         </div>
         <div className="space-y-2">
           <Label htmlFor="date">Content</Label>
-          </div>
+        </div>
       </SheetContent>
     </Sheet>
   )
