@@ -10,7 +10,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default async function CollectionView({ params }: { params: { collection: string } }) {
 
-  const [schema, documents] = await Promise.all([
+  const [workspace, schema, documents] = await Promise.all([
+    SDK.workspace.getWorkspace,
     SDK.schema.getSchema(params.collection) as Schema,
     SDK.document.listDocuments(params.collection)
   ])
@@ -57,8 +58,8 @@ export default async function CollectionView({ params }: { params: { collection:
         )}
       </div>
       {/* popups */}
-      <SettingsDialog 
-      schema={schema}
+      <SettingsDialog
+        schema={schema}
       />
       <EditorPanel />
     </div>
