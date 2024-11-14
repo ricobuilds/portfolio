@@ -135,7 +135,18 @@ function getSchema(collectionName: string): Schema | { message: string } {
 
   return schema
 }
-function updateSchema(collectionName: string, newFields: Partial<Schema>) { }
+function updateSchema(collectionName: string, newFields: Partial<Schema>) {
+  const schemaPath = path.join(ROOT, 'schemas', `${collectionName}.json`)
+  const currentSchema: Schema = JSON.parse(fs.readFileSync(schemaPath, 'utf8'))
+  try {
+    const updatedSchema = { ...currentSchema, ...newFields };
+    fs.writeFileSync(schemaPath, JSON.stringify(updatedSchema, null, 2))
+    console.log(`Schema for ${collectionName} updated successfully`)
+  } catch (error) {
+    console.error(`Error updating schema for ${collectionName}:`, error)
+    throw error
+  }
+}
 function deleteSchema(collectionName: string) {
   const SCHEMA_DIR = path.join(ROOT, 'schemas')
   const schemaPath = path.join(SCHEMA_DIR, `${collectionName}.json`)
