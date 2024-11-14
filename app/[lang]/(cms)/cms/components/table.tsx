@@ -26,7 +26,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 interface SchemaTableProps {
     schema: Schema
-    data: MDXDocument[]
+    data: BaseDocument[]
     alwaysVisibleColumns?: string[];
 }
 
@@ -67,8 +67,10 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
     // })
     const sortedDocuments = useMemo(() => {
         return [...data].sort((a, b) => {
-            const aValue = a.frontmatter[sortColumn];
-            const bValue = b.frontmatter[sortColumn];
+            // @ts-ignore
+            const aValue = a[sortColumn];
+            // @ts-ignore
+            const bValue = b[sortColumn];
             if (aValue < bValue) return sortDirection === 'asc' ? -1 : 1;
             if (aValue > bValue) return sortDirection === 'asc' ? 1 : -1;
             return 0;
@@ -187,12 +189,12 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
                 </TableRow>
             </TableHeader>
             <TableBody className="overflow-scroll text-sm">
-                {sortedDocuments.slice(0, 19).map((document: MDXDocument, docIdx) => {
+                {sortedDocuments.slice(0, 19).map((document: BaseDocument, docIdx) => {
                     console.log(document)
                     return (
                         <TableRow
                             key={docIdx}
-                            onClick={() => handleRecordInteraction(document as BaseDocument)}
+                            onClick={() => handleRecordInteraction(document)}
                             className={
                                 cn(
                                     'text-gray-400 h-8 hover:text-black [&_td]:border-r hover:bg-slate-100 cursor-pointer',
