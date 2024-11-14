@@ -8,17 +8,23 @@ import { useParams, useRouter } from "next/navigation"
 import { handleDeleteBucket } from "../../actions"
 import { capitalise } from "@/lib/shared-utils"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { FieldType, Schema } from "@/lib/sdk"
+import { FieldType, Schema, SchemaField } from "@/lib/sdk"
+import { useSettingsStore } from "@/stores/settings-store"
 
 export function SettingsDialog({ schema }: { schema: Schema }) {
   console.log("schema: ", schema)
   const [bucket, setBucket] = useState("")
   const [error, setError] = useState(false)
-  const [draggedIndex, setDraggedIndex] = useState(0)
+  const [draggedIndex, setDraggedIndex] = useState<number | null>()
   const {
     openSettings,
     setOpenSettings,
   } = useUIStore()
+
+  const {
+    selectedField,
+    setSelectedField
+  } = useSettingsStore()
 
   const { collection } = useParams()
   const router = useRouter()
@@ -49,6 +55,10 @@ export function SettingsDialog({ schema }: { schema: Schema }) {
     slug: <RiLink className="w-4 h-4" />,
   };
 
+  const clickField = (field: SchemaField) => {
+    setSelectedField(field)
+  }
+
   const addField = () => {
     // const newField: SchemaField = {
     //   id: Date.now().toString(),
@@ -66,7 +76,7 @@ export function SettingsDialog({ schema }: { schema: Schema }) {
 
   return (
     <Dialog open={openSettings} onOpenChange={setOpenSettings}>
-      <DialogContent className="sm:max-w-[640px] h-full max-h-[444px] p-0 outline-none flex flex-col gap-0">
+      <DialogContent className="sm:max-w-[640px] max-w-[644px] p-0 outline-none flex flex-col gap-0">
         <div className="flex flex-row text-xs items-center justify-between h-14 p-4 border-b">
           <p className="font-medium">{capitalise(collection as string)} Schema</p>
           <DropdownMenu>
@@ -77,18 +87,14 @@ export function SettingsDialog({ schema }: { schema: Schema }) {
                 Add Custom Field
               </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="flex-col flex gap-2">
-              {schema.fields.map((field, idx) => (
+            <DropdownMenuContent className="flex-col text-[12px] flex gap-2">
+              {schema.fields.filter(field => field.name !== 'id' && field.name !== 'title').map((field, idx) => (
                 <DropdownMenuItem
                   key={field.type}
                   onClick={() => addField()}
-                  className={`flex items-center gap-3 p-3 bg-white rounded-lg border ${draggedIndex === idx
-                    ? "border-amethyst-500 shadow-md"
-                    : "border-amethyst-100 hover:border-amethyst-500"
-                    } transition-all group cursor-move`}
+                  className={`flex items-center gap-3 rounded-md bg-white hover:bg-indigo-500 transition-all`}
                 >
                   <div className="flex items-center">
-                    <span className="mr-2">{typetoIconMap[field.type]}</span>
                     <span className="ml-2 capitalize text-black">{field.label}</span>
                   </div>
                 </DropdownMenuItem>
@@ -98,12 +104,13 @@ export function SettingsDialog({ schema }: { schema: Schema }) {
         </div>
         <div className="flex-1 flex-col overflow-scroll">
           <div className="flex w-full h-full border-b divide-x-[1px]">
-            <div className="max-w-[40%] w-full p-4 overflow-scroll border border-scarlet-500">
-              <ul className="flex flex-col gap-2 overflow-hidden">
-                {schema.fields.map((field, idx) => (
+            <div className="max-w-[40%] w-full p-4 overflow-scroll">
+              <ul className="flex flex-col text-sm gap-2">
+                {schema.fields
+                .map((field, idx) => (
                   <li
                     key={field.type}
-                    onClick={() => addField()}
+                    onClick={() => clickField(field)}
                     className={`flex items-center gap-3 p-2 bg-white rounded-lg border ${draggedIndex === idx
                       ? "border-amethyst-500 shadow-md"
                       : "border-amethyst-100 hover:border-amethyst-500"
@@ -115,25 +122,9 @@ export function SettingsDialog({ schema }: { schema: Schema }) {
                     </div>
                   </li>
                 ))}
-                {schema.fields.map((field, idx) => (
-                  <li
-                    key={field.type}
-                    onClick={() => addField()}
-                    className={`flex items-center gap-3 p-2 bg-white rounded-lg border ${draggedIndex === idx
-                      ? "border-amethyst-500 shadow-md"
-                      : "border-amethyst-100 hover:border-amethyst-500"
-                      } transition-all group cursor-move`}
-                  >
-                    <div className="flex items-center">
-                      <span className="mr-2">{typetoIconMap[field.type]}</span>
-                      <span className="ml-2 capitalize text-black">{field.label}</span>
-                    </div>
-                  </li>
-                ))}
               </ul>
             </div>
             <div className="max-w-[60%] w-full px-4 pt-6 pb-3">
-              props
             </div>
           </div>
         </div>

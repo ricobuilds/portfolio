@@ -1,21 +1,22 @@
+import { Schema, SchemaField } from '@/lib/sdk'
 import { create } from 'zustand'
 
 interface ISettingsStore {
-  selectedField: string
-  setSelectedField: (field: string) => void
+  selectedField: SchemaField | null
+  setSelectedField: (field: SchemaField) => void
   resetSelectedField: () => void
 }
 
 export const useSettingsStore = create<ISettingsStore>((set, get) => ({
-  selectedField: '',
-  setSelectedField: (field: string) => {
+  selectedField: null,
+  setSelectedField: (field: SchemaField) => {
     set(({
       selectedField: field
     }))
   },
   resetSelectedField: () => {
     set(({
-      selectedField: ''
+      selectedField: null
     }))
   }
 }))
