@@ -53,7 +53,6 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
 
     const handleRecordInteraction = (doc: BaseDocument) => {
         if (viewMode === "select") {
-            console.log("edit!!")
             setSelectedPosts(doc.slug)
         }
         if (viewMode === "view") {
@@ -198,7 +197,6 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
                 </TableHeader>
                 <TableBody className="overflow-scroll text-sm">
                     {currentPosts.map((document: BaseDocument, docIdx) => {
-                        console.log(document)
                         return (
                             <TableRow
                                 key={docIdx}
