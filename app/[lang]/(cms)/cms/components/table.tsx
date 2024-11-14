@@ -246,6 +246,9 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
                 </TableBody>
             </Table>
             <div className="border-t py-1.5 flex text-sm gap-4 items-center justify-end">
+                <div className="text-sm font-medium">
+                    Page {currentPage} of {totalPages}
+                </div>
                 <button
                     className={cn(
                         currentPage === 1 ? "bg-slate-200 border-obsidian-100 opacity-60 pointer-events-none" : null,
