@@ -45,7 +45,7 @@ interface UIStore {
   currentSchema: string
   selectedPosts: string[]
   currentRecord: BaseDocument | null
-  setCurrentRecord: (doc: BaseDocument) => void
+  setCurrentRecord: (doc: BaseDocument | null) => void
   resetCurrentRecord: () => void
   sortColumn: string
   sortDirection: SortDirection
@@ -140,7 +140,7 @@ export const useUIStore = create<UIStore>((set, get) => ({
       }
     })
   },
-  setCurrentRecord: (doc: BaseDocument) => {
+  setCurrentRecord: (doc: BaseDocument | null) => {
     set(({
       currentRecord: doc
     }))

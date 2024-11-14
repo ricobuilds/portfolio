@@ -46,6 +46,7 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
         setSortColumn,
         setSortDirection,
         setSelectedPosts,
+        setCurrentRecord,
         toggleEditorSheet
     } = useUIStore()
 
@@ -54,8 +55,13 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
             setSelectedPosts(doc['slug'])
         }
         if (viewMode === "view") {
-            toggleEditorSheet()
+            handleEditPost(doc)
         }
+    }
+
+    const handleEditPost = (post: BaseDocument) => {
+        setCurrentRecord(post)
+        toggleEditorSheet()
     }
 
     // const sortedDocuments = [...data].sort((a, b) => {

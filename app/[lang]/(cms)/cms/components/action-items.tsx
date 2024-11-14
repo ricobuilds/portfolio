@@ -16,9 +16,15 @@ export function ActionItems() {
     selectedPosts,
     setOpenSettings,
     setSelectedPosts,
+    setCurrentRecord,
     clearSelectedPosts,
     toggleEditorSheet,
   } = useUIStore()
+
+  const handleNewDocument = () => {
+    setCurrentRecord(null)
+    toggleEditorSheet()
+  }
 
   const handleDelete = async () => {
     for (let i = 0; i < selectedPosts.length; i++) {
@@ -38,7 +44,7 @@ export function ActionItems() {
       {viewMode === "view" ? (
         <Fragment>
           <button
-            onClick={() => toggleEditorSheet()}
+            onClick={() => handleNewDocument()}
             className="flex items-center gap-2 transition-all group">
             <RiAddBoxFill className="w-5 h-5 text-slate-500 group-hover:text-black" />
             <span className="text-sm text-slate-500 group-hover:text-black">New Document</span>
