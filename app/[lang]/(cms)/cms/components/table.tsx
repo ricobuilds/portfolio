@@ -15,8 +15,8 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { DropdownMenuCheckboxItem, DropdownMenuLabel, DropdownMenuSeparator } from "@/components/dropdown"
 import { useUIStore } from "@/stores/ui-store";
-import { ChevronDown } from "lucide-react"
-import { ReactElement, useEffect, useMemo, useState } from "react";
+import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react"
+import { Fragment, ReactElement, useEffect, useMemo, useState } from "react";
 import { capitalise, cn, sleep } from "@/lib/shared-utils";
 import { RemixiconComponentType, RiCloseCircleFill, RiArrowRightUpLine, RiCalendarLine, RiHashtag, RiKeyLine, RiLoader2Line, RiMarkdownFill, RiMarkdownLine, RiText, RiToggleLine, RiLink } from "@remixicon/react";
 import { useParams } from "next/navigation";
@@ -36,6 +36,7 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
     const { visibleColumns, setVisibleColumns, toggleColumn, getVisibleColumns } = useUIStore()
     const [localSchema, setLocalSchema] = useState<Schema | null>()
     const [loading, setLoading] = useState(false)
+    const [currentPage, setCurrentPage] = useState(1)
 
     const {
         viewMode,
@@ -86,6 +87,12 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
         }
     }
 
+    const postsPerPage = 19
+    const indexOfLastPost = currentPage * postsPerPage
+    const indexOfFirstPost = indexOfLastPost - postsPerPage
+    const currentPosts = sortedDocuments.slice(indexOfFirstPost, indexOfLastPost)
+    const totalPages = Math.ceil(sortedDocuments.length / postsPerPage)
+
     useEffect(() => {
         setLoading(true)
         setLocalSchema(schema)
@@ -124,121 +131,146 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
     };
 
     return (
-        <Table>
-            <TableHeader>
-                <TableRow>
-                    <TableHead
-                        className={
-                            cn("max-w-[10px]")
-                        }>
-                    </TableHead>
-                    {visibleColumnsInOrder.map((column, vIdx) => {
-                        const field = localSchema.fields.find((field) => field.name === column)
-
+        <Fragment>
+            <Table>
+                <TableHeader>
+                    <TableRow>
+                        <TableHead
+                            className={
+                                cn("max-w-[10px]")
+                            }>
+                        </TableHead>
+                        {visibleColumnsInOrder.map((column, vIdx) => {
+                            const field = localSchema.fields.find((field) => field.name === column)
+                            return (
+                                <TableHead
+                                    key={vIdx}
+                                    title={field?.label}
+                                    onClick={() => handleSort(field?.name as string)}
+                                    className={
+                                        cn(
+                                            "cursor-pointer",
+                                            "max-w-[200px] overflow-hidden text-slate-500 hover:text-black font-normal",
+                                            field?.name === "title" ? "w-[250px]" : field?.name === "slug" ? "w-[150px]" : "flex-auto",
+                                        )
+                                    }
+                                >
+                                    <div className="flex items-center gap-2">
+                                        {field && typetoIconMap[field.type]}
+                                        <span className="truncate">{capitalise(column)}</span>
+                                        {sortColumn === field?.name && (
+                                            <span className="ml-1">
+                                                {sortDirection === 'asc' ? '▲' : '▼'}
+                                            </span>
+                                        )}
+                                    </div>
+                                </TableHead>
+                            )
+                        }
+                        )}
+                        <TableHead>
+                            <DropdownMenu>
+                                <DropdownMenuTrigger asChild>
+                                    <div className="flex items-center justify-end gap-1">
+                                        Show
+                                        <ChevronDown className="w-4 h-4" />
+                                        <span className="sr-only">Show Fields</span>
+                                    </div>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent>
+                                    {localSchema.fields
+                                        .filter((field) => field.name !== 'id' && field.name !== 'title')
+                                        .map((field, dIdx) => (
+                                            <DropdownMenuCheckboxItem
+                                                key={dIdx}
+                                                checked={visibleColumnsInOrder.includes(field.name)}
+                                                onCheckedChange={() => toggleColumn(collectionName, field.name, allColumns)}
+                                            >
+                                                <span className="mr-2">{typetoIconMap[field.type]}</span>
+                                                {field.label || field.name}
+                                            </DropdownMenuCheckboxItem>
+                                        ))}
+                                </DropdownMenuContent>
+                            </DropdownMenu >
+                        </TableHead>
+                    </TableRow>
+                </TableHeader>
+                <TableBody className="overflow-scroll text-sm">
+                    {currentPosts.map((document: BaseDocument, docIdx) => {
+                        console.log(document)
                         return (
-                            <TableHead
-                                key={vIdx}
-                                title={field?.label}
-                                onClick={() => handleSort(field?.name as string)}
+                            <TableRow
+                                key={docIdx}
+                                onClick={() => handleRecordInteraction(document)}
                                 className={
                                     cn(
-                                        "cursor-pointer",
-                                        "max-w-[200px] overflow-hidden text-slate-500 hover:text-black font-normal",
-                                        field?.name === "title" ? "w-[250px]" : field?.name === "slug" ? "w-[150px]" : "flex-auto",
+                                        'text-gray-400 h-8 hover:text-black [&_td]:border-r hover:bg-slate-100 cursor-pointer',
+                                        // selectedPosts.includes(document['slug']) ? "bg-slate-100" : null
                                     )
                                 }
                             >
-                                <div className="flex items-center gap-2">
-                                    {field && typetoIconMap[field.type]}
-                                    <span className="truncate">{capitalise(column)}</span>
-                                    {sortColumn === field?.name && (
-                                        <span className="ml-1">
-                                            {sortDirection === 'asc' ? '▲' : '▼'}
-                                        </span>
-                                    )}
-                                </div>
-                            </TableHead>
-                        )
-                    }
-                    )}
-                    <TableHead>
-                        <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                                <div className="flex items-center justify-end gap-1">
-                                    Show
-                                    <ChevronDown className="w-4 h-4" />
-                                    <span className="sr-only">Show Fields</span>
-                                </div>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent>
-                                {localSchema.fields
-                                    .filter((field) => field.name !== 'id' && field.name !== 'title')
-                                    .map((field, dIdx) => (
-                                        <DropdownMenuCheckboxItem
-                                            key={dIdx}
-                                            checked={visibleColumnsInOrder.includes(field.name)}
-                                            onCheckedChange={() => toggleColumn(collectionName, field.name, allColumns)}
-                                        >
-                                            <span className="mr-2">{typetoIconMap[field.type]}</span>
-                                            {field.label || field.name}
-                                        </DropdownMenuCheckboxItem>
-                                    ))}
-                            </DropdownMenuContent>
-                        </DropdownMenu >
-                    </TableHead>
-                </TableRow>
-            </TableHeader>
-            <TableBody className="overflow-scroll text-sm">
-                {sortedDocuments.slice(0, 19).map((document: BaseDocument, docIdx) => {
-                    console.log(document)
-                    return (
-                        <TableRow
-                            key={docIdx}
-                            onClick={() => handleRecordInteraction(document)}
-                            className={
-                                cn(
-                                    'text-gray-400 h-8 hover:text-black [&_td]:border-r hover:bg-slate-100 cursor-pointer',
-                                    // selectedPosts.includes(document['slug']) ? "bg-slate-100" : null
-                                )
-                            }
-                        >
-                            <TableCell
-                                className={
-                                    cn("max-w-[10px] h-8")
-                                }>
-                                <Checkbox
-                                    checked={selectedPosts.includes(document['slug'])}
-                                    onClick={() => handleRecordInteraction(document)}
+                                <TableCell
                                     className={
-                                        cn(
-                                            "transition-opacity duration-500 ease-in-out transform-all",
-                                            viewMode === "select" ? "opacity-100 visible" : 'opacity-0 invisible',
-                                            selectedPosts.includes(document['slug']) ? "text-white bg-celuria-400" : null
-                                        )
-                                    } />
-                            </TableCell>
-                            {visibleColumnsInOrder.map((column, vcIdx) => {
-                                const field = localSchema.fields.find((field) => field.name === column)
-                                return (
-                                    <TableCell
-                                        key={column + vcIdx}
-                                        // @ts-ignore
-                                        title={document[field?.name]}
-                                        className={cn(
-                                            "max-w-[200px] overflow-hidden",
-                                            field?.name === "title" ? "w-[250px]" : field?.name === "slug" ? "w-[150px]" : "flex-auto",
-                                            "truncate"
-                                        )}>
+                                        cn("max-w-[10px] h-8")
+                                    }>
+                                    <Checkbox
+                                        checked={selectedPosts.includes(document['slug'])}
+                                        onClick={() => handleRecordInteraction(document)}
+                                        className={
+                                            cn(
+                                                "transition-opacity duration-500 ease-in-out transform-all",
+                                                viewMode === "select" ? "opacity-100 visible" : 'opacity-0 invisible',
+                                                selectedPosts.includes(document['slug']) ? "text-white bg-celuria-400" : null
+                                            )
+                                        } />
+                                </TableCell>
+                                {visibleColumnsInOrder.map((column, vcIdx) => {
+                                    const field = localSchema.fields.find((field) => field.name === column)
+                                    return (
+                                        <TableCell
+                                            key={column + vcIdx}
+                                            // @ts-ignore
+                                            title={document[field?.name]}
+                                            className={cn(
+                                                "max-w-[200px] overflow-hidden",
+                                                field?.name === "title" ? "w-[250px]" : field?.name === "slug" ? "w-[150px]" : "flex-auto",
+                                                "truncate"
+                                            )}>
                                             {/* @ts-ignore */}
-                                        {renderCellContent(document[field?.name], field)}
-                                    </TableCell>
-                                )
-                            })}
-                        </TableRow>
-                    )
-                })}
-            </TableBody>
-        </Table>
+                                            {renderCellContent(document[field?.name], field)}
+                                        </TableCell>
+                                    )
+                                })}
+                            </TableRow>
+                        )
+                    })}
+                </TableBody>
+            </Table>
+            <div className="border-t py-1.5 flex text-sm gap-4 items-center justify-end">
+                <button
+                    className={cn(
+                        currentPage === 1 ? "bg-slate-200 border-obsidian-100 opacity-60 pointer-events-none" : null,
+                        "border-obsidian-300 border flex gap-2 hover:bg-slate-100 duration-300 rounded-md items-center px-2 py-0.5",
+                    )}
+                    onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                    disabled={currentPage === 1}
+                >
+                    <ChevronLeft className="h-4 w-4" />
+                    Previous
+                </button>
+                <button
+                    className={cn(
+                        currentPage === totalPages ? "bg-slate-200 opacity-60 border-obsidian-100 pointer-events-none" : null,
+                        "border-obsidian-300 border flex gap-2 hover:bg-slate-100 duration-300 rounded-md items-center px-2 py-0.5",
+                    )}
+                    onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                    disabled={currentPage === totalPages}
+                >
+                    Next
+                    <ChevronRight className="h-4 w-4" />
+                </button>
+            </div>
+        </Fragment>
     )
 }
 

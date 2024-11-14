@@ -34,24 +34,6 @@ export default async function CollectionView({ params }: { params: { collection:
               schema={schema}
               data={documents}
             />
-            <div className="border-t py-1.5 flex text-sm gap-4 items-center justify-end">
-              <button
-                className="border-obsidian-300 border flex gap-2 hover:bg-slate-100 duration-300 rounded-md items-center px-2 py-0.5"
-              // onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-              // disabled={currentPage === 1}
-              >
-                <ChevronLeft className="h-4 w-4" />
-                Previous
-              </button>
-              <button
-                className="border-obsidian-300 border flex gap-2 hover:bg-slate-100 duration-300 rounded-md items-center px-2 py-0.5"
-              // onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-              // disabled={currentPage === totalPages}
-              >
-                Next
-                <ChevronRight className="h-4 w-4" />
-              </button>
-            </div>
           </Fragment>
         ) : (
           <SplashScreen />
