@@ -1,5 +1,5 @@
 import { ActionBar } from "../components/action-bar";
-import { EditorPanel } from "../components/popups/editor-panel";
+import { EditorSheet } from "../components/popups/editor-panel";
 import { SettingsDialog } from "../components/popups/settings-dialog";
 import { RiCloseCircleFill, RiFolder5Fill, RiMarkdownFill } from "@remixicon/react";
 import { ModoxTable } from "../components/table";
@@ -61,7 +61,7 @@ export default async function CollectionView({ params }: { params: { collection:
       <SettingsDialog
         schema={schema}
       />
-      <EditorPanel
+      <EditorSheet
       schema={schema}
       />
     </div>

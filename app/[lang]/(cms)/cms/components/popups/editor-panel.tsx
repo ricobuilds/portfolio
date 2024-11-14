@@ -14,7 +14,7 @@ import { format } from "date-fns";
 import { CalendarIcon, Globe } from "lucide-react";
 import { useState } from "react";
 
-export function EditorPanel({ schema }: { schema: Schema }) {
+export function EditorSheet({ schema }: { schema: Schema }) {
   const {
     openNewDocPanel,
     setOpenNewDocPanel
@@ -55,29 +55,6 @@ export function EditorPanel({ schema }: { schema: Schema }) {
             {renderFieldContent('', field)}
           </div>
         ))}
-        <div className="">
-          <Label htmlFor="title">Title</Label>
-          <Input id="title" className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300" placeholder="What's New" />
-        </div>
-        <div className="">
-          <Label htmlFor="slug">Slug</Label>
-          <Input id="slug" className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300" placeholder="whats-new" />
-          <p className="flex items-center gap-2 mt-2 text-xs text-obsidian-400">
-            <span><Globe className="w-4 h-4" /></span>
-            enrictrillo.com/blog/whats-new
-          </p>
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="date">Date</Label>
-          <Input
-            id="date"
-            name="date"
-            type="date"
-            className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300"
-            value={date}
-            onChange={(e: any) => setDate(e.target.value)}
-          />
-        </div>
         <div className="space-y-2">
           <Label htmlFor="date">Content</Label>
         </div>
