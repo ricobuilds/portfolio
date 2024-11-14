@@ -1,6 +1,6 @@
 import matter from 'gray-matter'
 import path from 'path';
-import fs from 'fs';
+import fs, { rmdirSync } from 'fs';
 import { naniteId } from 'naniteid'
 import { capitalise } from '../shared-utils';
 
@@ -79,6 +79,33 @@ export type MDXDocument = {
 }
 
 const ROOT = process.cwd()
+
+// workspace
+function createWorkspace() {
+  try {
+    const workspace = path.join(ROOT, 'content')
+    if (!fs.existsSync(workspace)) {
+      fs.mkdirSync(workspace)
+    }
+  } catch (error) {
+    return {
+      message: `Error: ${error}`
+    }
+  }
+}
+function getWorkspace(): boolean {
+  const workspace = path.join(ROOT, 'content')
+  if (fs.existsSync(workspace)) {
+    return true
+  }
+  return false
+}
+function deleteWorkspace() {
+  const workspace = path.join(ROOT, 'content')
+  if (fs.existsSync(workspace)) {
+    fs.rmSync(workspace, { recursive: true })
+  }
+}
 
 // schemas
 function createSchema(collectionName: string, customFields: SchemaField[] = []) {
