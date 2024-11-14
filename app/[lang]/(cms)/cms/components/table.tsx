@@ -208,7 +208,7 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
                                 }>
                                 <Checkbox
                                     checked={selectedPosts.includes(document['slug'])}
-                                    onClick={() => handleRecordInteraction(document['slug'])}
+                                    onClick={() => handleRecordInteraction(document)}
                                     className={
                                         cn(
                                             "transition-opacity duration-500 ease-in-out transform-all",
@@ -222,13 +222,15 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
                                 return (
                                     <TableCell
                                         key={column + vcIdx}
-                                        title={document.frontmatter[field?.name as string]}
+                                        // @ts-ignore
+                                        title={document[field?.name]}
                                         className={cn(
                                             "max-w-[200px] overflow-hidden",
                                             field?.name === "title" ? "w-[250px]" : field?.name === "slug" ? "w-[150px]" : "flex-auto",
                                             "truncate"
                                         )}>
-                                        <>{renderCellContent(document.frontmatter[field?.name as string], field)}</>
+                                            {/* @ts-ignore */}
+                                        {renderCellContent(document[field?.name], field)}
                                     </TableCell>
                                 )
                             })}

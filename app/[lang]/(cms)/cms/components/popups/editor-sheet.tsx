@@ -61,7 +61,9 @@ export function EditorSheet({ schema }: { schema: Schema }) {
           {schema.fields
             .filter(field => field.name !== "id" && field.name !== "created" && field.name !== "updated")
             .map((field) => {
-              const recordField = currentRecord && currentRecord?.frontmatter[`${field.name}`]
+              {/* @ts-ignore */ }
+              const recordField = currentRecord && currentRecord[field.name]
+              console.log(recordField)
               return (
                 <div key={field.name}>
                   {/* @ts-ignore */}
@@ -125,9 +127,9 @@ function renderFieldContent(value: any, field?: SchemaField) {
         <div className="space-y-2">
           <Label htmlFor="slug">{field.label}</Label>
           <Input id="slug"
-          placeholder="whats-new"
-          value={value || ''}
-          className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300"
+            placeholder="whats-new"
+            value={value || ''}
+            className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300"
           />
           <p className="flex items-center gap-2 mt-2 text-xs text-obsidian-400">
             <span><Globe className="w-4 h-4" /></span>
