@@ -63,7 +63,6 @@ export function EditorSheet({ schema }: { schema: Schema }) {
             .map((field) => {
               {/* @ts-ignore */ }
               const recordField = currentRecord && currentRecord[field.name]
-              console.log(recordField)
               return (
                 <div key={field.name}>
                   {/* @ts-ignore */}

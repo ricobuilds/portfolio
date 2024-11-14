@@ -53,7 +53,8 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
 
     const handleRecordInteraction = (doc: BaseDocument) => {
         if (viewMode === "select") {
-            setSelectedPosts(doc['slug'])
+            console.log("edit!!")
+            setSelectedPosts(doc.slug)
         }
         if (viewMode === "view") {
             setCurrentRecord(doc)
