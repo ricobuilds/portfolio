@@ -212,10 +212,12 @@ function createDocument(collectionName: string, fields?: MDXDocument) {
   const filePath = path.join(DOCUMENT_DIR, `${slugifiedTitle}.mdx`);
 
   const frontmatter = {
+    id: naniteId(),
     title: fields?.title,
     slug: slugifiedTitle,
     created: fields?.frontmatter?.created || new Date().toISOString(),
     updated: fields?.frontmatter?.updated || new Date().toISOString(),
+    ...fields?.frontmatter
   }
   const fileContent = matter.stringify(fields?.content as string || "", frontmatter);
   fs.writeFileSync(filePath, fileContent);
