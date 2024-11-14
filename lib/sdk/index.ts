@@ -420,6 +420,11 @@ function slugify(text: string): string {
 }
 
 export const SDK = {
+  workspace: {
+    createWorkspace,
+    getWorkspace,
+    deleteWorkspace,
+  },
   schema: {
     createSchema,
     getSchema,
