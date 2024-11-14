@@ -292,7 +292,7 @@ function deleteDocument(collectionName: string, documentId: string) {
   }
   fs.rmSync(documentPath, { recursive: true, force: true })
 }
-function listDocuments(collectionName: string) {
+function listDocuments(collectionName: string): BaseDocument[] {
   const COLLECTION_DIR = path.join(ROOT, 'content', collectionName)
   return fs.readdirSync(COLLECTION_DIR)
     .filter(file => file.endsWith('.mdx'))
@@ -301,10 +301,13 @@ function listDocuments(collectionName: string) {
       const fileContent = fs.readFileSync(filePath, 'utf8')
       const { data, content: markdownContent } = matter(fileContent)
       return {
-        name: data.title,
+        id: data.id,
+        title: data.title || '',
         slug: slug.replace('.mdx', ''),
-        frontmatter: data,
+        created: data.created || Date.now(),
+        updated: data.updated || Date.now(),
         content: markdownContent
+        // frontmatter: data,
       }
     })
 }

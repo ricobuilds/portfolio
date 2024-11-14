@@ -17,14 +17,20 @@ import { Fragment, useState } from "react";
 export function EditorSheet({ schema }: { schema: Schema }) {
   const {
     currentRecord,
+    resetCurrentRecord,
     isEditorSheetOpen,
     toggleEditorSheet
   } = useUIStore()
   // const [selectedArticle, _] = useState()
-  const [date, setDate] = useState()
+
+  const handleResetForm = () => {
+    resetCurrentRecord()
+    toggleEditorSheet()
+  }
+
   return (
-    <Sheet open={isEditorSheetOpen} onOpenChange={toggleEditorSheet}>
-      <SheetContent className="w-full bg-white p-[30px] flex flex-col gap-4">
+    <Sheet open={isEditorSheetOpen} onOpenChange={handleResetForm}>
+      <SheetContent className="w-full bg-white p-[30px] overflow-scroll flex flex-col gap-4">
         <SheetHeader>
           <SheetTitle>{currentRecord ? 'Edit Document' : 'New Document'}</SheetTitle>
           <SheetDescription>
@@ -51,17 +57,35 @@ export function EditorSheet({ schema }: { schema: Schema }) {
             </div>
           </header>
         </div>
-        {schema.fields.map((field) => (
-          <div key={field.name}>
-            {/* @ts-ignore */}
-            {renderFieldContent('', field)}
+        <div className="flex-1">
+          {schema.fields
+            .filter(field => field.name !== "id" && field.name !== "created" && field.name !== "updated")
+            .map((field) => {
+              const recordField = currentRecord && currentRecord?.frontmatter[`${field.name}`]
+              return (
+                <div key={field.name}>
+                  {/* @ts-ignore */}
+                  {renderFieldContent(recordField, field)}
+                </div>
+              )
+            })}
+          <div className="space-y-2">
+            <Label htmlFor="content">Content</Label>
+            <div className="">
+              <textarea id="content" className="border border-obsidian-300 w-full p-3 resize-none rounded-md" value={"hello"}></textarea>
+            </div>
           </div>
-        ))}
-        <div className="space-y-2">
-          <Label htmlFor="content">Content</Label>
-          <div className="">
-            <textarea id="content" className="border border-obsidian-300 w-full p-3 resize-none rounded-md" value={"hello"}></textarea>
-          </div>
+        </div>
+        <div className="flex justify-end gap-2">
+          <button
+            onClick={() => handleResetForm()}
+            className="border border-obsidian-300 hover:bg-slate-100 duration-300 px-2 py-1.5 text-sm rounded-md"
+          >Cancel
+          </button>
+          <button
+            className="bg-black px-2 py-1.5 text-white text-sm rounded-md"
+          >{currentRecord ? "Update Document" : "Create Document"}
+          </button>
         </div>
       </SheetContent>
     </Sheet>
@@ -84,9 +108,10 @@ function renderFieldContent(value: any, field?: SchemaField) {
         <div className="space-y-2">
           <Label htmlFor={field.name}>{field.label}</Label>
           <Input
-          id={field.name}
-          placeholder="What's New"
-          className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300"
+            id={field.name}
+            placeholder="What's New"
+            value={value || ''}
+            className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300"
           />
         </div>
       ) : (
@@ -99,10 +124,14 @@ function renderFieldContent(value: any, field?: SchemaField) {
       return (
         <div className="space-y-2">
           <Label htmlFor="slug">{field.label}</Label>
-          <Input id="slug" className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300" placeholder="whats-new" />
+          <Input id="slug"
+          placeholder="whats-new"
+          value={value || ''}
+          className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300"
+          />
           <p className="flex items-center gap-2 mt-2 text-xs text-obsidian-400">
             <span><Globe className="w-4 h-4" /></span>
-            enrictrillo.com/blog/whats-new
+            enrictrillo.com/blog/{value}
           </p>
         </div>
       )

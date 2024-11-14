@@ -12,7 +12,6 @@ import { FieldType, Schema, SchemaField } from "@/lib/sdk"
 import { useSettingsStore } from "@/stores/settings-store"
 
 export function SettingsDialog({ schema }: { schema: Schema }) {
-  console.log("schema: ", schema)
   const [bucket, setBucket] = useState("")
   const [error, setError] = useState(false)
   const [draggedIndex, setDraggedIndex] = useState<number | null>()

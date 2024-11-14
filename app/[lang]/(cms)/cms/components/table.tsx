@@ -36,13 +36,13 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
     const { visibleColumns, setVisibleColumns, toggleColumn, getVisibleColumns } = useUIStore()
     const [localSchema, setLocalSchema] = useState<Schema | null>()
     const [loading, setLoading] = useState(false)
-    const _entries = data.map(record => record['slug'])
 
     const {
         viewMode,
         sortColumn,
         sortDirection,
         selectedPosts,
+        currentRecord,
         setSortColumn,
         setSortDirection,
         setSelectedPosts,
@@ -55,13 +55,9 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
             setSelectedPosts(doc['slug'])
         }
         if (viewMode === "view") {
-            handleEditPost(doc)
+            setCurrentRecord(doc)
+            toggleEditorSheet()
         }
-    }
-
-    const handleEditPost = (post: BaseDocument) => {
-        setCurrentRecord(post)
-        toggleEditorSheet()
     }
 
     // const sortedDocuments = [...data].sort((a, b) => {
@@ -192,6 +188,7 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
             </TableHeader>
             <TableBody className="overflow-scroll text-sm">
                 {sortedDocuments.slice(0, 19).map((document: MDXDocument, docIdx) => {
+                    console.log(document)
                     return (
                         <TableRow
                             key={docIdx}
