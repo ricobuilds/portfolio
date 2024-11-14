@@ -10,16 +10,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default async function CollectionView({ params }: { params: { collection: string } }) {
 
-  const [workspace, schema, documents] = await Promise.all([
-    SDK.workspace.getWorkspace(),
+  const [schema, documents] = await Promise.all([
     SDK.schema.getSchema(params.collection) as Schema,
     SDK.document.listDocuments(params.collection)
   ])
-
-  if (workspace !== true) {
-    return <EmptyWorkspaceScreen />
-  }
-
 
   return (
     <div className="flex flex-col h-screen">
@@ -80,19 +74,6 @@ const SplashScreen = () => {
       <p className="text-sm text-slate-500">There are no documents in your collection.</p>
       <div className="mt-3">
         <button className="px-3 py-1.5 text-sm text-white rounded-lg bg-amethyst-500">Create new doc</button>
-      </div>
-    </div>
-  )
-}
-
-const EmptyWorkspaceScreen = () => {
-  return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <RiFolder5Fill className="w-20 h-20 text-slate-600" />
-      <h2 className="text-lg font-bold">Create your Modox workspace</h2>
-      <p className="text-sm text-slate-500">You don't have a dedicated workspace – create one now.</p>
-      <div className="mt-3">
-        <button className="px-3 py-1.5 text-sm text-white rounded-lg bg-amethyst-500">Create workspaces</button>
       </div>
     </div>
   )

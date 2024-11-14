@@ -33,6 +33,11 @@ export const handleDeleteDocument = async (collectionName: string, documentId: s
   revalidatePath("/cms")
 }
 
+export const handleCreateWorkspace = async () => {
+  await SDK.workspace.createWorkspace()
+  revalidatePath("/cms")
+}
+
 type ProcessImportParams = {
   lines: string[]
   mode: 'terms' | 'headlines'
