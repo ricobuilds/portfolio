@@ -111,10 +111,10 @@ export function SettingsDialog({ schema }: { schema: Schema }) {
                   <li
                     key={field.type}
                     onClick={() => clickField(field)}
-                    className={`flex items-center gap-3 p-2 bg-white rounded-lg border ${draggedIndex === idx
+                    className={`flex items-center gap-3 p-2 py-1.5 bg-white rounded-lg hover:bg-slate-100 ${draggedIndex === idx
                       ? "border-amethyst-500 shadow-md"
                       : "border-amethyst-100 hover:border-amethyst-500"
-                      } transition-all group cursor-move`}
+                      } transition-all group cursor-pointer`}
                   >
                     <div className="flex items-center">
                       <span className="mr-2 bg-amethyst-500 text-white p-1 rounded-md">{typetoIconMap[field.type]}</span>
