@@ -54,6 +54,16 @@ export function SettingsDialog({ schema }: { schema: Schema }) {
     slug: <RiLink className="w-4 h-4" />,
   };
 
+  const fieldTypes = [
+    "text",
+    "url",
+    "status",
+    "boolean",
+    "image",
+    "relation",
+    "slug",
+  ]
+
   const clickField = (field: SchemaField) => {
     setSelectedField(field)
   }
@@ -87,14 +97,14 @@ export function SettingsDialog({ schema }: { schema: Schema }) {
               </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="flex-col text-[12px] flex gap-2">
-              {schema.fields.filter(field => field.name !== 'id' && field.name !== 'title').map((field, idx) => (
+              {fieldTypes.map((field, idx) => (
                 <DropdownMenuItem
-                  key={field.type}
+                  key={field+idx}
                   onClick={() => addField()}
                   className={`flex items-center gap-3 rounded-md bg-white hover:bg-indigo-500 transition-all`}
                 >
                   <div className="flex items-center">
-                    <span className="ml-2 capitalize text-black">{field.label}</span>
+                    <span className="ml-2 capitalize text-black text-[12px]">{field}</span>
                   </div>
                 </DropdownMenuItem>
               ))}
