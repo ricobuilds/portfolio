@@ -40,9 +40,9 @@ export function SettingsDialog({ schema }: { schema: Schema }) {
   }
 
   const typetoIconMap: { [key in FieldType]: JSX.Element } = {
-    id: <RiKeyLine className="w-4 h-4" />,
+    // id: <RiKeyLine className="w-4 h-4" />,
     text: <RiText className="w-4 h-4" />,
-    "rich-text": <RiMarkdownLine className="w-4 h-4" />,
+    // "rich-text": <RiMarkdownLi ne className="w-4 h-4" />,
     number: <RiHashtag className="w-4 h-4" />,
     date: <RiCalendarLine className="w-4 h-4" />,
     boolean: <RiToggleLine className="w-4 h-4" />,
@@ -88,54 +88,6 @@ export function SettingsDialog({ schema }: { schema: Schema }) {
       <DialogContent className="sm:max-w-[640px] max-w-[644px] p-0 outline-none flex flex-col gap-0">
         <div className="flex flex-row text-xs items-center justify-between h-14 p-4 border-b">
           <p className="font-medium">{capitalise(collection as string)} Schema</p>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <button
-                className="flex gap-2 border rounded-md py-1.5 px-2 hover:bg-slate-100">
-                <RiAddLine className="w-4 h-4" />
-                Add Custom Field
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="flex-col text-[12px] flex gap-2">
-              {fieldTypes.map((field, idx) => (
-                <DropdownMenuItem
-                  key={field+idx}
-                  onClick={() => addField()}
-                  className={`flex items-center gap-3 rounded-md bg-white hover:bg-indigo-500 transition-all`}
-                >
-                  <div className="flex items-center">
-                    <span className="ml-2 capitalize text-black text-[12px]">{field}</span>
-                  </div>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu >
-        </div>
-        <div className="flex-1 flex-col overflow-scroll">
-          <div className="flex w-full h-full border-b divide-x-[1px]">
-            <div className="max-w-[40%] w-full p-4 overflow-scroll">
-              <ul className="flex flex-col text-sm gap-2">
-                {schema.fields
-                .map((field, idx) => (
-                  <li
-                    key={field.type}
-                    onClick={() => clickField(field)}
-                    className={`flex items-center gap-3 p-2 py-1.5 bg-white rounded-lg hover:bg-slate-100 ${draggedIndex === idx
-                      ? "border-amethyst-500 shadow-md"
-                      : "border-amethyst-100 hover:border-amethyst-500"
-                      } transition-all group cursor-pointer`}
-                  >
-                    <div className="flex items-center">
-                      <span className="mr-2 bg-amethyst-500 text-white p-1 rounded-md">{typetoIconMap[field.type]}</span>
-                      <span className="ml-2 capitalize text-black">{field.label}</span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="max-w-[60%] w-full px-4 pt-6 pb-3">
-            </div>
-          </div>
         </div>
         <div className="flex flex-col gap-3 p-4">
           <p className="text-sm font-medium"> → Please type in the name of the bucket to confirm removal.</p>

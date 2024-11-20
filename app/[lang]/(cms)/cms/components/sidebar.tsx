@@ -24,7 +24,7 @@ export async function Sidebar() {
         </div>
         <div className="flex-1 py-2 overflow-auto">
           <nav className="grid items-start px-4 text-sm font-medium">
-            <h4 className="mb-2 text-xs font-semibold">Buckets</h4>
+            <h4 className="mb-2 text-xs font-semibold">Collections</h4>
             <ul className="flex flex-col">
               {collections.map((collection, idx) => (
                 <SidebarItem key={idx} collectionName={collection.name} count={collection.count} />

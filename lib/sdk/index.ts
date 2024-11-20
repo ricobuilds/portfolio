@@ -3,11 +3,10 @@ import path from 'path';
 import fs, { rmdirSync } from 'fs';
 import { naniteId } from 'naniteid'
 import { capitalise } from '../shared-utils';
+import { schemaOrigin } from '@/schemas';
 
 export type FieldType =
-  | "id"
   | "text"
-  | "rich-text"
   | "number"
   | "date"
   | "boolean"
@@ -24,13 +23,14 @@ export type SchemaField = {
   type: FieldType
   required?: boolean
   mutable?: boolean
-  // default?: boolean
+  // default?: any
   validation?: {
     min?: number;
     max?: number;
     pattern?: string;
     options?: string[];
   };
+  relationTo?: string;
 }
 
 export type Schema = {
@@ -112,7 +112,7 @@ function createSchema(collectionName: string, customFields: SchemaField[] = []) 
   const SCHEMA_DIR = path.join(ROOT, 'schemas')
   const schemaPath = path.join(SCHEMA_DIR, `${collectionName}.json`);
   const defaultFields: SchemaField[] = [
-    { name: "id", label: "ID", type: "id", required: true },
+    { name: "id", label: "ID", type: "text", required: true },
     { name: "title", label: "Title", type: "text", required: true },
     { name: "slug", label: "Slug", type: "slug", required: true },
     { name: "created", label: "Created", type: "date", required: true },
@@ -127,12 +127,13 @@ function createSchema(collectionName: string, customFields: SchemaField[] = []) 
   fs.writeFileSync(schemaPath, JSON.stringify(schema, null, 2))
 }
 function getSchema(collectionName: string): Schema | { message: string } {
-  const schemaPath = path.join(ROOT, 'schemas', `${collectionName}.json`)
+  const schemaPath = path.join(ROOT, 'schemas', `${collectionName}.ts`)
   if (!fs.existsSync(schemaPath)) {
     return { message: `Bucket "${collectionName}" doesn't exist` }
   }
-  const schema: Schema = JSON.parse(fs.readFileSync(schemaPath, 'utf8'))
+  // const schema: Schema = JSON.parse(fs.readFileSync(schemaPath, 'utf8'))
 
+  const schema = schemaOrigin[collectionName]
   return schema
 }
 function updateSchema(collectionName: string, newFields: Partial<Schema>) {

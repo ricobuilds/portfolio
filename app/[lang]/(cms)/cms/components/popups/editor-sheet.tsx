@@ -9,7 +9,7 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "
 import { BaseDocument, Schema, SchemaField } from "@/lib/sdk";
 import { cn } from "@/lib/shared-utils";
 import { useUIStore } from "@/stores/ui-store";
-import { RiCloseCircleFill, RiMore2Fill } from "@remixicon/react";
+import { RiCloseCircleFill, RiMore2Fill, RiRefreshLine } from "@remixicon/react";
 import { format } from "date-fns";
 import { CalendarIcon, Globe } from "lucide-react";
 import { Fragment, useState } from "react";
@@ -34,7 +34,7 @@ export function EditorSheet({ schema }: { schema: Schema }) {
         <SheetHeader>
           <SheetTitle>{currentRecord ? 'Edit Document' : 'New Document'}</SheetTitle>
           <SheetDescription>
-            {currentRecord ? "Make changes to the document here." : "Enter the details for the new document."} Click save when you're done.
+            {currentRecord ? "Make changes to the document here." : "Enter the details for the new document."}
           </SheetDescription>
         </SheetHeader>
         <div>
@@ -57,9 +57,12 @@ export function EditorSheet({ schema }: { schema: Schema }) {
             </div>
           </header>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 gap-4 flex-col flex">
           {schema.fields
-            .filter(field => field.name !== "id" && field.name !== "created" && field.name !== "updated")
+            .filter(field =>
+              field.name !== "created"
+              && field.name !== "updated"
+              && field.name !== "slug")
             .map((field) => {
               {/* @ts-ignore */ }
               const recordField = currentRecord && currentRecord[field.name]
@@ -96,14 +99,9 @@ export function EditorSheet({ schema }: { schema: Schema }) {
 function renderFieldContent(value: any, field?: SchemaField) {
   if (!field) return "No active component in [renderFieldContent]"
 
+  const { currentRecord } = useUIStore()
+
   switch (field.type) {
-    case 'id':
-      return (
-        <div className="space-y-2">
-          <Label htmlFor={field.name}>{field.label}</Label>
-          <Input value={value || ""} disabled />
-        </div>
-      )
     case 'text':
       return field.name === 'title' ? (
         <div className="space-y-2">
@@ -115,21 +113,35 @@ function renderFieldContent(value: any, field?: SchemaField) {
             className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300"
           />
         </div>
+      ) : field.name === 'id' && !currentRecord ? (
+        <div className="space-y-2">
+          <Label htmlFor={field.name}>{field.label}</Label>
+          <Input value={value || ""} disabled />
+        </div>
       ) : (
         <div className="space-y-2">
-          <Label htmlFor="title">Title</Label>
-          <Input id="title" className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300" placeholder="What's New" />
+          <Label htmlFor={field.name}>{field.label}</Label>
+          <Input
+            id={field.name}
+            className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300"
+            value={value ? `${value.substring(0, 50)}...` : ''}
+            placeholder="What's New" />
         </div>
       )
     case 'slug':
       return (
         <div className="space-y-2">
           <Label htmlFor="slug">{field.label}</Label>
-          <Input id="slug"
-            placeholder="whats-new"
-            value={value || ''}
-            className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300"
-          />
+          <div className="flex flex-row gap-3">
+            <Input id="slug"
+              placeholder="whats-new"
+              value={value || ''}
+              className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300"
+            />
+            <button className="border w-10 border border-obsidian-300 rounded flex items-center justify-center">
+              <span><RiRefreshLine className="w-5 h-5" /></span>
+            </button>
+          </div>
           <p className="flex items-center gap-2 mt-2 text-xs text-obsidian-400">
             <span><Globe className="w-4 h-4" /></span>
             enrictrillo.com/blog/{value}
@@ -162,9 +174,19 @@ function renderFieldContent(value: any, field?: SchemaField) {
     // return value ? format(new Date(value), 'dd/MM/yyyy, HH:mm') : ''
     case 'boolean':
       return value ? 'Yes' : 'No'
-    case 'rich-text':
-      return value ? `${value.substring(0, 50)}...` : ''
+    case 'status':
+      return (
+        <div className="space-y-2">
+          <Label htmlFor={field.name}>{field.label}</Label>
+          <Input
+            id={field.name}
+            placeholder="What's New"
+            value={value || ''}
+            className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300"
+          />
+        </div>
+      )
     default:
-      return String(value || '')
+      return String(value || field.label || '')
   }
 }

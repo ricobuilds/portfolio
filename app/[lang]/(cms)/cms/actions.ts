@@ -38,10 +38,6 @@ export const handleCreateWorkspace = async () => {
   revalidatePath("/cms")
 }
 
-const handleUpdateSchema = async () => {
-  revalidatePath("/cms")
-}
-
 type ProcessImportParams = {
   lines: string[]
   mode: 'terms' | 'headlines'

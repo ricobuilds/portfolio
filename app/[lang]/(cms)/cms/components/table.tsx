@@ -116,9 +116,9 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
     const visibleColumnsInOrder = getVisibleColumns(collectionName, allColumns)
 
     const typetoIconMap: { [key in FieldType]: JSX.Element } = {
-        id: <RiKeyLine className="w-4 h-4" />,
+        // id: <RiKeyLine className="w-4 h-4" />,
         text: <RiText className="w-4 h-4" />,
-        "rich-text": <RiMarkdownLine className="w-4 h-4" />,
+        // "rich-text": <RiMarkdownLine className="w-4 h-4" />,
         number: <RiHashtag className="w-4 h-4" />,
         date: <RiCalendarLine className="w-4 h-4" />,
         boolean: <RiToggleLine className="w-4 h-4" />,
@@ -137,7 +137,7 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
                     <TableRow>
                         <TableHead
                             className={
-                                cn("max-w-[10px]")
+                                cn("w-[40px]")
                             }>
                         </TableHead>
                         {visibleColumnsInOrder.map((column, vIdx) => {
@@ -177,12 +177,13 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
                                         <span className="sr-only">Show Fields</span>
                                     </div>
                                 </DropdownMenuTrigger>
-                                <DropdownMenuContent>
+                                <DropdownMenuContent align="end" alignOffset={-16} sideOffset={16}>
                                     {localSchema.fields
                                         .filter((field) => field.name !== 'id' && field.name !== 'title')
                                         .map((field, dIdx) => (
                                             <DropdownMenuCheckboxItem
                                                 key={dIdx}
+                                                className="hover:bg-slate-100"
                                                 checked={visibleColumnsInOrder.includes(field.name)}
                                                 onCheckedChange={() => toggleColumn(collectionName, field.name, allColumns)}
                                             >
@@ -210,7 +211,7 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
                             >
                                 <TableCell
                                     className={
-                                        cn("max-w-[10px] h-8")
+                                        cn("w-[40px] h-8")
                                     }>
                                     <Checkbox
                                         checked={selectedPosts.includes(document['slug'])}
@@ -245,33 +246,35 @@ export function ModoxTable({ schema, data, alwaysVisibleColumns = ['title'] }: S
                     })}
                 </TableBody>
             </Table>
-            <div className="border-t py-1.5 flex text-sm gap-4 items-center justify-end">
-                <button
-                    className={cn(
-                        currentPage === 1 ? "bg-slate-200 border-obsidian-100 opacity-60 pointer-events-none" : null,
-                        "border-obsidian-300 border flex gap-2 hover:bg-slate-100 duration-300 rounded-md items-center px-2 py-0.5",
-                    )}
-                    onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                    disabled={currentPage === 1}
-                >
-                    <ChevronLeft className="h-4 w-4" />
-                    Previous
-                </button>
-                <div className="text-sm font-medium">
-                    Page {currentPage} of {totalPages}
+            {data.length > 19 && (
+                <div className="border-t py-1.5 flex text-sm gap-4 items-center justify-end">
+                    <button
+                        className={cn(
+                            currentPage === 1 ? "bg-slate-200 border-obsidian-100 opacity-60 pointer-events-none" : null,
+                            "border-obsidian-300 border flex gap-2 hover:bg-slate-100 duration-300 rounded-md items-center px-2 py-0.5",
+                        )}
+                        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                        disabled={currentPage === 1}
+                    >
+                        <ChevronLeft className="h-4 w-4" />
+                        Previous
+                    </button>
+                    <div className="text-sm font-medium">
+                        Page {currentPage} of {totalPages}
+                    </div>
+                    <button
+                        className={cn(
+                            currentPage === totalPages ? "bg-slate-200 opacity-60 border-obsidian-100 pointer-events-none" : null,
+                            "border-obsidian-300 border flex gap-2 hover:bg-slate-100 duration-300 rounded-md items-center px-2 py-0.5",
+                        )}
+                        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                        disabled={currentPage === totalPages}
+                    >
+                        Next
+                        <ChevronRight className="h-4 w-4" />
+                    </button>
                 </div>
-                <button
-                    className={cn(
-                        currentPage === totalPages ? "bg-slate-200 opacity-60 border-obsidian-100 pointer-events-none" : null,
-                        "border-obsidian-300 border flex gap-2 hover:bg-slate-100 duration-300 rounded-md items-center px-2 py-0.5",
-                    )}
-                    onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                    disabled={currentPage === totalPages}
-                >
-                    Next
-                    <ChevronRight className="h-4 w-4" />
-                </button>
-            </div>
+            )}
         </Fragment>
     )
 }
@@ -284,8 +287,8 @@ function renderCellContent(value: any, field?: SchemaField) {
             return value ? format(new Date(value), 'dd/MM/yyyy, HH:mm') : ''
         case 'boolean':
             return value ? 'Yes' : 'No'
-        case 'rich-text':
-            return value ? `${value.substring(0, 50)}...` : ''
+        // case 'rich-text':
+        //     return value ? `${value.substring(0, 50)}...` : ''
         default:
             return String(value || '')
     }

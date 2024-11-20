@@ -11,7 +11,7 @@ export function CreateBucketBtn() {
       onClick={() => setOpenNewBucketPanel()}
       className="flex items-center justify-start w-full gap-2 p-2 text-left rounded-md text-slate-600">
       <Plus className="w-4 h-4" />
-      <span className="text-xs">Create Bucket</span>
+      <span className="text-xs">Create a Collection</span>
     </button>
   )
 }
