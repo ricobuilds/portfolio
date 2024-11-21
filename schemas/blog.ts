@@ -35,7 +35,7 @@ const blogSchema: Schema = {
     },
     {
       name: "youtubeUrl",
-      label: "YouTube ID",
+      label: "YouTube URL",
       type: "url",
       required: true
     },

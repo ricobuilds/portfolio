@@ -52,6 +52,7 @@ export type BaseDocument = {
   created: Date
   updated: Date
   content: string
+  [key: string]: any
 }
 
 export type GenerateDocumentType<T extends Schema> = BaseDocument & {
@@ -309,8 +310,8 @@ function listDocuments(collectionName: string): BaseDocument[] {
         slug: slug.replace('.mdx', ''),
         created: data.created || Date.now(),
         updated: data.updated || Date.now(),
-        content: markdownContent
-        // frontmatter: data,
+        content: markdownContent,
+        ...data
       }
     })
 }

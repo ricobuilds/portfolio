@@ -6,12 +6,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import { Textarea } from "@/components/ui/textarea";
 import { BaseDocument, Schema, SchemaField } from "@/lib/sdk";
 import { cn } from "@/lib/shared-utils";
 import { useUIStore } from "@/stores/ui-store";
 import { RiCloseCircleFill, RiMore2Fill, RiRefreshLine } from "@remixicon/react";
 import { format } from "date-fns";
 import { CalendarIcon, Globe } from "lucide-react";
+import Link from "next/link";
 import { Fragment, useState } from "react";
 
 export function EditorSheet({ schema }: { schema: Schema }) {
@@ -66,6 +68,8 @@ export function EditorSheet({ schema }: { schema: Schema }) {
             .map((field) => {
               {/* @ts-ignore */ }
               const recordField = currentRecord && currentRecord[field.name]
+              console.log(currentRecord)
+              console.log(recordField)
               return (
                 <div key={field.name}>
                   {/* @ts-ignore */}
@@ -76,7 +80,7 @@ export function EditorSheet({ schema }: { schema: Schema }) {
           <div className="space-y-2">
             <Label htmlFor="content">Content</Label>
             <div className="">
-              <textarea id="content" className="border border-obsidian-300 w-full p-3 resize-none rounded-md" value={"hello"}></textarea>
+              <textarea id="content" className="border border-obsidian-300 w-full p-3 h-fit resize-none rounded-md" value={"hello"}></textarea>
             </div>
           </div>
         </div>
@@ -103,29 +107,28 @@ function renderFieldContent(value: any, field?: SchemaField) {
 
   switch (field.type) {
     case 'text':
-      return field.name === 'title' ? (
-        <div className="space-y-2">
-          <Label htmlFor={field.name}>{field.label}</Label>
-          <Input
-            id={field.name}
-            placeholder="What's New"
-            value={value || ''}
-            className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300"
-          />
-        </div>
-      ) : field.name === 'id' && !currentRecord ? (
+      return field.name === 'id' ? (
         <div className="space-y-2">
           <Label htmlFor={field.name}>{field.label}</Label>
           <Input value={value || ""} disabled />
         </div>
-      ) : (
+      ) : field.name === 'title' ? (
         <div className="space-y-2">
           <Label htmlFor={field.name}>{field.label}</Label>
           <Input
+            value={value || ""}
+            className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300 resize-none min-h-6" />
+        </div>
+      ) : (
+        <div className="space-y-2">
+          <Label htmlFor={field.name}>{field.label}</Label>
+          <Textarea
             id={field.name}
-            className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300"
-            value={value ? `${value.substring(0, 50)}...` : ''}
-            placeholder="What's New" />
+            placeholder="What's Neww"
+            value={value || ''}
+            rows={1}
+            className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300 resize-none"
+          />
         </div>
       )
     case 'slug':
@@ -184,6 +187,18 @@ function renderFieldContent(value: any, field?: SchemaField) {
             value={value || ''}
             className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300"
           />
+        </div>
+      )
+    case 'url':
+      return (
+        <div className="space-y-2">
+          <Label htmlFor={field.name}>{field.label}</Label>
+          <div
+            id={field.name}
+            className="px-2.5 py-[1px] bg-slate-100 border border-obsidian-300 h-10 flex items-center text-sm text-celuria-600 underline underline-offset-2"
+          >
+            <Link href={value.startsWith("http") && value} target="_blank">{value || ''}</Link>
+          </div>
         </div>
       )
     default:

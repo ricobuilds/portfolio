@@ -7,17 +7,17 @@ import { Schema, SDK } from "@/lib/sdk";
 
 export default async function CollectionView({ params }: { params: { collection: string } }) {
 
-  const [schema] = await Promise.all([
+  const [schema, documents] = await Promise.all([
     SDK.schema.getSchema(params.collection) as Schema,
-    // SDK.document.listDocuments(params.collection)
+    SDK.document.listDocuments(params.collection)
   ])
 
   return (
     <div className="flex flex-col h-screen">
       <ActionBar />
       <div className="flex-1 h-full px-4 overflow-scroll">
-        hello "{schema.name}"
-        {/* @ts-ignore
+        {/* hello "{schema.name}" */}
+        {/* @ts-ignore */}
         {!schema || schema?.message ? (
           <div className="flex flex-col items-center justify-center h-full">
             <RiCloseCircleFill className="w-20 h-20 text-slate-600" />
@@ -34,15 +34,15 @@ export default async function CollectionView({ params }: { params: { collection:
           />
         ) : (
           <SplashScreen />
-        )} */}
+        )}
       </div>
       {/* popups */}
       {/* <SettingsDialog
         schema={schema}
       /> */}
-      {/* <EditorSheet
+      <EditorSheet
         schema={schema}
-      /> */}
+      />
     </div>
   )
 }
